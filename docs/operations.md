@@ -50,7 +50,7 @@ Sensors normally remain at zero replicas during read-only security trials.
 If the PC cannot route to the lab, keep these SSH forwards running on the PC:
 
 ```bash
-ssh -p 2222 -N -L 19090:10.255.255.21:9090 -L 18443:10.171.72.186:443 tiago@127.0.0.1
+ssh -p 2222 -N -L 19090:10.255.255.21:9090 -L 18443:10.171.72.186:443 root@127.0.0.1
 ```
 
 Open `http://127.0.0.1:19090` or `https://127.0.0.1:18443`. Use existing lab
