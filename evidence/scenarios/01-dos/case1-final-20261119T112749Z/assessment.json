@@ -1,0 +1,346 @@
+{
+  "date": "2026-11-19",
+  "verdict": "Declared bounded PoC, ordinary-read comparison, recovery and state-scope/risk assessment completed; no saturation, DDoS capacity or globally coordinated protection claim.",
+  "tests": {
+    "discovery_suite_passed": 39,
+    "unit_controls": 36,
+    "real_http_sqlite_fixtures": 3,
+    "wazuh_fixture_groups": 5,
+    "prometheus_fixture_groups": 6,
+    "prometheus_expected_states": 16
+  },
+  "cache_run": {
+    "run_marker": "case1-cache-20261119T113214Z",
+    "scope": "Bounded equal-cadence cache comparison and functional response; not a saturation/capacity trial",
+    "event_id": "1795087969.2045913",
+    "lease": {
+      "version": 1,
+      "mode": "cache",
+      "event_id": "1795087969.2045913",
+      "issued_at": 1795087969.1881022,
+      "expires_at": 1795088029.1881022
+    },
+    "normal": {
+      "manual_mean_ms": 9.770994566686872,
+      "manual_p50_ms": 10.254436999957761,
+      "manual_p95_ms": 12.399678949952884,
+      "manual_requests": 30,
+      "manual_http_statuses": {
+        "200": 30
+      },
+      "manual_cached": 0,
+      "manual_fresh": 30,
+      "manual_max_snapshot_age_seconds": 0.007,
+      "storage_attempts_all_clients": 42.0,
+      "analytics_200_all_clients": 42.0,
+      "background_client_requests": 6.0,
+      "background_client_errors": 0.0,
+      "background_client_mean_latency_ms": 14.03632399997908
+    },
+    "protected": {
+      "manual_mean_ms": 4.153803533328452,
+      "manual_p50_ms": 3.8233755001328973,
+      "manual_p95_ms": 6.536121200065279,
+      "manual_requests": 30,
+      "manual_http_statuses": {
+        "200": 30
+      },
+      "manual_cached": 30,
+      "manual_fresh": 0,
+      "manual_max_snapshot_age_seconds": 4.771,
+      "storage_attempts_all_clients": 6.0,
+      "analytics_200_all_clients": 42.0,
+      "background_client_requests": 6.0,
+      "background_client_errors": 0.0,
+      "background_client_mean_latency_ms": 10.946704999999687
+    },
+    "recovery": {
+      "manual_mean_ms": 9.094059499943796,
+      "manual_p50_ms": 9.094059499943796,
+      "manual_p95_ms": 12.766824049879233,
+      "manual_requests": 2,
+      "manual_http_statuses": {
+        "200": 2
+      },
+      "manual_cached": 0,
+      "manual_fresh": 2,
+      "manual_max_snapshot_age_seconds": 0.007,
+      "storage_attempts_all_clients": 3.0,
+      "analytics_200_all_clients": 3.0,
+      "background_client_requests": 1.0,
+      "background_client_errors": 0.0,
+      "background_client_mean_latency_ms": 13.116760999992039
+    },
+    "admission_statuses": {
+      "200": 5,
+      "429": 10
+    },
+    "response_events": [
+      {
+        "timestamp": "2026-11-19T11:32:49.191432+00:00",
+        "integration": "ssle-analytics-cache",
+        "action": "add",
+        "event_id": "1795087969.2045913",
+        "rule_id": "100121",
+        "node": "k3s-node1",
+        "result": "enabled",
+        "expires_at": 1795088029.1881022
+      },
+      {
+        "timestamp": "2026-11-19T11:33:50.296264+00:00",
+        "integration": "ssle-analytics-cache",
+        "action": "delete",
+        "event_id": "1795087969.2045913",
+        "rule_id": "100121",
+        "node": "k3s-node1",
+        "result": "disabled"
+      }
+    ],
+    "indexed_hits": 3,
+    "pod_identities_and_restarts_unchanged": true,
+    "completed_at_utc": "2026-11-19T11:34:03.513921+00:00"
+  },
+  "post_recovery_baseline": {
+    "experiment": "Read-only normal-operation baseline; no attack",
+    "started_at": "2026-11-19T11:36:06.356594+00:00",
+    "finished_at": "2026-11-19T11:41:06.527997+00:00",
+    "actual_elapsed_seconds": 300.00847584300027,
+    "prometheus_snapshot_count": 21,
+    "client_requests_by_outcome": {
+      "success": 60.0,
+      "http_error": 0.0,
+      "timeout": 0.0,
+      "connection_error": 0.0,
+      "invalid_response": 0.0
+    },
+    "total_client_requests": 60.0,
+    "successful_client_requests": 60.0,
+    "client_error_count": 0.0,
+    "client_success_ratio": 1.0,
+    "client_average_duration_seconds": 0.01156673809999423,
+    "observed_client_requests_per_second": 0.19999434959763956,
+    "client_process_unchanged": true,
+    "service_probes": {
+      "analytics": {
+        "sample_count": 21,
+        "all_observed_probes_passed": true
+      },
+      "ingestion": {
+        "sample_count": 21,
+        "all_observed_probes_passed": true
+      },
+      "registry": {
+        "sample_count": 21,
+        "all_observed_probes_passed": true
+      },
+      "storage": {
+        "sample_count": 21,
+        "all_observed_probes_passed": true
+      }
+    },
+    "scrape_targets_all_observed_up": {
+      "ssle-health": true,
+      "ssle-resources": true,
+      "ssle-client": true
+    },
+    "resources": {
+      "analytics": {
+        "cpu_cores": {
+          "sample_count": 21,
+          "mean": 0.002691112523809524,
+          "min": 0.001961119,
+          "max": 0.003500998
+        },
+        "memory_working_set_bytes": {
+          "sample_count": 21,
+          "mean": 35223454.47619048,
+          "min": 35213312.0,
+          "max": 35241984.0
+        }
+      },
+      "ingestion": {
+        "cpu_cores": {
+          "sample_count": 21,
+          "mean": 0.0004967954285714285,
+          "min": 0.000364835,
+          "max": 0.000647681
+        },
+        "memory_working_set_bytes": {
+          "sample_count": 21,
+          "mean": 30897883.42857143,
+          "min": 30896128.0,
+          "max": 30900224.0
+        }
+      },
+      "registry": {
+        "cpu_cores": {
+          "sample_count": 21,
+          "mean": 0.0009293689047619048,
+          "min": 0.000633133,
+          "max": 0.001137958
+        },
+        "memory_working_set_bytes": {
+          "sample_count": 21,
+          "mean": 32141312.0,
+          "min": 32141312.0,
+          "max": 32141312.0
+        }
+      },
+      "storage": {
+        "cpu_cores": {
+          "sample_count": 21,
+          "mean": 0.001899242761904762,
+          "min": 0.001383238,
+          "max": 0.002397836
+        },
+        "memory_working_set_bytes": {
+          "sample_count": 21,
+          "mean": 28988952.38095238,
+          "min": 28987392.0,
+          "max": 29020160.0
+        }
+      }
+    },
+    "database_measurements_first_observed": 77.0,
+    "database_measurements_last_observed": 77.0,
+    "database_count_unchanged_in_samples": true,
+    "average_temperature_before": 25.12,
+    "average_temperature_after": 25.12,
+    "limitations": [
+      "Read-only workload: no sensor generation and no ingestion write test.",
+      "The client validates the response structure, not the numerical average independently.",
+      "Resource measurements are periodic metrics-server observations collected by Prometheus.",
+      "Probe success is not a complete functional or security proof.",
+      "A five-minute low-rate run is not a scalability or capacity benchmark.",
+      "Client boundary snapshots occur around, not atomically with, Prometheus samples."
+    ]
+  },
+  "replica_scope": {
+    "scope": "Ordinary-read/state-scope evaluation in temporary replicas, not throughput or DoS capacity.",
+    "one_replica_successes": 12,
+    "two_replica_normal_successes": 8,
+    "fixture_phase": [
+      {
+        "node": "k3s-master",
+        "reads": 6,
+        "cached": 4,
+        "modes": [
+          "cache"
+        ]
+      },
+      {
+        "node": "k3s-node1",
+        "reads": 6,
+        "cached": 0,
+        "modes": [
+          "normal"
+        ]
+      }
+    ],
+    "recovery_successes": 2,
+    "global_policy_not_demonstrated": true
+  },
+  "phase_resource_samples": {
+    "normal": {
+      "analytics": {
+        "ssle_container_cpu_usage_cores": {
+          "n": 2,
+          "mean": 0.002358727,
+          "max": 0.002548489
+        },
+        "ssle_container_memory_working_set_bytes": {
+          "n": 2,
+          "mean": 35241984.0,
+          "max": 35377152.0
+        }
+      },
+      "storage": {
+        "ssle_container_cpu_usage_cores": {
+          "n": 2,
+          "mean": 0.0017266135,
+          "max": 0.001897259
+        },
+        "ssle_container_memory_working_set_bytes": {
+          "n": 2,
+          "mean": 28987392.0,
+          "max": 28987392.0
+        }
+      },
+      "duration_seconds": 30.331947088241577
+    },
+    "protected": {
+      "analytics": {
+        "ssle_container_cpu_usage_cores": {
+          "n": 2,
+          "mean": 0.0058357185,
+          "max": 0.009519833
+        },
+        "ssle_container_memory_working_set_bytes": {
+          "n": 2,
+          "mean": 35123200.0,
+          "max": 35143680.0
+        }
+      },
+      "storage": {
+        "ssle_container_cpu_usage_cores": {
+          "n": 2,
+          "mean": 0.0035440825000000002,
+          "max": 0.00472963
+        },
+        "ssle_container_memory_working_set_bytes": {
+          "n": 2,
+          "mean": 29003776.0,
+          "max": 29020160.0
+        }
+      },
+      "duration_seconds": 30.16356062889099
+    },
+    "recovery": {
+      "analytics": {
+        "ssle_container_cpu_usage_cores": {
+          "n": 0,
+          "mean": null,
+          "max": null
+        },
+        "ssle_container_memory_working_set_bytes": {
+          "n": 0,
+          "mean": null,
+          "max": null
+        }
+      },
+      "storage": {
+        "ssle_container_cpu_usage_cores": {
+          "n": 0,
+          "mean": null,
+          "max": null
+        },
+        "ssle_container_memory_working_set_bytes": {
+          "n": 0,
+          "mean": null,
+          "max": null
+        }
+      },
+      "duration_seconds": 2.031015157699585
+    }
+  },
+  "timeouts_seconds": {
+    "client_connect_read": [
+      1,
+      5
+    ],
+    "storage_connect_read": [
+      1,
+      2
+    ]
+  },
+  "global_storage_attempt_reduction_observed_percent": 85.71428571428572,
+  "scope_limits": [
+    "One paired ordinary-read trial, not an overload benchmark",
+    "30 manual samples and six background-client samples per comparison phase",
+    "Only two resource samples inside each short phase",
+    "Storage failures and changing data used isolated real-HTTP fixtures",
+    "Replica authorization trial used a manual fixture in dedicated directories, not additional Wazuh dispatch",
+    "Node-local lease, process-local budgets/cache, one VM and one storage dependency",
+    "Dashboard browser UI not independently observed"
+  ]
+}

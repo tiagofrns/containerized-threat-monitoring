@@ -1,0 +1,47 @@
+text:
+Return-Path: <monitoring@mail.lab.test>
+Delivered-To: security-operations@mail.lab.test
+Received: from mail.lab.test
+	by mail-container with LMTP
+	id iEqyB+/YAmsqGgAApuv73w
+	(envelope-from <monitoring@mail.lab.test>)
+	for <security-operations@mail.lab.test>; Sun, 22 Nov 2026 11:58:39 +0000
+Received: by mail.lab.test (Postfix, from userid 110)
+	id 0BE5E11F2EB; Sun, 22 Nov 2026 11:58:39 +0000 (UTC)
+X-Spam-Checker-Version: SpamAssassin 3.4.6 (2021-04-09) on mail-container
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham
+	autolearn_force=no version=3.4.6
+Received: from [127.0.1.1] (localhost [127.0.0.1])	by mail.lab.test (Postfix)
+ with ESMTP id AAA4811EE68	for <security-operations@mail.lab.test>; Sun, 22
+ Nov 2026 11:58:38 +0000 (UTC)
+From: Monitoring Service <monitoring@mail.lab.test>
+To: security-operations@mail.lab.test
+Date: Sun, 22 Nov 2026 11:58:38 +0000
+Message-ID: <incident-6d5df1cdda3daae88ba5e32967b7653db0b10058dd071d789a57c2bb99f9441f@mail.lab.test>
+Subject: [Security Operations] Mail quarantine activity
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+X-Mail-Filter-Origin: =?utf-8?q?eyJib2R5X3NoYTI1NiI6ICIwYzFmMjM4ODZiYjg1N2Zk?=
+ =?utf-8?q?MGM5NTI0OTVkOTFhZTFmZWMzMTEzN2FiNDE4ZmRmYjBhZWU1NjhkMjdlMzU5NDk0I?=
+ =?utf-8?q?iwgIm1lc3NhZ2VfaWQiOiAiPGluY2lkZW50LTZkNWRmMWNkZGEzZGFhZTg4YmE1ZT?=
+ =?utf-8?q?MyOTY3Yjc2NTNkYjBiMTAwNThkZDA3MWQ3ODlhNTdjMmJiOTlmOTQ0MWZAbWFpbC5?=
+ =?utf-8?q?sYWIudGVzdD4iLCAic210cF9xdWV1ZV9pZCI6ICJBQUE0ODExRUU2OCIsICJzb3Vy?=
+ =?utf-8?q?Y2VfaXAiOiAiMTI3LjAuMC4xIiwgInNwYW0iOiBmYWxzZX0=3D?=
+X-Mail-Filter-Signature:
+ b1ef6d3d80241ae6cdcf038f156472c70353842978b257c2bba1640c9014df35
+
+Dear Security Operations Team,
+
+Monitoring has detected a condition requiring review.
+
+Incident: Mail quarantine activity
+Severity: warning
+Detected at: 2026-11-22T11:58:20.003950993Z
+Affected target: 10.171.72.142:9096
+
+Please review the monitoring dashboard and the associated security events.
+
+Regards,
+Monitoring Service

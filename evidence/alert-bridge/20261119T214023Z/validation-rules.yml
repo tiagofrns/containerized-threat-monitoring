@@ -1,0 +1,21 @@
+groups:
+  - name: response-bridge-validation
+    rules:
+      - alert: AnalyticsClientImpact
+        expr: vector(1)
+        for: 15s
+        labels:
+          bridge: wazuh
+          scope: analytics
+          severity: warning
+          mode: bridge-validation
+          test_run: "20261119T214023Z"
+      - alert: DNSPolicyRejections
+        expr: vector(1)
+        for: 15s
+        labels:
+          bridge: wazuh
+          scope: dns
+          severity: warning
+          mode: bridge-validation
+          test_run: "20261119T214023Z"

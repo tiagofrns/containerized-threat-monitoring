@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-11-21T18:10:03.987443+00:00",
+  "services": {
+    "postfix": "active",
+    "dovecot": "active",
+    "spamassassin": "active",
+    "mail_gateway": "active",
+    "wazuh-agent": "active",
+    "mail-service-health.timer": "active"
+  },
+  "scanner": {
+    "service": "spamassassin",
+    "state": "active",
+    "scanner_ready": true,
+    "retry_after_seconds": 0
+  },
+  "queue_message_count": 0,
+  "content_filter": "smtp/inet/content_filter = spamassassin:filter"
+}

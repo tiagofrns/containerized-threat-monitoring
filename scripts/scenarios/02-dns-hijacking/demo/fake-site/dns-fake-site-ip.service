@@ -1,0 +1,8 @@
+[Unit]
+Description=Forward isolated DNS demo HTTP to the local page server
+Requires=dns-fake-site.service
+After=dns-fake-site.service
+
+[Service]
+DynamicUser=yes
+ExecStart=/usr/lib/systemd/systemd-socket-proxyd 127.0.0.1:30503

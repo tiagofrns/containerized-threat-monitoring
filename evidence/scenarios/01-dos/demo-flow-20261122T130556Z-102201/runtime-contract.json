@@ -1,0 +1,14 @@
+{
+  "node": "k3s-node1",
+  "pod": "analytics-7d95544f9c-4hf4t",
+  "response_command": "ssle-analytics-cache",
+  "response_script": "/var/ossec/active-response/bin/ssle-analytics-cache.py",
+  "lease_file": "/var/lib/ssle-protection/analytics/cache.json",
+  "audit_integration": "ssle-analytics-cache",
+  "analytics_source": {
+    "runtime_sha256": "3b791794f6d6937dc5f0693d792e0aa5c14921d11ebb3e7a7a7d9a42505706bb",
+    "repository_sha256": "5115186c9a2d1608c680753a6059f7e47adebe84f184952444eae308de7f815c",
+    "exact_source_match": false,
+    "ast_match_after_legacy_name_normalization": true
+  }
+}

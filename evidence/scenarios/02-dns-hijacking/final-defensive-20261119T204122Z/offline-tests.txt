@@ -1,0 +1,31 @@
+test_approved_address_is_used_for_actual_read (test_dns_integrity.ClientPolicyTests.test_approved_address_is_used_for_actual_read) ... ok
+test_empty_answer_never_reaches_http (test_dns_integrity.ClientPolicyTests.test_empty_answer_never_reaches_http) ... ok
+test_empty_database_average_is_valid (test_dns_integrity.ClientPolicyTests.test_empty_database_average_is_valid) ... ok
+test_http_failure_preserves_successful_dns_observation (test_dns_integrity.ClientPolicyTests.test_http_failure_preserves_successful_dns_observation) ... ok
+test_http_uses_pinned_ip_and_hostname_header (test_dns_integrity.ClientPolicyTests.test_http_uses_pinned_ip_and_hostname_header) ... ok
+test_invalid_temperature_types_are_rejected (test_dns_integrity.ClientPolicyTests.test_invalid_temperature_types_are_rejected) ... ok
+test_malformed_payload_has_its_own_outcome (test_dns_integrity.ClientPolicyTests.test_malformed_payload_has_its_own_outcome) ... ok
+test_metrics_distinguish_dns_and_application_failure (test_dns_integrity.ClientPolicyTests.test_metrics_distinguish_dns_and_application_failure) ... ok
+test_mixed_answer_set_is_not_partially_accepted (test_dns_integrity.ClientPolicyTests.test_mixed_answer_set_is_not_partially_accepted) ... ok
+test_payload_size_is_bounded (test_dns_integrity.ClientPolicyTests.test_payload_size_is_bounded) ... ok
+test_resolver_failure_is_not_reported_as_malicious_answer (test_dns_integrity.ClientPolicyTests.test_resolver_failure_is_not_reported_as_malicious_answer) ... ok
+test_unexpected_address_never_reaches_http_reader (test_dns_integrity.ClientPolicyTests.test_unexpected_address_never_reaches_http_reader) ... ok
+test_unexpected_connected_peer_is_rejected_before_http_request (test_dns_integrity.ClientPolicyTests.test_unexpected_connected_peer_is_rejected_before_http_request) ... ok
+test_wazuh_path_rule_matches_only_the_restoration_target (test_dns_integrity.ClientPolicyTests.test_wazuh_path_rule_matches_only_the_restoration_target) ... ok
+test_already_approved_file_does_not_restart_or_rewrite (test_dns_integrity.RestorationTests.test_already_approved_file_does_not_restart_or_rewrite) ... ok
+test_deleted_approved_file_can_be_restored (test_dns_integrity.RestorationTests.test_deleted_approved_file_can_be_restored) ... ok
+test_invalid_global_configuration_is_reported_without_restart (test_dns_integrity.RestorationTests.test_invalid_global_configuration_is_reported_without_restart) ... ok
+test_maintenance_disables_restoration (test_dns_integrity.RestorationTests.test_maintenance_disables_restoration) ... ok
+test_restore_verifies_syntax_service_and_real_client_path (test_dns_integrity.RestorationTests.test_restore_verifies_syntax_service_and_real_client_path) ... ok
+test_symlink_baseline_is_rejected (test_dns_integrity.RestorationTests.test_symlink_baseline_is_rejected) ... ok
+test_symlink_target_does_not_modify_another_file (test_dns_integrity.RestorationTests.test_symlink_target_does_not_modify_another_file) ... ok
+test_unapproved_baseline_is_not_adopted (test_dns_integrity.RestorationTests.test_unapproved_baseline_is_not_adopted) ... ok
+test_writable_baseline_is_rejected (test_dns_integrity.RestorationTests.test_writable_baseline_is_rejected) ... ok
+test_writable_target_is_rejected (test_dns_integrity.RestorationTests.test_writable_target_is_rejected) ... ok
+test_wrong_agent_rule_path_or_command_cannot_restore (test_dns_integrity.RestorationTests.test_wrong_agent_rule_path_or_command_cannot_restore) ... ok
+test_wrong_post_restore_peer_is_a_failure (test_dns_integrity.RestorationTests.test_wrong_post_restore_peer_is_a_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.009s
+
+OK

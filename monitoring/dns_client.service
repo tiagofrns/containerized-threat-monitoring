@@ -1,0 +1,20 @@
+[Unit]
+Description=Temperature service guarded DNS/application client and metrics
+After=network-online.target dnsmasq.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=dns_client
+Group=dns_client
+ExecStart=/usr/bin/python3 /opt/dns_sec/dns_client.py
+Restart=on-failure
+RestartSec=2
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/log/dns_sec
+
+[Install]
+WantedBy=multi-user.target

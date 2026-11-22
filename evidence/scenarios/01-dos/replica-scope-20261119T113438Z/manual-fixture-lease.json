@@ -1,0 +1,11 @@
+{
+  "node": "k3s-master",
+  "lease": {
+    "version": 1,
+    "mode": "cache",
+    "event_id": "1795088115.999999",
+    "issued_at": 1795088115.1893747,
+    "expires_at": 1795088175.1893747
+  },
+  "origin": "operator fixture; not Wazuh dispatch"
+}

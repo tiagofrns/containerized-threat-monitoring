@@ -1,0 +1,383 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ssle
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: storage-data
+  namespace: ssle
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: local-path
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: registry
+  namespace: ssle
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: registry
+  template:
+    metadata:
+      labels:
+        app: registry
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+      containers:
+        - name: registry
+          image: docker.io/library/registry:k3s-v1
+          imagePullPolicy: Never
+          ports:
+            - name: http
+              containerPort: 5050
+          readinessProbe:
+            httpGet:
+              path: /services
+              port: http
+            periodSeconds: 5
+            timeoutSeconds: 2
+          livenessProbe:
+            tcpSocket:
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: [ALL]
+          resources:
+            requests:
+              cpu: 25m
+              memory: 32Mi
+            limits:
+              cpu: 500m
+              memory: 128Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: registry
+  namespace: ssle
+spec:
+  selector:
+    app: registry
+  ports:
+    - name: http
+      port: 5050
+      targetPort: http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: storage
+  namespace: ssle
+spec:
+  # SQLite uses a single instance; updates stop the previous Pod first.
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: storage
+  template:
+    metadata:
+      labels:
+        app: storage
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        fsGroup: 10001
+      containers:
+        - name: storage
+          image: docker.io/library/storage:k3s-v1
+          imagePullPolicy: Never
+          env:
+            - name: DB_PATH
+              value: /data/temp_data.db
+          ports:
+            - name: http
+              containerPort: 5002
+          volumeMounts:
+            - name: data
+              mountPath: /data
+          readinessProbe:
+            httpGet:
+              path: /stats
+              port: http
+            periodSeconds: 5
+            timeoutSeconds: 2
+          livenessProbe:
+            tcpSocket:
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: [ALL]
+          resources:
+            requests:
+              cpu: 25m
+              memory: 32Mi
+            limits:
+              cpu: 500m
+              memory: 128Mi
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: storage-data
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: storage
+  namespace: ssle
+spec:
+  selector:
+    app: storage
+  ports:
+    - name: http
+      port: 5002
+      targetPort: http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ingestion
+  namespace: ssle
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ingestion
+  template:
+    metadata:
+      labels:
+        app: ingestion
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+      # register() runs before Flask starts; wait for the registry.
+      initContainers:
+        - name: wait-registry
+          image: docker.io/library/ingestion:k3s-v2
+          imagePullPolicy: Never
+          command:
+            - python
+            - -u
+            - -c
+            - |
+              import time
+              import requests
+              for attempt in range(30):
+                  try:
+                      response = requests.get("http://registry:5050/services", timeout=2)
+                      response.raise_for_status()
+                      print("Registry available", flush=True)
+                      break
+                  except requests.RequestException:
+                      print("Waiting for registry...", flush=True)
+                      time.sleep(2)
+              else:
+                  raise SystemExit("Registry unavailable; Kubernetes will retry")
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: [ALL]
+          resources:
+            requests:
+              cpu: 25m
+              memory: 32Mi
+            limits:
+              cpu: 500m
+              memory: 128Mi
+      containers:
+        - name: ingestion
+          image: docker.io/library/ingestion:k3s-v2
+          imagePullPolicy: Never
+          env:
+            - name: REGISTRY_URL
+              value: http://registry:5050
+            - name: STORAGE_URL
+              value: http://storage:5002
+            - name: SERVICE_URL
+              value: http://ingestion.ssle.svc.cluster.local:5001
+          ports:
+            - name: http
+              containerPort: 5001
+          # /ingest accepts POST; GET /ingest is not a valid health check.
+          readinessProbe:
+            tcpSocket:
+              port: http
+            periodSeconds: 5
+          livenessProbe:
+            tcpSocket:
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: [ALL]
+          resources:
+            requests:
+              cpu: 25m
+              memory: 32Mi
+            limits:
+              cpu: 500m
+              memory: 128Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ingestion
+  namespace: ssle
+spec:
+  type: NodePort
+  selector:
+    app: ingestion
+  ports:
+    - name: http
+      port: 5001
+      targetPort: http
+      nodePort: 30501
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: analytics
+  namespace: ssle
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: analytics
+  template:
+    metadata:
+      labels:
+        app: analytics
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+      containers:
+        - name: analytics
+          image: docker.io/library/analytics:case1-final-v1
+          imagePullPolicy: Never
+          env:
+            - name: ANALYTICS_RATE_LIMIT_ENABLED
+              value: "true"
+            - name: STORAGE_URL
+              value: http://storage:5002
+            - name: ANALYTICS_PROTECTION_FILE
+              value: /run/analytics-protection/cache.json
+          volumeMounts:
+            - name: protection
+              mountPath: /run/analytics-protection
+              readOnly: true
+          ports:
+            - name: http
+              containerPort: 5003
+          readinessProbe:
+            tcpSocket:
+              port: http
+            periodSeconds: 5
+          livenessProbe:
+            tcpSocket:
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: [ALL]
+          resources:
+            requests:
+              cpu: 25m
+              memory: 32Mi
+            limits:
+              cpu: 500m
+              memory: 128Mi
+      volumes:
+        - name: protection
+          hostPath:
+            path: /var/lib/analytics-protection/analytics
+            type: Directory
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: analytics
+  namespace: ssle
+spec:
+  type: NodePort
+  selector:
+    app: analytics
+  ports:
+    - name: http
+      port: 5003
+      targetPort: http
+      nodePort: 30503
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sensor
+  namespace: ssle
+spec:
+  # Enable with kubectl scale only during experiments.
+  replicas: 0
+  selector:
+    matchLabels:
+      app: sensor
+  template:
+    metadata:
+      labels:
+        app: sensor
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+      containers:
+        - name: sensor
+          image: docker.io/library/sensor:k3s-v1
+          imagePullPolicy: Never
+          env:
+            - name: INGESTION_URL
+              value: http://ingestion:5001/ingest
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: [ALL]
+          resources:
+            requests:
+              cpu: 25m
+              memory: 32Mi
+            limits:
+              cpu: 500m
+              memory: 128Mi

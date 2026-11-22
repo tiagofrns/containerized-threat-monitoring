@@ -1,0 +1,15 @@
+# TYPE dns_sec_client_requests_total counter
+dns_sec_client_requests_total{outcome="success"} 38
+dns_sec_client_requests_total{outcome="dns_failure"} 6
+dns_sec_client_requests_total{outcome="dns_rejected"} 0
+dns_sec_client_requests_total{outcome="http_error"} 0
+dns_sec_client_requests_total{outcome="invalid_response"} 0
+# TYPE dns_sec_client_request_duration_seconds summary
+dns_sec_client_request_duration_seconds_sum 0.9099495090031269
+dns_sec_client_request_duration_seconds_count 44
+# TYPE dns_sec_resolution_expected gauge
+dns_sec_resolution_expected 1
+# TYPE dns_sec_client_last_request_success gauge
+dns_sec_client_last_request_success 1
+# TYPE dns_sec_last_check_timestamp_seconds gauge
+dns_sec_last_check_timestamp_seconds 1795120924.7579436

@@ -1,0 +1,95 @@
+rule_files:
+  - ../../monitoring/bridge_alerts.yml
+evaluation_interval: 15s
+
+tests:
+  - name: Rejections and high legitimate latency fire; DNS policy rejects also fire
+    interval: 15s
+    input_series:
+      - series: 'ssle_analytics_requests_total{job="ssle-analytics",status="429"}'
+        values: '0+3x7'
+      - series: 'ssle_client_request_duration_seconds_count{job="ssle-client"}'
+        values: '0+3x7'
+      - series: 'ssle_client_request_duration_seconds_sum{job="ssle-client"}'
+        values: '0+0.6x7'
+      - series: 'ssle_analytics_protection_active{job="ssle-analytics"}'
+        values: '0+0x7'
+      - series: 'up{job="ssle-analytics"}'
+        values: '1+0x7'
+      - series: 'up{job="ssle-client"}'
+        values: '1+0x7'
+      - series: 'up{job="dns_client",instance="dns"}'
+        values: '1+0x7'
+      - series: 'dns_sec_client_requests_total{job="dns_client",instance="dns",outcome="dns_rejected"}'
+        values: '0+1x7'
+      - series: 'dns_sec_resolution_expected{job="dns_client",instance="dns"}'
+        values: '0+0x7'
+      - series: 'dns_sec_last_check_timestamp_seconds{job="dns_client",instance="dns"}'
+        values: '0+15x7'
+    alert_rule_test:
+      - eval_time: 1m
+        alertname: AnalyticsClientImpact
+        exp_alerts:
+          - exp_labels: {bridge: wazuh, scope: analytics, severity: warning}
+      - eval_time: 1m
+        alertname: DNSPolicyRejections
+        exp_alerts:
+          - exp_labels: {bridge: wazuh, scope: dns, severity: warning, job: dns_client, instance: dns, outcome: dns_rejected}
+  - name: Existing cache protection and ordinary DNS failure do not fire the bridge rules
+    interval: 15s
+    input_series:
+      - series: 'ssle_analytics_requests_total{job="ssle-analytics",status="429"}'
+        values: '0+3x7'
+      - series: 'ssle_client_request_duration_seconds_count{job="ssle-client"}'
+        values: '0+3x7'
+      - series: 'ssle_client_request_duration_seconds_sum{job="ssle-client"}'
+        values: '0+0.6x7'
+      - series: 'ssle_analytics_protection_active{job="ssle-analytics"}'
+        values: '1+0x7'
+      - series: 'up{job="ssle-analytics"}'
+        values: '1+0x7'
+      - series: 'up{job="ssle-client"}'
+        values: '1+0x7'
+      - series: 'up{job="dns_client",instance="dns"}'
+        values: '1+0x7'
+      - series: 'dns_sec_client_requests_total{job="dns_client",instance="dns",outcome="dns_rejected"}'
+        values: '0+0x7'
+      - series: 'dns_sec_client_requests_total{job="dns_client",instance="dns",outcome="dns_failure"}'
+        values: '0+1x7'
+      - series: 'dns_sec_resolution_expected{job="dns_client",instance="dns"}'
+        values: '0+0x7'
+      - series: 'dns_sec_last_check_timestamp_seconds{job="dns_client",instance="dns"}'
+        values: '0+15x7'
+    alert_rule_test:
+      - eval_time: 1m
+        alertname: AnalyticsClientImpact
+      - eval_time: 1m
+        alertname: DNSPolicyRejections
+  - name: Rejections alone and stale DNS observations do not authorize responses
+    interval: 15s
+    input_series:
+      - series: 'analytics_requests_total{job="analytics",status="429"}'
+        values: '0+3x7'
+      - series: 'client_request_duration_seconds_count{job="client"}'
+        values: '0+3x7'
+      - series: 'client_request_duration_seconds_sum{job="client"}'
+        values: '0+0.06x7'
+      - series: 'analytics_protection_active{job="analytics"}'
+        values: '0+0x7'
+      - series: 'up{job="analytics"}'
+        values: '1+0x7'
+      - series: 'up{job="client"}'
+        values: '1+0x7'
+      - series: 'up{job="dns_client",instance="dns"}'
+        values: '1+0x7'
+      - series: 'dns_sec_client_requests_total{job="dns_client",instance="dns",outcome="dns_rejected"}'
+        values: '0+1x7'
+      - series: 'dns_sec_resolution_expected{job="dns_client",instance="dns"}'
+        values: '0+0x7'
+      - series: 'dns_sec_last_check_timestamp_seconds{job="dns_client",instance="dns"}'
+        values: '0+0x7'
+    alert_rule_test:
+      - eval_time: 1m
+        alertname: AnalyticsClientImpact
+      - eval_time: 1m
+        alertname: DNSPolicyRejections

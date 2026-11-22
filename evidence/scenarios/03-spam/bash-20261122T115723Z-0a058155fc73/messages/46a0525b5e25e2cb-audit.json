@@ -1,0 +1,1 @@
+{"integration":"mail_security","outcome":"delivered","timestamp":"2026-11-22T11:58:03.105647+00:00","message_id":"<ssle-0a058155fc73-legitimate@mail.lab.test>","digest":"8fd3b5046ac500881282a247942f95c1574c1a358831cc7dc857127955b3d396","folder":"INBOX","spam_status":"No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham autolearn_force=no version=3.4.6","event_id":"77"}

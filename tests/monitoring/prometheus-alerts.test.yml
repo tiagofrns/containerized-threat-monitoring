@@ -1,0 +1,119 @@
+# Deterministic synthetic metric fixtures. No live requests or production changes.
+rule_files:
+  - ../../monitoring/alerts.yml
+evaluation_interval: 15s
+tests:
+  - name: healthy metrics do not trigger project alerts
+    interval: 15s
+    input_series:
+      - series: 'service_up{service="analytics"}'
+        values: '1+0x12'
+      - series: 'analytics_requests_total{status="429"}'
+        values: '0+0x12'
+      - series: 'client_request_duration_seconds_count'
+        values: '0+1x12'
+      - series: 'client_request_duration_seconds_sum'
+        values: '0+0.01x12'
+      - series: 'push_observation_timestamp_seconds{publisher="analytics-probe"}'
+        values: '0+15x12'
+    alert_rule_test:
+      - eval_time: 2m
+        alertname: ServiceProbeFailed
+        exp_alerts: []
+      - eval_time: 2m
+        alertname: AnalyticsRateLimitRejections
+        exp_alerts: []
+      - eval_time: 2m
+        alertname: ClientMeanLatencyHigh
+        exp_alerts: []
+      - eval_time: 2m
+        alertname: PushPublisherStale
+        exp_alerts: []
+  - name: admission rejections respect pending time and clear after the rate window
+    interval: 15s
+    input_series:
+      - series: 'analytics_requests_total{status="429"}'
+        values: '0 0 0 10+0x10'
+    alert_rule_test:
+      - eval_time: 30s
+        alertname: AnalyticsRateLimitRejections
+        exp_alerts: []
+      - eval_time: 45s
+        alertname: AnalyticsRateLimitRejections
+        exp_alerts: []
+      - eval_time: 1m
+        alertname: AnalyticsRateLimitRejections
+        exp_alerts:
+          - exp_labels:
+              severity: warning
+            exp_annotations:
+              summary: Analytics is rejecting requests through its rate limit
+      - eval_time: 3m
+        alertname: AnalyticsRateLimitRejections
+        exp_alerts: []
+  - name: failed probe fires after thirty seconds and clears on recovery
+    interval: 15s
+    input_series:
+      - series: 'service_up{service="analytics"}'
+        values: '1 1 1 1 0 0 0 1 1'
+    alert_rule_test:
+      - eval_time: 1m
+        alertname: ServiceProbeFailed
+        exp_alerts: []
+      - eval_time: 90s
+        alertname: ServiceProbeFailed
+        exp_alerts:
+          - exp_labels:
+              severity: warning
+              service: analytics
+            exp_annotations:
+              summary: An application probe has failed
+      - eval_time: 105s
+        alertname: ServiceProbeFailed
+        exp_alerts: []
+  - name: two hundred millisecond mean latency exceeds the teaching threshold
+    interval: 15s
+    input_series:
+      - series: client_request_duration_seconds_count
+        values: '0+1x12'
+      - series: client_request_duration_seconds_sum
+        values: '0+0.2x12'
+    alert_rule_test:
+      - eval_time: 2m
+        alertname: ClientMeanLatencyHigh
+        exp_alerts:
+          - exp_labels:
+              severity: warning
+            exp_annotations:
+              summary: Legitimate client mean latency exceeds the educational 100 ms threshold
+  - name: cached push observation becomes stale and clears when refreshed
+    interval: 15s
+    input_series:
+      - series: 'push_observation_timestamp_seconds{publisher="analytics-probe"}'
+        values: '0 0 0 0 0 0 90 105 120'
+    alert_rule_test:
+      - eval_time: 30s
+        alertname: PushPublisherStale
+        exp_alerts: []
+      - eval_time: 1m
+        alertname: PushPublisherStale
+        exp_alerts:
+          - exp_labels:
+              severity: warning
+              publisher: analytics-probe
+            exp_annotations:
+              summary: The Pushgateway observation is missing or older than 30 seconds
+      - eval_time: 90s
+        alertname: PushPublisherStale
+        exp_alerts: []
+  - name: completely absent publisher is detected
+    interval: 15s
+    alert_rule_test:
+      - eval_time: 30s
+        alertname: PushPublisherStale
+        exp_alerts:
+          - exp_labels:
+              severity: warning
+              publisher: analytics-probe
+            exp_annotations:
+              summary: The Pushgateway observation is missing or older than 30 seconds

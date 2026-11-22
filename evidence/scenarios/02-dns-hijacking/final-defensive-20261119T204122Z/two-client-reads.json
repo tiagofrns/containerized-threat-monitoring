@@ -1,0 +1,32 @@
+[
+  {
+    "integration": "dns_client",
+    "event": "check",
+    "timestamp": "2026-11-19T20:41:28.563252+00:00",
+    "dns_name": "analytics.lab.test",
+    "dns_expected": true,
+    "outcome": "success",
+    "observed_addresses": [
+      "10.255.255.74"
+    ],
+    "average_temperature": 25.12,
+    "peer_ip": "10.255.255.74",
+    "http_status": 200,
+    "duration_seconds": 0.01946840300115582
+  },
+  {
+    "integration": "dns_client",
+    "event": "check",
+    "timestamp": "2026-11-19T20:41:28.556747+00:00",
+    "dns_name": "analytics.lab.test",
+    "dns_expected": true,
+    "outcome": "success",
+    "observed_addresses": [
+      "10.255.255.74"
+    ],
+    "average_temperature": 25.12,
+    "peer_ip": "10.255.255.74",
+    "http_status": 200,
+    "duration_seconds": 0.017138041001089732
+  }
+]

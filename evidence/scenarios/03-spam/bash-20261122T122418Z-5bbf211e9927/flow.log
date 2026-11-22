@@ -1,0 +1,249 @@
+SCENARIO 03: SPAM AND QUARANTINE | before/after filtering
+Lab: mail-container | security-operations@mail.lab.test
+Spam filtering will be disabled AUTOMATICALLY in step 1.
+
+
+==================================================================
+  STEP 0/8 | Verify services, configuration and the Prometheus baseline
+==================================================================
+  [SYSTEMD] postfix: active
+  [SYSTEMD] dovecot: active
+  [SYSTEMD] spamassassin: active
+  [SYSTEMD] mail_gateway: active
+  [SYSTEMD] wazuh-agent: active
+  [SMTP CLIENT] Observed connection source: 10.171.72.60
+  [POSTCONF] smtp/inet/content_filter = spamassassin:filter
+  [RECOVERY] Service observation timer and local scanner are ready.
+  [RECOVERY] Wazuh rule 100610 is configured for the local recovery command.
+Waiting for the previous MailQuarantineActivity episode to end...
+Waiting for the previous MailQuarantineActivity episode to end...
+Waiting for the previous MailQuarantineActivity episode to end...
+Waiting for the previous MailQuarantineActivity episode to end...
+Waiting for the previous MailQuarantineActivity episode to end...
+
+
+==================================================================
+  STEP 1/8 | WITHOUT SPAM FILTERING: temporarily disable the SMTP filter
+==================================================================
+smtp/inet/content_filter =
+  [EVIDENCE] content_filter is empty; Postfix and Dovecot remain active.
+
+
+==================================================================
+  STEP 2/8 | Send GTUBE without filtering and verify actual INBOX delivery
+==================================================================
+[SMTP] Accepted by the server: GTUBE without filtering | Message-ID: <ssle-5bbf211e9927-without-filter@mail.lab.test>
+  [DOVECOT] Folder INBOX | UID/GUID identifier: 8036b313de9c016b97180000a6ebfbdf 47
+  [DOVECOT] Folder Quarantine | not found (0 messages)
+  [DOVECOT] Message-ID identified in the stored content: <ssle-5bbf211e9927-without-filter@mail.lab.test>
+  [STORED HEADER] Subject: SSLE DEMO | gtube-without-filter
+  [STORED HEADER] Message-ID: <ssle-5bbf211e9927-without-filter@mail.lab.test>
+  [STORED BODY] GTUBE signature present in the stored email
+  [AUDIT JSON] outcome=delivered, folder=INBOX, spam_status=
+  [EVIDENCE FILES] messages/6f8f6cc3fe1853a9-doveadm-fetch.txt | 6f8f6cc3fe1853a9-uids-INBOX.txt | 6f8f6cc3fe1853a9-audit.json
+  [CORROBORATING EVIDENCE] Dovecot + Maildir observer: INBOX (1 copy)
+[EVIDENCE] GTUBE reached INBOX while filtering was disabled.
+
+
+==================================================================
+  STEP 3/8 | Re-enable spam filtering and verify the original Postfix configuration
+==================================================================
+  [EVIDENCE] Filter restored: spamassassin:filter
+smtp/inet/content_filter = spamassassin:filter
+  Waiting for Prometheus to collect the counter history (35 s)...
+
+
+==================================================================
+  STEP 4/8 | Resend GTUBE with filtering enabled; compare folders
+==================================================================
+[SMTP] Accepted by the server: legitimate message | Message-ID: <ssle-5bbf211e9927-legitimate@mail.lab.test>
+  [DOVECOT] Folder INBOX | UID/GUID identifier: 8036b313de9c016b97180000a6ebfbdf 48
+  [DOVECOT] Folder Quarantine | not found (0 messages)
+  [DOVECOT] Message-ID identified in the stored content: <ssle-5bbf211e9927-legitimate@mail.lab.test>
+  [STORED HEADER] X-Spam-Status: No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham
+  [STORED HEADER] Subject: SSLE DEMO | legitimate
+  [STORED HEADER] Message-ID: <ssle-5bbf211e9927-legitimate@mail.lab.test>
+  [STORED BODY] Legitimate content confirmed
+  [AUDIT JSON] outcome=delivered, folder=INBOX, spam_status=No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham autolearn_force=no version=3.4.6
+  [EVIDENCE FILES] messages/3a0fef0c6d585b93-doveadm-fetch.txt | 3a0fef0c6d585b93-uids-INBOX.txt | 3a0fef0c6d585b93-audit.json
+  [CORROBORATING EVIDENCE] Dovecot + Maildir observer: INBOX (1 copy)
+[SMTP] Accepted by the server: GTUBE with filtering | Message-ID: <ssle-5bbf211e9927-spam1@mail.lab.test>
+  [DOVECOT] Folder Quarantine | UID/GUID identifier: b0cacf0a069d016b97180000a6ebfbdf 43
+  [DOVECOT] Folder INBOX | not found (0 messages)
+  [DOVECOT] Message-ID identified in the stored content: <ssle-5bbf211e9927-spam1@mail.lab.test>
+  [STORED HEADER] X-Spam-Flag: YES
+  [STORED HEADER] X-Spam-Status: Yes, score=999.0 required=5.0 tests=ALL_TRUSTED,GTUBE
+  [STORED HEADER] Subject: *****SPAM***** SSLE DEMO | gtube-protected
+  [STORED HEADER] Message-ID: <ssle-5bbf211e9927-spam1@mail.lab.test>
+  [STORED BODY] GTUBE signature present in the stored email
+  [AUDIT JSON] outcome=quarantined, folder=Quarantine, spam_status=Yes, score=999.0 required=5.0 tests=ALL_TRUSTED,GTUBE autolearn=no autolearn_force=no version=3.4.6
+  [EVIDENCE FILES] messages/5c6af41b7126afc5-doveadm-fetch.txt | 5c6af41b7126afc5-uids-Quarantine.txt | 5c6af41b7126afc5-audit.json
+  [CORROBORATING EVIDENCE] Dovecot + Maildir observer: Quarantine (1 copy)
+[WAZUH] Quarantine acknowledged: rule 100607 | alert 1795350409.16097857 | <ssle-5bbf211e9927-spam1@mail.lab.test>
+[SMTP] Accepted by the server: GTUBE with a forged clean header | Message-ID: <ssle-5bbf211e9927-spam2@mail.lab.test>
+  [DOVECOT] Folder Quarantine | UID/GUID identifier: b0cacf0a069d016b97180000a6ebfbdf 44
+  [DOVECOT] Folder INBOX | not found (0 messages)
+  [DOVECOT] Message-ID identified in the stored content: <ssle-5bbf211e9927-spam2@mail.lab.test>
+  [STORED HEADER] X-Spam-Flag: YES
+  [STORED HEADER] X-Spam-Status: Yes, score=999.0 required=5.0 tests=ALL_TRUSTED,GTUBE
+  [STORED HEADER] Subject: *****SPAM***** SSLE DEMO | gtube-forged-clean
+  [STORED HEADER] Message-ID: <ssle-5bbf211e9927-spam2@mail.lab.test>
+  [STORED BODY] GTUBE signature present in the stored email
+  [AUDIT JSON] outcome=quarantined, folder=Quarantine, spam_status=Yes, score=999.0 required=5.0 tests=ALL_TRUSTED,GTUBE autolearn=no autolearn_force=no version=3.4.6
+  [EVIDENCE FILES] messages/add1bff4cec4dba6-doveadm-fetch.txt | add1bff4cec4dba6-uids-Quarantine.txt | add1bff4cec4dba6-audit.json
+  [CORROBORATING EVIDENCE] Dovecot + Maildir observer: Quarantine (1 copy)
+[WAZUH] Quarantine acknowledged: rule 100607 | alert 1795350411.16099100 | <ssle-5bbf211e9927-spam2@mail.lab.test>
+[SMTP] Accepted by the server: repeated GTUBE sample | Message-ID: <ssle-5bbf211e9927-spam3@mail.lab.test>
+  [DOVECOT] Folder Quarantine | UID/GUID identifier: b0cacf0a069d016b97180000a6ebfbdf 45
+  [DOVECOT] Folder INBOX | not found (0 messages)
+  [DOVECOT] Message-ID identified in the stored content: <ssle-5bbf211e9927-spam3@mail.lab.test>
+  [STORED HEADER] X-Spam-Flag: YES
+  [STORED HEADER] X-Spam-Status: Yes, score=999.0 required=5.0 tests=ALL_TRUSTED,GTUBE
+  [STORED HEADER] Subject: *****SPAM***** SSLE DEMO | gtube-repeated
+  [STORED HEADER] Message-ID: <ssle-5bbf211e9927-spam3@mail.lab.test>
+  [STORED BODY] GTUBE signature present in the stored email
+  [AUDIT JSON] outcome=quarantined, folder=Quarantine, spam_status=Yes, score=999.0 required=5.0 tests=ALL_TRUSTED,GTUBE autolearn=no autolearn_force=no version=3.4.6
+  [EVIDENCE FILES] messages/dcde21b889b349e6-doveadm-fetch.txt | dcde21b889b349e6-uids-Quarantine.txt | dcde21b889b349e6-audit.json
+  [CORROBORATING EVIDENCE] Dovecot + Maildir observer: Quarantine (1 copy)
+[WAZUH] Quarantine acknowledged: rule 100620 | alert 1795350415.16100343 | <ssle-5bbf211e9927-spam3@mail.lab.test>
+  [COMPARISON] GTUBE without filtering -> INBOX | GTUBE with filtering -> Quarantine
+  [CONTAINMENT] Repeated verified spam requests native firewall-drop for 20 seconds.
+[FIREWALL] Native DROP rule observed for 10.171.72.60
+[EVIDENCE] Native firewall-drop add/delete share event 1795350415.16100343
+[EVIDENCE] SMTP failed during the block and recovered automatically; timeout=20 seconds.
+[SMTP] Accepted by the server: legitimate message | Message-ID: <ssle-5bbf211e9927-after-firewall@mail.lab.test>
+  [DOVECOT] Folder INBOX | UID/GUID identifier: 8036b313de9c016b97180000a6ebfbdf 49
+  [DOVECOT] Folder Quarantine | not found (0 messages)
+  [DOVECOT] Message-ID identified in the stored content: <ssle-5bbf211e9927-after-firewall@mail.lab.test>
+  [STORED HEADER] X-Spam-Status: No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham
+  [STORED HEADER] Subject: SSLE DEMO | legitimate
+  [STORED HEADER] Message-ID: <ssle-5bbf211e9927-after-firewall@mail.lab.test>
+  [STORED BODY] Legitimate content confirmed
+  [AUDIT JSON] outcome=delivered, folder=INBOX, spam_status=No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham autolearn_force=no version=3.4.6
+  [EVIDENCE FILES] messages/ab0d2e3030d75a18-doveadm-fetch.txt | ab0d2e3030d75a18-uids-INBOX.txt | ab0d2e3030d75a18-audit.json
+  [CORROBORATING EVIDENCE] Dovecot + Maildir observer: INBOX (1 copy)
+  [EVIDENCE] A legitimate message reached INBOX after automatic firewall recovery.
+
+
+==================================================================
+  STEP 5/8 | Wait for the actual MailQuarantineActivity alert in Prometheus
+==================================================================
+  MailQuarantineActivity: pending
+  MailQuarantineActivity: firing
+[PROMETHEUS API] alertname = MailQuarantineActivity
+[PROMETHEUS API] state = firing
+[PROMETHEUS API] activeAt = 2026-11-22T12:27:05.003950993Z
+[PROMETHEUS API] labels = {"alertname": "MailQuarantineActivity", "instance": "10.171.72.142:9096", "job": "mail-security", "outcome": "quarantined", "scope": "mail", "severity": "warning"}
+[EVIDENCE] Alert MailQuarantineActivity confirmed FIRING by the API; full JSON saved.
+
+
+==================================================================
+  STEP 6/8 | Alertmanager, operational notification and Wazuh
+==================================================================
+[MAIL GATEWAY] notification_submitted event for episode: 26472f27ab63d07e5cfe7afcf3cca25ed22ee23b530232ea593bc68524ee5ad8
+[MAIL GATEWAY] Notification Message-ID: <incident-26472f27ab63d07e5cfe7afcf3cca25ed22ee23b530232ea593bc68524ee5ad8@mail.lab.test>
+  [DOVECOT] Folder INBOX | UID/GUID identifier: 8036b313de9c016b97180000a6ebfbdf 50
+  [DOVECOT] Folder Quarantine | not found (0 messages)
+  [DOVECOT] Message-ID identified in the stored content: <incident-26472f27ab63d07e5cfe7afcf3cca25ed22ee23b530232ea593bc68524ee5ad8@mail.lab.test>
+  [STORED HEADER] X-Spam-Status: No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham
+  [STORED HEADER] Message-ID: <incident-26472f27ab63d07e5cfe7afcf3cca25ed22ee23b530232ea593bc68524ee5ad8@mail.lab.test>
+  [STORED HEADER] Subject: [Security Operations] Mail quarantine activity
+  [STORED BODY] Security notification confirmed
+  [AUDIT JSON] outcome=delivered, folder=INBOX, spam_status=No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham autolearn_force=no version=3.4.6
+  [EVIDENCE FILES] messages/31c435e38247af64-doveadm-fetch.txt | 31c435e38247af64-uids-INBOX.txt | 31c435e38247af64-audit.json
+  [CORROBORATING EVIDENCE] Dovecot + Maildir observer: INBOX (1 copy)
+[EVIDENCE] Notification received: Dovecot UID/GUID + email text + delivery event.
+[WEBHOOK] Test authentication and duplicate notification suppression
+  [EVIDENCE] POST without credentials -> HTTP 401
+  [EVIDENCE] Authenticated replay -> submitted=0; ledger retains 1 notification.
+[WAZUH] rule 100602 | alert 1795350369.16096153 | Message-ID <ssle-5bbf211e9927-without-filter@mail.lab.test> | outcome delivered | agent mail-container
+[WAZUH] rule 100602 | alert 1795350405.16096910 | Message-ID <ssle-5bbf211e9927-legitimate@mail.lab.test> | outcome delivered | agent mail-container
+[WAZUH] rule 100607 | alert 1795350409.16097857 | Message-ID <ssle-5bbf211e9927-spam1@mail.lab.test> | outcome quarantined | agent mail-container
+[WAZUH] rule 100607 | alert 1795350411.16099100 | Message-ID <ssle-5bbf211e9927-spam2@mail.lab.test> | outcome quarantined | agent mail-container
+[WAZUH] rule 100620 | alert 1795350415.16100343 | Message-ID <ssle-5bbf211e9927-spam3@mail.lab.test> | outcome quarantined | agent mail-container
+[WAZUH] rule 100605 | alert 1795350443.16116677 | Message-ID <incident-26472f27ab63d07e5cfe7afcf3cca25ed22ee23b530232ea593bc68524ee5ad8@mail.lab.test> | outcome notification_submitted | agent mail-container
+[WAZUH] rule 100602 | alert 1795350445.16117585 | Message-ID <incident-26472f27ab63d07e5cfe7afcf3cca25ed22ee23b530232ea593bc68524ee5ad8@mail.lab.test> | outcome delivered | agent mail-container
+[EVIDENCE] Wazuh Manager: actual alerts with IDs, rules, agent and Message-IDs saved in wazuh-events.jsonl
+
+
+==================================================================
+  STEP 7/8 | WAZUH RECOVERY: stop SpamAssassin and verify automatic recovery
+==================================================================
+  The SMTP filter stays configured and the Wazuh agent remains active.
+  The observer records the outage; only the Wazuh Active Response starts the service.
+  [EVIDENCE] SpamAssassin stopped; Wazuh remains active. Waiting for rule 100610 -> recovery.
+{"timestamp":"2026-11-22T12:27:39.846+0000","rule":{"level":8,"description":"The SpamAssassin service is unavailable; automatic recovery is requested.","id":"100610","firedtimes":1,"mail":false,"groups":["mail_security"]},"agent":{"id":"006","name":"mail-container","ip":"10.171.72.142"},"manager":{"name":"wazuh-container"},"id":"1795350459.16118990","full_log":"{\"integration\":\"mail_service_recovery\",\"service\":\"spamassassin\",\"outcome\":\"unavailable\",\"observed_at\":1795350459.1911068,\"state\":\"inactive\",\"observation_id\":\"3e9ed809ec454ee299921efaa6bb229e\"}","decoder":{"name":"json"},"data":{"integration":"mail_service_recovery","service":"spamassassin","outcome":"unavailable","observed_at":"1795350459.191107","state":"inactive","observation_id":"3e9ed809ec454ee299921efaa6bb229e"},"location":"/var/log/mail-security/service-health.jsonl"}
+{"timestamp":"2026-11-22T12:27:41.862+0000","rule":{"level":5,"description":"Wazuh restored the SpamAssassin service and verified local message scanning.","id":"100611","firedtimes":1,"mail":false,"groups":["mail_security"]},"agent":{"id":"006","name":"mail-container","ip":"10.171.72.142"},"manager":{"name":"wazuh-container"},"id":"1795350461.16119594","full_log":"{\"integration\":\"mail_service_recovery\",\"service\":\"spamassassin\",\"outcome\":\"recovered\",\"observed_at\":1795350460.80227,\"state\":\"active\",\"scanner_ready\":true,\"trigger_event_id\":\"1795350459.16118990\",\"observation_id\":\"3e9ed809ec454ee299921efaa6bb229e\"}","decoder":{"name":"json"},"data":{"integration":"mail_service_recovery","service":"spamassassin","outcome":"recovered","observed_at":"1795350460.802270","state":"active","scanner_ready":"true","trigger_event_id":"1795350459.16118990","observation_id":"3e9ed809ec454ee299921efaa6bb229e"},"location":"/var/log/mail-security/service-health.jsonl"}
+  [EVIDENCE] SpamAssassin active and a local message scan succeeded after the Wazuh response.
+[SMTP] Accepted by the server: GTUBE after Wazuh service recovery | Message-ID: <ssle-5bbf211e9927-recovery-spam@mail.lab.test>
+  [DOVECOT] Folder Quarantine | UID/GUID identifier: b0cacf0a069d016b97180000a6ebfbdf 46
+  [DOVECOT] Folder INBOX | not found (0 messages)
+  [DOVECOT] Message-ID identified in the stored content: <ssle-5bbf211e9927-recovery-spam@mail.lab.test>
+  [STORED HEADER] X-Spam-Flag: YES
+  [STORED HEADER] X-Spam-Status: Yes, score=999.0 required=5.0 tests=ALL_TRUSTED,GTUBE
+  [STORED HEADER] Subject: *****SPAM***** SSLE DEMO | gtube-recovery
+  [STORED HEADER] Message-ID: <ssle-5bbf211e9927-recovery-spam@mail.lab.test>
+  [STORED BODY] GTUBE signature present in the stored email
+  [AUDIT JSON] outcome=quarantined, folder=Quarantine, spam_status=Yes, score=999.0 required=5.0 tests=ALL_TRUSTED,GTUBE autolearn=no autolearn_force=no version=3.4.6
+  [EVIDENCE FILES] messages/cd250569cf270a72-doveadm-fetch.txt | cd250569cf270a72-uids-Quarantine.txt | cd250569cf270a72-audit.json
+  [CORROBORATING EVIDENCE] Dovecot + Maildir observer: Quarantine (1 copy)
+[SMTP] Accepted by the server: legitimate message | Message-ID: <ssle-5bbf211e9927-recovery-good@mail.lab.test>
+  [DOVECOT] Folder INBOX | UID/GUID identifier: 8036b313de9c016b97180000a6ebfbdf 51
+  [DOVECOT] Folder Quarantine | not found (0 messages)
+  [DOVECOT] Message-ID identified in the stored content: <ssle-5bbf211e9927-recovery-good@mail.lab.test>
+  [STORED HEADER] X-Spam-Status: No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham
+  [STORED HEADER] Subject: SSLE DEMO | legitimate
+  [STORED HEADER] Message-ID: <ssle-5bbf211e9927-recovery-good@mail.lab.test>
+  [STORED BODY] Legitimate content confirmed
+  [AUDIT JSON] outcome=delivered, folder=INBOX, spam_status=No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham autolearn_force=no version=3.4.6
+  [EVIDENCE FILES] messages/c3d5b54d293b8b7b-doveadm-fetch.txt | c3d5b54d293b8b7b-uids-INBOX.txt | c3d5b54d293b8b7b-audit.json
+  [CORROBORATING EVIDENCE] Dovecot + Maildir observer: INBOX (1 copy)
+  [EVIDENCE] Wazuh restored the scanner; a new GTUBE was quarantined and legitimate mail reached INBOX.
+
+
+==================================================================
+  STEP 8/8 | Final summary and original configuration
+==================================================================
+  [OK] GTUBE without filtering -> INBOX
+  [OK] GTUBE with filtering -> Quarantine
+  [OK] Legitimate email -> INBOX
+  [OK] Prometheus MailQuarantineActivity -> FIRING
+  [OK] Operational alert -> INBOX
+  [OK] Unauthenticated webhook -> 401; replay -> 0 new notifications
+  [OK] Wazuh quarantine / delivery / notification events
+  [OK] Wazuh 100620 -> native firewall-drop -> automatic removal after 20 seconds
+  [OK] Wazuh 100610 -> automatic SpamAssassin recovery -> 100611
+  [OK] Post-recovery GTUBE -> Quarantine; legitimate mail -> INBOX
+  [POSTFIX FINAL] smtp/inet/content_filter = spamassassin:filter
+  [SHA-256 BEFORE] 3e91db12c47fd9f4a38924173eae9da31380f2edbe9ea2c2c61101695a04d38b  /etc/postfix/master.cf
+  [SHA-256 AFTER] 3e91db12c47fd9f4a38924173eae9da31380f2edbe9ea2c2c61101695a04d38b  /etc/postfix/master.cf
+  [OK] Postfix configuration restored with an identical SHA-256 hash
+[RESULTS AND EVIDENCE] /home/tiago/security-monitoring-platform/scripts/scenarios/03-spam/demo/results/bash-20261122T122418Z-5bbf211e9927
+  smtp-containment/                - native firewall rules, failed SMTP and recovery
+  flow.log                         - complete run stdout
+  messages/index.tsv              - Message-ID -> folder -> doveadm evidence
+  messages/*-doveadm-fetch.txt     - actual content read from Maildir
+  messages/*-uids-*                - expected/opposite Dovecot folder searches
+  messages/*-audit.json            - actual observer event
+  prometheus-firing.json           - FIRING alert from the API
+  notification.txt                 - actual operational email
+  wazuh-events.jsonl              - actual manager alerts
+  webhook-without-auth-http-status.txt - HTTP 401 evidence
+  webhook-replayed.json           - replay with submitted=0
+  mastercf-sha256-{before,final}.txt - Postfix integrity
+  recovery-service-stopped.json    - observed outage with the Wazuh agent active
+  recovery-pair.json               - matched outage and successful response
+  wazuh-recovery-events.jsonl      - correlated Wazuh 100610 / 100611 records
+  recovery-service-after.json      - service state and local scan verification
+  wazuh-recovery-deliveries.jsonl  - actual post-recovery message audit
+
+  EMAIL DISTRIBUTION (evidence: Dovecot searches by Message-ID)
+    GTUBE -> INBOX         |█░░░░| 1
+    GTUBE -> Quarantine    |████░| 4
+    Legitimate -> INBOX    |███░░| 3
+    Notification -> INBOX  |█░░░░| 1
+  Note: shows verified deliveries before any optional release.
+[DONE] Demonstration completed with corroborating evidence.
+
+[CLEANUP] Original Postfix filter confirmed.
+[RESULTS AND EVIDENCE] /home/tiago/security-monitoring-platform/scripts/scenarios/03-spam/demo/results/bash-20261122T122418Z-5bbf211e9927

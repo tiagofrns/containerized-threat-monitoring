@@ -1,0 +1,77 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 414B done
+#1 DONE 0.2s
+
+#2 [internal] load metadata for docker.io/library/python:3.13-slim-bookworm
+#2 DONE 0.4s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 74B done
+#3 DONE 0.4s
+
+#4 [internal] load build context
+#4 transferring context: 8.99kB done
+#4 DONE 0.3s
+
+#5 [1/6] FROM docker.io/library/python:3.13-slim-bookworm@sha256:a5a7017efc5969e00ae2b91c8eb0631049a569652aa4ffc4501769049ae45c72
+#5 resolve docker.io/library/python:3.13-slim-bookworm@sha256:a5a7017efc5969e00ae2b91c8eb0631049a569652aa4ffc4501769049ae45c72 0.2s done
+#5 DONE 0.3s
+
+#6 [2/6] WORKDIR /app
+#6 CACHED
+
+#7 [3/6] COPY requirements.txt .
+#7 DONE 0.1s
+
+#8 [4/6] RUN pip install --no-cache-dir -r requirements.txt
+#8 2.988 Collecting prometheus-client (from -r requirements.txt (line 1))
+#8 3.389   Downloading prometheus_client-0.26.0-py3-none-any.whl.metadata (2.1 kB)
+#8 3.723 Collecting requests (from -r requirements.txt (line 2))
+#8 3.826   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+#8 5.270 Collecting charset_normalizer<4,>=2 (from requests->-r requirements.txt (line 2))
+#8 5.336   Downloading charset_normalizer-3.5.2-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+#8 5.818 Collecting idna<4,>=2.5 (from requests->-r requirements.txt (line 2))
+#8 5.905   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+#8 6.123 Collecting urllib3<3,>=1.26 (from requests->-r requirements.txt (line 2))
+#8 6.220   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+#8 6.396 Collecting certifi>=2023.5.7 (from requests->-r requirements.txt (line 2))
+#8 6.482   Downloading certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+#8 6.571 Downloading prometheus_client-0.26.0-py3-none-any.whl (64 kB)
+#8 6.971 Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+#8 7.424 Downloading charset_normalizer-3.5.2-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (254 kB)
+#8 8.559 Downloading idna-3.20-py3-none-any.whl (69 kB)
+#8 8.878 Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+#8 9.309 Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
+#8 9.889 Installing collected packages: urllib3, prometheus-client, idna, charset_normalizer, certifi, requests
+#8 10.48 
+#8 10.48 Successfully installed certifi-2026.10.23 charset_normalizer-3.5.2 idna-3.20 prometheus-client-0.26.0 requests-2.34.2 urllib3-2.8.0
+#8 10.48 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#8 10.48 
+#8 10.48 [notice] A new release of pip is available: 26.2.2 -> 26.3
+#8 10.48 [notice] To update, run: pip install --upgrade pip
+#8 DONE 10.6s
+
+#9 [5/6] RUN useradd --system --uid 10001 --user-group --no-create-home --shell /usr/sbin/nologin ssle
+#9 0.825 useradd warning: ssle's uid 10001 is greater than SYS_UID_MAX 999
+#9 DONE 1.3s
+
+#10 [6/6] COPY health_exporter.py resource_exporter.py client.py /app/
+#10 DONE 0.5s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 2.9s done
+#11 exporting manifest sha256:7cedd712af50060eb4e832c47473c988d96894be48f017f74df6774e8e81ecdd 0.1s done
+#11 exporting config sha256:3b5aecd7df83a3c9bc30e75aec63a83091c71772bff9af9fbcf99e27c0ef07b1 0.1s done
+#11 exporting attestation manifest sha256:e233bef4e2d23b07115754337cad6281353b6c1195f0ef129306363e5309782a
+#11 exporting attestation manifest sha256:e233bef4e2d23b07115754337cad6281353b6c1195f0ef129306363e5309782a 0.1s done
+#11 exporting manifest list sha256:6b6b0ef60ebb966c8584f078a11c2448edbad1fb5c6307699bdc6199a9e5e173
+#11 exporting manifest list sha256:6b6b0ef60ebb966c8584f078a11c2448edbad1fb5c6307699bdc6199a9e5e173 0.1s done
+#11 naming to docker.io/library/ssle-monitoring:case1-final-v1 done
+#11 unpacking to docker.io/library/ssle-monitoring:case1-final-v1
+#11 unpacking to docker.io/library/ssle-monitoring:case1-final-v1 0.5s done
+#11 DONE 4.0s

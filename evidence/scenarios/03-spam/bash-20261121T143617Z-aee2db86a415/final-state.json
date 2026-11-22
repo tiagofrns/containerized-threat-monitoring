@@ -1,0 +1,86 @@
+{
+  "verified_utc": "2026-11-21T14:54:43.479531+00:00",
+  "mail_services": [
+    "active",
+    "active",
+    "active",
+    "active",
+    "active"
+  ],
+  "postconf_n": "alias_database = hash:/etc/aliases\nalias_maps = hash:/etc/aliases\nappend_dot_mydomain = no\nbiff = no\ncompatibility_level = 3.6\ndefault_transport = error:5.7.1 External delivery disabled\ninet_interfaces = loopback-only\ninet_protocols = ipv4\nmailbox_size_limit = 0\nmailbox_transport = lmtp:unix:private/dovecot-lmtp\nmessage_size_limit = 262144\nmydestination = $myhostname, localhost.localdomain, localhost\nmydomain = lab.test\nmyhostname = mail.lab.test\nmynetworks = 127.0.0.0/8\nmyorigin = /etc/mailname\nreadme_directory = no\nrecipient_delimiter = +\nrelay_transport = error:5.7.1 External delivery disabled\nrelayhost =\nsmtp_tls_CApath = /etc/ssl/certs\nsmtp_tls_security_level = may\nsmtp_tls_session_cache_database = btree:${data_directory}/smtp_scache\nsmtpd_banner = $myhostname ESMTP $mail_name (Ubuntu)\nsmtpd_relay_restrictions = reject_unauth_destination\nsmtpd_tls_cert_file = /etc/ssl/certs/ssl-cert-snakeoil.pem\nsmtpd_tls_key_file = /etc/ssl/private/ssl-cert-snakeoil.key\nsmtpd_tls_security_level = may\n",
+  "postconf_M": "smtp       inet  n       -       y       -       -       smtpd -o content_filter=spamassassin:filter\npickup     unix  n       -       y       60      1       pickup\ncleanup    unix  n       -       y       -       0       cleanup\nqmgr       unix  n       -       n       300     1       qmgr\ntlsmgr     unix  -       -       y       1000?   1       tlsmgr\nrewrite    unix  -       -       y       -       -       trivial-rewrite\nbounce     unix  -       -       y       -       0       bounce\ndefer      unix  -       -       y       -       0       bounce\ntrace      unix  -       -       y       -       0       bounce\nverify     unix  -       -       y       -       1       verify\nflush      unix  n       -       y       1000?   0       flush\nproxymap   unix  -       -       n       -       -       proxymap\nproxywrite unix  -       -       n       -       1       proxymap\nsmtp       unix  -       -       y       -       -       smtp\nrelay      unix  -       -       y       -       -       smtp -o syslog_name=postfix/$service_name\nshowq      unix  n       -       y       -       -       showq\nerror      unix  -       -       y       -       -       error\nretry      unix  -       -       y       -       -       error\ndiscard    unix  -       -       y       -       -       discard\nlocal      unix  -       n       n       -       -       local\nvirtual    unix  -       n       n       -       -       virtual\nlmtp       unix  -       -       y       -       -       lmtp\nanvil      unix  -       -       y       -       1       anvil\nscache     unix  -       -       y       -       1       scache\npostlog    unix-dgram n  -       n       -       1       postlogd\nmaildrop   unix  -       n       n       -       -       pipe flags=DRXhu user=vmail argv=/usr/bin/maildrop -d ${recipient}\nuucp       unix  -       n       n       -       -       pipe flags=Fqhu user=uucp argv=uux -r -n -z -a$sender - $nexthop!rmail ($recipient)\nifmail     unix  -       n       n       -       -       pipe flags=F user=ftn argv=/usr/lib/ifmail/ifmail -r $nexthop ($recipient)\nbsmtp      unix  -       n       n       -       -       pipe flags=Fq. user=bsmtp argv=/usr/lib/bsmtp/bsmtp -t$nexthop -f$sender $recipient\nscalemail-backend unix - n       n       -       2       pipe flags=R user=scalemail argv=/usr/lib/scalemail/bin/scalemail-store ${nexthop} ${user} ${extension}\nmailman    unix  -       n       n       -       -       pipe flags=FRX user=list argv=/usr/lib/mailman/bin/postfix-to-mailman.py ${nexthop} ${user}\nspamassassin unix -      n       n       -       5       pipe flags=Rq user=spamd argv=/usr/bin/python3 /opt/mail-security/mail_filter.py ${sender} ${recipient}\n",
+  "postconf_P": "smtp/inet/content_filter = spamassassin:filter\nrelay/unix/syslog_name = postfix/$service_name\n",
+  "master_cf_sha256": "d4b683ec19db87f3c521b2ad85169b7b509f2c97c56b72d4e5aadd1db93cd262",
+  "queue": [],
+  "packages": [
+    "dovecot-core\t1:2.3.16+dfsg1-3ubuntu2.9",
+    "dovecot-lmtpd\t1:2.3.16+dfsg1-3ubuntu2.9",
+    "dovecot-sieve\t1:2.3.16+dfsg1-3ubuntu2.9",
+    "postfix\t3.6.4-1ubuntu1.4",
+    "spamassassin\t3.4.6-1ubuntu0.22.04.1",
+    "wazuh-agent\t4.14.10-1"
+  ],
+  "metrics": "# TYPE mail_security_events_total counter\nmail_security_events_total{outcome=\"delivered\"} 15\nmail_security_events_total{outcome=\"quarantined\"} 15\nmail_security_events_total{outcome=\"released\"} 3\nmail_security_events_total{outcome=\"notification_submitted\"} 4\nmail_security_events_total{outcome=\"notification_failed\"} 0\n# TYPE mail_quarantine_messages gauge\nmail_quarantine_messages 12\n",
+  "alerts": [
+    {
+      "labels": {
+        "alertname": "DNSExporterUnavailable",
+        "instance": "127.0.0.1:34553",
+        "job": "dns_client",
+        "mode": "bridge-validation",
+        "severity": "warning",
+        "test_run": "20261120T194747668809Z"
+      },
+      "annotations": {
+        "summary": "Prometheus cannot scrape the DNS evaluation client"
+      },
+      "state": "firing",
+      "activeAt": "2026-11-21T13:19:23.279617992Z",
+      "value": "0e+00"
+    }
+  ],
+  "final_message_folders": {
+    "unprotected": {
+      "message_id": "<ssle-aee2db86a415-sem-filtro@mail.lab.test>",
+      "INBOX": [
+        "8036b313de9c016b97180000a6ebfbdf 15"
+      ],
+      "Quarantine": []
+    },
+    "legitimate": {
+      "message_id": "<ssle-aee2db86a415-legitimo@mail.lab.test>",
+      "INBOX": [
+        "8036b313de9c016b97180000a6ebfbdf 16"
+      ],
+      "Quarantine": []
+    },
+    "released": {
+      "message_id": "<ssle-aee2db86a415-spam1@mail.lab.test>",
+      "INBOX": [
+        "8036b313de9c016b97180000a6ebfbdf 18"
+      ],
+      "Quarantine": []
+    },
+    "forged_clean": {
+      "message_id": "<ssle-aee2db86a415-spam2@mail.lab.test>",
+      "INBOX": [],
+      "Quarantine": [
+        "b0cacf0a069d016b97180000a6ebfbdf 14"
+      ]
+    },
+    "repeated": {
+      "message_id": "<ssle-aee2db86a415-spam3@mail.lab.test>",
+      "INBOX": [],
+      "Quarantine": [
+        "b0cacf0a069d016b97180000a6ebfbdf 15"
+      ]
+    },
+    "notification": {
+      "message_id": "<incident-998006abf836b2a4249d024b3116cf847637b15168f1b213d264b0fc41bb4c46@mail.lab.test>",
+      "INBOX": [
+        "8036b313de9c016b97180000a6ebfbdf 17"
+      ],
+      "Quarantine": []
+    }
+  }
+}

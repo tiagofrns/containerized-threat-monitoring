@@ -1,0 +1,31 @@
+prometheus-alertmanager	0.28.1+ds-1
+wazuh-agent	4.14.10-1
+Checking '/etc/prometheus/alertmanager.yml'  SUCCESS
+Found:
+ - global config
+ - route
+ - 0 inhibit rules
+ - 2 receivers
+ - 0 templates
+
+Synchronizing state of prometheus-alertmanager.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable prometheus-alertmanager
+active
+active
+active
+wazuh-agent was already set on hold.
+2026/11/19 21:35:06 wazuh-analysisd: INFO: Rule tree threshold 'analysisd.rule_tree_memory_warning' set to 65102624 nodes: 25% of 7947 MiB of physical memory, 32 bytes per node.
+Checking /etc/prometheus/tmpf5r244ui.yml
+  SUCCESS: 3 rule files found
+ SUCCESS: /etc/prometheus/tmpf5r244ui.yml is valid prometheus config file syntax
+
+Checking /etc/prometheus/bridge_alerts.yml
+  SUCCESS: 2 rules found
+
+Checking /etc/prometheus/dns_alerts.yml
+  SUCCESS: 4 rules found
+
+Checking /etc/prometheus/ssle-alerts.yml
+  SUCCESS: 4 rules found
+
+Backup directory: /root/before-alert-bridge-20261119T213504Z

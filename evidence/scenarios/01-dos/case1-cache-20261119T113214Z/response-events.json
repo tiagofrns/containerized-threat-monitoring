@@ -1,0 +1,21 @@
+[
+  {
+    "timestamp": "2026-11-19T11:32:49.191432+00:00",
+    "integration": "ssle-analytics-cache",
+    "action": "add",
+    "event_id": "1795087969.2045913",
+    "rule_id": "100121",
+    "node": "k3s-node1",
+    "result": "enabled",
+    "expires_at": 1795088029.1881022
+  },
+  {
+    "timestamp": "2026-11-19T11:33:50.296264+00:00",
+    "integration": "ssle-analytics-cache",
+    "action": "delete",
+    "event_id": "1795087969.2045913",
+    "rule_id": "100121",
+    "node": "k3s-node1",
+    "result": "disabled"
+  }
+]

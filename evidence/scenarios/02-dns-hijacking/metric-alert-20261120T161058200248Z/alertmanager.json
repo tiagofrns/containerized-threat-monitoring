@@ -1,0 +1,30 @@
+{
+  "annotations": {},
+  "endsAt": "2026-11-20T16:16:36.844Z",
+  "fingerprint": "3d49a56e49ebc3ad",
+  "receivers": [
+    {
+      "name": "wazuh"
+    }
+  ],
+  "startsAt": "2026-11-20T16:12:36.844Z",
+  "status": {
+    "inhibitedBy": [],
+    "mutedBy": [],
+    "silencedBy": [],
+    "state": "active"
+  },
+  "updatedAt": "2026-11-20T16:12:42.705Z",
+  "generatorURL": "http://prometheus-container:9090/graph?g0.expr=%28increase%28dns_sec_client_requests_total%7Bjob%3D%22dns_client%22%2Coutcome%3D%22dns_rejected%22%7D%5B1m%5D%29+%3E%3D+2%29+and+on+%28job%2C+instance%29+%28dns_sec_resolution_expected%7Bjob%3D%22dns_client%22%7D+%3D%3D+0%29+and+on+%28job%2C+instance%29+%28up%7Bjob%3D%22dns_client%22%7D+%3D%3D+1%29+and+on+%28job%2C+instance%29+%28time%28%29+-+dns_sec_last_check_timestamp_seconds%7Bjob%3D%22dns_client%22%7D+%3C+20%29&g0.tab=1",
+  "labels": {
+    "alertname": "DNSPolicyRejections",
+    "bridge": "wazuh",
+    "instance": "127.0.0.1:38615",
+    "job": "dns_client",
+    "mode": "bridge-validation",
+    "outcome": "dns_rejected",
+    "scope": "dns",
+    "severity": "warning",
+    "test_run": "20261120T161058200248Z"
+  }
+}

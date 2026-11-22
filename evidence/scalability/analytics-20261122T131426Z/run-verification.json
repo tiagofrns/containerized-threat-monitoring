@@ -1,0 +1,9 @@
+{
+  "exit_code": 0,
+  "recorded_at": "2026-11-22T13:30:32.474926+00:00",
+  "source_sha256": {
+    "tests/scalability/run-analytics-scaling.py": "2bb2282b89c6453449323351cb0bcfb4850bfc9a5a73affa66edfcd68b441a9d"
+  },
+  "measured_reads": 1080,
+  "completed_trials": 18
+}

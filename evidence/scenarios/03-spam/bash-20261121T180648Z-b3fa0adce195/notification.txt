@@ -1,0 +1,39 @@
+text:
+Return-Path: <monitoring@mail.lab.test>
+Delivered-To: security-operations@mail.lab.test
+Received: from mail.lab.test
+	by mail-container with LMTP
+	id 2ONNGRLeAWviOgAApuv73w
+	(envelope-from <monitoring@mail.lab.test>)
+	for <security-operations@mail.lab.test>; Sat, 21 Nov 2026 18:08:18 +0000
+Received: by mail.lab.test (Postfix, from userid 110)
+	id 6505411FFFF; Sat, 21 Nov 2026 18:08:18 +0000 (UTC)
+X-Spam-Checker-Version: SpamAssassin 3.4.6 (2021-04-09) on mail-container
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham
+	autolearn_force=no version=3.4.6
+Received: from [127.0.1.1] (localhost [127.0.0.1])	by mail.lab.test (Postfix)
+ with ESMTP id 36E1811F640	for <security-operations@mail.lab.test>; Sat, 21
+ Nov 2026 18:08:18 +0000 (UTC)
+From: Monitoring Service <monitoring@mail.lab.test>
+To: security-operations@mail.lab.test
+Date: Sat, 21 Nov 2026 18:08:18 +0000
+Message-ID: <incident-57f1e9438e0f6611bc27ef608add1290e26dd77583e57cc0948c442fdf44ed04@mail.lab.test>
+Subject: [Security Operations] Mail quarantine activity
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+
+Dear Security Operations Team,
+
+Monitoring has detected a condition requiring review.
+
+Incident: Mail quarantine activity
+Severity: warning
+Detected at: 2026-11-21T18:07:50.003950993Z
+Affected target: 10.171.72.142:9096
+
+Please review the monitoring dashboard and the associated security events.
+
+Regards,
+Monitoring Service

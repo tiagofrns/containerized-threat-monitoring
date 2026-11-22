@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-11-19T20:57:08.066036+00:00",
+  "scope": "Sixty-second normal observation on the shared VM, with no extra traffic",
+  "passed": true,
+  "duration_seconds": 60.070631694999975,
+  "samples": 13,
+  "outcome_deltas": {
+    "success": 12.0,
+    "dns_failure": 0.0,
+    "dns_rejected": 0.0,
+    "http_error": 0.0,
+    "invalid_response": 0.0
+  },
+  "mean_request_ms": 19.157514000047133,
+  "mean_cpu_cores": 0.0036513849415413593,
+  "mean_memory_bytes": 11845001.846153846,
+  "max_memory_bytes": 11853824,
+  "process_unchanged": true,
+  "custom_metric_series": 10,
+  "finished_utc": "2026-11-19T20:58:08.137061+00:00",
+  "limitations": [
+    "Shared VM observational baseline, not isolated capacity or CPU-savings proof",
+    "Latency has sum/count only; no tail-percentile estimate is claimed"
+  ]
+}

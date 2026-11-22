@@ -1,0 +1,63 @@
+{
+  "steps": [
+    {
+      "args": [
+        "delete",
+        "deployment",
+        "analytics-scaling-261122t131426-109247",
+        "--ignore-not-found=true",
+        "--wait=true",
+        "--timeout=90s"
+      ],
+      "exit_code": 0,
+      "output": "deployment.apps \"analytics-scaling-261122t131426-109247\" deleted from ssle namespace\n"
+    },
+    {
+      "args": [
+        "delete",
+        "pods",
+        "-l",
+        "app=analytics-scaling-261122t131426-109247",
+        "--ignore-not-found=true",
+        "--wait=true",
+        "--timeout=90s"
+      ],
+      "exit_code": 0,
+      "output": "pod \"analytics-scaling-261122t131426-109247-7c5454cb6b-4ct5v\" deleted from ssle namespace\npod \"analytics-scaling-261122t131426-109247-7c5454cb6b-6vm6b\" deleted from ssle namespace\npod \"analytics-scaling-261122t131426-109247-7c5454cb6b-mqtdp\" deleted from ssle namespace\npod \"analytics-scaling-261122t131426-109247-7c5454cb6b-nkw2t\" deleted from ssle namespace\n"
+    },
+    {
+      "args": [
+        "delete",
+        "service",
+        "analytics-scaling-261122t131426-109247",
+        "--ignore-not-found=true"
+      ],
+      "exit_code": 0,
+      "output": "service \"analytics-scaling-261122t131426-109247\" deleted from ssle namespace\n"
+    },
+    {
+      "args": [
+        "delete",
+        "pod",
+        "analytics-scaling-261122t131426-109247-client",
+        "--ignore-not-found=true",
+        "--wait=true",
+        "--timeout=90s"
+      ],
+      "exit_code": 0,
+      "output": "pod \"analytics-scaling-261122t131426-109247-client\" deleted from ssle namespace\n"
+    },
+    {
+      "node": "k3s-master",
+      "directory": "/var/lib/analytics-protection/analytics-scaling-261122t131426-109247",
+      "exit_code": 0
+    },
+    {
+      "node": "k3s-node1",
+      "directory": "/var/lib/analytics-protection/analytics-scaling-261122t131426-109247",
+      "exit_code": 0
+    }
+  ],
+  "production_specs_unchanged": true,
+  "production_pods_unchanged": true
+}

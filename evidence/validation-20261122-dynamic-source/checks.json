@@ -1,0 +1,19 @@
+{
+  "unit_tests_passed": 118,
+  "live_flow_exit_code": 0,
+  "live_run": "bash-20261122T115723Z-0a058155fc73",
+  "test_source_ip": "10.171.72.61",
+  "normal_client_address_restored": "10.171.72.60",
+  "detection_rule_contains_sender_ip_literal": false,
+  "source_selected_from_authenticated_postfix_connection": true,
+  "protected_sources": [
+    "loopback",
+    "local server interfaces",
+    "unspecified",
+    "multicast",
+    "link-local",
+    "reserved"
+  ],
+  "configured_timeout_seconds": 20,
+  "observed_remaining_block_seconds": 20.895
+}

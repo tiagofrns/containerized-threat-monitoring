@@ -1,0 +1,10 @@
+[Unit]
+Description=DNS scenario demonstration page
+
+[Service]
+DynamicUser=yes
+ExecStart=/usr/bin/python3 /opt/dns-fake-site/dns-demo-fake-site.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

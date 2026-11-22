@@ -1,0 +1,6 @@
+{
+  "recorded_at": "2026-11-22T13:30:32.475050+00:00",
+  "dns_services": "active\nactive\nactive",
+  "dns_hashes": "0386377711b590148241a718f5791d415530e9ff4f94753529da3a40bc7d8ad6  /etc/dnsmasq.d/dns_sec.conf\n0386377711b590148241a718f5791d415530e9ff4f94753529da3a40bc7d8ad6  /var/lib/dns_sec/approved.conf",
+  "k3s_nodes": "NAME         STATUS   ROLES           AGE   VERSION        INTERNAL-IP      EXTERNAL-IP   OS-IMAGE                       KERNEL-VERSION                 CONTAINER-RUNTIME\nk3s-master   Ready    control-plane   33d   v1.36.5+k3s1   10.255.255.74    <none>        Debian GNU/Linux 13 (trixie)   6.12.113+deb13-amd64 (amd64)   containerd://2.3.4-k3s1.36\nk3s-node1    Ready    <none>          33d   v1.36.5+k3s1   10.255.255.254   <none>        Debian GNU/Linux 13 (trixie)   6.12.113+deb13-amd64 (amd64)   containerd://2.3.4-k3s1.36"
+}

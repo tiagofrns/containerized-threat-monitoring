@@ -1,0 +1,22 @@
+[
+  {
+    "integration": "dns_restore",
+    "event": "response",
+    "result": "already_approved",
+    "alert_id": "1795124451.23849315",
+    "bridge_episode": "27eb9ae7cdec9b1ecfad7bb92779c80506a64ebe585efead8399ebd9d1923f39",
+    "timestamp": "2026-11-19T21:40:51.507404+00:00",
+    "duration_seconds": 0.00032814699989103246
+  },
+  {
+    "timestamp": "2026-11-19T21:40:53.491294+00:00",
+    "integration": "ssle-analytics-cache",
+    "action": "add",
+    "event_id": "1795124453.23850830",
+    "rule_id": "100150",
+    "node": "k3s-node1",
+    "result": "enabled",
+    "expires_at": 1795124513.4873245,
+    "bridge_episode": "1a7e97465135e52543f8bbded0b52b7e012b081be43a7794825df81bbd959255"
+  }
+]

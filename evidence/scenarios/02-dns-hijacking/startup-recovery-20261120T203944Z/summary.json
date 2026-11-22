@@ -1,0 +1,192 @@
+{
+  "started_utc": "2026-11-20T20:39:44.037584+00:00",
+  "version": "wazuh-agent\t4.14.10-1",
+  "clean_start": [
+    "{\"result\": \"already_approved\"}",
+    "wazuh-agent: active",
+    "dns_client: active",
+    "{\"integration\": \"dns_client\", \"event\": \"check\", \"timestamp\": \"2026-11-20T20:39:44.491725+00:00\", \"dns_name\": \"analytics.lab.test\", \"dns_expected\": true, \"outcome\": \"success\", \"observed_addresses\": [\"10.255.255.74\"], \"average_temperature\": 25.12, \"peer_ip\": \"10.255.255.74\", \"http_status\": 200, \"duration_seconds\": 0.015215958999760915}"
+  ],
+  "approved_sha256": "0386377711b590148241a718f5791d415530e9ff4f94753529da3a40bc7d8ad6",
+  "changed_sha256": "748b29eb5504da1bccc60ad976355952d581d4e08ff62f3ac8b4e73de264458f",
+  "dns_mapping_changed": false,
+  "before_change_agent": [
+    "MainPID=0",
+    "ActiveState=inactive"
+  ],
+  "start_script_sha256": "6c92dbe31b87aedfe294fc05e6f1292b1f492cad6d458f3ef2e133ff71ab3afc",
+  "changed_utc": "2026-11-20T20:39:46.437550+00:00",
+  "after_change_agent": [
+    "MainPID=0",
+    "ActiveState=inactive"
+  ],
+  "start_invoked_utc": "2026-11-20T20:39:46.498283+00:00",
+  "start": {
+    "exit_code": 0,
+    "stdout": "{\"integration\": \"dns_restore\", \"event\": \"response\", \"result\": \"restored\", \"alert_id\": \"1795207191.21454471\", \"startup_id\": \"4f6f20ad0001e2719fdd902263ef021f\", \"before_sha256\": \"748b29eb5504da1bccc60ad976355952d581d4e08ff62f3ac8b4e73de264458f\", \"after_sha256\": \"0386377711b590148241a718f5791d415530e9ff4f94753529da3a40bc7d8ad6\", \"verification\": {\"integration\": \"dns_client\", \"event\": \"check\", \"timestamp\": \"2026-11-20T20:39:51.837181+00:00\", \"dns_name\": \"analytics.lab.test\", \"dns_expected\": true, \"outcome\": \"success\", \"observed_addresses\": [\"10.255.255.74\"], \"average_temperature\": 25.12, \"peer_ip\": \"10.255.255.74\", \"http_status\": 200, \"duration_seconds\": 0.015059233000101813}, \"timestamp\": \"2026-11-20T20:39:51.859021+00:00\", \"duration_seconds\": 0.1373256090000723}\nwazuh-agent: active\ndns_client: active\n{\"integration\": \"dns_client\", \"event\": \"check\", \"timestamp\": \"2026-11-20T20:39:52.024170+00:00\", \"dns_name\": \"analytics.lab.test\", \"dns_expected\": true, \"outcome\": \"success\", \"observed_addresses\": [\"10.255.255.74\"], \"average_temperature\": 25.12, \"peer_ip\": \"10.255.255.74\", \"http_status\": 200, \"duration_seconds\": 0.021229491999292804}\n",
+    "stderr": ""
+  },
+  "verification_utc": "2026-11-20T20:39:52.481189+00:00",
+  "startup_alerts": [
+    {
+      "timestamp": "2026-11-20T20:39:51.689+0000",
+      "rule": {
+        "level": 7,
+        "description": "Temperature service DNS configuration differs from approved policy at startup.",
+        "id": "100145",
+        "firedtimes": 1,
+        "mail": false,
+        "groups": [
+          "dns_sec",
+          "dns"
+        ]
+      },
+      "agent": {
+        "id": "004",
+        "name": "dns-server-container",
+        "ip": "10.171.72.8"
+      },
+      "manager": {
+        "name": "wazuh-container"
+      },
+      "id": "1795207191.21454471",
+      "full_log": "{\"integration\":\"dns_integrity\",\"event\":\"startup_mismatch\",\"file_path\":\"/etc/dnsmasq.d/dns_sec.conf\",\"startup_id\":\"4f6f20ad0001e2719fdd902263ef021f\",\"before_sha256\":\"748b29eb5504da1bccc60ad976355952d581d4e08ff62f3ac8b4e73de264458f\",\"approved_sha256\":\"0386377711b590148241a718f5791d415530e9ff4f94753529da3a40bc7d8ad6\",\"timestamp\":\"2026-11-20T20:39:50.706832+00:00\"}",
+      "decoder": {
+        "name": "json"
+      },
+      "data": {
+        "integration": "dns_integrity",
+        "event": "startup_mismatch",
+        "file_path": "/etc/dnsmasq.d/dns_sec.conf",
+        "startup_id": "4f6f20ad0001e2719fdd902263ef021f",
+        "before_sha256": "748b29eb5504da1bccc60ad976355952d581d4e08ff62f3ac8b4e73de264458f",
+        "approved_sha256": "0386377711b590148241a718f5791d415530e9ff4f94753529da3a40bc7d8ad6",
+        "timestamp": "2026-11-20T20:39:50.706832+00:00"
+      },
+      "location": "/var/ossec/logs/dns_restore.jsonl"
+    }
+  ],
+  "response_audit": [
+    {
+      "integration": "dns_restore",
+      "event": "response",
+      "result": "restored",
+      "alert_id": "1795207191.21454471",
+      "startup_id": "4f6f20ad0001e2719fdd902263ef021f",
+      "before_sha256": "748b29eb5504da1bccc60ad976355952d581d4e08ff62f3ac8b4e73de264458f",
+      "after_sha256": "0386377711b590148241a718f5791d415530e9ff4f94753529da3a40bc7d8ad6",
+      "verification": {
+        "integration": "dns_client",
+        "event": "check",
+        "timestamp": "2026-11-20T20:39:51.837181+00:00",
+        "dns_name": "analytics.lab.test",
+        "dns_expected": true,
+        "outcome": "success",
+        "observed_addresses": [
+          "10.255.255.74"
+        ],
+        "average_temperature": 25.12,
+        "peer_ip": "10.255.255.74",
+        "http_status": 200,
+        "duration_seconds": 0.015059233000101813
+      },
+      "timestamp": "2026-11-20T20:39:51.859021+00:00",
+      "duration_seconds": 0.1373256090000723
+    }
+  ],
+  "automatic_restoration_verified": true,
+  "current_sha256_before_cleanup": "0386377711b590148241a718f5791d415530e9ff4f94753529da3a40bc7d8ad6",
+  "agent_state_after_start": [
+    "MainPID=0",
+    "ActiveState=active"
+  ],
+  "manager_continuously_observed_pid": "3435",
+  "same_manager_pid_after_test": true,
+  "agent_state_file": [
+    "# State file for wazuh-agentd",
+    "",
+    "# Agent status:",
+    "# - pending:      waiting to get connected.",
+    "# - connected:    connection established with manager in the last 20 seconds.",
+    "# - disconnected: connection lost or no ACK received in the last 60 seconds.",
+    "status='connected'",
+    "",
+    "# Last time a keepalive was sent",
+    "last_keepalive=''",
+    "",
+    "# Last time a control message was received",
+    "last_ack='2026-11-20 20:39:51'",
+    "",
+    "# Number of generated events",
+    "msg_count='170'",
+    "",
+    "# Number of messages (events + control messages) sent to the manager",
+    "msg_sent='172'",
+    "",
+    "# Number of events currently buffered",
+    "# Empty if anti-flooding mechanism is disabled",
+    "msg_buffer='0'"
+  ],
+  "new_fim_log": [
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: Started (pid: 7844).",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6003): Monitoring path: '/bin', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | scheduled'.",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6003): Monitoring path: '/boot', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | scheduled'.",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6003): Monitoring path: '/etc', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | scheduled'.",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6003): Monitoring path: '/etc/dnsmasq.d', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | report_changes | realtime'.",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6003): Monitoring path: '/sbin', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | scheduled'.",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6003): Monitoring path: '/usr/bin', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | scheduled'.",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6003): Monitoring path: '/usr/sbin', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | scheduled'.",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/mtab'",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/hosts.deny'",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/mail/statistics'",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/random-seed'",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/random.seed'",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/adjtime'",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/httpd/logs'",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/utmpx'",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/wtmpx'",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/cups/certs'",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/dumpdates'",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6206): Ignore 'file' entry '/etc/svc/volatile'",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6207): Ignore 'file' sregex '.log$|.swp$'",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6004): No diff for file: '/etc/shadow'",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6004): No diff for file: '/etc/shadow-'",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6004): No diff for file: '/etc/gshadow'",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6004): No diff for file: '/etc/gshadow-'",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6016): Directory set for real time monitoring: '/etc/dnsmasq.d'.",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6000): Starting daemon...",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6010): File integrity monitoring scan frequency: 43200 seconds",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6008): File integrity monitoring scan started.",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6009): File integrity monitoring scan ended.",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: FIM sync module started.",
+    "2026/11/20 20:39:47 wazuh-syscheckd: INFO: (6012): Real-time file integrity monitoring started."
+  ],
+  "approved_after_cleanup": true,
+  "final_services": [
+    "active",
+    "active",
+    "active"
+  ],
+  "final_client": {
+    "integration": "dns_client",
+    "event": "check",
+    "timestamp": "2026-11-20T20:39:53.039065+00:00",
+    "dns_name": "analytics.lab.test",
+    "dns_expected": true,
+    "outcome": "success",
+    "observed_addresses": [
+      "10.255.255.74"
+    ],
+    "average_temperature": 25.12,
+    "peer_ip": "10.255.255.74",
+    "http_status": 200,
+    "duration_seconds": 0.014803107000261662
+  },
+  "finished_utc": "2026-11-20T20:39:53.062783+00:00",
+  "deployed_sources_sha256": {
+    "scripts/scenarios/02-dns-hijacking/start-dns-protection.sh": "6c92dbe31b87aedfe294fc05e6f1292b1f492cad6d458f3ef2e133ff71ab3afc",
+    "security/dns_restore.py": "c1ba6217d8273771604b309743213d0114ee228e1fca3e447bbce762f531fcb4",
+    "security/wazuh-dns-rules.xml": "07ffa2bc6c6b8934d922f58c62ea3e2e70e67b509eb6ba1b34f97b9acdcf0812"
+  },
+  "dns_regression_tests_passed": 33
+}

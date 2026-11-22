@@ -1,0 +1,695 @@
+[
+  {
+    "observed_at": "2026-11-22T13:21:48.805506+00:00",
+    "pods": [
+      {
+        "uid": "3a6abf3d-a28c-453c-889d-80a59269207c",
+        "name": "analytics-scaling-261122t131426-109247-7c5454cb6b-mqtdp",
+        "node": "k3s-master",
+        "cpu": {
+          "time": "2026-11-22T13:21:40Z",
+          "usageNanoCores": 2989569,
+          "usageCoreNanoSeconds": 1475203000,
+          "psi": {
+            "full": {
+              "total": 255490,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 256400,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        },
+        "memory": {
+          "time": "2026-11-22T13:21:40Z",
+          "availableBytes": 81158144,
+          "usageBytes": 62345216,
+          "workingSetBytes": 53059584,
+          "rssBytes": 33890304,
+          "pageFaults": 14371,
+          "majorPageFaults": 144,
+          "psi": {
+            "full": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        }
+      },
+      {
+        "uid": "76b5160b-f82f-49cb-9b4b-8bf2a1af6b2a",
+        "name": "analytics-scaling-261122t131426-109247-7c5454cb6b-4ct5v",
+        "node": "k3s-node1",
+        "cpu": {
+          "time": "2026-11-22T13:21:44Z",
+          "usageNanoCores": 4004672,
+          "usageCoreNanoSeconds": 3212644000,
+          "psi": {
+            "full": {
+              "total": 444133,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 444860,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        },
+        "memory": {
+          "time": "2026-11-22T13:21:44Z",
+          "availableBytes": 98689024,
+          "usageBytes": 39129088,
+          "workingSetBytes": 35528704,
+          "rssBytes": 33992704,
+          "pageFaults": 16380,
+          "majorPageFaults": 0,
+          "psi": {
+            "full": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "observed_at": "2026-11-22T13:21:54.169677+00:00",
+    "pods": [
+      {
+        "uid": "3a6abf3d-a28c-453c-889d-80a59269207c",
+        "name": "analytics-scaling-261122t131426-109247-7c5454cb6b-mqtdp",
+        "node": "k3s-master",
+        "cpu": {
+          "time": "2026-11-22T13:21:40Z",
+          "usageNanoCores": 2989569,
+          "usageCoreNanoSeconds": 1475203000,
+          "psi": {
+            "full": {
+              "total": 255490,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 256400,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        },
+        "memory": {
+          "time": "2026-11-22T13:21:40Z",
+          "availableBytes": 81158144,
+          "usageBytes": 62345216,
+          "workingSetBytes": 53059584,
+          "rssBytes": 33890304,
+          "pageFaults": 14371,
+          "majorPageFaults": 144,
+          "psi": {
+            "full": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        }
+      },
+      {
+        "uid": "76b5160b-f82f-49cb-9b4b-8bf2a1af6b2a",
+        "name": "analytics-scaling-261122t131426-109247-7c5454cb6b-4ct5v",
+        "node": "k3s-node1",
+        "cpu": {
+          "time": "2026-11-22T13:21:44Z",
+          "usageNanoCores": 4004672,
+          "usageCoreNanoSeconds": 3212644000,
+          "psi": {
+            "full": {
+              "total": 444133,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 444860,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        },
+        "memory": {
+          "time": "2026-11-22T13:21:44Z",
+          "availableBytes": 98689024,
+          "usageBytes": 39129088,
+          "workingSetBytes": 35528704,
+          "rssBytes": 33992704,
+          "pageFaults": 16380,
+          "majorPageFaults": 0,
+          "psi": {
+            "full": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "observed_at": "2026-11-22T13:21:59.628194+00:00",
+    "pods": [
+      {
+        "uid": "3a6abf3d-a28c-453c-889d-80a59269207c",
+        "name": "analytics-scaling-261122t131426-109247-7c5454cb6b-mqtdp",
+        "node": "k3s-master",
+        "cpu": {
+          "time": "2026-11-22T13:21:40Z",
+          "usageNanoCores": 2989569,
+          "usageCoreNanoSeconds": 1475203000,
+          "psi": {
+            "full": {
+              "total": 255490,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 256400,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        },
+        "memory": {
+          "time": "2026-11-22T13:21:40Z",
+          "availableBytes": 81158144,
+          "usageBytes": 62345216,
+          "workingSetBytes": 53059584,
+          "rssBytes": 33890304,
+          "pageFaults": 14371,
+          "majorPageFaults": 144,
+          "psi": {
+            "full": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        }
+      },
+      {
+        "uid": "76b5160b-f82f-49cb-9b4b-8bf2a1af6b2a",
+        "name": "analytics-scaling-261122t131426-109247-7c5454cb6b-4ct5v",
+        "node": "k3s-node1",
+        "cpu": {
+          "time": "2026-11-22T13:21:56Z",
+          "usageNanoCores": 2173365,
+          "usageCoreNanoSeconds": 3237577000,
+          "psi": {
+            "full": {
+              "total": 445289,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 446016,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        },
+        "memory": {
+          "time": "2026-11-22T13:21:56Z",
+          "availableBytes": 98689024,
+          "usageBytes": 39129088,
+          "workingSetBytes": 35528704,
+          "rssBytes": 33992704,
+          "pageFaults": 16395,
+          "majorPageFaults": 0,
+          "psi": {
+            "full": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "observed_at": "2026-11-22T13:22:04.988900+00:00",
+    "pods": [
+      {
+        "uid": "3a6abf3d-a28c-453c-889d-80a59269207c",
+        "name": "analytics-scaling-261122t131426-109247-7c5454cb6b-mqtdp",
+        "node": "k3s-master",
+        "cpu": {
+          "time": "2026-11-22T13:21:59Z",
+          "usageNanoCores": 4949561,
+          "usageCoreNanoSeconds": 1567641000,
+          "psi": {
+            "full": {
+              "total": 258488,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 259398,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        },
+        "memory": {
+          "time": "2026-11-22T13:21:59Z",
+          "availableBytes": 81137664,
+          "usageBytes": 62365696,
+          "workingSetBytes": 53080064,
+          "rssBytes": 33910784,
+          "pageFaults": 14425,
+          "majorPageFaults": 144,
+          "psi": {
+            "full": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        }
+      },
+      {
+        "uid": "76b5160b-f82f-49cb-9b4b-8bf2a1af6b2a",
+        "name": "analytics-scaling-261122t131426-109247-7c5454cb6b-4ct5v",
+        "node": "k3s-node1",
+        "cpu": {
+          "time": "2026-11-22T13:21:56Z",
+          "usageNanoCores": 2173365,
+          "usageCoreNanoSeconds": 3237577000,
+          "psi": {
+            "full": {
+              "total": 445289,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 446016,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        },
+        "memory": {
+          "time": "2026-11-22T13:21:56Z",
+          "availableBytes": 98689024,
+          "usageBytes": 39129088,
+          "workingSetBytes": 35528704,
+          "rssBytes": 33992704,
+          "pageFaults": 16395,
+          "majorPageFaults": 0,
+          "psi": {
+            "full": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "observed_at": "2026-11-22T13:22:10.356647+00:00",
+    "pods": [
+      {
+        "uid": "3a6abf3d-a28c-453c-889d-80a59269207c",
+        "name": "analytics-scaling-261122t131426-109247-7c5454cb6b-mqtdp",
+        "node": "k3s-master",
+        "cpu": {
+          "time": "2026-11-22T13:21:59Z",
+          "usageNanoCores": 4949561,
+          "usageCoreNanoSeconds": 1567641000,
+          "psi": {
+            "full": {
+              "total": 258488,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 259398,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        },
+        "memory": {
+          "time": "2026-11-22T13:21:59Z",
+          "availableBytes": 81137664,
+          "usageBytes": 62365696,
+          "workingSetBytes": 53080064,
+          "rssBytes": 33910784,
+          "pageFaults": 14425,
+          "majorPageFaults": 144,
+          "psi": {
+            "full": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        }
+      },
+      {
+        "uid": "76b5160b-f82f-49cb-9b4b-8bf2a1af6b2a",
+        "name": "analytics-scaling-261122t131426-109247-7c5454cb6b-4ct5v",
+        "node": "k3s-node1",
+        "cpu": {
+          "time": "2026-11-22T13:21:56Z",
+          "usageNanoCores": 2173365,
+          "usageCoreNanoSeconds": 3237577000,
+          "psi": {
+            "full": {
+              "total": 445289,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 446016,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        },
+        "memory": {
+          "time": "2026-11-22T13:21:56Z",
+          "availableBytes": 98689024,
+          "usageBytes": 39129088,
+          "workingSetBytes": 35528704,
+          "rssBytes": 33992704,
+          "pageFaults": 16395,
+          "majorPageFaults": 0,
+          "psi": {
+            "full": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "observed_at": "2026-11-22T13:22:15.641555+00:00",
+    "pods": [
+      {
+        "uid": "3a6abf3d-a28c-453c-889d-80a59269207c",
+        "name": "analytics-scaling-261122t131426-109247-7c5454cb6b-mqtdp",
+        "node": "k3s-master",
+        "cpu": {
+          "time": "2026-11-22T13:22:13Z",
+          "usageNanoCores": 5715515,
+          "usageCoreNanoSeconds": 1650083000,
+          "psi": {
+            "full": {
+              "total": 262730,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 263813,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        },
+        "memory": {
+          "time": "2026-11-22T13:22:13Z",
+          "availableBytes": 81129472,
+          "usageBytes": 62373888,
+          "workingSetBytes": 53088256,
+          "rssBytes": 33914880,
+          "pageFaults": 14466,
+          "majorPageFaults": 144,
+          "psi": {
+            "full": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        }
+      },
+      {
+        "uid": "76b5160b-f82f-49cb-9b4b-8bf2a1af6b2a",
+        "name": "analytics-scaling-261122t131426-109247-7c5454cb6b-4ct5v",
+        "node": "k3s-node1",
+        "cpu": {
+          "time": "2026-11-22T13:22:13Z",
+          "usageNanoCores": 7288173,
+          "usageCoreNanoSeconds": 3363083000,
+          "psi": {
+            "full": {
+              "total": 449304,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 450031,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        },
+        "memory": {
+          "time": "2026-11-22T13:22:13Z",
+          "availableBytes": 98414592,
+          "usageBytes": 39403520,
+          "workingSetBytes": 35803136,
+          "rssBytes": 33992704,
+          "pageFaults": 16451,
+          "majorPageFaults": 0,
+          "psi": {
+            "full": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "observed_at": "2026-11-22T13:22:20.975733+00:00",
+    "pods": [
+      {
+        "uid": "3a6abf3d-a28c-453c-889d-80a59269207c",
+        "name": "analytics-scaling-261122t131426-109247-7c5454cb6b-mqtdp",
+        "node": "k3s-master",
+        "cpu": {
+          "time": "2026-11-22T13:22:13Z",
+          "usageNanoCores": 5715515,
+          "usageCoreNanoSeconds": 1650083000,
+          "psi": {
+            "full": {
+              "total": 262730,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 263813,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        },
+        "memory": {
+          "time": "2026-11-22T13:22:13Z",
+          "availableBytes": 81129472,
+          "usageBytes": 62373888,
+          "workingSetBytes": 53088256,
+          "rssBytes": 33914880,
+          "pageFaults": 14466,
+          "majorPageFaults": 144,
+          "psi": {
+            "full": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        }
+      },
+      {
+        "uid": "76b5160b-f82f-49cb-9b4b-8bf2a1af6b2a",
+        "name": "analytics-scaling-261122t131426-109247-7c5454cb6b-4ct5v",
+        "node": "k3s-node1",
+        "cpu": {
+          "time": "2026-11-22T13:22:13Z",
+          "usageNanoCores": 7288173,
+          "usageCoreNanoSeconds": 3363083000,
+          "psi": {
+            "full": {
+              "total": 449304,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 450031,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        },
+        "memory": {
+          "time": "2026-11-22T13:22:13Z",
+          "availableBytes": 98414592,
+          "usageBytes": 39403520,
+          "workingSetBytes": 35803136,
+          "rssBytes": 33992704,
+          "pageFaults": 16451,
+          "majorPageFaults": 0,
+          "psi": {
+            "full": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            },
+            "some": {
+              "total": 0,
+              "avg10": 0,
+              "avg60": 0,
+              "avg300": 0
+            }
+          }
+        }
+      }
+    ]
+  }
+]

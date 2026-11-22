@@ -1,0 +1,30 @@
+groups:
+  - name: response-bridge
+    rules:
+      - alert: AnalyticsClientImpact
+        expr: |
+          (sum(increase({__name__=~"(ssle_)?analytics_requests_total",job=~"(ssle-)?analytics",status="429"}[1m])) >= 5)
+          and
+          (sum(rate({__name__=~"(ssle_)?client_request_duration_seconds_sum",job=~"(ssle-)?client"}[1m]))
+           / sum(rate({__name__=~"(ssle_)?client_request_duration_seconds_count",job=~"(ssle-)?client"}[1m])) > 0.1)
+          and
+          (sum(increase({__name__=~"(ssle_)?client_request_duration_seconds_count",job=~"(ssle-)?client"}[1m])) >= 3)
+          and (min(up{job=~"(ssle-)?(analytics|client)"}) == 1)
+          and (count(up{job=~"(ssle-)?(analytics|client)"}) == 2)
+          and (max(max_over_time({__name__=~"(ssle_)?analytics_protection_active",job=~"(ssle-)?analytics"}[2m])) == 0)
+        for: 15s
+        labels:
+          bridge: wazuh
+          scope: analytics
+          severity: warning
+      - alert: DNSPolicyRejections
+        expr: |
+          (increase(dns_sec_client_requests_total{job="dns_client",outcome="dns_rejected"}[1m]) >= 2)
+          and on(job,instance) (dns_sec_resolution_expected{job="dns_client"} == 0)
+          and on(job,instance) (up{job="dns_client"} == 1)
+          and on(job,instance) (time() - dns_sec_last_check_timestamp_seconds{job="dns_client"} < 20)
+        for: 15s
+        labels:
+          bridge: wazuh
+          scope: dns
+          severity: warning

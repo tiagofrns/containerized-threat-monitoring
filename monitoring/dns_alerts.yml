@@ -1,0 +1,31 @@
+groups:
+  - name: dns_sec
+    rules:
+      - alert: DNSResolutionNotExpected
+        expr: dns_sec_resolution_expected{job="dns_client"} == 0
+        for: 15s
+        labels:
+          severity: warning
+        annotations:
+          summary: "The DNS check failed or the answer violates the approved address policy"
+      - alert: DNSApplicationReadFailed
+        expr: dns_sec_client_last_request_success{job="dns_client"} == 0
+        for: 15s
+        labels:
+          severity: warning
+        annotations:
+          summary: "The DNS evaluation client cannot obtain a valid analytics response"
+      - alert: DNSObservationStale
+        expr: (time() - dns_sec_last_check_timestamp_seconds{job="dns_client"} > 20) or absent(dns_sec_last_check_timestamp_seconds{job="dns_client"})
+        for: 15s
+        labels:
+          severity: warning
+        annotations:
+          summary: "The DNS/application observation is missing or stale"
+      - alert: DNSExporterUnavailable
+        expr: up{job="dns_client"} == 0
+        for: 15s
+        labels:
+          severity: warning
+        annotations:
+          summary: "Prometheus cannot scrape the DNS evaluation client"

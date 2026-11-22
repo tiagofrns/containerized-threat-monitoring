@@ -1,0 +1,22 @@
+[
+  {
+    "document": "README.md",
+    "links_valid": true,
+    "code_fences_balanced": true
+  },
+  {
+    "document": "docs/operations.md",
+    "links_valid": true,
+    "code_fences_balanced": true
+  },
+  {
+    "document": "docs/scenarios/README.md",
+    "links_valid": true,
+    "code_fences_balanced": true
+  },
+  {
+    "document": "docs/scenarios/01-dos/README.md",
+    "links_valid": true,
+    "code_fences_balanced": true
+  }
+]

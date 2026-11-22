@@ -1,0 +1,20 @@
+[TRIAL] replicas=1 mode=normal repeat=1 p95=13.813ms storage=60.0 cache_hits=0/60
+[TRIAL] replicas=1 mode=cache repeat=1 p95=9.697ms storage=6.0 cache_hits=54/60
+[TRIAL] replicas=1 mode=cache repeat=2 p95=12.090ms storage=6.0 cache_hits=54/60
+[TRIAL] replicas=1 mode=normal repeat=2 p95=13.849ms storage=60.0 cache_hits=0/60
+[TRIAL] replicas=1 mode=normal repeat=3 p95=13.779ms storage=60.0 cache_hits=0/60
+[TRIAL] replicas=1 mode=cache repeat=3 p95=10.197ms storage=6.0 cache_hits=54/60
+[TRIAL] replicas=2 mode=normal repeat=1 p95=14.796ms storage=60.0 cache_hits=0/60
+[TRIAL] replicas=2 mode=cache repeat=1 p95=11.669ms storage=12.0 cache_hits=48/60
+[TRIAL] replicas=2 mode=cache repeat=2 p95=13.396ms storage=11.0 cache_hits=49/60
+[TRIAL] replicas=2 mode=normal repeat=2 p95=14.367ms storage=60.0 cache_hits=0/60
+[TRIAL] replicas=2 mode=normal repeat=3 p95=13.704ms storage=60.0 cache_hits=0/60
+[TRIAL] replicas=2 mode=cache repeat=3 p95=13.454ms storage=12.0 cache_hits=48/60
+[TRIAL] replicas=4 mode=normal repeat=1 p95=13.984ms storage=60.0 cache_hits=0/60
+[TRIAL] replicas=4 mode=cache repeat=1 p95=13.565ms storage=20.0 cache_hits=40/60
+[TRIAL] replicas=4 mode=cache repeat=2 p95=14.202ms storage=19.0 cache_hits=41/60
+[TRIAL] replicas=4 mode=normal repeat=2 p95=14.674ms storage=60.0 cache_hits=0/60
+[TRIAL] replicas=4 mode=normal repeat=3 p95=14.519ms storage=60.0 cache_hits=0/60
+[TRIAL] replicas=4 mode=cache repeat=3 p95=13.163ms storage=19.0 cache_hits=41/60
+[PASS] Study completed; production unchanged and temporary resources removed.
+Evidence: /home/tiago/security-monitoring-platform/evidence/scalability/analytics-20261122T131426Z

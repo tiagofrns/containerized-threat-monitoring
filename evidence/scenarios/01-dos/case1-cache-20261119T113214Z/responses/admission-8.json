@@ -1,0 +1,10 @@
+{
+  "phase": "admission",
+  "ordinal": 8,
+  "utc": "2026-11-19T11:32:47.567381+00:00",
+  "status": 429,
+  "duration_ms": 1.3030059999437071,
+  "body": {
+    "error": "Too many requests"
+  }
+}

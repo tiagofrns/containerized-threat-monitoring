@@ -1,0 +1,34 @@
+text:
+Return-Path: <validation@mail.lab.test>
+Delivered-To: security-operations@mail.lab.test
+Received: from mail.lab.test
+	by mail-container with LMTP
+	id eEoIA8vYAmsqGgAApuv73w
+	(envelope-from <validation@mail.lab.test>)
+	for <security-operations@mail.lab.test>; Sun, 22 Nov 2026 11:58:03 +0000
+Received: by mail.lab.test (Postfix, from userid 110)
+	id 09D5011F2EB; Sun, 22 Nov 2026 11:58:03 +0000 (UTC)
+X-Spam-Checker-Version: SpamAssassin 3.4.6 (2021-04-09) on mail-container
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham
+	autolearn_force=no version=3.4.6
+Received: from [127.0.1.1] (smtp-client.incus [10.171.72.61])	by mail.lab.test
+ (Postfix) with ESMTP id E02F911EE68	for <security-operations@mail.lab.test>;
+ Sun, 22 Nov 2026 11:58:02 +0000 (UTC)
+From: validation@mail.lab.test
+To: security-operations@mail.lab.test
+Subject: SSLE DEMO | legitimate
+Message-ID: <ssle-0a058155fc73-legitimate@mail.lab.test>
+Date: Sun, 22 Nov 2026 11:58:02 +0000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+X-Mail-Filter-Origin: =?utf-8?q?eyJib2R5X3NoYTI1NiI6ICJmYjNjODQwYjhjNWI2Y2Rh?=
+ =?utf-8?q?OWRlZTk1ZDViN2NkNGY2ZjBiMDAzYmExMTA1MjEzOTJhN2NiNWFhOWMwOTFlMTAwI?=
+ =?utf-8?q?iwgIm1lc3NhZ2VfaWQiOiAiPHNzbGUtMGEwNTgxNTVmYzczLWxlZ2l0aW1hdGVAbW?=
+ =?utf-8?q?FpbC5sYWIudGVzdD4iLCAic210cF9xdWV1ZV9pZCI6ICJFMDJGOTExRUU2OCIsICJ?=
+ =?utf-8?q?zb3VyY2VfaXAiOiAiMTAuMTcxLjcyLjYxIiwgInNwYW0iOiBmYWxzZX0=3D?=
+X-Mail-Filter-Signature:
+ eaa645d8c6709a161230b5fb63faa72388937f68549f3f5ed522ed36f6c2be87
+
+Temperature analysis completed normally.

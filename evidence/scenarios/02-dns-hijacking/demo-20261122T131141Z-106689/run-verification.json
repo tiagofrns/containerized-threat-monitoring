@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-11-22T13:14:26.172820+00:00",
+  "flow_exit_code": 0,
+  "scenario": "02-dns-hijacking",
+  "source_sha256": {
+    "scripts/scenarios/02-dns-hijacking/compare-dns-restoration.py": "9f83a3da424423a29d06e31c9972dc640cf3d0e96e859866a8adb73dfb8dac4c",
+    "scripts/scenarios/02-dns-hijacking/start-dns-protection.sh": "6c92dbe31b87aedfe294fc05e6f1292b1f492cad6d458f3ef2e133ff71ab3afc",
+    "scripts/scenarios/02-dns-hijacking/evaluate-dns-alert.py": "79f58094e7769c61f126c652743657c7cc35df7d6418adf6f729103c702af058",
+    "scripts/scenarios/02-dns-hijacking/evaluate-dns-integrity.py": "023c22ff856f1bc2f47d57642f7418b72a962b944eb19194b8ff365371a47fb2",
+    "scripts/scenarios/02-dns-hijacking/install-dns-integrity.sh": "223d775bf6a2878f02fd8e522df0f8ea03659fba70a8d5de4fe1fd57791d9e7b",
+    "scripts/scenarios/02-dns-hijacking/demo/start-dns-protection.sh": "2b32078e6e0504980b462257aae6c15e66d0921f2c6af66ede77ebaeab576c77",
+    "scripts/scenarios/02-dns-hijacking/demo/stop-dns-protection.sh": "25a3432e7f0d17e741ef5421f38354533a49d7b1df4decdb8e833aae9509b0b4",
+    "scripts/scenarios/02-dns-hijacking/demo/show-dns-flow.sh": "6c25d4b5e0c6b3ea581acfe92064808409b0b15af1bc5962f7d1722d96dbfa05",
+    "scripts/scenarios/02-dns-hijacking/demo/fake-site/dns-fake-site-ip.socket": "6f64ad3f94c30159fba0e7f04a1771cec11216a645acce61305d4e1e94e20f7c",
+    "scripts/scenarios/02-dns-hijacking/demo/fake-site/dns-demo-fake-site.py": "31d7e24c9d28b65b6dbc3df3296e9750ccbad2b9e8329c1714e21687eb2972ba",
+    "scripts/scenarios/02-dns-hijacking/demo/fake-site/dns-fake-site-ip.service": "e3411cb5c3de50a196b3ff7d5741bf1f7c914272d353f92a6d29ee24da37417f",
+    "scripts/scenarios/02-dns-hijacking/demo/fake-site/dns-fake-site.service": "eccdfe88cebeaf4a4b02705995265c9d80d1bae3ce71c15dc2e55000dfa7917a"
+  }
+}

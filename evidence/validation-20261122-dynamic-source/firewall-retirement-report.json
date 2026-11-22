@@ -1,0 +1,13 @@
+{
+  "backup": "/root/retired-reputation-u7c1rivy",
+  "removed_rule": "100100",
+  "removed_response_timeout_seconds": 60,
+  "retired_list_files": [
+    "/var/ossec/etc/lists/blacklist-alienvault",
+    "/var/ossec/etc/lists/blacklist-alienvault.cdb"
+  ],
+  "remaining_command": "firewall-drop",
+  "remaining_response_rule": "100620",
+  "remaining_timeout_seconds": 20,
+  "native_command_definitions": 1
+}

@@ -1,0 +1,32 @@
+<group name="dns_sec,dns,">
+  <rule id="100141" level="7">
+    <if_sid>550,553</if_sid>
+    <field name="file" type="pcre2">^/etc/dnsmasq\.d/dns_sec\.conf$</field>
+    <description>Temperature service application DNS configuration changed; compare with approved policy.</description>
+  </rule>
+  <rule id="100142" level="3">
+    <decoded_as>json</decoded_as>
+    <field name="integration" type="pcre2">^dns_restore$</field>
+    <description>Temperature service DNS restoration response outcome.</description>
+  </rule>
+  <rule id="100143" level="7">
+    <decoded_as>json</decoded_as>
+    <field name="integration" type="pcre2">^dns_client$</field>
+    <field name="outcome" type="pcre2">^dns_rejected$</field>
+    <description>Temperature service client refused an address outside the approved DNS policy.</description>
+  </rule>
+  <rule id="100144" level="8">
+    <if_sid>100142</if_sid>
+    <field name="result" type="pcre2">^failed$</field>
+    <description>Temperature service DNS restoration or post-restoration verification failed.</description>
+  </rule>
+  <rule id="100145" level="7">
+    <decoded_as>json</decoded_as>
+    <location type="pcre2">^\(dns-server-container\) \S+-\x3e/var/ossec/logs/dns_restore\.jsonl$</location>
+    <field name="integration">^dns_integrity$</field>
+    <field name="event">^startup_mismatch$</field>
+    <field name="file_path" type="pcre2">^/etc/dnsmasq\.d/dns_sec\.conf$</field>
+    <field name="startup_id" type="pcre2">^[0-9a-f]{32}$</field>
+    <description>Temperature service DNS configuration differs from approved policy at startup.</description>
+  </rule>
+</group>

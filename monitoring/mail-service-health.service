@@ -1,0 +1,13 @@
+[Unit]
+Description=Observe SpamAssassin availability for Wazuh
+After=spamassassin.service
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/usr/bin/python3 /opt/mail-security/mail_service_recovery.py --check
+TimeoutStartSec=10
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/log/mail-security

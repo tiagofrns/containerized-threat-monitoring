@@ -1,0 +1,76 @@
+[
+  {
+    "timestamp": "2026-11-19T21:40:51.469+0000",
+    "rule": {
+      "level": 7,
+      "description": "Prometheus observed repeated DNS policy rejections.",
+      "id": "100151",
+      "firedtimes": 1,
+      "mail": false,
+      "groups": [
+        "alert_bridge"
+      ]
+    },
+    "agent": {
+      "id": "005",
+      "name": "prometheus-container",
+      "ip": "10.255.255.21"
+    },
+    "manager": {
+      "name": "wazuh-container"
+    },
+    "id": "1795124451.23849315",
+    "full_log": "{\"integration\":\"alert_bridge\",\"alert_name\":\"DNSPolicyRejections\",\"scope\":\"dns\",\"bridge_state\":\"firing\",\"episode\":\"27eb9ae7cdec9b1ecfad7bb92779c80506a64ebe585efead8399ebd9d1923f39\",\"observed_at\":\"2026-11-19T21:40:51.430040+00:00\",\"active_at\":\"2026-11-19T21:40:34.284028195Z\",\"validation\":true}",
+    "decoder": {
+      "name": "json"
+    },
+    "data": {
+      "integration": "alert_bridge",
+      "alert_name": "DNSPolicyRejections",
+      "scope": "dns",
+      "bridge_state": "firing",
+      "episode": "27eb9ae7cdec9b1ecfad7bb92779c80506a64ebe585efead8399ebd9d1923f39",
+      "observed_at": "2026-11-19T21:40:51.430040+00:00",
+      "active_at": "2026-11-19T21:40:34.284028195Z",
+      "validation": "true"
+    },
+    "location": "/var/log/alert-bridge/events.jsonl"
+  },
+  {
+    "timestamp": "2026-11-19T21:40:53.360+0000",
+    "rule": {
+      "level": 7,
+      "description": "Prometheus observed admission rejections and legitimate client degradation.",
+      "id": "100150",
+      "firedtimes": 1,
+      "mail": false,
+      "groups": [
+        "alert_bridge"
+      ]
+    },
+    "agent": {
+      "id": "005",
+      "name": "prometheus-container",
+      "ip": "10.255.255.21"
+    },
+    "manager": {
+      "name": "wazuh-container"
+    },
+    "id": "1795124453.23850830",
+    "full_log": "{\"integration\":\"alert_bridge\",\"alert_name\":\"AnalyticsClientImpact\",\"scope\":\"analytics\",\"bridge_state\":\"firing\",\"episode\":\"1a7e97465135e52543f8bbded0b52b7e012b081be43a7794825df81bbd959255\",\"observed_at\":\"2026-11-19T21:40:51.516653+00:00\",\"active_at\":\"2026-11-19T21:40:34.284028195Z\",\"validation\":true}",
+    "decoder": {
+      "name": "json"
+    },
+    "data": {
+      "integration": "alert_bridge",
+      "alert_name": "AnalyticsClientImpact",
+      "scope": "analytics",
+      "bridge_state": "firing",
+      "episode": "1a7e97465135e52543f8bbded0b52b7e012b081be43a7794825df81bbd959255",
+      "observed_at": "2026-11-19T21:40:51.516653+00:00",
+      "active_at": "2026-11-19T21:40:34.284028195Z",
+      "validation": "true"
+    },
+    "location": "/var/log/alert-bridge/events.jsonl"
+  }
+]

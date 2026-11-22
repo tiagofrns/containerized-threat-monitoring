@@ -1,0 +1,22 @@
+[
+  {
+    "integration": "alert_bridge",
+    "alert_name": "DNSPolicyRejections",
+    "scope": "dns",
+    "bridge_state": "firing",
+    "episode": "27eb9ae7cdec9b1ecfad7bb92779c80506a64ebe585efead8399ebd9d1923f39",
+    "observed_at": "2026-11-19T21:40:51.430040+00:00",
+    "active_at": "2026-11-19T21:40:34.284028195Z",
+    "validation": true
+  },
+  {
+    "integration": "alert_bridge",
+    "alert_name": "AnalyticsClientImpact",
+    "scope": "analytics",
+    "bridge_state": "firing",
+    "episode": "1a7e97465135e52543f8bbded0b52b7e012b081be43a7794825df81bbd959255",
+    "observed_at": "2026-11-19T21:40:51.516653+00:00",
+    "active_at": "2026-11-19T21:40:34.284028195Z",
+    "validation": true
+  }
+]

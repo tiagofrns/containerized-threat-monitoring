@@ -1,0 +1,2998 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "4",
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{\"deployment.kubernetes.io/revision\":\"2\"},\"name\":\"analytics\",\"namespace\":\"ssle\"},\"spec\":{\"progressDeadlineSeconds\":600,\"replicas\":1,\"revisionHistoryLimit\":10,\"selector\":{\"matchLabels\":{\"app\":\"analytics\"}},\"strategy\":{\"rollingUpdate\":{\"maxSurge\":\"25%\",\"maxUnavailable\":\"25%\"},\"type\":\"RollingUpdate\"},\"template\":{\"metadata\":{\"labels\":{\"app\":\"analytics\"}},\"spec\":{\"automountServiceAccountToken\":false,\"containers\":[{\"env\":[{\"name\":\"ANALYTICS_RATE_LIMIT_ENABLED\",\"value\":\"true\"},{\"name\":\"STORAGE_URL\",\"value\":\"http://storage:5002\"},{\"name\":\"ANALYTICS_PROTECTION_FILE\",\"value\":\"/run/ssle-protection/cache.json\"}],\"image\":\"docker.io/library/ssle-analytics:protective-cache-v1\",\"imagePullPolicy\":\"Never\",\"livenessProbe\":{\"failureThreshold\":3,\"initialDelaySeconds\":15,\"periodSeconds\":10,\"successThreshold\":1,\"tcpSocket\":{\"port\":\"http\"},\"timeoutSeconds\":1},\"name\":\"analytics\",\"ports\":[{\"containerPort\":5003,\"name\":\"http\",\"protocol\":\"TCP\"}],\"readinessProbe\":{\"failureThreshold\":3,\"periodSeconds\":5,\"successThreshold\":1,\"tcpSocket\":{\"port\":\"http\"},\"timeoutSeconds\":1},\"resources\":{\"limits\":{\"cpu\":\"500m\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"25m\",\"memory\":\"32Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]}},\"terminationMessagePath\":\"/dev/termination-log\",\"terminationMessagePolicy\":\"File\",\"volumeMounts\":[{\"mountPath\":\"/run/ssle-protection\",\"name\":\"protection\",\"readOnly\":true}]}],\"dnsPolicy\":\"ClusterFirst\",\"restartPolicy\":\"Always\",\"schedulerName\":\"default-scheduler\",\"securityContext\":{\"runAsGroup\":10001,\"runAsNonRoot\":true,\"runAsUser\":10001},\"terminationGracePeriodSeconds\":30,\"volumes\":[{\"hostPath\":{\"path\":\"/var/lib/ssle-protection/analytics\",\"type\":\"Directory\"},\"name\":\"protection\"}]}}}}\n"
+        },
+        "creationTimestamp": "2026-10-20T09:08:00Z",
+        "generation": 8,
+        "name": "analytics",
+        "namespace": "ssle",
+        "resourceVersion": "58034",
+        "uid": "a1f776c9-19e5-48da-9f33-2130d06fba30"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app": "analytics"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "analytics"
+            }
+          },
+          "spec": {
+            "automountServiceAccountToken": false,
+            "containers": [
+              {
+                "env": [
+                  {
+                    "name": "ANALYTICS_RATE_LIMIT_ENABLED",
+                    "value": "true"
+                  },
+                  {
+                    "name": "STORAGE_URL",
+                    "value": "http://storage:5002"
+                  },
+                  {
+                    "name": "ANALYTICS_PROTECTION_FILE",
+                    "value": "/run/ssle-protection/cache.json"
+                  }
+                ],
+                "image": "docker.io/library/ssle-analytics:case1-final-v1",
+                "imagePullPolicy": "Never",
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "initialDelaySeconds": 15,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "tcpSocket": {
+                    "port": "http"
+                  },
+                  "timeoutSeconds": 1
+                },
+                "name": "analytics",
+                "ports": [
+                  {
+                    "containerPort": 5003,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "periodSeconds": 5,
+                  "successThreshold": 1,
+                  "tcpSocket": {
+                    "port": "http"
+                  },
+                  "timeoutSeconds": 1
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "500m",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "25m",
+                    "memory": "32Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "volumeMounts": [
+                  {
+                    "mountPath": "/run/ssle-protection",
+                    "name": "protection",
+                    "readOnly": true
+                  }
+                ]
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "runAsGroup": 10001,
+              "runAsNonRoot": true,
+              "runAsUser": 10001
+            },
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "hostPath": {
+                  "path": "/var/lib/ssle-protection/analytics",
+                  "type": "Directory"
+                },
+                "name": "protection"
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-11-19T11:01:52Z",
+            "lastUpdateTime": "2026-11-19T11:01:52Z",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          },
+          {
+            "lastTransitionTime": "2026-10-20T09:08:00Z",
+            "lastUpdateTime": "2026-11-19T11:30:40Z",
+            "message": "ReplicaSet \"analytics-7d95544f9c\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          }
+        ],
+        "observedGeneration": 8,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "1",
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"name\":\"health-exporter\",\"namespace\":\"ssle\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"app\":\"health-exporter\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"health-exporter\"}},\"spec\":{\"automountServiceAccountToken\":false,\"containers\":[{\"command\":[\"python\",\"/app/health_exporter.py\"],\"image\":\"docker.io/library/ssle-monitoring:guiao3-v1\",\"imagePullPolicy\":\"Never\",\"livenessProbe\":{\"httpGet\":{\"path\":\"/metrics\",\"port\":\"metrics\"},\"initialDelaySeconds\":15,\"periodSeconds\":15,\"timeoutSeconds\":2},\"name\":\"health-exporter\",\"ports\":[{\"containerPort\":8000,\"name\":\"metrics\"}],\"readinessProbe\":{\"httpGet\":{\"path\":\"/metrics\",\"port\":\"metrics\"},\"periodSeconds\":5,\"timeoutSeconds\":2},\"resources\":{\"limits\":{\"cpu\":\"250m\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"25m\",\"memory\":\"32Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]}}}],\"securityContext\":{\"runAsGroup\":10001,\"runAsNonRoot\":true,\"runAsUser\":10001}}}}}\n"
+        },
+        "creationTimestamp": "2026-10-20T10:27:07Z",
+        "generation": 3,
+        "name": "health-exporter",
+        "namespace": "ssle",
+        "resourceVersion": "56963",
+        "uid": "a97150eb-bbae-4e92-8683-4d47c104b6a3"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app": "health-exporter"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "health-exporter"
+            }
+          },
+          "spec": {
+            "automountServiceAccountToken": false,
+            "containers": [
+              {
+                "command": [
+                  "python",
+                  "/app/health_exporter.py"
+                ],
+                "image": "docker.io/library/ssle-monitoring:guiao3-v1",
+                "imagePullPolicy": "Never",
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "httpGet": {
+                    "path": "/metrics",
+                    "port": "metrics",
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 15,
+                  "periodSeconds": 15,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 2
+                },
+                "name": "health-exporter",
+                "ports": [
+                  {
+                    "containerPort": 8000,
+                    "name": "metrics",
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "httpGet": {
+                    "path": "/metrics",
+                    "port": "metrics",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 5,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 2
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "250m",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "25m",
+                    "memory": "32Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "runAsGroup": 10001,
+              "runAsNonRoot": true,
+              "runAsUser": 10001
+            },
+            "terminationGracePeriodSeconds": 30
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-10-20T10:27:07Z",
+            "lastUpdateTime": "2026-10-20T10:27:13Z",
+            "message": "ReplicaSet \"health-exporter-557f7454b5\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          },
+          {
+            "lastTransitionTime": "2026-11-19T11:01:52Z",
+            "lastUpdateTime": "2026-11-19T11:01:52Z",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          }
+        ],
+        "observedGeneration": 3,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"name\":\"ingestion\",\"namespace\":\"ssle\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"app\":\"ingestion\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"ingestion\"}},\"spec\":{\"automountServiceAccountToken\":false,\"containers\":[{\"env\":[{\"name\":\"REGISTRY_URL\",\"value\":\"http://registry:5050\"},{\"name\":\"STORAGE_URL\",\"value\":\"http://storage:5002\"},{\"name\":\"SERVICE_URL\",\"value\":\"http://ingestion.ssle.svc.cluster.local:5001\"}],\"image\":\"docker.io/library/ssle-ingestion:k3s-v2\",\"imagePullPolicy\":\"Never\",\"livenessProbe\":{\"initialDelaySeconds\":15,\"periodSeconds\":10,\"tcpSocket\":{\"port\":\"http\"}},\"name\":\"ingestion\",\"ports\":[{\"containerPort\":5001,\"name\":\"http\"}],\"readinessProbe\":{\"periodSeconds\":5,\"tcpSocket\":{\"port\":\"http\"}},\"resources\":{\"limits\":{\"cpu\":\"500m\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"25m\",\"memory\":\"32Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]}}}],\"initContainers\":[{\"command\":[\"python\",\"-u\",\"-c\",\"import time\\nimport requests\\nfor attempt in range(30):\\n    try:\\n        response = requests.get(\\\"http://registry:5050/services\\\", timeout=2)\\n        response.raise_for_status()\\n        print(\\\"Registry available\\\", flush=True)\\n        break\\n    except requests.RequestException:\\n        print(\\\"Waiting for registry...\\\", flush=True)\\n        time.sleep(2)\\nelse:\\n    raise SystemExit(\\\"Registry unavailable; Kubernetes will retry\\\")\\n\"],\"image\":\"docker.io/library/ssle-ingestion:k3s-v2\",\"imagePullPolicy\":\"Never\",\"name\":\"wait-registry\",\"resources\":{\"limits\":{\"cpu\":\"500m\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"25m\",\"memory\":\"32Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]}}}],\"securityContext\":{\"runAsGroup\":10001,\"runAsNonRoot\":true,\"runAsUser\":10001}}}}}\n"
+        },
+        "creationTimestamp": "2026-10-20T09:08:00Z",
+        "generation": 2,
+        "name": "ingestion",
+        "namespace": "ssle",
+        "resourceVersion": "56974",
+        "uid": "ec7d9580-171e-42ba-b6cd-10cd3570e93e"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app": "ingestion"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "ingestion"
+            }
+          },
+          "spec": {
+            "automountServiceAccountToken": false,
+            "containers": [
+              {
+                "env": [
+                  {
+                    "name": "REGISTRY_URL",
+                    "value": "http://registry:5050"
+                  },
+                  {
+                    "name": "STORAGE_URL",
+                    "value": "http://storage:5002"
+                  },
+                  {
+                    "name": "SERVICE_URL",
+                    "value": "http://ingestion.ssle.svc.cluster.local:5001"
+                  }
+                ],
+                "image": "docker.io/library/ssle-ingestion:k3s-v2",
+                "imagePullPolicy": "Never",
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "initialDelaySeconds": 15,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "tcpSocket": {
+                    "port": "http"
+                  },
+                  "timeoutSeconds": 1
+                },
+                "name": "ingestion",
+                "ports": [
+                  {
+                    "containerPort": 5001,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "periodSeconds": 5,
+                  "successThreshold": 1,
+                  "tcpSocket": {
+                    "port": "http"
+                  },
+                  "timeoutSeconds": 1
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "500m",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "25m",
+                    "memory": "32Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "initContainers": [
+              {
+                "command": [
+                  "python",
+                  "-u",
+                  "-c",
+                  "import time\nimport requests\nfor attempt in range(30):\n    try:\n        response = requests.get(\"http://registry:5050/services\", timeout=2)\n        response.raise_for_status()\n        print(\"Registry available\", flush=True)\n        break\n    except requests.RequestException:\n        print(\"Waiting for registry...\", flush=True)\n        time.sleep(2)\nelse:\n    raise SystemExit(\"Registry unavailable; Kubernetes will retry\")\n"
+                ],
+                "image": "docker.io/library/ssle-ingestion:k3s-v2",
+                "imagePullPolicy": "Never",
+                "name": "wait-registry",
+                "resources": {
+                  "limits": {
+                    "cpu": "500m",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "25m",
+                    "memory": "32Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "runAsGroup": 10001,
+              "runAsNonRoot": true,
+              "runAsUser": 10001
+            },
+            "terminationGracePeriodSeconds": 30
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-10-20T09:08:00Z",
+            "lastUpdateTime": "2026-10-20T09:32:41Z",
+            "message": "ReplicaSet \"ingestion-68555fd86d\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          },
+          {
+            "lastTransitionTime": "2026-11-19T11:01:57Z",
+            "lastUpdateTime": "2026-11-19T11:01:57Z",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "1",
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"name\":\"registry\",\"namespace\":\"ssle\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"app\":\"registry\"}},\"strategy\":{\"type\":\"Recreate\"},\"template\":{\"metadata\":{\"labels\":{\"app\":\"registry\"}},\"spec\":{\"automountServiceAccountToken\":false,\"containers\":[{\"image\":\"docker.io/library/ssle-registry:k3s-v1\",\"imagePullPolicy\":\"Never\",\"livenessProbe\":{\"initialDelaySeconds\":15,\"periodSeconds\":10,\"tcpSocket\":{\"port\":\"http\"}},\"name\":\"registry\",\"ports\":[{\"containerPort\":5050,\"name\":\"http\"}],\"readinessProbe\":{\"httpGet\":{\"path\":\"/services\",\"port\":\"http\"},\"periodSeconds\":5,\"timeoutSeconds\":2},\"resources\":{\"limits\":{\"cpu\":\"500m\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"25m\",\"memory\":\"32Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]}}}],\"securityContext\":{\"runAsGroup\":10001,\"runAsNonRoot\":true,\"runAsUser\":10001}}}}}\n"
+        },
+        "creationTimestamp": "2026-10-20T09:08:00Z",
+        "generation": 1,
+        "name": "registry",
+        "namespace": "ssle",
+        "resourceVersion": "56931",
+        "uid": "b62b4d4e-ae72-43da-91ef-dfe9b4511aae"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app": "registry"
+          }
+        },
+        "strategy": {
+          "type": "Recreate"
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "registry"
+            }
+          },
+          "spec": {
+            "automountServiceAccountToken": false,
+            "containers": [
+              {
+                "image": "docker.io/library/ssle-registry:k3s-v1",
+                "imagePullPolicy": "Never",
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "initialDelaySeconds": 15,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "tcpSocket": {
+                    "port": "http"
+                  },
+                  "timeoutSeconds": 1
+                },
+                "name": "registry",
+                "ports": [
+                  {
+                    "containerPort": 5050,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "httpGet": {
+                    "path": "/services",
+                    "port": "http",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 5,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 2
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "500m",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "25m",
+                    "memory": "32Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "runAsGroup": 10001,
+              "runAsNonRoot": true,
+              "runAsUser": 10001
+            },
+            "terminationGracePeriodSeconds": 30
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-10-20T09:08:00Z",
+            "lastUpdateTime": "2026-10-20T09:08:03Z",
+            "message": "ReplicaSet \"registry-6b969b6d65\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          },
+          {
+            "lastTransitionTime": "2026-11-19T11:01:50Z",
+            "lastUpdateTime": "2026-11-19T11:01:50Z",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          }
+        ],
+        "observedGeneration": 1,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "1",
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"name\":\"resource-exporter\",\"namespace\":\"ssle\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"app\":\"resource-exporter\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"resource-exporter\"}},\"spec\":{\"automountServiceAccountToken\":true,\"containers\":[{\"command\":[\"python\",\"/app/resource_exporter.py\"],\"env\":[{\"name\":\"MONITORED_NAMESPACE\",\"value\":\"ssle\"}],\"image\":\"docker.io/library/ssle-monitoring:guiao3-v1\",\"imagePullPolicy\":\"Never\",\"livenessProbe\":{\"httpGet\":{\"path\":\"/metrics\",\"port\":\"metrics\"},\"initialDelaySeconds\":15,\"periodSeconds\":15,\"timeoutSeconds\":2},\"name\":\"resource-exporter\",\"ports\":[{\"containerPort\":8001,\"name\":\"metrics\"}],\"readinessProbe\":{\"httpGet\":{\"path\":\"/metrics\",\"port\":\"metrics\"},\"periodSeconds\":5,\"timeoutSeconds\":2},\"resources\":{\"limits\":{\"cpu\":\"250m\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"25m\",\"memory\":\"32Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]}}}],\"securityContext\":{\"runAsGroup\":10001,\"runAsNonRoot\":true,\"runAsUser\":10001},\"serviceAccountName\":\"ssle-resource-reader\"}}}}\n"
+        },
+        "creationTimestamp": "2026-10-20T10:27:07Z",
+        "generation": 1,
+        "name": "resource-exporter",
+        "namespace": "ssle",
+        "resourceVersion": "56967",
+        "uid": "73441faf-ddee-44e2-bdeb-c169b77289af"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app": "resource-exporter"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "resource-exporter"
+            }
+          },
+          "spec": {
+            "automountServiceAccountToken": true,
+            "containers": [
+              {
+                "command": [
+                  "python",
+                  "/app/resource_exporter.py"
+                ],
+                "env": [
+                  {
+                    "name": "MONITORED_NAMESPACE",
+                    "value": "ssle"
+                  }
+                ],
+                "image": "docker.io/library/ssle-monitoring:guiao3-v1",
+                "imagePullPolicy": "Never",
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "httpGet": {
+                    "path": "/metrics",
+                    "port": "metrics",
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 15,
+                  "periodSeconds": 15,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 2
+                },
+                "name": "resource-exporter",
+                "ports": [
+                  {
+                    "containerPort": 8001,
+                    "name": "metrics",
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "httpGet": {
+                    "path": "/metrics",
+                    "port": "metrics",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 5,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 2
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "250m",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "25m",
+                    "memory": "32Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "runAsGroup": 10001,
+              "runAsNonRoot": true,
+              "runAsUser": 10001
+            },
+            "serviceAccount": "ssle-resource-reader",
+            "serviceAccountName": "ssle-resource-reader",
+            "terminationGracePeriodSeconds": 30
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-10-20T10:27:07Z",
+            "lastUpdateTime": "2026-10-20T10:27:14Z",
+            "message": "ReplicaSet \"resource-exporter-54c7886779\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          },
+          {
+            "lastTransitionTime": "2026-11-19T11:01:52Z",
+            "lastUpdateTime": "2026-11-19T11:01:52Z",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          }
+        ],
+        "observedGeneration": 1,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "1",
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"name\":\"sensor\",\"namespace\":\"ssle\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"app\":\"sensor\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"sensor\"}},\"spec\":{\"automountServiceAccountToken\":false,\"containers\":[{\"env\":[{\"name\":\"INGESTION_URL\",\"value\":\"http://ingestion:5001/ingest\"}],\"image\":\"docker.io/library/ssle-sensor:k3s-v1\",\"imagePullPolicy\":\"Never\",\"name\":\"sensor\",\"resources\":{\"limits\":{\"cpu\":\"500m\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"25m\",\"memory\":\"32Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]}}}],\"securityContext\":{\"runAsGroup\":10001,\"runAsNonRoot\":true,\"runAsUser\":10001}}}}}\n"
+        },
+        "creationTimestamp": "2026-10-20T09:08:00Z",
+        "generation": 2,
+        "name": "sensor",
+        "namespace": "ssle",
+        "resourceVersion": "6750",
+        "uid": "4e2b9b83-c0b6-4d59-8b2e-76171bcc7616"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 0,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app": "sensor"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "sensor"
+            }
+          },
+          "spec": {
+            "automountServiceAccountToken": false,
+            "containers": [
+              {
+                "env": [
+                  {
+                    "name": "INGESTION_URL",
+                    "value": "http://ingestion:5001/ingest"
+                  }
+                ],
+                "image": "docker.io/library/ssle-sensor:k3s-v1",
+                "imagePullPolicy": "Never",
+                "name": "sensor",
+                "resources": {
+                  "limits": {
+                    "cpu": "500m",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "25m",
+                    "memory": "32Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "runAsGroup": 10001,
+              "runAsNonRoot": true,
+              "runAsUser": 10001
+            },
+            "terminationGracePeriodSeconds": 30
+          }
+        }
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-10-20T09:08:02Z",
+            "lastUpdateTime": "2026-10-20T09:08:02Z",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          },
+          {
+            "lastTransitionTime": "2026-10-20T09:08:00Z",
+            "lastUpdateTime": "2026-10-20T09:08:02Z",
+            "message": "ReplicaSet \"sensor-cccf8494f\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          }
+        ],
+        "observedGeneration": 2,
+        "terminatingReplicas": 0
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"name\":\"storage\",\"namespace\":\"ssle\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"app\":\"storage\"}},\"strategy\":{\"type\":\"Recreate\"},\"template\":{\"metadata\":{\"labels\":{\"app\":\"storage\"}},\"spec\":{\"automountServiceAccountToken\":false,\"containers\":[{\"env\":[{\"name\":\"DB_PATH\",\"value\":\"/data/temp_data.db\"}],\"image\":\"docker.io/library/ssle-storage:k3s-v1\",\"imagePullPolicy\":\"Never\",\"livenessProbe\":{\"initialDelaySeconds\":15,\"periodSeconds\":10,\"tcpSocket\":{\"port\":\"http\"}},\"name\":\"storage\",\"ports\":[{\"containerPort\":5002,\"name\":\"http\"}],\"readinessProbe\":{\"httpGet\":{\"path\":\"/stats\",\"port\":\"http\"},\"periodSeconds\":5,\"timeoutSeconds\":2},\"resources\":{\"limits\":{\"cpu\":\"500m\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"25m\",\"memory\":\"32Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]}},\"volumeMounts\":[{\"mountPath\":\"/data\",\"name\":\"data\"}]}],\"securityContext\":{\"fsGroup\":10001,\"runAsGroup\":10001,\"runAsNonRoot\":true,\"runAsUser\":10001},\"volumes\":[{\"name\":\"data\",\"persistentVolumeClaim\":{\"claimName\":\"storage-data\"}}]}}}}\n"
+        },
+        "creationTimestamp": "2026-10-20T09:08:00Z",
+        "generation": 2,
+        "name": "storage",
+        "namespace": "ssle",
+        "resourceVersion": "56909",
+        "uid": "bc4838b2-f1c3-4e78-9149-3af3093f5252"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app": "storage"
+          }
+        },
+        "strategy": {
+          "type": "Recreate"
+        },
+        "template": {
+          "metadata": {
+            "annotations": {
+              "kubectl.kubernetes.io/restartedAt": "2026-10-20T09:09:31Z"
+            },
+            "labels": {
+              "app": "storage"
+            }
+          },
+          "spec": {
+            "automountServiceAccountToken": false,
+            "containers": [
+              {
+                "env": [
+                  {
+                    "name": "DB_PATH",
+                    "value": "/data/temp_data.db"
+                  }
+                ],
+                "image": "docker.io/library/ssle-storage:k3s-v1",
+                "imagePullPolicy": "Never",
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "initialDelaySeconds": 15,
+                  "periodSeconds": 10,
+                  "successThreshold": 1,
+                  "tcpSocket": {
+                    "port": "http"
+                  },
+                  "timeoutSeconds": 1
+                },
+                "name": "storage",
+                "ports": [
+                  {
+                    "containerPort": 5002,
+                    "name": "http",
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "httpGet": {
+                    "path": "/stats",
+                    "port": "http",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 5,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 2
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "500m",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "25m",
+                    "memory": "32Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File",
+                "volumeMounts": [
+                  {
+                    "mountPath": "/data",
+                    "name": "data"
+                  }
+                ]
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "fsGroup": 10001,
+              "runAsGroup": 10001,
+              "runAsNonRoot": true,
+              "runAsUser": 10001
+            },
+            "terminationGracePeriodSeconds": 30,
+            "volumes": [
+              {
+                "name": "data",
+                "persistentVolumeClaim": {
+                  "claimName": "storage-data"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-10-20T09:08:00Z",
+            "lastUpdateTime": "2026-10-20T09:10:07Z",
+            "message": "ReplicaSet \"storage-54f5d47dd9\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          },
+          {
+            "lastTransitionTime": "2026-11-19T11:01:47Z",
+            "lastUpdateTime": "2026-11-19T11:01:47Z",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+        "annotations": {
+          "deployment.kubernetes.io/revision": "2",
+          "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"name\":\"temperature-client\",\"namespace\":\"ssle\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"app\":\"temperature-client\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"temperature-client\"}},\"spec\":{\"automountServiceAccountToken\":false,\"containers\":[{\"command\":[\"python\",\"/app/client.py\"],\"image\":\"docker.io/library/ssle-monitoring:guiao3-v1\",\"imagePullPolicy\":\"Never\",\"livenessProbe\":{\"httpGet\":{\"path\":\"/metrics\",\"port\":\"metrics\"},\"initialDelaySeconds\":15,\"periodSeconds\":15,\"timeoutSeconds\":2},\"name\":\"temperature-client\",\"ports\":[{\"containerPort\":8002,\"name\":\"metrics\"}],\"readinessProbe\":{\"httpGet\":{\"path\":\"/metrics\",\"port\":\"metrics\"},\"periodSeconds\":5,\"timeoutSeconds\":2},\"resources\":{\"limits\":{\"cpu\":\"250m\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"25m\",\"memory\":\"32Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]}}}],\"securityContext\":{\"runAsGroup\":10001,\"runAsNonRoot\":true,\"runAsUser\":10001}}}}}\n"
+        },
+        "creationTimestamp": "2026-10-20T10:27:07Z",
+        "generation": 2,
+        "name": "temperature-client",
+        "namespace": "ssle",
+        "resourceVersion": "58043",
+        "uid": "931c4822-e66f-4ebe-9077-c900d2d71cc5"
+      },
+      "spec": {
+        "progressDeadlineSeconds": 600,
+        "replicas": 1,
+        "revisionHistoryLimit": 10,
+        "selector": {
+          "matchLabels": {
+            "app": "temperature-client"
+          }
+        },
+        "strategy": {
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          },
+          "type": "RollingUpdate"
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "temperature-client"
+            }
+          },
+          "spec": {
+            "automountServiceAccountToken": false,
+            "containers": [
+              {
+                "command": [
+                  "python",
+                  "/app/client.py"
+                ],
+                "image": "docker.io/library/ssle-monitoring:case1-final-v1",
+                "imagePullPolicy": "Never",
+                "livenessProbe": {
+                  "failureThreshold": 3,
+                  "httpGet": {
+                    "path": "/metrics",
+                    "port": "metrics",
+                    "scheme": "HTTP"
+                  },
+                  "initialDelaySeconds": 15,
+                  "periodSeconds": 15,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 2
+                },
+                "name": "temperature-client",
+                "ports": [
+                  {
+                    "containerPort": 8002,
+                    "name": "metrics",
+                    "protocol": "TCP"
+                  }
+                ],
+                "readinessProbe": {
+                  "failureThreshold": 3,
+                  "httpGet": {
+                    "path": "/metrics",
+                    "port": "metrics",
+                    "scheme": "HTTP"
+                  },
+                  "periodSeconds": 5,
+                  "successThreshold": 1,
+                  "timeoutSeconds": 2
+                },
+                "resources": {
+                  "limits": {
+                    "cpu": "250m",
+                    "memory": "128Mi"
+                  },
+                  "requests": {
+                    "cpu": "25m",
+                    "memory": "32Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  }
+                },
+                "terminationMessagePath": "/dev/termination-log",
+                "terminationMessagePolicy": "File"
+              }
+            ],
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always",
+            "schedulerName": "default-scheduler",
+            "securityContext": {
+              "runAsGroup": 10001,
+              "runAsNonRoot": true,
+              "runAsUser": 10001
+            },
+            "terminationGracePeriodSeconds": 30
+          }
+        }
+      },
+      "status": {
+        "availableReplicas": 1,
+        "conditions": [
+          {
+            "lastTransitionTime": "2026-11-19T11:01:52Z",
+            "lastUpdateTime": "2026-11-19T11:01:52Z",
+            "message": "Deployment has minimum availability.",
+            "reason": "MinimumReplicasAvailable",
+            "status": "True",
+            "type": "Available"
+          },
+          {
+            "lastTransitionTime": "2026-10-20T10:27:07Z",
+            "lastUpdateTime": "2026-11-19T11:30:46Z",
+            "message": "ReplicaSet \"temperature-client-6cd5685b9b\" has successfully progressed.",
+            "reason": "NewReplicaSetAvailable",
+            "status": "True",
+            "type": "Progressing"
+          }
+        ],
+        "observedGeneration": 2,
+        "readyReplicas": 1,
+        "replicas": 1,
+        "terminatingReplicas": 0,
+        "updatedReplicas": 1
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T11:30:33Z",
+        "generateName": "analytics-7d95544f9c-",
+        "generation": 1,
+        "labels": {
+          "app": "analytics",
+          "pod-template-hash": "7d95544f9c"
+        },
+        "name": "analytics-7d95544f9c-4hf4t",
+        "namespace": "ssle",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "ReplicaSet",
+            "name": "analytics-7d95544f9c",
+            "uid": "cb677cd6-a45c-4acd-b169-54e95843069f"
+          }
+        ],
+        "resourceVersion": "57964",
+        "uid": "61ad4516-c8b6-4176-8f26-6299534eb826"
+      },
+      "spec": {
+        "automountServiceAccountToken": false,
+        "containers": [
+          {
+            "env": [
+              {
+                "name": "ANALYTICS_RATE_LIMIT_ENABLED",
+                "value": "true"
+              },
+              {
+                "name": "STORAGE_URL",
+                "value": "http://storage:5002"
+              },
+              {
+                "name": "ANALYTICS_PROTECTION_FILE",
+                "value": "/run/ssle-protection/cache.json"
+              }
+            ],
+            "image": "docker.io/library/ssle-analytics:case1-final-v1",
+            "imagePullPolicy": "Never",
+            "livenessProbe": {
+              "failureThreshold": 3,
+              "initialDelaySeconds": 15,
+              "periodSeconds": 10,
+              "successThreshold": 1,
+              "tcpSocket": {
+                "port": "http"
+              },
+              "timeoutSeconds": 1
+            },
+            "name": "analytics",
+            "ports": [
+              {
+                "containerPort": 5003,
+                "name": "http",
+                "protocol": "TCP"
+              }
+            ],
+            "readinessProbe": {
+              "failureThreshold": 3,
+              "periodSeconds": 5,
+              "successThreshold": 1,
+              "tcpSocket": {
+                "port": "http"
+              },
+              "timeoutSeconds": 1
+            },
+            "resources": {
+              "limits": {
+                "cpu": "500m",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "25m",
+                "memory": "32Mi"
+              }
+            },
+            "securityContext": {
+              "allowPrivilegeEscalation": false,
+              "capabilities": {
+                "drop": [
+                  "ALL"
+                ]
+              }
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "volumeMounts": [
+              {
+                "mountPath": "/run/ssle-protection",
+                "name": "protection",
+                "readOnly": true
+              }
+            ]
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "enableServiceLinks": true,
+        "nodeName": "k3s-node1",
+        "preemptionPolicy": "PreemptLowerPriority",
+        "priority": 0,
+        "restartPolicy": "Always",
+        "schedulerName": "default-scheduler",
+        "securityContext": {
+          "runAsGroup": 10001,
+          "runAsNonRoot": true,
+          "runAsUser": 10001
+        },
+        "serviceAccount": "default",
+        "serviceAccountName": "default",
+        "terminationGracePeriodSeconds": 30,
+        "tolerations": [
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          },
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          }
+        ],
+        "volumes": [
+          {
+            "hostPath": {
+              "path": "/var/lib/ssle-protection/analytics",
+              "type": "Directory"
+            },
+            "name": "protection"
+          }
+        ]
+      },
+      "status": {
+        "allocatedResources": {
+          "cpu": "25m",
+          "memory": "32Mi"
+        },
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:30:34Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:30:33Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:30:40Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:30:40Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:30:33Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "allocatedResources": {
+              "cpu": "25m",
+              "memory": "32Mi"
+            },
+            "containerID": "containerd://2a5672f97276636bcca55acb7a62805d0225fb00467918695c8b6e249bf81824",
+            "image": "docker.io/library/ssle-analytics:case1-final-v1",
+            "imageID": "sha256:24ef8f8a5594f42e4d55298c232481222dfb08805def415cd299a7f411ca924d",
+            "lastState": {},
+            "name": "analytics",
+            "ready": true,
+            "resources": {
+              "limits": {
+                "cpu": "500m",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "25m",
+                "memory": "32Mi"
+              }
+            },
+            "restartCount": 0,
+            "started": true,
+            "state": {
+              "running": {
+                "startedAt": "2026-11-19T11:30:34Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 10001,
+                "supplementalGroups": [
+                  10001
+                ],
+                "uid": 10001
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/run/ssle-protection",
+                "name": "protection",
+                "readOnly": true,
+                "recursiveReadOnly": "Disabled"
+              }
+            ]
+          }
+        ],
+        "hostIP": "10.255.255.254",
+        "hostIPs": [
+          {
+            "ip": "10.255.255.254"
+          }
+        ],
+        "observedGeneration": 1,
+        "phase": "Running",
+        "podIP": "10.42.1.114",
+        "podIPs": [
+          {
+            "ip": "10.42.1.114"
+          }
+        ],
+        "qosClass": "Burstable",
+        "resources": {
+          "limits": {
+            "cpu": "500m",
+            "memory": "128Mi"
+          },
+          "requests": {
+            "memory": "32Mi"
+          }
+        },
+        "startTime": "2026-11-19T11:30:33Z"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2026-11-16T12:53:14Z",
+        "generateName": "health-exporter-557f7454b5-",
+        "generation": 1,
+        "labels": {
+          "app": "health-exporter",
+          "pod-template-hash": "557f7454b5"
+        },
+        "name": "health-exporter-557f7454b5-prltc",
+        "namespace": "ssle",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "ReplicaSet",
+            "name": "health-exporter-557f7454b5",
+            "uid": "7039bc85-6fd9-492e-9e67-37455d54c25f"
+          }
+        ],
+        "resourceVersion": "56957",
+        "uid": "243a034d-bbc4-4d40-a87a-8e11bd1fb8f3"
+      },
+      "spec": {
+        "automountServiceAccountToken": false,
+        "containers": [
+          {
+            "command": [
+              "python",
+              "/app/health_exporter.py"
+            ],
+            "image": "docker.io/library/ssle-monitoring:guiao3-v1",
+            "imagePullPolicy": "Never",
+            "livenessProbe": {
+              "failureThreshold": 3,
+              "httpGet": {
+                "path": "/metrics",
+                "port": "metrics",
+                "scheme": "HTTP"
+              },
+              "initialDelaySeconds": 15,
+              "periodSeconds": 15,
+              "successThreshold": 1,
+              "timeoutSeconds": 2
+            },
+            "name": "health-exporter",
+            "ports": [
+              {
+                "containerPort": 8000,
+                "name": "metrics",
+                "protocol": "TCP"
+              }
+            ],
+            "readinessProbe": {
+              "failureThreshold": 3,
+              "httpGet": {
+                "path": "/metrics",
+                "port": "metrics",
+                "scheme": "HTTP"
+              },
+              "periodSeconds": 5,
+              "successThreshold": 1,
+              "timeoutSeconds": 2
+            },
+            "resources": {
+              "limits": {
+                "cpu": "250m",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "25m",
+                "memory": "32Mi"
+              }
+            },
+            "securityContext": {
+              "allowPrivilegeEscalation": false,
+              "capabilities": {
+                "drop": [
+                  "ALL"
+                ]
+              }
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File"
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "enableServiceLinks": true,
+        "nodeName": "k3s-node1",
+        "preemptionPolicy": "PreemptLowerPriority",
+        "priority": 0,
+        "restartPolicy": "Always",
+        "schedulerName": "default-scheduler",
+        "securityContext": {
+          "runAsGroup": 10001,
+          "runAsNonRoot": true,
+          "runAsUser": 10001
+        },
+        "serviceAccount": "default",
+        "serviceAccountName": "default",
+        "terminationGracePeriodSeconds": 30,
+        "tolerations": [
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          },
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          }
+        ]
+      },
+      "status": {
+        "allocatedResources": {
+          "cpu": "25m",
+          "memory": "32Mi"
+        },
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:01:43Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-16T12:53:14Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:01:52Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:01:52Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-16T12:53:14Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "allocatedResources": {
+              "cpu": "25m",
+              "memory": "32Mi"
+            },
+            "containerID": "containerd://0bb227c3a7aef75802b3a1e0155135932e64fbf8f11bf29617c0f164b87c776a",
+            "image": "docker.io/library/ssle-monitoring:guiao3-v1",
+            "imageID": "sha256:330f762da8185718495b879db4dc16bfa66cdd3c000149fa3467b3f854ccfe3a",
+            "lastState": {
+              "terminated": {
+                "containerID": "containerd://cfe43c01194f602bc6f308f4e1469a64f9d403ff73ff8ec07c73a1157ba7d032",
+                "exitCode": 255,
+                "finishedAt": "2026-11-19T11:01:39Z",
+                "reason": "Unknown",
+                "startedAt": "2026-11-18T20:53:10Z"
+              }
+            },
+            "name": "health-exporter",
+            "ready": true,
+            "resources": {
+              "limits": {
+                "cpu": "250m",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "25m",
+                "memory": "32Mi"
+              }
+            },
+            "restartCount": 7,
+            "started": true,
+            "state": {
+              "running": {
+                "startedAt": "2026-11-19T11:01:43Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 10001,
+                "supplementalGroups": [
+                  10001
+                ],
+                "uid": 10001
+              }
+            }
+          }
+        ],
+        "hostIP": "10.255.255.254",
+        "hostIPs": [
+          {
+            "ip": "10.255.255.254"
+          }
+        ],
+        "observedGeneration": 1,
+        "phase": "Running",
+        "podIP": "10.42.1.111",
+        "podIPs": [
+          {
+            "ip": "10.42.1.111"
+          }
+        ],
+        "qosClass": "Burstable",
+        "resources": {
+          "limits": {
+            "cpu": "250m",
+            "memory": "128Mi"
+          },
+          "requests": {
+            "memory": "32Mi"
+          }
+        },
+        "startTime": "2026-11-16T12:53:14Z"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2026-10-20T09:32:33Z",
+        "generateName": "ingestion-68555fd86d-",
+        "generation": 1,
+        "labels": {
+          "app": "ingestion",
+          "pod-template-hash": "68555fd86d"
+        },
+        "name": "ingestion-68555fd86d-j77cl",
+        "namespace": "ssle",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "ReplicaSet",
+            "name": "ingestion-68555fd86d",
+            "uid": "a612bfee-aabf-4029-9299-020e82efc0ca"
+          }
+        ],
+        "resourceVersion": "56970",
+        "uid": "02209208-a73e-4386-9b84-7dadfd2e86a4"
+      },
+      "spec": {
+        "automountServiceAccountToken": false,
+        "containers": [
+          {
+            "env": [
+              {
+                "name": "REGISTRY_URL",
+                "value": "http://registry:5050"
+              },
+              {
+                "name": "STORAGE_URL",
+                "value": "http://storage:5002"
+              },
+              {
+                "name": "SERVICE_URL",
+                "value": "http://ingestion.ssle.svc.cluster.local:5001"
+              }
+            ],
+            "image": "docker.io/library/ssle-ingestion:k3s-v2",
+            "imagePullPolicy": "Never",
+            "livenessProbe": {
+              "failureThreshold": 3,
+              "initialDelaySeconds": 15,
+              "periodSeconds": 10,
+              "successThreshold": 1,
+              "tcpSocket": {
+                "port": "http"
+              },
+              "timeoutSeconds": 1
+            },
+            "name": "ingestion",
+            "ports": [
+              {
+                "containerPort": 5001,
+                "name": "http",
+                "protocol": "TCP"
+              }
+            ],
+            "readinessProbe": {
+              "failureThreshold": 3,
+              "periodSeconds": 5,
+              "successThreshold": 1,
+              "tcpSocket": {
+                "port": "http"
+              },
+              "timeoutSeconds": 1
+            },
+            "resources": {
+              "limits": {
+                "cpu": "500m",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "25m",
+                "memory": "32Mi"
+              }
+            },
+            "securityContext": {
+              "allowPrivilegeEscalation": false,
+              "capabilities": {
+                "drop": [
+                  "ALL"
+                ]
+              }
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File"
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "enableServiceLinks": true,
+        "initContainers": [
+          {
+            "command": [
+              "python",
+              "-u",
+              "-c",
+              "import time\nimport requests\nfor attempt in range(30):\n    try:\n        response = requests.get(\"http://registry:5050/services\", timeout=2)\n        response.raise_for_status()\n        print(\"Registry available\", flush=True)\n        break\n    except requests.RequestException:\n        print(\"Waiting for registry...\", flush=True)\n        time.sleep(2)\nelse:\n    raise SystemExit(\"Registry unavailable; Kubernetes will retry\")\n"
+            ],
+            "image": "docker.io/library/ssle-ingestion:k3s-v2",
+            "imagePullPolicy": "Never",
+            "name": "wait-registry",
+            "resources": {
+              "limits": {
+                "cpu": "500m",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "25m",
+                "memory": "32Mi"
+              }
+            },
+            "securityContext": {
+              "allowPrivilegeEscalation": false,
+              "capabilities": {
+                "drop": [
+                  "ALL"
+                ]
+              }
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File"
+          }
+        ],
+        "nodeName": "k3s-node1",
+        "preemptionPolicy": "PreemptLowerPriority",
+        "priority": 0,
+        "restartPolicy": "Always",
+        "schedulerName": "default-scheduler",
+        "securityContext": {
+          "runAsGroup": 10001,
+          "runAsNonRoot": true,
+          "runAsUser": 10001
+        },
+        "serviceAccount": "default",
+        "serviceAccountName": "default",
+        "terminationGracePeriodSeconds": 30,
+        "tolerations": [
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          },
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          }
+        ]
+      },
+      "status": {
+        "allocatedResources": {
+          "cpu": "25m",
+          "memory": "32Mi"
+        },
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:01:42Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-20T09:32:35Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:01:57Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:01:57Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-20T09:32:33Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "allocatedResources": {
+              "cpu": "25m",
+              "memory": "32Mi"
+            },
+            "containerID": "containerd://039cc845c868492d1933fa822507d7f5d136a69396afba6ef159fbaceb13ab1b",
+            "image": "docker.io/library/ssle-ingestion:k3s-v2",
+            "imageID": "sha256:d4f5e6dcb39741b429610c231b501ccc61de19a53085d1bc079c8ce3ea35ba63",
+            "lastState": {
+              "terminated": {
+                "containerID": "containerd://bf39216cb2852a59a2f965f2cd263bde6d833bbd56aeccbc6be7a617db471e0f",
+                "exitCode": 255,
+                "finishedAt": "2026-11-19T11:01:39Z",
+                "reason": "Unknown",
+                "startedAt": "2026-11-18T20:53:22Z"
+              }
+            },
+            "name": "ingestion",
+            "ready": true,
+            "resources": {
+              "limits": {
+                "cpu": "500m",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "25m",
+                "memory": "32Mi"
+              }
+            },
+            "restartCount": 12,
+            "started": true,
+            "state": {
+              "running": {
+                "startedAt": "2026-11-19T11:01:51Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 10001,
+                "supplementalGroups": [
+                  10001
+                ],
+                "uid": 10001
+              }
+            }
+          }
+        ],
+        "hostIP": "10.255.255.254",
+        "hostIPs": [
+          {
+            "ip": "10.255.255.254"
+          }
+        ],
+        "initContainerStatuses": [
+          {
+            "allocatedResources": {
+              "cpu": "25m",
+              "memory": "32Mi"
+            },
+            "containerID": "containerd://9bc19b0ba7ea17173ccc21cf29256b49c6d819fb48bd4ae4a04f5168ce85a8d0",
+            "image": "docker.io/library/ssle-ingestion:k3s-v2",
+            "imageID": "sha256:d4f5e6dcb39741b429610c231b501ccc61de19a53085d1bc079c8ce3ea35ba63",
+            "lastState": {
+              "terminated": {
+                "containerID": "containerd://c03ae6b61de82efa44cafd0e30f7b3fb8b03ccb94e21cfe4d4066d1651eaf560",
+                "exitCode": 0,
+                "finishedAt": "2026-11-18T20:53:20Z",
+                "reason": "Completed",
+                "startedAt": "2026-11-18T20:53:10Z"
+              }
+            },
+            "name": "wait-registry",
+            "ready": true,
+            "resources": {
+              "limits": {
+                "cpu": "500m",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "25m",
+                "memory": "32Mi"
+              }
+            },
+            "restartCount": 12,
+            "started": false,
+            "state": {
+              "terminated": {
+                "containerID": "containerd://9bc19b0ba7ea17173ccc21cf29256b49c6d819fb48bd4ae4a04f5168ce85a8d0",
+                "exitCode": 0,
+                "finishedAt": "2026-11-19T11:01:50Z",
+                "reason": "Completed",
+                "startedAt": "2026-11-19T11:01:43Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 10001,
+                "supplementalGroups": [
+                  10001
+                ],
+                "uid": 10001
+              }
+            }
+          }
+        ],
+        "observedGeneration": 1,
+        "phase": "Running",
+        "podIP": "10.42.1.109",
+        "podIPs": [
+          {
+            "ip": "10.42.1.109"
+          }
+        ],
+        "qosClass": "Burstable",
+        "resources": {
+          "limits": {
+            "cpu": "500m",
+            "memory": "128Mi"
+          },
+          "requests": {
+            "memory": "32Mi"
+          }
+        },
+        "startTime": "2026-10-20T09:32:33Z"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2026-10-20T09:08:00Z",
+        "generateName": "registry-6b969b6d65-",
+        "generation": 1,
+        "labels": {
+          "app": "registry",
+          "pod-template-hash": "6b969b6d65"
+        },
+        "name": "registry-6b969b6d65-nz64z",
+        "namespace": "ssle",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "ReplicaSet",
+            "name": "registry-6b969b6d65",
+            "uid": "1fe899ed-7549-4720-9a35-45377459be9e"
+          }
+        ],
+        "resourceVersion": "56927",
+        "uid": "2ef88a28-00b4-47eb-9e66-703d631449c8"
+      },
+      "spec": {
+        "automountServiceAccountToken": false,
+        "containers": [
+          {
+            "image": "docker.io/library/ssle-registry:k3s-v1",
+            "imagePullPolicy": "Never",
+            "livenessProbe": {
+              "failureThreshold": 3,
+              "initialDelaySeconds": 15,
+              "periodSeconds": 10,
+              "successThreshold": 1,
+              "tcpSocket": {
+                "port": "http"
+              },
+              "timeoutSeconds": 1
+            },
+            "name": "registry",
+            "ports": [
+              {
+                "containerPort": 5050,
+                "name": "http",
+                "protocol": "TCP"
+              }
+            ],
+            "readinessProbe": {
+              "failureThreshold": 3,
+              "httpGet": {
+                "path": "/services",
+                "port": "http",
+                "scheme": "HTTP"
+              },
+              "periodSeconds": 5,
+              "successThreshold": 1,
+              "timeoutSeconds": 2
+            },
+            "resources": {
+              "limits": {
+                "cpu": "500m",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "25m",
+                "memory": "32Mi"
+              }
+            },
+            "securityContext": {
+              "allowPrivilegeEscalation": false,
+              "capabilities": {
+                "drop": [
+                  "ALL"
+                ]
+              }
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File"
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "enableServiceLinks": true,
+        "nodeName": "k3s-node1",
+        "preemptionPolicy": "PreemptLowerPriority",
+        "priority": 0,
+        "restartPolicy": "Always",
+        "schedulerName": "default-scheduler",
+        "securityContext": {
+          "runAsGroup": 10001,
+          "runAsNonRoot": true,
+          "runAsUser": 10001
+        },
+        "serviceAccount": "default",
+        "serviceAccountName": "default",
+        "terminationGracePeriodSeconds": 30,
+        "tolerations": [
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          },
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          }
+        ]
+      },
+      "status": {
+        "allocatedResources": {
+          "cpu": "25m",
+          "memory": "32Mi"
+        },
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:01:42Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-20T09:08:00Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:01:50Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:01:50Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-20T09:08:00Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "allocatedResources": {
+              "cpu": "25m",
+              "memory": "32Mi"
+            },
+            "containerID": "containerd://50137d27239958037e5afb81d995369bb54b72a76844d10a0c317b2d8d1ad6ca",
+            "image": "docker.io/library/ssle-registry:k3s-v1",
+            "imageID": "sha256:00c5f8295afea063bc3dea500ba5bdc3f85a75978b4a5c589626aa2f45010c27",
+            "lastState": {
+              "terminated": {
+                "containerID": "containerd://8728568a44b4307648658f9684a1a831dea42d66bf9f927a5b29ab0c3e6b0b1a",
+                "exitCode": 255,
+                "finishedAt": "2026-11-19T11:01:39Z",
+                "reason": "Unknown",
+                "startedAt": "2026-11-18T20:53:11Z"
+              }
+            },
+            "name": "registry",
+            "ready": true,
+            "resources": {
+              "limits": {
+                "cpu": "500m",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "25m",
+                "memory": "32Mi"
+              }
+            },
+            "restartCount": 12,
+            "started": true,
+            "state": {
+              "running": {
+                "startedAt": "2026-11-19T11:01:43Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 10001,
+                "supplementalGroups": [
+                  10001
+                ],
+                "uid": 10001
+              }
+            }
+          }
+        ],
+        "hostIP": "10.255.255.254",
+        "hostIPs": [
+          {
+            "ip": "10.255.255.254"
+          }
+        ],
+        "observedGeneration": 1,
+        "phase": "Running",
+        "podIP": "10.42.1.108",
+        "podIPs": [
+          {
+            "ip": "10.42.1.108"
+          }
+        ],
+        "qosClass": "Burstable",
+        "resources": {
+          "limits": {
+            "cpu": "500m",
+            "memory": "128Mi"
+          },
+          "requests": {
+            "memory": "32Mi"
+          }
+        },
+        "startTime": "2026-10-20T09:08:00Z"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2026-10-20T10:27:07Z",
+        "generateName": "resource-exporter-54c7886779-",
+        "generation": 1,
+        "labels": {
+          "app": "resource-exporter",
+          "pod-template-hash": "54c7886779"
+        },
+        "name": "resource-exporter-54c7886779-tnqk6",
+        "namespace": "ssle",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "ReplicaSet",
+            "name": "resource-exporter-54c7886779",
+            "uid": "b8aed69f-a527-40e3-8274-ab9cb74115d1"
+          }
+        ],
+        "resourceVersion": "56962",
+        "uid": "ce725ba5-4f9e-4b32-889f-66345634546c"
+      },
+      "spec": {
+        "automountServiceAccountToken": true,
+        "containers": [
+          {
+            "command": [
+              "python",
+              "/app/resource_exporter.py"
+            ],
+            "env": [
+              {
+                "name": "MONITORED_NAMESPACE",
+                "value": "ssle"
+              }
+            ],
+            "image": "docker.io/library/ssle-monitoring:guiao3-v1",
+            "imagePullPolicy": "Never",
+            "livenessProbe": {
+              "failureThreshold": 3,
+              "httpGet": {
+                "path": "/metrics",
+                "port": "metrics",
+                "scheme": "HTTP"
+              },
+              "initialDelaySeconds": 15,
+              "periodSeconds": 15,
+              "successThreshold": 1,
+              "timeoutSeconds": 2
+            },
+            "name": "resource-exporter",
+            "ports": [
+              {
+                "containerPort": 8001,
+                "name": "metrics",
+                "protocol": "TCP"
+              }
+            ],
+            "readinessProbe": {
+              "failureThreshold": 3,
+              "httpGet": {
+                "path": "/metrics",
+                "port": "metrics",
+                "scheme": "HTTP"
+              },
+              "periodSeconds": 5,
+              "successThreshold": 1,
+              "timeoutSeconds": 2
+            },
+            "resources": {
+              "limits": {
+                "cpu": "250m",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "25m",
+                "memory": "32Mi"
+              }
+            },
+            "securityContext": {
+              "allowPrivilegeEscalation": false,
+              "capabilities": {
+                "drop": [
+                  "ALL"
+                ]
+              }
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "volumeMounts": [
+              {
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-sx2tk",
+                "readOnly": true
+              }
+            ]
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "enableServiceLinks": true,
+        "nodeName": "k3s-node1",
+        "preemptionPolicy": "PreemptLowerPriority",
+        "priority": 0,
+        "restartPolicy": "Always",
+        "schedulerName": "default-scheduler",
+        "securityContext": {
+          "runAsGroup": 10001,
+          "runAsNonRoot": true,
+          "runAsUser": 10001
+        },
+        "serviceAccount": "ssle-resource-reader",
+        "serviceAccountName": "ssle-resource-reader",
+        "terminationGracePeriodSeconds": 30,
+        "tolerations": [
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          },
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          }
+        ],
+        "volumes": [
+          {
+            "name": "kube-api-access-sx2tk",
+            "projected": {
+              "defaultMode": 420,
+              "sources": [
+                {
+                  "serviceAccountToken": {
+                    "expirationSeconds": 3607,
+                    "path": "token"
+                  }
+                },
+                {
+                  "configMap": {
+                    "items": [
+                      {
+                        "key": "ca.crt",
+                        "path": "ca.crt"
+                      }
+                    ],
+                    "name": "kube-root-ca.crt"
+                  }
+                },
+                {
+                  "downwardAPI": {
+                    "items": [
+                      {
+                        "fieldRef": {
+                          "apiVersion": "v1",
+                          "fieldPath": "metadata.namespace"
+                        },
+                        "path": "namespace"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "status": {
+        "allocatedResources": {
+          "cpu": "25m",
+          "memory": "32Mi"
+        },
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:01:43Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-20T10:27:07Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:01:52Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:01:52Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-20T10:27:07Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "allocatedResources": {
+              "cpu": "25m",
+              "memory": "32Mi"
+            },
+            "containerID": "containerd://67b805e233682f5e9bbe240b7debc3d572f6b9bb4e6150012d5152a8da39874e",
+            "image": "docker.io/library/ssle-monitoring:guiao3-v1",
+            "imageID": "sha256:330f762da8185718495b879db4dc16bfa66cdd3c000149fa3467b3f854ccfe3a",
+            "lastState": {
+              "terminated": {
+                "containerID": "containerd://28d22a20cb01ff782d3b794b99290a3a4c67ffad09f16a469c0b408e788f854a",
+                "exitCode": 255,
+                "finishedAt": "2026-11-19T11:01:39Z",
+                "reason": "Unknown",
+                "startedAt": "2026-11-18T20:53:11Z"
+              }
+            },
+            "name": "resource-exporter",
+            "ready": true,
+            "resources": {
+              "limits": {
+                "cpu": "250m",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "25m",
+                "memory": "32Mi"
+              }
+            },
+            "restartCount": 11,
+            "started": true,
+            "state": {
+              "running": {
+                "startedAt": "2026-11-19T11:01:43Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 10001,
+                "supplementalGroups": [
+                  10001
+                ],
+                "uid": 10001
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-sx2tk",
+                "readOnly": true,
+                "recursiveReadOnly": "Disabled"
+              }
+            ]
+          }
+        ],
+        "hostIP": "10.255.255.254",
+        "hostIPs": [
+          {
+            "ip": "10.255.255.254"
+          }
+        ],
+        "observedGeneration": 1,
+        "phase": "Running",
+        "podIP": "10.42.1.113",
+        "podIPs": [
+          {
+            "ip": "10.42.1.113"
+          }
+        ],
+        "qosClass": "Burstable",
+        "resources": {
+          "limits": {
+            "cpu": "250m",
+            "memory": "128Mi"
+          },
+          "requests": {
+            "memory": "32Mi"
+          }
+        },
+        "startTime": "2026-10-20T10:27:07Z"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "annotations": {
+          "kubectl.kubernetes.io/restartedAt": "2026-10-20T09:09:31Z"
+        },
+        "creationTimestamp": "2026-10-20T09:10:01Z",
+        "generateName": "storage-54f5d47dd9-",
+        "generation": 1,
+        "labels": {
+          "app": "storage",
+          "pod-template-hash": "54f5d47dd9"
+        },
+        "name": "storage-54f5d47dd9-m8jj9",
+        "namespace": "ssle",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "ReplicaSet",
+            "name": "storage-54f5d47dd9",
+            "uid": "8b27104f-5cc5-40cf-80e2-049b8d77f248"
+          }
+        ],
+        "resourceVersion": "56902",
+        "uid": "51c53ffd-e68a-4d6d-b118-e325bfbcb5cf"
+      },
+      "spec": {
+        "automountServiceAccountToken": false,
+        "containers": [
+          {
+            "env": [
+              {
+                "name": "DB_PATH",
+                "value": "/data/temp_data.db"
+              }
+            ],
+            "image": "docker.io/library/ssle-storage:k3s-v1",
+            "imagePullPolicy": "Never",
+            "livenessProbe": {
+              "failureThreshold": 3,
+              "initialDelaySeconds": 15,
+              "periodSeconds": 10,
+              "successThreshold": 1,
+              "tcpSocket": {
+                "port": "http"
+              },
+              "timeoutSeconds": 1
+            },
+            "name": "storage",
+            "ports": [
+              {
+                "containerPort": 5002,
+                "name": "http",
+                "protocol": "TCP"
+              }
+            ],
+            "readinessProbe": {
+              "failureThreshold": 3,
+              "httpGet": {
+                "path": "/stats",
+                "port": "http",
+                "scheme": "HTTP"
+              },
+              "periodSeconds": 5,
+              "successThreshold": 1,
+              "timeoutSeconds": 2
+            },
+            "resources": {
+              "limits": {
+                "cpu": "500m",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "25m",
+                "memory": "32Mi"
+              }
+            },
+            "securityContext": {
+              "allowPrivilegeEscalation": false,
+              "capabilities": {
+                "drop": [
+                  "ALL"
+                ]
+              }
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "volumeMounts": [
+              {
+                "mountPath": "/data",
+                "name": "data"
+              }
+            ]
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "enableServiceLinks": true,
+        "nodeName": "k3s-node1",
+        "preemptionPolicy": "PreemptLowerPriority",
+        "priority": 0,
+        "restartPolicy": "Always",
+        "schedulerName": "default-scheduler",
+        "securityContext": {
+          "fsGroup": 10001,
+          "runAsGroup": 10001,
+          "runAsNonRoot": true,
+          "runAsUser": 10001
+        },
+        "serviceAccount": "default",
+        "serviceAccountName": "default",
+        "terminationGracePeriodSeconds": 30,
+        "tolerations": [
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          },
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          }
+        ],
+        "volumes": [
+          {
+            "name": "data",
+            "persistentVolumeClaim": {
+              "claimName": "storage-data"
+            }
+          }
+        ]
+      },
+      "status": {
+        "allocatedResources": {
+          "cpu": "25m",
+          "memory": "32Mi"
+        },
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:01:42Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-20T09:10:01Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:01:47Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:01:47Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-10-20T09:10:01Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "allocatedResources": {
+              "cpu": "25m",
+              "memory": "32Mi"
+            },
+            "containerID": "containerd://f99adfbb5a8fac91515fe298631b89f9dea8bb5f0a2acced0d4bbe41fd1a07e8",
+            "image": "docker.io/library/ssle-storage:k3s-v1",
+            "imageID": "sha256:cf4c105dc3cc9125c407c55737ff1c127c36bfcee4628c2a8ce4b36b6c7c3a31",
+            "lastState": {
+              "terminated": {
+                "containerID": "containerd://0a5f7a8f4862c11984fdf4d63e9e2ade5addc69be4d964a15d1c6c248453b1f5",
+                "exitCode": 255,
+                "finishedAt": "2026-11-19T11:01:39Z",
+                "reason": "Unknown",
+                "startedAt": "2026-11-18T20:53:10Z"
+              }
+            },
+            "name": "storage",
+            "ready": true,
+            "resources": {
+              "limits": {
+                "cpu": "500m",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "25m",
+                "memory": "32Mi"
+              }
+            },
+            "restartCount": 12,
+            "started": true,
+            "state": {
+              "running": {
+                "startedAt": "2026-11-19T11:01:43Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 10001,
+                "supplementalGroups": [
+                  10001
+                ],
+                "uid": 10001
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/data",
+                "name": "data"
+              }
+            ]
+          }
+        ],
+        "hostIP": "10.255.255.254",
+        "hostIPs": [
+          {
+            "ip": "10.255.255.254"
+          }
+        ],
+        "observedGeneration": 1,
+        "phase": "Running",
+        "podIP": "10.42.1.112",
+        "podIPs": [
+          {
+            "ip": "10.42.1.112"
+          }
+        ],
+        "qosClass": "Burstable",
+        "resources": {
+          "limits": {
+            "cpu": "500m",
+            "memory": "128Mi"
+          },
+          "requests": {
+            "memory": "32Mi"
+          }
+        },
+        "startTime": "2026-10-20T09:10:01Z"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2026-11-19T11:30:40Z",
+        "generateName": "temperature-client-6cd5685b9b-",
+        "generation": 1,
+        "labels": {
+          "app": "temperature-client",
+          "pod-template-hash": "6cd5685b9b"
+        },
+        "name": "temperature-client-6cd5685b9b-mggqp",
+        "namespace": "ssle",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "ReplicaSet",
+            "name": "temperature-client-6cd5685b9b",
+            "uid": "6f39f83d-7c68-4e25-9e14-08b5ffa0c159"
+          }
+        ],
+        "resourceVersion": "58002",
+        "uid": "4bdbe097-41f2-43a8-9efd-753944612907"
+      },
+      "spec": {
+        "automountServiceAccountToken": false,
+        "containers": [
+          {
+            "command": [
+              "python",
+              "/app/client.py"
+            ],
+            "image": "docker.io/library/ssle-monitoring:case1-final-v1",
+            "imagePullPolicy": "Never",
+            "livenessProbe": {
+              "failureThreshold": 3,
+              "httpGet": {
+                "path": "/metrics",
+                "port": "metrics",
+                "scheme": "HTTP"
+              },
+              "initialDelaySeconds": 15,
+              "periodSeconds": 15,
+              "successThreshold": 1,
+              "timeoutSeconds": 2
+            },
+            "name": "temperature-client",
+            "ports": [
+              {
+                "containerPort": 8002,
+                "name": "metrics",
+                "protocol": "TCP"
+              }
+            ],
+            "readinessProbe": {
+              "failureThreshold": 3,
+              "httpGet": {
+                "path": "/metrics",
+                "port": "metrics",
+                "scheme": "HTTP"
+              },
+              "periodSeconds": 5,
+              "successThreshold": 1,
+              "timeoutSeconds": 2
+            },
+            "resources": {
+              "limits": {
+                "cpu": "250m",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "25m",
+                "memory": "32Mi"
+              }
+            },
+            "securityContext": {
+              "allowPrivilegeEscalation": false,
+              "capabilities": {
+                "drop": [
+                  "ALL"
+                ]
+              }
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File"
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "enableServiceLinks": true,
+        "nodeName": "k3s-node1",
+        "preemptionPolicy": "PreemptLowerPriority",
+        "priority": 0,
+        "restartPolicy": "Always",
+        "schedulerName": "default-scheduler",
+        "securityContext": {
+          "runAsGroup": 10001,
+          "runAsNonRoot": true,
+          "runAsUser": 10001
+        },
+        "serviceAccount": "default",
+        "serviceAccountName": "default",
+        "terminationGracePeriodSeconds": 30,
+        "tolerations": [
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          },
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          }
+        ]
+      },
+      "status": {
+        "allocatedResources": {
+          "cpu": "25m",
+          "memory": "32Mi"
+        },
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:30:40Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodReadyToStartContainers"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:30:40Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:30:46Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:30:46Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2026-11-19T11:30:40Z",
+            "observedGeneration": 1,
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "allocatedResources": {
+              "cpu": "25m",
+              "memory": "32Mi"
+            },
+            "containerID": "containerd://70f0b16f003288f2a8311a0b34defd6ef308c7c85c920ceb8ef9f0e0afc33e7d",
+            "image": "docker.io/library/ssle-monitoring:case1-final-v1",
+            "imageID": "sha256:3b5aecd7df83a3c9bc30e75aec63a83091c71772bff9af9fbcf99e27c0ef07b1",
+            "lastState": {},
+            "name": "temperature-client",
+            "ready": true,
+            "resources": {
+              "limits": {
+                "cpu": "250m",
+                "memory": "128Mi"
+              },
+              "requests": {
+                "cpu": "25m",
+                "memory": "32Mi"
+              }
+            },
+            "restartCount": 0,
+            "started": true,
+            "state": {
+              "running": {
+                "startedAt": "2026-11-19T11:30:41Z"
+              }
+            },
+            "user": {
+              "linux": {
+                "gid": 10001,
+                "supplementalGroups": [
+                  10001
+                ],
+                "uid": 10001
+              }
+            }
+          }
+        ],
+        "hostIP": "10.255.255.254",
+        "hostIPs": [
+          {
+            "ip": "10.255.255.254"
+          }
+        ],
+        "observedGeneration": 1,
+        "phase": "Running",
+        "podIP": "10.42.1.115",
+        "podIPs": [
+          {
+            "ip": "10.42.1.115"
+          }
+        ],
+        "qosClass": "Burstable",
+        "resources": {
+          "limits": {
+            "cpu": "250m",
+            "memory": "128Mi"
+          },
+          "requests": {
+            "memory": "32Mi"
+          }
+        },
+        "startTime": "2026-11-19T11:30:40Z"
+      }
+    }
+  ],
+  "kind": "List",
+  "metadata": {
+    "resourceVersion": ""
+  }
+}

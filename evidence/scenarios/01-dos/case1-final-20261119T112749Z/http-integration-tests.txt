@@ -1,0 +1,9 @@
+Legitimate client: http_error
+test_changed_sqlite_data_becomes_visible_after_refresh_and_recovery (test_analytics_http.HTTPIntegrationTests.test_changed_sqlite_data_becomes_visible_after_refresh_and_recovery) ... ok
+test_slow_storage_returns_application_error_before_client_read_timeout (test_analytics_http.HTTPIntegrationTests.test_slow_storage_returns_application_error_before_client_read_timeout) ... ok
+test_warm_cache_fallback_is_served_then_expires_with_real_waits (test_analytics_http.HTTPIntegrationTests.test_warm_cache_fallback_is_served_then_expires_with_real_waits) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 20.965s
+
+OK

@@ -1,0 +1,1 @@
+{"integration":"mail_security","outcome":"delivered","timestamp":"2026-11-22T11:58:58.262273+00:00","message_id":"<ssle-0a058155fc73-recovery-good@mail.lab.test>","digest":"9f34b394c4da5f0e9c8ed7bd2fd5b339f6378b891f57ea7291ecce67443a20eb","folder":"INBOX","spam_status":"No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham autolearn_force=no version=3.4.6","event_id":"85"}

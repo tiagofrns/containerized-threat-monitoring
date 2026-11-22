@@ -1,0 +1,118 @@
+{
+  "took": 18,
+  "timed_out": false,
+  "_shards": {
+    "total": 9,
+    "successful": 9,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 2,
+      "relation": "eq"
+    },
+    "max_score": 16.413433,
+    "hits": [
+      {
+        "_index": "wazuh-alerts-4.x-2026.11.19",
+        "_id": "-ZaU86EBtV-XIEfMwhye",
+        "_score": 16.413433,
+        "_source": {
+          "agent": {
+            "ip": "10.255.255.254",
+            "name": "k3s-node1",
+            "id": "002"
+          },
+          "data": {
+            "srcip": "10.42.1.1",
+            "http": {
+              "status_code": "429",
+              "method": "GET"
+            },
+            "url": "/average?source=case1-cache-20261119T113214Z"
+          },
+          "rule": {
+            "firedtimes": 1,
+            "mail": false,
+            "level": 7,
+            "description": "SSLE repeated admission rejections from the same observed source; investigate possible excessive requests.",
+            "groups": [
+              "ssle",
+              "analytics",
+              "admission_control"
+            ],
+            "id": "100121",
+            "frequency": 10
+          },
+          "full_log": "2026-11-19T11:32:47.576514389Z stderr F 10.42.1.1 - - [19/Nov/2026 11:32:47] \"\u001b[31m\u001b[1mGET /average?source=case1-cache-20261119T113214Z HTTP/1.1\u001b[0m\" 429 -",
+          "id": "1795087969.2045913",
+          "timestamp": "2026-11-19T11:32:49.131+0000",
+          "predecoder": {
+            "timestamp": "2026-11-19T11:32:47.576514389Z "
+          },
+          "previous_output": "2026-11-19T11:32:47.575241011Z stderr F 10.42.1.1 - - [19/Nov/2026 11:32:47] \"\u001b[31m\u001b[1mGET /average?source=case1-cache-20261119T113214Z HTTP/1.1\u001b[0m\" 429 -\n2026-11-19T11:32:47.57401341Z stderr F 10.42.1.1 - - [19/Nov/2026 11:32:47] \"\u001b[31m\u001b[1mGET /average?source=case1-cache-20261119T113214Z HTTP/1.1\u001b[0m\" 429 -\n2026-11-19T11:32:47.572920072Z stderr F 10.42.1.1 - - [19/Nov/2026 11:32:47] \"\u001b[31m\u001b[1mGET /average?source=case1-cache-20261119T113214Z HTTP/1.1\u001b[0m\" 429 -\n2026-11-19T11:32:47.571919069Z stderr F 10.42.1.1 - - [19/Nov/2026 11:32:47] \"\u001b[31m\u001b[1mGET /average?source=case1-cache-20261119T113214Z HTTP/1.1\u001b[0m\" 429 -\n2026-11-19T11:32:47.570883394Z stderr F 10.42.1.1 - - [19/Nov/2026 11:32:47] \"\u001b[31m\u001b[1mGET /average?source=case1-cache-20261119T113214Z HTTP/1.1\u001b[0m\" 429 -\n2026-11-19T11:32:47.569594725Z stderr F 10.42.1.1 - - [19/Nov/2026 11:32:47] \"\u001b[31m\u001b[1mGET /average?source=case1-cache-20261119T113214Z HTTP/1.1\u001b[0m\" 429 -\n2026-11-19T11:32:47.56868269Z stderr F 10.42.1.1 - - [19/Nov/2026 11:32:47] \"\u001b[31m\u001b[1mGET /average?source=case1-cache-20261119T113214Z HTTP/1.1\u001b[0m\" 429 -\n2026-11-19T11:32:47.567150169Z stderr F 10.42.1.1 - - [19/Nov/2026 11:32:47] \"\u001b[31m\u001b[1mGET /average?source=case1-cache-20261119T113214Z HTTP/1.1\u001b[0m\" 429 -\n2026-11-19T11:32:47.565687822Z stderr F 10.42.1.1 - - [19/Nov/2026 11:32:47] \"\u001b[31m\u001b[1mGET /average?source=case1-cache-20261119T113214Z HTTP/1.1\u001b[0m\" 429 -",
+          "manager": {
+            "name": "wazuh-container"
+          },
+          "decoder": {
+            "name": "ssle-cri-http"
+          },
+          "input": {
+            "type": "log"
+          },
+          "@timestamp": "2026-11-19T11:32:49.131Z",
+          "location": "/var/log/pods/ssle_analytics-7d95544f9c-4hf4t_61ad4516-c8b6-4176-8f26-6299534eb826/analytics/0.log"
+        }
+      },
+      {
+        "_index": "wazuh-alerts-4.x-2026.11.19",
+        "_id": "-paU86EBtV-XIEfMwhye",
+        "_score": 5.6058044,
+        "_source": {
+          "agent": {
+            "ip": "10.255.255.254",
+            "name": "k3s-node1",
+            "id": "002"
+          },
+          "manager": {
+            "name": "wazuh-container"
+          },
+          "data": {
+            "rule_id": "100121",
+            "result": "enabled",
+            "node": "k3s-node1",
+            "event_id": "1795087969.2045913",
+            "expires_at": "1795088029.188102",
+            "integration": "ssle-analytics-cache",
+            "action": "add",
+            "timestamp": "2026-11-19T11:32:49.191432+00:00"
+          },
+          "rule": {
+            "firedtimes": 1,
+            "mail": false,
+            "level": 3,
+            "description": "SSLE analytics protective-cache response outcome.",
+            "groups": [
+              "ssle",
+              "analytics",
+              "active_response"
+            ],
+            "id": "100130"
+          },
+          "decoder": {
+            "name": "json"
+          },
+          "full_log": "{\"timestamp\": \"2026-11-19T11:32:49.191432+00:00\", \"integration\": \"ssle-analytics-cache\", \"action\": \"add\", \"event_id\": \"1795087969.2045913\", \"rule_id\": \"100121\", \"node\": \"k3s-node1\", \"result\": \"enabled\", \"expires_at\": 1795088029.1881022}",
+          "input": {
+            "type": "log"
+          },
+          "@timestamp": "2026-11-19T11:32:51.084Z",
+          "location": "/var/ossec/logs/active-responses.log",
+          "id": "1795087971.2047866",
+          "timestamp": "2026-11-19T11:32:51.084+0000"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "command": "firewall-drop",
+  "trigger_rule": "100620",
+  "source_ip": "10.171.72.60",
+  "configured_timeout_seconds": 20,
+  "observed_remaining_block_seconds": 20.902,
+  "scope": "Native IP-wide INPUT/FORWARD block on mail-container; not SMTP-only",
+  "trigger_event_id": "1795350415.16100343",
+  "smtp_failed_during_block": true,
+  "smtp_recovered_automatically": true,
+  "polls": [
+    {
+      "at": 1795350416.2353997,
+      "blocked": true
+    },
+    {
+      "at": 1795350418.4464517,
+      "blocked": true
+    },
+    {
+      "at": 1795350419.004644,
+      "blocked": true
+    },
+    {
+      "at": 1795350419.5615776,
+      "blocked": true
+    },
+    {
+      "at": 1795350420.1219995,
+      "blocked": true
+    },
+    {
+      "at": 1795350420.7642233,
+      "blocked": true
+    },
+    {
+      "at": 1795350421.3339996,
+      "blocked": true
+    },
+    {
+      "at": 1795350421.9000142,
+      "blocked": true
+    },
+    {
+      "at": 1795350422.4915688,
+      "blocked": true
+    },
+    {
+      "at": 1795350423.0467427,
+      "blocked": true
+    },
+    {
+      "at": 1795350423.591399,
+      "blocked": true
+    },
+    {
+      "at": 1795350424.1473227,
+      "blocked": true
+    },
+    {
+      "at": 1795350424.7072098,
+      "blocked": true
+    },
+    {
+      "at": 1795350425.2484405,
+      "blocked": true
+    },
+    {
+      "at": 1795350425.8200874,
+      "blocked": true
+    },
+    {
+      "at": 1795350426.3856688,
+      "blocked": true
+    },
+    {
+      "at": 1795350427.0402231,
+      "blocked": true
+    },
+    {
+      "at": 1795350427.5999463,
+      "blocked": true
+    },
+    {
+      "at": 1795350428.1581078,
+      "blocked": true
+    },
+    {
+      "at": 1795350428.7363524,
+      "blocked": true
+    },
+    {
+      "at": 1795350429.2928815,
+      "blocked": true
+    },
+    {
+      "at": 1795350429.8566136,
+      "blocked": true
+    },
+    {
+      "at": 1795350430.409315,
+      "blocked": true
+    },
+    {
+      "at": 1795350430.967701,
+      "blocked": true
+    },
+    {
+      "at": 1795350431.5200717,
+      "blocked": true
+    },
+    {
+      "at": 1795350432.0951698,
+      "blocked": true
+    },
+    {
+      "at": 1795350432.6634247,
+      "blocked": true
+    },
+    {
+      "at": 1795350433.2378361,
+      "blocked": true
+    },
+    {
+      "at": 1795350433.8007195,
+      "blocked": true
+    },
+    {
+      "at": 1795350434.3470523,
+      "blocked": true
+    },
+    {
+      "at": 1795350434.9094017,
+      "blocked": true
+    },
+    {
+      "at": 1795350435.4743114,
+      "blocked": true
+    },
+    {
+      "at": 1795350436.0310888,
+      "blocked": true
+    },
+    {
+      "at": 1795350436.5853927,
+      "blocked": true
+    },
+    {
+      "at": 1795350437.1378074,
+      "blocked": false
+    }
+  ]
+}

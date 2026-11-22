@@ -1,0 +1,1 @@
+2026/11/19 11:31:05 wazuh-analysisd: INFO: Rule tree threshold 'analysisd.rule_tree_memory_warning' set to 65102720 nodes: 25% of 7947 MiB of physical memory, 32 bytes per node.

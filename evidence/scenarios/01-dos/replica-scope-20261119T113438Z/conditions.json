@@ -1,0 +1,7 @@
+{
+  "scope": "Bounded read-only replica/state evaluation in temporary K3s Pods.\n\nThe real analytics Deployment, database and Wazuh response configuration stay\nunchanged. A labelled fixture lease is written only into a dedicated directory\nfor the temporary Deployment. It is not a Wazuh activation or capacity test.\n",
+  "manual_reads": 34,
+  "per_pod_cadence_seconds": 1,
+  "fixture_lease_seconds": 60,
+  "original_deployment_not_scaled": true
+}

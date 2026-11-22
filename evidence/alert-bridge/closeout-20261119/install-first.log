@@ -1,0 +1,25 @@
+prometheus-alertmanager	0.28.1+ds-1
+wazuh-agent	4.14.10-1
+Checking '/etc/prometheus/alertmanager.yml'  SUCCESS
+Found:
+ - global config
+ - route
+ - 0 inhibit rules
+ - 2 receivers
+ - 0 templates
+
+Created symlink '/etc/systemd/system/multi-user.target.wants/alert_bridge.service' → '/etc/systemd/system/alert_bridge.service'.
+Removed '/etc/systemd/system/prometheus-alertmanager.service'.
+Synchronizing state of prometheus-alertmanager.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable prometheus-alertmanager
+Created symlink '/etc/systemd/system/multi-user.target.wants/prometheus-alertmanager.service' → '/usr/lib/systemd/system/prometheus-alertmanager.service'.
+Created symlink '/etc/systemd/system/multi-user.target.wants/wazuh-agent.service' → '/usr/lib/systemd/system/wazuh-agent.service'.
+wazuh-agent set on hold.
+2026/11/19 21:34:34 wazuh-analysisd: INFO: Rule tree threshold 'analysisd.rule_tree_memory_warning' set to 65102624 nodes: 25% of 7947 MiB of physical memory, 32 bytes per node.
+2026/11/19 21:34:34 wazuh-analysisd: ERROR: Failure to read rule 100150. Field 'status' is static.
+2026/11/19 21:34:34 wazuh-analysisd: CRITICAL: (1220): Error loading the rules: 'etc/rules/bridge_rules.xml'.
+Traceback (most recent call last):
+  File "<stdin>", line 22, in <module>
+  File "/usr/lib/python3.10/subprocess.py", line 526, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/var/ossec/bin/wazuh-analysisd', '-t']' returned non-zero exit status 1.

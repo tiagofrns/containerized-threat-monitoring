@@ -1,0 +1,42 @@
+{
+  "<ssle-b3fa0adce195-sem-filtro@mail.lab.test>": {
+    "folder": "INBOX",
+    "uid_guid": "8036b313de9c016b97180000a6ebfbdf 27",
+    "opposite_folder_count": 0
+  },
+  "<ssle-b3fa0adce195-legitimo@mail.lab.test>": {
+    "folder": "INBOX",
+    "uid_guid": "8036b313de9c016b97180000a6ebfbdf 28",
+    "opposite_folder_count": 0
+  },
+  "<ssle-b3fa0adce195-spam1@mail.lab.test>": {
+    "folder": "INBOX",
+    "uid_guid": "8036b313de9c016b97180000a6ebfbdf 31",
+    "opposite_folder_count": 0
+  },
+  "<ssle-b3fa0adce195-spam2@mail.lab.test>": {
+    "folder": "Quarantine",
+    "uid_guid": "b0cacf0a069d016b97180000a6ebfbdf 23",
+    "opposite_folder_count": 0
+  },
+  "<ssle-b3fa0adce195-spam3@mail.lab.test>": {
+    "folder": "Quarantine",
+    "uid_guid": "b0cacf0a069d016b97180000a6ebfbdf 24",
+    "opposite_folder_count": 0
+  },
+  "<incident-57f1e9438e0f6611bc27ef608add1290e26dd77583e57cc0948c442fdf44ed04@mail.lab.test>": {
+    "folder": "INBOX",
+    "uid_guid": "8036b313de9c016b97180000a6ebfbdf 29",
+    "opposite_folder_count": 0
+  },
+  "<ssle-b3fa0adce195-recovery-spam@mail.lab.test>": {
+    "folder": "Quarantine",
+    "uid_guid": "b0cacf0a069d016b97180000a6ebfbdf 25",
+    "opposite_folder_count": 0
+  },
+  "<ssle-b3fa0adce195-recovery-good@mail.lab.test>": {
+    "folder": "INBOX",
+    "uid_guid": "8036b313de9c016b97180000a6ebfbdf 30",
+    "opposite_folder_count": 0
+  }
+}

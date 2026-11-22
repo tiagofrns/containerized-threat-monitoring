@@ -1,0 +1,83 @@
+{
+  "normal": {
+    "analytics": {
+      "ssle_container_cpu_usage_cores": {
+        "n": 2,
+        "mean": 0.002358727,
+        "max": 0.002548489
+      },
+      "ssle_container_memory_working_set_bytes": {
+        "n": 2,
+        "mean": 35241984.0,
+        "max": 35377152.0
+      }
+    },
+    "storage": {
+      "ssle_container_cpu_usage_cores": {
+        "n": 2,
+        "mean": 0.0017266135,
+        "max": 0.001897259
+      },
+      "ssle_container_memory_working_set_bytes": {
+        "n": 2,
+        "mean": 28987392.0,
+        "max": 28987392.0
+      }
+    },
+    "duration_seconds": 30.331947088241577
+  },
+  "protected": {
+    "analytics": {
+      "ssle_container_cpu_usage_cores": {
+        "n": 2,
+        "mean": 0.0058357185,
+        "max": 0.009519833
+      },
+      "ssle_container_memory_working_set_bytes": {
+        "n": 2,
+        "mean": 35123200.0,
+        "max": 35143680.0
+      }
+    },
+    "storage": {
+      "ssle_container_cpu_usage_cores": {
+        "n": 2,
+        "mean": 0.0035440825000000002,
+        "max": 0.00472963
+      },
+      "ssle_container_memory_working_set_bytes": {
+        "n": 2,
+        "mean": 29003776.0,
+        "max": 29020160.0
+      }
+    },
+    "duration_seconds": 30.16356062889099
+  },
+  "recovery": {
+    "analytics": {
+      "ssle_container_cpu_usage_cores": {
+        "n": 0,
+        "mean": null,
+        "max": null
+      },
+      "ssle_container_memory_working_set_bytes": {
+        "n": 0,
+        "mean": null,
+        "max": null
+      }
+    },
+    "storage": {
+      "ssle_container_cpu_usage_cores": {
+        "n": 0,
+        "mean": null,
+        "max": null
+      },
+      "ssle_container_memory_working_set_bytes": {
+        "n": 0,
+        "mean": null,
+        "max": null
+      }
+    },
+    "duration_seconds": 2.031015157699585
+  }
+}

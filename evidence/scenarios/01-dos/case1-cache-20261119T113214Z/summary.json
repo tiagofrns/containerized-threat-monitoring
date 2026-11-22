@@ -1,0 +1,91 @@
+{
+  "run_marker": "case1-cache-20261119T113214Z",
+  "scope": "Bounded equal-cadence cache comparison and functional response; not a saturation/capacity trial",
+  "event_id": "1795087969.2045913",
+  "lease": {
+    "version": 1,
+    "mode": "cache",
+    "event_id": "1795087969.2045913",
+    "issued_at": 1795087969.1881022,
+    "expires_at": 1795088029.1881022
+  },
+  "normal": {
+    "manual_mean_ms": 9.770994566686872,
+    "manual_p50_ms": 10.254436999957761,
+    "manual_p95_ms": 12.399678949952884,
+    "manual_requests": 30,
+    "manual_http_statuses": {
+      "200": 30
+    },
+    "manual_cached": 0,
+    "manual_fresh": 30,
+    "manual_max_snapshot_age_seconds": 0.007,
+    "storage_attempts_all_clients": 42.0,
+    "analytics_200_all_clients": 42.0,
+    "background_client_requests": 6.0,
+    "background_client_errors": 0.0,
+    "background_client_mean_latency_ms": 14.03632399997908
+  },
+  "protected": {
+    "manual_mean_ms": 4.153803533328452,
+    "manual_p50_ms": 3.8233755001328973,
+    "manual_p95_ms": 6.536121200065279,
+    "manual_requests": 30,
+    "manual_http_statuses": {
+      "200": 30
+    },
+    "manual_cached": 30,
+    "manual_fresh": 0,
+    "manual_max_snapshot_age_seconds": 4.771,
+    "storage_attempts_all_clients": 6.0,
+    "analytics_200_all_clients": 42.0,
+    "background_client_requests": 6.0,
+    "background_client_errors": 0.0,
+    "background_client_mean_latency_ms": 10.946704999999687
+  },
+  "recovery": {
+    "manual_mean_ms": 9.094059499943796,
+    "manual_p50_ms": 9.094059499943796,
+    "manual_p95_ms": 12.766824049879233,
+    "manual_requests": 2,
+    "manual_http_statuses": {
+      "200": 2
+    },
+    "manual_cached": 0,
+    "manual_fresh": 2,
+    "manual_max_snapshot_age_seconds": 0.007,
+    "storage_attempts_all_clients": 3.0,
+    "analytics_200_all_clients": 3.0,
+    "background_client_requests": 1.0,
+    "background_client_errors": 0.0,
+    "background_client_mean_latency_ms": 13.116760999992039
+  },
+  "admission_statuses": {
+    "200": 5,
+    "429": 10
+  },
+  "response_events": [
+    {
+      "timestamp": "2026-11-19T11:32:49.191432+00:00",
+      "integration": "ssle-analytics-cache",
+      "action": "add",
+      "event_id": "1795087969.2045913",
+      "rule_id": "100121",
+      "node": "k3s-node1",
+      "result": "enabled",
+      "expires_at": 1795088029.1881022
+    },
+    {
+      "timestamp": "2026-11-19T11:33:50.296264+00:00",
+      "integration": "ssle-analytics-cache",
+      "action": "delete",
+      "event_id": "1795087969.2045913",
+      "rule_id": "100121",
+      "node": "k3s-node1",
+      "result": "disabled"
+    }
+  ],
+  "indexed_hits": 3,
+  "pod_identities_and_restarts_unchanged": true,
+  "completed_at_utc": "2026-11-19T11:34:03.513921+00:00"
+}

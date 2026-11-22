@@ -1,0 +1,631 @@
+{
+  "checked_at_utc": "2026-11-19T11:47:37.415103+00:00",
+  "scope": "Read-only readiness, configuration and retained-summary audit. No new application requests, load tests, deployment changes or protection activation.",
+  "nodes": [
+    {
+      "name": "k3s-master",
+      "conditions": {
+        "MemoryPressure": "False",
+        "DiskPressure": "False",
+        "PIDPressure": "False",
+        "Ready": "True"
+      }
+    },
+    {
+      "name": "k3s-node1",
+      "conditions": {
+        "MemoryPressure": "False",
+        "DiskPressure": "False",
+        "PIDPressure": "False",
+        "Ready": "True"
+      }
+    }
+  ],
+  "deployments": [
+    {
+      "name": "analytics",
+      "desired": 1,
+      "ready": 1,
+      "containers": [
+        {
+          "name": "analytics",
+          "image": "docker.io/library/ssle-analytics:case1-final-v1",
+          "resources": {
+            "limits": {
+              "cpu": "500m",
+              "memory": "128Mi"
+            },
+            "requests": {
+              "cpu": "25m",
+              "memory": "32Mi"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "health-exporter",
+      "desired": 1,
+      "ready": 1,
+      "containers": [
+        {
+          "name": "health-exporter",
+          "image": "docker.io/library/ssle-monitoring:guiao3-v1",
+          "resources": {
+            "limits": {
+              "cpu": "250m",
+              "memory": "128Mi"
+            },
+            "requests": {
+              "cpu": "25m",
+              "memory": "32Mi"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ingestion",
+      "desired": 1,
+      "ready": 1,
+      "containers": [
+        {
+          "name": "ingestion",
+          "image": "docker.io/library/ssle-ingestion:k3s-v2",
+          "resources": {
+            "limits": {
+              "cpu": "500m",
+              "memory": "128Mi"
+            },
+            "requests": {
+              "cpu": "25m",
+              "memory": "32Mi"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "registry",
+      "desired": 1,
+      "ready": 1,
+      "containers": [
+        {
+          "name": "registry",
+          "image": "docker.io/library/ssle-registry:k3s-v1",
+          "resources": {
+            "limits": {
+              "cpu": "500m",
+              "memory": "128Mi"
+            },
+            "requests": {
+              "cpu": "25m",
+              "memory": "32Mi"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "resource-exporter",
+      "desired": 1,
+      "ready": 1,
+      "containers": [
+        {
+          "name": "resource-exporter",
+          "image": "docker.io/library/ssle-monitoring:guiao3-v1",
+          "resources": {
+            "limits": {
+              "cpu": "250m",
+              "memory": "128Mi"
+            },
+            "requests": {
+              "cpu": "25m",
+              "memory": "32Mi"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "sensor",
+      "desired": 0,
+      "ready": 0,
+      "containers": [
+        {
+          "name": "sensor",
+          "image": "docker.io/library/ssle-sensor:k3s-v1",
+          "resources": {
+            "limits": {
+              "cpu": "500m",
+              "memory": "128Mi"
+            },
+            "requests": {
+              "cpu": "25m",
+              "memory": "32Mi"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "storage",
+      "desired": 1,
+      "ready": 1,
+      "containers": [
+        {
+          "name": "storage",
+          "image": "docker.io/library/ssle-storage:k3s-v1",
+          "resources": {
+            "limits": {
+              "cpu": "500m",
+              "memory": "128Mi"
+            },
+            "requests": {
+              "cpu": "25m",
+              "memory": "32Mi"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "temperature-client",
+      "desired": 1,
+      "ready": 1,
+      "containers": [
+        {
+          "name": "temperature-client",
+          "image": "docker.io/library/ssle-monitoring:case1-final-v1",
+          "resources": {
+            "limits": {
+              "cpu": "250m",
+              "memory": "128Mi"
+            },
+            "requests": {
+              "cpu": "25m",
+              "memory": "32Mi"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "pods": [
+    {
+      "name": "analytics-7d95544f9c-4hf4t",
+      "node": "k3s-node1",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "analytics",
+          "ready": true,
+          "restart_count": 0,
+          "started_at": "2026-11-19T11:30:34Z"
+        }
+      ]
+    },
+    {
+      "name": "health-exporter-557f7454b5-prltc",
+      "node": "k3s-node1",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "health-exporter",
+          "ready": true,
+          "restart_count": 7,
+          "started_at": "2026-11-19T11:01:43Z"
+        }
+      ]
+    },
+    {
+      "name": "ingestion-68555fd86d-j77cl",
+      "node": "k3s-node1",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "ingestion",
+          "ready": true,
+          "restart_count": 12,
+          "started_at": "2026-11-19T11:01:51Z"
+        }
+      ]
+    },
+    {
+      "name": "registry-6b969b6d65-nz64z",
+      "node": "k3s-node1",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "registry",
+          "ready": true,
+          "restart_count": 12,
+          "started_at": "2026-11-19T11:01:43Z"
+        }
+      ]
+    },
+    {
+      "name": "resource-exporter-54c7886779-tnqk6",
+      "node": "k3s-node1",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "resource-exporter",
+          "ready": true,
+          "restart_count": 11,
+          "started_at": "2026-11-19T11:01:43Z"
+        }
+      ]
+    },
+    {
+      "name": "storage-54f5d47dd9-m8jj9",
+      "node": "k3s-node1",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "storage",
+          "ready": true,
+          "restart_count": 12,
+          "started_at": "2026-11-19T11:01:43Z"
+        }
+      ]
+    },
+    {
+      "name": "temperature-client-6cd5685b9b-mggqp",
+      "node": "k3s-node1",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "temperature-client",
+          "ready": true,
+          "restart_count": 0,
+          "started_at": "2026-11-19T11:30:41Z"
+        }
+      ]
+    }
+  ],
+  "prometheus_service_states": "active",
+  "wazuh_service_states": "active\nactive\nactive",
+  "wazuh_agents": "Wazuh agent_control. List of available agents:\n   ID: 000, Name: wazuh-container (server), IP: 127.0.0.1, Active/Local\n   ID: 001, Name: apache-container, IP: any, Active\n   ID: 002, Name: k3s-node1, IP: any, Active\n   ID: 003, Name: k3s-master, IP: any, Active\n\nList of agentless devices:",
+  "prometheus_targets": [
+    {
+      "job": "prometheus",
+      "health": "up",
+      "last_error": ""
+    },
+    {
+      "job": "ssle-analytics",
+      "health": "up",
+      "last_error": ""
+    },
+    {
+      "job": "ssle-client",
+      "health": "up",
+      "last_error": ""
+    },
+    {
+      "job": "ssle-health",
+      "health": "up",
+      "last_error": ""
+    },
+    {
+      "job": "ssle-pushgateway",
+      "health": "up",
+      "last_error": ""
+    },
+    {
+      "job": "ssle-resources",
+      "health": "up",
+      "last_error": ""
+    }
+  ],
+  "instant_prometheus_queries": {
+    "application_probes": {
+      "query": "ssle_service_up",
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "__name__": "ssle_service_up",
+                "instance": "k3s-master.incus:30800",
+                "job": "ssle-health",
+                "probe": "http",
+                "service": "registry"
+              },
+              "value": [
+                1795088858.205,
+                "1"
+              ]
+            },
+            {
+              "metric": {
+                "__name__": "ssle_service_up",
+                "instance": "k3s-master.incus:30800",
+                "job": "ssle-health",
+                "probe": "tcp",
+                "service": "ingestion"
+              },
+              "value": [
+                1795088858.205,
+                "1"
+              ]
+            },
+            {
+              "metric": {
+                "__name__": "ssle_service_up",
+                "instance": "k3s-master.incus:30800",
+                "job": "ssle-health",
+                "probe": "http",
+                "service": "storage"
+              },
+              "value": [
+                1795088858.205,
+                "1"
+              ]
+            },
+            {
+              "metric": {
+                "__name__": "ssle_service_up",
+                "instance": "k3s-master.incus:30800",
+                "job": "ssle-health",
+                "probe": "http",
+                "service": "analytics"
+              },
+              "value": [
+                1795088858.205,
+                "1"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "resource_collection": {
+      "query": "ssle_resource_collection_up",
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "__name__": "ssle_resource_collection_up",
+                "instance": "k3s-master.incus:30801",
+                "job": "ssle-resources"
+              },
+              "value": [
+                1795088858.273,
+                "1"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "protection_mode": {
+      "query": "ssle_analytics_protection_active",
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "__name__": "ssle_analytics_protection_active",
+                "instance": "k3s-master.incus:30503",
+                "job": "ssle-analytics"
+              },
+              "value": [
+                1795088858.354,
+                "0"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "recent_client_requests": {
+      "query": "sum(increase(ssle_client_requests_total[5m]))",
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {},
+              "value": [
+                1795088858.433,
+                "59.99978947442289"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "recent_client_errors": {
+      "query": "sum(increase(ssle_client_requests_total{outcome!=\"success\"}[5m]))",
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {},
+              "value": [
+                1795088858.511,
+                "0"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "recent_client_mean_seconds": {
+      "query": "sum(rate(ssle_client_request_duration_seconds_sum[5m])) / sum(rate(ssle_client_request_duration_seconds_count[5m]))",
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {},
+              "value": [
+                1795088858.569,
+                "0.010466178649095496"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "recent_client_histogram_samples": {
+      "query": "sum(increase(ssle_client_request_duration_seconds_count[5m]))",
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {},
+              "value": [
+                1795088858.625,
+                "59.9997894744229"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "current_alerts": {
+      "query": "ALERTS",
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": []
+        }
+      }
+    }
+  },
+  "source_sha256": {
+    "apps/analytics.py": "3b791794f6d6937dc5f0693d792e0aa5c14921d11ebb3e7a7a7d9a42505706bb",
+    "monitoring/client.py": "d5e7b5d863e174f16ea716e26f472b168bca16ca9100378a4b5a8a4a34ee47f9",
+    "monitoring/resource_exporter.py": "0364a921146c480cbaa7bd2ec07439d0eaec84fabd71e182532dfaab680711fd",
+    "monitoring/ssle-alerts.yml": "9fdb87bd971da6536fa8cd398e8d151e87b9239ae7775cdf1e590518e2465c86",
+    "monitoring/prometheus.yml": "8947f3c8bc11d21ae090694831c3e14233911d978eb0c68c5a66ba3b5c9a38f2",
+    "deploy/k8s/apps.yaml": "445e7202b8b416fbd88f04577d57a7e06c2e8a78546e43699fdc207877eb3406",
+    "security/wazuh-analytics-rules.xml": "ea29c87f6a94c6fcd0675aede6e0f4c2bfaefd06eaa6383f79e090b6a84e0af2",
+    "security/wazuh-cache-response-config.xml": "3d7baa9735a5a92441e5b4b26be90f4480aad4bff3deee8683d3363ca8cd9a57",
+    "security/ssle-analytics-cache.py": "13143cb721db8352f077cf134f7d7f2374cad839ed15ea184873c180074aef3b",
+    "scripts/record-cache-response.py": "34da72de266a4fb7d57cc3ebfaf99939585fa6fed205bec1b3c6f2cb0e26aa53",
+    "scripts/record-replica-scope.py": "fd269eb5046fc9e8edbbff6e9e5794db1ebe984e9efcb6481183a4fc515d9b37",
+    "scripts/run-tests.sh": "69593b6858c20fc8a0579554f54b3becb158d013d566b1c279a53ccdd8d73e4d",
+    "tests/integration/test_analytics_http.py": "4fc897017b5dfc052397e0d1300af79cb329b2de958735a25292428fb9918418",
+    "security/attack-defense-tree.md": "0990c79507916a4503dbba3448d11090c60b2c1667346ee30e71413ce31e0190",
+    "security/attack-defense-tree.mmd": "4530271cda94ec875216c60616e91da97f9d46ea41cd29df9dc4ed6963373733"
+  },
+  "runtime_analytics_sha256": "3b791794f6d6937dc5f0693d792e0aa5c14921d11ebb3e7a7a7d9a42505706bb  /app/app.py",
+  "retained_functional_summaries": {
+    "case1-cache-20261119T113214Z": {
+      "run_marker": "case1-cache-20261119T113214Z",
+      "scope": "Bounded equal-cadence cache comparison and functional response; not a saturation/capacity trial",
+      "event_id": "1795087969.2045913",
+      "lease": {
+        "version": 1,
+        "mode": "cache",
+        "event_id": "1795087969.2045913",
+        "issued_at": 1795087969.1881022,
+        "expires_at": 1795088029.1881022
+      },
+      "normal": {
+        "manual_mean_ms": 9.770994566686872,
+        "manual_p50_ms": 10.254436999957761,
+        "manual_p95_ms": 12.399678949952884,
+        "manual_requests": 30,
+        "manual_http_statuses": {
+          "200": 30
+        },
+        "manual_cached": 0,
+        "manual_fresh": 30,
+        "manual_max_snapshot_age_seconds": 0.007,
+        "storage_attempts_all_clients": 42.0,
+        "analytics_200_all_clients": 42.0,
+        "background_client_requests": 6.0,
+        "background_client_errors": 0.0,
+        "background_client_mean_latency_ms": 14.03632399997908
+      },
+      "protected": {
+        "manual_mean_ms": 4.153803533328452,
+        "manual_p50_ms": 3.8233755001328973,
+        "manual_p95_ms": 6.536121200065279,
+        "manual_requests": 30,
+        "manual_http_statuses": {
+          "200": 30
+        },
+        "manual_cached": 30,
+        "manual_fresh": 0,
+        "manual_max_snapshot_age_seconds": 4.771,
+        "storage_attempts_all_clients": 6.0,
+        "analytics_200_all_clients": 42.0,
+        "background_client_requests": 6.0,
+        "background_client_errors": 0.0,
+        "background_client_mean_latency_ms": 10.946704999999687
+      },
+      "recovery": {
+        "manual_mean_ms": 9.094059499943796,
+        "manual_p50_ms": 9.094059499943796,
+        "manual_p95_ms": 12.766824049879233,
+        "manual_requests": 2,
+        "manual_http_statuses": {
+          "200": 2
+        },
+        "manual_cached": 0,
+        "manual_fresh": 2,
+        "manual_max_snapshot_age_seconds": 0.007,
+        "storage_attempts_all_clients": 3.0,
+        "analytics_200_all_clients": 3.0,
+        "background_client_requests": 1.0,
+        "background_client_errors": 0.0,
+        "background_client_mean_latency_ms": 13.116760999992039
+      },
+      "admission_statuses": {
+        "200": 5,
+        "429": 10
+      },
+      "response_events": [
+        {
+          "timestamp": "2026-11-19T11:32:49.191432+00:00",
+          "integration": "ssle-analytics-cache",
+          "action": "add",
+          "event_id": "1795087969.2045913",
+          "rule_id": "100121",
+          "node": "k3s-node1",
+          "result": "enabled",
+          "expires_at": 1795088029.1881022
+        },
+        {
+          "timestamp": "2026-11-19T11:33:50.296264+00:00",
+          "integration": "ssle-analytics-cache",
+          "action": "delete",
+          "event_id": "1795087969.2045913",
+          "rule_id": "100121",
+          "node": "k3s-node1",
+          "result": "disabled"
+        }
+      ],
+      "indexed_hits": 3,
+      "pod_identities_and_restarts_unchanged": true,
+      "completed_at_utc": "2026-11-19T11:34:03.513921+00:00"
+    }
+  },
+  "database_read_only_check": "[77, 25.118701298701296]",
+  "temporary_deployments_remaining": [],
+  "temporary_directories_remaining": {
+    "k3s-master": "[]",
+    "k3s-node1": "[]"
+  },
+  "runtime_client_sha256": "d5e7b5d863e174f16ea716e26f472b168bca16ca9100378a4b5a8a4a34ee47f9  /app/client.py"
+}

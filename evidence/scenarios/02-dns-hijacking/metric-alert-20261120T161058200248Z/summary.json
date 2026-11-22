@@ -1,0 +1,24 @@
+{
+  "run": "20261120T161058200248Z",
+  "passed": true,
+  "timeline": {
+    "baseline": "2026-11-20T16:10:59.063321+00:00",
+    "baseline_observed": "2026-11-20T16:11:51.857062+00:00",
+    "nxdomain": "2026-11-20T16:11:51.960697+00:00",
+    "nxdomain_observed": "2026-11-20T16:12:06.772923+00:00",
+    "rejections": "2026-11-20T16:12:06.880908+00:00",
+    "pending_observed": "2026-11-20T16:12:29.719773+00:00",
+    "firing_observed": "2026-11-20T16:12:44.244068+00:00",
+    "response_observed": "2026-11-20T16:12:44.502883+00:00",
+    "recovery": "2026-11-20T16:12:44.690859+00:00",
+    "clear_observed": "2026-11-20T16:12:59.828235+00:00"
+  },
+  "source": "loopback integration fixture",
+  "checks_by_phase": {
+    "baseline": 11,
+    "nxdomain": 3,
+    "rejections": 8,
+    "recovery": 3
+  },
+  "original_config_restored": true
+}

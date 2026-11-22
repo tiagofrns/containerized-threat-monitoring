@@ -1,0 +1,21 @@
+[Unit]
+Description=Local Alertmanager receiver for Wazuh
+After=network.target
+
+[Service]
+User=alert_bridge
+Group=alert_bridge
+ExecStart=/usr/bin/python3 /opt/alert_bridge/alert_receiver.py
+StateDirectory=alert-bridge
+LogsDirectory=alert-bridge
+LogsDirectoryMode=0750
+RestartSec=2
+UMask=0077
+Restart=on-failure
+ProtectSystem=strict
+ProtectHome=yes
+NoNewPrivileges=yes
+PrivateTmp=yes
+
+[Install]
+WantedBy=multi-user.target

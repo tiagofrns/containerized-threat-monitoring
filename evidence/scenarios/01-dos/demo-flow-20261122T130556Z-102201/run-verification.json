@@ -1,0 +1,12 @@
+{
+  "recorded_at": "2026-11-22T13:14:26.121596+00:00",
+  "flow_exit_code": 0,
+  "scenario": "01-dos",
+  "source_sha256": {
+    "scripts/scenarios/01-dos/install-cache-response.sh": "817db72425a233c52f788eb3944352edb3e0f497886d9e7f2fdb10c6608360d3",
+    "scripts/scenarios/01-dos/record-replica-scope.py": "b1783c63c642421649d57aeb11bccadddfd00bfbbee102728500be6042545854",
+    "scripts/scenarios/01-dos/demo/record-cache-response-demo.py": "2b3ef2918075518f239d890bad435f49b25a1906e3a7e9fedc23046a7acae5ec",
+    "scripts/scenarios/01-dos/demo/runtime_contract.py": "d21fc47c70bcbb42e41a960c113b065d928570bab556f3dc2f7fe12b64261ab6",
+    "scripts/scenarios/01-dos/demo/show-dos-flow.sh": "d69a6517bdf7ac1178e2cd19de1315228029a9794458d4e57fcc60cd24fde081"
+  }
+}

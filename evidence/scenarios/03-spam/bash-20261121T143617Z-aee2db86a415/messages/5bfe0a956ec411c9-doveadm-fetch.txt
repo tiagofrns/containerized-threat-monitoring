@@ -1,0 +1,27 @@
+text:
+Return-Path: <validation@mail.lab.test>
+Delivered-To: security-operations@mail.lab.test
+Received: from mail.lab.test
+	by mail-container with LMTP
+	id OLtlLpasAWsCJAAApuv73w
+	(envelope-from <validation@mail.lab.test>)
+	for <security-operations@mail.lab.test>; Sat, 21 Nov 2026 14:37:10 +0000
+Received: by mail.lab.test (Postfix, from userid 110)
+	id 8F9E711FFFF; Sat, 21 Nov 2026 14:37:10 +0000 (UTC)
+X-Spam-Checker-Version: SpamAssassin 3.4.6 (2021-04-09) on mail-container
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham
+	autolearn_force=no version=3.4.6
+Received: from [127.0.1.1] (localhost [127.0.0.1])	by mail.lab.test (Postfix)
+ with ESMTP id 2665311F2E5	for <security-operations@mail.lab.test>; Sat, 21
+ Nov 2026 14:37:09 +0000 (UTC)
+From: validation@mail.lab.test
+To: security-operations@mail.lab.test
+Subject: SSLE DEMO | legitimo
+Message-ID: <ssle-aee2db86a415-legitimo@mail.lab.test>
+Date: Sat, 21 Nov 2026 14:37:08 +0000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+
+A análise de temperatura terminou normalmente.

@@ -1,0 +1,22 @@
+{
+  "backup": "/home/tiago/ssle/archive/reviews/case1-final-20261119T112749Z",
+  "before": {
+    "apps/analytics.py": "1197cd9a47a95216f8b6cb3d448e45774bde8bff290c24a32e9690a44edff18e",
+    "monitoring/client.py": "bc537f300877e2d18a13993a86013e8b3e7ba4dcf8963854a76e28474628ea4a",
+    "deploy/k8s/apps.yaml": "d00d37010b8189bd71d7aa6418ecdb94509dfe2340a896765d9753a53fd42ab7",
+    "deploy/k8s/monitoring.yaml": "e96b3799711fd257a2adc7f396074a4eb38161e82c6eae5015e55bbd972f62d9",
+    "scripts/import-images.sh": "86f355ec73227c5b91053bf8be27f8b5307e013c2e285f263586abe1d30fbcd7",
+    "scripts/run-tests.sh": "c5005c86fae8d0ffa53479ab722fb61615e5e20bb9043b8246a3917ba7b270a7",
+    "scripts/record-cache-response.py": "802d8e149154ae5b6ebd47e5b7a5d181b52a44e825fd02eeef251583c8baf323"
+  },
+  "after": {
+    "apps/analytics.py": "3b791794f6d6937dc5f0693d792e0aa5c14921d11ebb3e7a7a7d9a42505706bb",
+    "monitoring/client.py": "d5e7b5d863e174f16ea716e26f472b168bca16ca9100378a4b5a8a4a34ee47f9",
+    "deploy/k8s/apps.yaml": "445e7202b8b416fbd88f04577d57a7e06c2e8a78546e43699fdc207877eb3406",
+    "deploy/k8s/monitoring.yaml": "c2fc7ea4937295c505803aa165e725aeca4ce777e90dec1bee6fcb41c792a813",
+    "scripts/import-images.sh": "be003ca83f0c0cf1c79a47da35950fda1db9fdf8379e8abdb06dfc521a19d596",
+    "scripts/run-tests.sh": "1f87431c821bed7330de1f0d293ef8012f5039d3e92c309257b2d335a2ab356f",
+    "scripts/record-cache-response.py": "0777379c18becd985da15dd15fc11bde95370050637c9038bc45f08a3008d9be",
+    "tests/integration/test_analytics_http.py": "4fc897017b5dfc052397e0d1300af79cb329b2de958735a25292428fb9918418"
+  }
+}

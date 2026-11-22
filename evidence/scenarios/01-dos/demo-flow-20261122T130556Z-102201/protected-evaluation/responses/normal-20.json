@@ -1,0 +1,14 @@
+{
+  "phase": "normal",
+  "ordinal": 20,
+  "utc": "2026-11-22T13:06:57.946499+00:00",
+  "status": 200,
+  "duration_ms": 73.5656309998376,
+  "body": {
+    "average_temperature": 25.12,
+    "cache_fallback": false,
+    "cached": false,
+    "protection_mode": "normal",
+    "stats_age_seconds": 0.039
+  }
+}

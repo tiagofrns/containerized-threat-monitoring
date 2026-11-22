@@ -1,0 +1,1 @@
+{"service": "spamassassin", "state": "active", "scanner_ready": true, "retry_after_seconds": 0}

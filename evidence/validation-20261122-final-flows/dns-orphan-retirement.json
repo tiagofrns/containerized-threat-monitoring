@@ -1,0 +1,18 @@
+{
+  "retired": [
+    {
+      "targets": [
+        "127.0.0.1:34553"
+      ],
+      "labels": {
+        "mode": "bridge-validation",
+        "test_run": "20261120T194747668809Z"
+      }
+    }
+  ],
+  "backup": "/root/retired-dns-fixture-nlb7_cnh",
+  "production_target_preserved": "10.171.72.8:8004",
+  "reason": "Closed orphaned validation endpoint from 20 November",
+  "before_sha256": "f4f2a4fa1375dd6d8b944ea058069a8697a08c6db7b624fb0d5f82d0076ea13e",
+  "after_sha256": "12c044024857ded2dc4dc5333668cf935e0b55579db4d659b79e2a3bbfc30a7d"
+}

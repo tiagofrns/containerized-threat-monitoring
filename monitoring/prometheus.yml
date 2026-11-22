@@ -1,0 +1,49 @@
+global:
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  evaluation_interval: 15s
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: ["127.0.0.1:9093"]
+
+rule_files:
+  - /etc/prometheus/alerts.yml
+  - /etc/prometheus/dns_alerts.yml
+  - /etc/prometheus/bridge_alerts.yml
+  - /etc/prometheus/mail_alerts.yml
+
+scrape_configs:
+  - job_name: prometheus
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  - job_name: health
+    static_configs:
+      - targets: ["k3s-master.incus:30800"]
+
+  - job_name: resources
+    static_configs:
+      - targets: ["k3s-master.incus:30801"]
+
+  - job_name: client
+    static_configs:
+      - targets: ["k3s-master.incus:30802"]
+
+  - job_name: analytics
+    static_configs:
+      - targets: ["k3s-master.incus:30503"]
+
+  - job_name: pushgateway
+    honor_labels: true
+    static_configs:
+      - targets: ["127.0.0.1:9091"]
+
+  - job_name: dns_client
+    static_configs:
+      - targets: ["10.171.72.8:8004"]
+
+  - job_name: mail-security
+    static_configs:
+      - targets: ["10.171.72.142:9096"]

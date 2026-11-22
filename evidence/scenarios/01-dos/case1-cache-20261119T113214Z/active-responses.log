@@ -1,0 +1,10 @@
+2026/11/18 10:23:37 active-response/bin/restart.sh agent reload
+2026/11/18 17:33:57 active-response/bin/restart.sh agent reload
+{"timestamp": "2026-11-18T17:39:43.471855+00:00", "integration": "ssle-analytics-cache", "action": "add", "event_id": "1795023373.16070969", "rule_id": "100121", "node": "k3s-node1", "result": "enabled", "expires_at": 1795023643.4672756}
+{"timestamp": "2026-11-18T17:39:43.494712+00:00", "integration": "ssle-analytics-cache", "action": "delete", "event_id": "1795023373.16070969", "rule_id": "100121", "node": "k3s-node1", "result": "disabled"}
+{"timestamp": "2026-11-18T17:40:21.963356+00:00", "integration": "ssle-analytics-cache", "action": "add", "event_id": "1795023621.16096339", "rule_id": "100121", "node": "k3s-node1", "result": "enabled", "expires_at": 1795023681.9533818}
+{"timestamp": "2026-11-18T17:41:22.057340+00:00", "integration": "ssle-analytics-cache", "action": "delete", "event_id": "1795023621.16096339", "rule_id": "100121", "node": "k3s-node1", "result": "disabled"}
+{"timestamp": "2026-11-18T18:21:10.813573+00:00", "integration": "ssle-analytics-cache", "action": "add", "event_id": "1795026070.16139040", "rule_id": "100121", "node": "k3s-node1", "result": "enabled", "expires_at": 1795026130.8081324}
+{"timestamp": "2026-11-18T18:22:11.914833+00:00", "integration": "ssle-analytics-cache", "action": "delete", "event_id": "1795026070.16139040", "rule_id": "100121", "node": "k3s-node1", "result": "disabled"}
+{"timestamp": "2026-11-19T11:32:49.191432+00:00", "integration": "ssle-analytics-cache", "action": "add", "event_id": "1795087969.2045913", "rule_id": "100121", "node": "k3s-node1", "result": "enabled", "expires_at": 1795088029.1881022}
+{"timestamp": "2026-11-19T11:33:50.296264+00:00", "integration": "ssle-analytics-cache", "action": "delete", "event_id": "1795087969.2045913", "rule_id": "100121", "node": "k3s-node1", "result": "disabled"}

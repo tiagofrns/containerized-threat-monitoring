@@ -1,0 +1,39 @@
+text:
+Return-Path: <validation@mail.lab.test>
+Delivered-To: security-operations@mail.lab.test
+Received: from mail.lab.test
+	by mail-container with LMTP
+	id QImCGKXVAmv5EwAApuv73w
+	(envelope-from <validation@mail.lab.test>)
+	for <security-operations@mail.lab.test>; Sun, 22 Nov 2026 11:44:37 +0000
+Received: by mail.lab.test (Postfix, from userid 110)
+	id 622D011FFE0; Sun, 22 Nov 2026 11:44:37 +0000 (UTC)
+X-Spam-Checker-Version: SpamAssassin 3.4.6 (2021-04-09) on mail-container
+X-Spam-Flag: YES
+X-Spam-Level: **************************************************
+X-Spam-Status: Yes, score=999.0 required=5.0 tests=ALL_TRUSTED,GTUBE
+	autolearn=no autolearn_force=no version=3.4.6
+X-Spam-Report: 
+	* -1.0 ALL_TRUSTED Passed through trusted hosts only via SMTP
+	* 1000 GTUBE BODY: Generic Test for Unsolicited Bulk Email
+Received: from [127.0.1.1] (smtp-client.incus [10.171.72.60])	by mail.lab.test
+ (Postfix) with ESMTP id 3B8D611FFC4	for <security-operations@mail.lab.test>;
+ Sun, 22 Nov 2026 11:44:37 +0000 (UTC)
+From: validation@mail.lab.test
+To: security-operations@mail.lab.test
+Subject: *****SPAM***** SSLE DEMO | gtube-protected
+Message-ID: <ssle-9344a3ef54b1-spam1@mail.lab.test>
+Date: Sun, 22 Nov 2026 11:44:37 +0000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+X-Spam-Prev-Subject: SSLE DEMO | gtube-protected
+X-Mail-Filter-Origin: =?utf-8?q?eyJib2R5X3NoYTI1NiI6ICI0MWIwYjIxOWI2MmYwMDJj?=
+ =?utf-8?q?YjZlNDk3ODZiM2QzMmE5N2IzZjliOWU0M2RkYjVmZWFmZWViOWJlY2Q1ZjlmZGYxI?=
+ =?utf-8?q?iwgIm1lc3NhZ2VfaWQiOiAiPHNzbGUtOTM0NGEzZWY1NGIxLXNwYW0xQG1haWwubG?=
+ =?utf-8?q?FiLnRlc3Q+IiwgInNtdHBfcXVldWVfaWQiOiAiM0I4RDYxMUZGQzQiLCAic291cmN?=
+ =?utf-8?q?lX2lwIjogIjEwLjE3MS43Mi42MCIsICJzcGFtIjogdHJ1ZX0=3D?=
+X-Mail-Filter-Signature:
+ e45ee2e373df1c80bae0bcd18ec34b5b736a068c95fe463859e59ec416be7fcb
+
+XJS*C4JDBQADN1.NSBN3*2IDNEN*GTUBE-STANDARD-ANTI-UBE-TEST-EMAIL*C.34X

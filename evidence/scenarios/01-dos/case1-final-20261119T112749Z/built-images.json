@@ -1,0 +1,126 @@
+[
+    {
+        "Id": "sha256:c787176081bf5e8acb36fbfd68f73e89cd11cb40e39b1aff2d5524c9746f6d2b",
+        "RepoTags": [
+            "ssle-analytics:case1-final-v1"
+        ],
+        "RepoDigests": [
+            "ssle-analytics@sha256:c787176081bf5e8acb36fbfd68f73e89cd11cb40e39b1aff2d5524c9746f6d2b"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-11-19T11:28:28.402389336Z",
+        "Config": {
+            "User": "ssle",
+            "Env": [
+                "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+                "PYTHON_VERSION=3.13.18",
+                "PYTHON_SHA256=abb0102e6d4ae027509bcb82327d9dd85515b44a3ba8ad538cfc5e9847029f68",
+                "PYTHONDONTWRITEBYTECODE=1",
+                "PYTHONUNBUFFERED=1"
+            ],
+            "Cmd": [
+                "python",
+                "/app/app.py"
+            ],
+            "WorkingDir": "/app",
+            "ArgsEscaped": true
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 199101012,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:1d7b9dd8778ebc4d9bf2f64436dd358640718cb349f5640b33bebaea4ffd62c2",
+                "sha256:2fd6871b68f33dff2bf69f2e323c6026a61f540949d5ad67df4b692a202a254d",
+                "sha256:00d998d1ba03b9bf10aac0f3729e32b36dee2d89b05a64794afa188b61c2dc38",
+                "sha256:8c7f8256728e8d8876990d8886b5995eeb856c444e46dbd441bc633f09a90865",
+                "sha256:c70abdd38cab5b324a500a75b4b483ff01bb8bb1eb28a65e6d3662ee650b26c0",
+                "sha256:f1ce9e5364efdd55a51317ef70fa3dd0855afe651389e4f82b5a1024868ffeb4",
+                "sha256:4374a8e5bad969e817f46de184dd200a8ab004449f0b04231ccbf974feb1eabe",
+                "sha256:60e104683b7b439dc3c4fb23d7cdc7795cf9a59d8760fb5de5ab0106ef34444b",
+                "sha256:12ce6d20e2cf5a991dc1dd092be189002a9a8fd071a4daf65597df5188f7d794"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-11-19T11:28:30.356060355Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:c787176081bf5e8acb36fbfd68f73e89cd11cb40e39b1aff2d5524c9746f6d2b",
+            "size": 856
+        },
+        "Identity": {
+            "Build": [
+                {
+                    "Ref": "hmcqmy5vjnrlomle0152ah4vc",
+                    "CreatedAt": "2026-11-19T11:28:30.549483288Z"
+                }
+            ]
+        }
+    },
+    {
+        "Id": "sha256:6b6b0ef60ebb966c8584f078a11c2448edbad1fb5c6307699bdc6199a9e5e173",
+        "RepoTags": [
+            "ssle-monitoring:case1-final-v1"
+        ],
+        "RepoDigests": [
+            "ssle-monitoring@sha256:6b6b0ef60ebb966c8584f078a11c2448edbad1fb5c6307699bdc6199a9e5e173"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-11-19T11:28:45.413373534Z",
+        "Config": {
+            "User": "ssle",
+            "Env": [
+                "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+                "PYTHON_VERSION=3.13.18",
+                "PYTHON_SHA256=abb0102e6d4ae027509bcb82327d9dd85515b44a3ba8ad538cfc5e9847029f68",
+                "PYTHONDONTWRITEBYTECODE=1",
+                "PYTHONUNBUFFERED=1"
+            ],
+            "Cmd": [
+                "python",
+                "/app/health_exporter.py"
+            ],
+            "WorkingDir": "/app",
+            "ArgsEscaped": true
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 186656690,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:1d7b9dd8778ebc4d9bf2f64436dd358640718cb349f5640b33bebaea4ffd62c2",
+                "sha256:2fd6871b68f33dff2bf69f2e323c6026a61f540949d5ad67df4b692a202a254d",
+                "sha256:00d998d1ba03b9bf10aac0f3729e32b36dee2d89b05a64794afa188b61c2dc38",
+                "sha256:8c7f8256728e8d8876990d8886b5995eeb856c444e46dbd441bc633f09a90865",
+                "sha256:c70abdd38cab5b324a500a75b4b483ff01bb8bb1eb28a65e6d3662ee650b26c0",
+                "sha256:a1e8b415bd33e91346e6ba9fa82a4f7b5640290b567896497e31ad428dd1ec26",
+                "sha256:850110ede077f06ccdaaee844cb0b3eb6e6d1cf940914c4be187aef708d465b0",
+                "sha256:dc9fd67e8924f09942f5fe2cad0e8cacf8fa7e903fd73ca0e479a0e1cfc5152f",
+                "sha256:bf417a5ef32f28b480f4f7644a5b8ab97110cbe70d29ee355e1a92a01a8b1688"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-11-19T11:28:48.935468652Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:6b6b0ef60ebb966c8584f078a11c2448edbad1fb5c6307699bdc6199a9e5e173",
+            "size": 856
+        },
+        "Identity": {
+            "Build": [
+                {
+                    "Ref": "ktl9ic1gp5ww65n15tdl7u2c7",
+                    "CreatedAt": "2026-11-19T11:28:49.449477843Z"
+                }
+            ]
+        }
+    }
+]

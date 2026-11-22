@@ -1,0 +1,2 @@
+wazuh-agent: /var/ossec/active-response/bin/firewall-drop
+5698c9954f1ae92b6a7910d132ba892a7bc3d1fa058f0aec4a5a0059f3565b0e  /var/ossec/active-response/bin/firewall-drop

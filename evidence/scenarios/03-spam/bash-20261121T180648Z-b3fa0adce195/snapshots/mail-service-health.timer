@@ -1,0 +1,11 @@
+[Unit]
+Description=Check SpamAssassin availability every ten seconds
+
+[Timer]
+OnBootSec=15s
+OnUnitActiveSec=10s
+AccuracySec=1s
+Unit=mail-service-health.service
+
+[Install]
+WantedBy=timers.target

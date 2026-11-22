@@ -1,0 +1,17 @@
+/home/tiago/ssle/evidence/alert-bridge/20261119T214023Z
+{
+  "run": "20261119T214023Z",
+  "mode": "labelled Prometheus vector fixtures through real services",
+  "production_metric_thresholds_exercised_live": false,
+  "checks": {
+    "prometheus_alertmanager_receiver": true,
+    "manager_100150_100151_from_agent_005": true,
+    "analytics_cache_enabled": true,
+    "dns_approved_file_no_restart": true,
+    "real_analytics_seen_in_cache_mode": true,
+    "authentication_and_retry_deduplication": true,
+    "validation_rules_removed": true,
+    "analytics_recovers_after_lease": true
+  },
+  "passed": true
+}

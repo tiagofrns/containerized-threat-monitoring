@@ -1,0 +1,8 @@
+{
+  "node": "k3s-node1",
+  "pod": "analytics-7d95544f9c-4hf4t",
+  "response_command": "ssle-analytics-cache",
+  "response_script": "/var/ossec/active-response/bin/ssle-analytics-cache.py",
+  "lease_file": "/var/lib/ssle-protection/analytics/cache.json",
+  "audit_integration": "ssle-analytics-cache"
+}

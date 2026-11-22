@@ -1,0 +1,25 @@
+[
+  {
+    "discoveredLabels": {
+      "__address__": "10.171.72.8:8004",
+      "__metrics_path__": "/metrics",
+      "__scheme__": "http",
+      "__scrape_interval__": "15s",
+      "__scrape_timeout__": "10s",
+      "job": "dns_client"
+    },
+    "labels": {
+      "instance": "10.171.72.8:8004",
+      "job": "dns_client"
+    },
+    "scrapePool": "dns_client",
+    "scrapeUrl": "http://10.171.72.8:8004/metrics",
+    "globalUrl": "http://10.171.72.8:8004/metrics",
+    "lastError": "",
+    "lastScrape": "2026-11-19T20:41:16.758401379Z",
+    "lastScrapeDuration": 0.001278252,
+    "health": "up",
+    "scrapeInterval": "15s",
+    "scrapeTimeout": "10s"
+  }
+]

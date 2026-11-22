@@ -1,0 +1,5 @@
+{
+  "command": "bash scripts/scenarios/03-spam/demo/show-mail-flow.sh --release",
+  "terminal_completion": "[DONE] and original Postfix configuration confirmed",
+  "capture_note": "Initial browser reads timed out with compressed HTTP responses. A historical dashboard query shows the recorded firing interval."
+}

@@ -1,0 +1,51 @@
+
+Pushing /tmp/ssle-tests.digkre/source.tar.gz to /tmp/ssle-tests.qDmKlD/source.tar.gz: 100% (66.13GB/s)
+                                                                                                       
+Received: {'device_id': 'regression-test', 'temperature': 25}
+Received: {'device_id': 'regression-test', 'temperature': 25}
+Received: {'device_id': 'regression-test', 'temperature': 25}
+Publication failed (attempt 1/3): OSError
+Publication failed (attempt 2/3): OSError
+Publication failed (attempt 3/3): OSError
+Publication failed (attempt 1/3): OSError
+test_cache_does_not_bypass_admission_limit (test_analytics_cache.CacheTests.test_cache_does_not_bypass_admission_limit) ... ok
+test_cold_failure_does_not_invent_a_value (test_analytics_cache.CacheTests.test_cold_failure_does_not_invent_a_value) ... ok
+test_concurrent_refresh_has_only_one_storage_call (test_analytics_cache.CacheTests.test_concurrent_refresh_has_only_one_storage_call) ... ok
+test_expiry_returns_to_fresh_normal_queries (test_analytics_cache.CacheTests.test_expiry_returns_to_fresh_normal_queries) ... ok
+test_failure_fallback_is_bounded_and_refreshes_are_spaced (test_analytics_cache.CacheTests.test_failure_fallback_is_bounded_and_refreshes_are_spaced) ... ok
+test_invalid_statistics_are_not_cached_and_zero_is_valid (test_analytics_cache.CacheTests.test_invalid_statistics_are_not_cached_and_zero_is_valid) ... ok
+test_normal_mode_fetches_every_time (test_analytics_cache.CacheTests.test_normal_mode_fetches_every_time) ... ok
+test_protected_mode_reuses_then_refreshes (test_analytics_cache.CacheTests.test_protected_mode_reuses_then_refreshes) ... ok
+test_expiry_without_wazuh_delete (test_analytics_cache.LeaseTests.test_expiry_without_wazuh_delete) ... ok
+test_invalid_timestamps_and_wrong_mode_fail_closed (test_analytics_cache.LeaseTests.test_invalid_timestamps_and_wrong_mode_fail_closed) ... ok
+test_malformed_missing_and_oversized_leases_fail_closed (test_analytics_cache.LeaseTests.test_malformed_missing_and_oversized_leases_fail_closed) ... ok
+test_wall_clock_rollback_cannot_extend_observed_lease (test_analytics_cache.LeaseTests.test_wall_clock_rollback_cannot_extend_observed_lease) ... ok
+test_wrong_owner_writable_file_and_symlink_fail_closed (test_analytics_cache.LeaseTests.test_wrong_owner_writable_file_and_symlink_fail_closed) ... ok
+test_another_source_keeps_its_own_budget (test_analytics_rate_limit.AnalyticsRateLimitTests.test_another_source_keeps_its_own_budget) ... ok
+test_budget_recovers_after_the_window (test_analytics_rate_limit.AnalyticsRateLimitTests.test_budget_recovers_after_the_window) ... ok
+test_disabled_policy_is_a_functional_control (test_analytics_rate_limit.AnalyticsRateLimitTests.test_disabled_policy_is_a_functional_control) ... ok
+test_metrics_distinguish_received_and_forwarded_requests (test_analytics_rate_limit.AnalyticsRateLimitTests.test_metrics_distinguish_received_and_forwarded_requests) ... ok
+test_policy_sheds_downstream_work_and_preserves_an_independent_source (test_analytics_rate_limit.AnalyticsRateLimitTests.test_policy_sheds_downstream_work_and_preserves_an_independent_source) ... ok
+test_sixth_request_is_rejected_before_storage (test_analytics_rate_limit.AnalyticsRateLimitTests.test_sixth_request_is_rejected_before_storage) ... ok
+test_storage_failure_still_returns_502 (test_analytics_rate_limit.AnalyticsRateLimitTests.test_storage_failure_still_returns_502) ... ok
+test_untrusted_forwarded_header_does_not_change_the_key (test_analytics_rate_limit.AnalyticsRateLimitTests.test_untrusted_forwarded_header_does_not_change_the_key) ... ok
+test_duplicate_does_not_extend_and_old_delete_cannot_remove_new_lease (test_cache_response.ResponseTests.test_duplicate_does_not_extend_and_old_delete_cannot_remove_new_lease) ... ok
+test_expected_alert_is_accepted (test_cache_response.ResponseTests.test_expected_alert_is_accepted) ... ok
+test_other_rule_service_node_and_request_are_rejected (test_cache_response.ResponseTests.test_other_rule_service_node_and_request_are_rejected) ... ok
+test_untrusted_control_directory_is_rejected (test_cache_response.ResponseTests.test_untrusted_control_directory_is_rejected) ... ok
+test_cpu_quantities_are_cores (test_exporters.ExporterTests.test_cpu_quantities_are_cores) ... ok
+test_http_error_marks_storage_down (test_exporters.ExporterTests.test_http_error_marks_storage_down) ... ok
+test_memory_quantities_are_bytes (test_exporters.ExporterTests.test_memory_quantities_are_bytes) ... ok
+test_successful_storage_is_up (test_exporters.ExporterTests.test_successful_storage_is_up) ... ok
+test_confirms_a_successful_write (test_ingestion.IngestionResponseTests.test_confirms_a_successful_write) ... ok
+test_rejects_a_storage_client_error (test_ingestion.IngestionResponseTests.test_rejects_a_storage_client_error) ... ok
+test_rejects_a_storage_server_error (test_ingestion.IngestionResponseTests.test_rejects_a_storage_server_error) ... ok
+test_failed_probe_publishes_zero_instead_of_old_success (test_push_publisher.PublisherTests.test_failed_probe_publishes_zero_instead_of_old_success) ... ok
+test_permanent_failure_has_a_bounded_number_of_attempts (test_push_publisher.PublisherTests.test_permanent_failure_has_a_bounded_number_of_attempts) ... ok
+test_retry_recovers_after_a_gateway_failure (test_push_publisher.PublisherTests.test_retry_recovers_after_a_gateway_failure) ... ok
+test_success_publishes_a_recent_observation (test_push_publisher.PublisherTests.test_success_publishes_a_recent_observation) ... ok
+
+----------------------------------------------------------------------
+Ran 36 tests in 1.248s
+
+OK

@@ -1,0 +1,82 @@
+[
+  {
+    "rule": "100151",
+    "agent": "005",
+    "event_id": "1795124451.23849315",
+    "data": {
+      "observed_at": "2026-11-19T21:40:51.430040+00:00",
+      "bridge_state": "firing",
+      "scope": "dns",
+      "integration": "alert_bridge",
+      "episode": "27eb9ae7cdec9b1ecfad7bb92779c80506a64ebe585efead8399ebd9d1923f39",
+      "active_at": "2026-11-19T21:40:34.284028195Z",
+      "alert_name": "DNSPolicyRejections",
+      "validation": "true"
+    },
+    "timestamp": "2026-11-19T21:40:51.469+0000"
+  },
+  {
+    "rule": "100142",
+    "agent": "004",
+    "event_id": "1795124453.23850088",
+    "data": {
+      "result": "already_approved",
+      "duration_seconds": "0.000328",
+      "bridge_episode": "27eb9ae7cdec9b1ecfad7bb92779c80506a64ebe585efead8399ebd9d1923f39",
+      "alert_id": "1795124451.23849315",
+      "integration": "dns_restore",
+      "event": "response",
+      "timestamp": "2026-11-19T21:40:51.507404+00:00"
+    },
+    "timestamp": "2026-11-19T21:40:53.360+0000"
+  },
+  {
+    "rule": "100150",
+    "agent": "005",
+    "event_id": "1795124453.23850830",
+    "data": {
+      "observed_at": "2026-11-19T21:40:51.516653+00:00",
+      "bridge_state": "firing",
+      "scope": "analytics",
+      "integration": "alert_bridge",
+      "episode": "1a7e97465135e52543f8bbded0b52b7e012b081be43a7794825df81bbd959255",
+      "active_at": "2026-11-19T21:40:34.284028195Z",
+      "alert_name": "AnalyticsClientImpact",
+      "validation": "true"
+    },
+    "timestamp": "2026-11-19T21:40:53.360+0000"
+  },
+  {
+    "rule": "100130",
+    "agent": "002",
+    "event_id": "1795124454.23851643",
+    "data": {
+      "rule_id": "100150",
+      "result": "enabled",
+      "node": "k3s-node1",
+      "event_id": "1795124453.23850830",
+      "expires_at": "1795124513.487324",
+      "bridge_episode": "1a7e97465135e52543f8bbded0b52b7e012b081be43a7794825df81bbd959255",
+      "integration": "ssle-analytics-cache",
+      "action": "add",
+      "timestamp": "2026-11-19T21:40:53.491294+00:00"
+    },
+    "timestamp": "2026-11-19T21:40:54.165+0000"
+  },
+  {
+    "rule": "100130",
+    "agent": "002",
+    "event_id": "1795124516.23852452",
+    "data": {
+      "rule_id": "100150",
+      "result": "disabled",
+      "node": "k3s-node1",
+      "event_id": "1795124453.23850830",
+      "bridge_episode": "1a7e97465135e52543f8bbded0b52b7e012b081be43a7794825df81bbd959255",
+      "integration": "ssle-analytics-cache",
+      "action": "delete",
+      "timestamp": "2026-11-19T21:41:54.629803+00:00"
+    },
+    "timestamp": "2026-11-19T21:41:56.186+0000"
+  }
+]

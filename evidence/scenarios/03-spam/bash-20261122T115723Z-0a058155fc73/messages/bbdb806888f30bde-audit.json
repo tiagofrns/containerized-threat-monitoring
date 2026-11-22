@@ -1,0 +1,1 @@
+{"integration":"mail_security","outcome":"delivered","timestamp":"2026-11-22T11:58:33.299650+00:00","message_id":"<ssle-0a058155fc73-after-firewall@mail.lab.test>","digest":"2aa57a510206174b99ac6d56501507b88ce147c9401dc4d1892f24921a623af8","folder":"INBOX","spam_status":"No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham autolearn_force=no version=3.4.6","event_id":"81"}

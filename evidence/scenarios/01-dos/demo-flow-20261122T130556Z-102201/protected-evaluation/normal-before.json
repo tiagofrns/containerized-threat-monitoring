@@ -1,0 +1,333 @@
+{
+  "utc": "2026-11-22T13:06:38.693380+00:00",
+  "time": 1795352798.6933918,
+  "analytics_metrics": "# HELP ssle_analytics_requests_total Completed average requests by HTTP response status\n# TYPE ssle_analytics_requests_total counter\nssle_analytics_requests_total{status=\"200\"} 3600.0\nssle_analytics_requests_total{status=\"429\"} 10.0\nssle_analytics_requests_total{status=\"502\"} 1.0\nssle_analytics_requests_total{status=\"500\"} 0.0\n# HELP ssle_analytics_requests_created Completed average requests by HTTP response status\n# TYPE ssle_analytics_requests_created gauge\nssle_analytics_requests_created{status=\"200\"} 1.7953468895233097e+09\nssle_analytics_requests_created{status=\"429\"} 1.7953468895233226e+09\nssle_analytics_requests_created{status=\"502\"} 1.7953468895233314e+09\nssle_analytics_requests_created{status=\"500\"} 1.7953468895233374e+09\n# HELP ssle_analytics_storage_requests_total HTTP requests attempted from analytics to storage\n# TYPE ssle_analytics_storage_requests_total counter\nssle_analytics_storage_requests_total 3546.0\n# HELP ssle_analytics_storage_requests_created HTTP requests attempted from analytics to storage\n# TYPE ssle_analytics_storage_requests_created gauge\nssle_analytics_storage_requests_created 1.7953468895232549e+09\n# HELP ssle_analytics_cache_responses_total Responses served from the protective cache\n# TYPE ssle_analytics_cache_responses_total counter\nssle_analytics_cache_responses_total{reason=\"fresh\"} 55.0\nssle_analytics_cache_responses_total{reason=\"fallback\"} 0.0\n# HELP ssle_analytics_cache_responses_created Responses served from the protective cache\n# TYPE ssle_analytics_cache_responses_created gauge\nssle_analytics_cache_responses_created{reason=\"fresh\"} 1.7953468895233433e+09\nssle_analytics_cache_responses_created{reason=\"fallback\"} 1.7953468895233486e+09\n# HELP ssle_analytics_protection_active Whether the bounded protective-cache lease is active\n# TYPE ssle_analytics_protection_active gauge\nssle_analytics_protection_active 0.0\n",
+  "client_metrics": "# HELP python_gc_objects_collected_total Objects collected during gc\n# TYPE python_gc_objects_collected_total counter\npython_gc_objects_collected_total{generation=\"0\"} 445.0\npython_gc_objects_collected_total{generation=\"1\"} 0.0\npython_gc_objects_collected_total{generation=\"2\"} 0.0\n# HELP python_gc_objects_uncollectable_total Uncollectable objects found during GC\n# TYPE python_gc_objects_uncollectable_total counter\npython_gc_objects_uncollectable_total{generation=\"0\"} 0.0\npython_gc_objects_uncollectable_total{generation=\"1\"} 0.0\npython_gc_objects_uncollectable_total{generation=\"2\"} 0.0\n# HELP python_gc_collections_total Number of times this generation was collected\n# TYPE python_gc_collections_total counter\npython_gc_collections_total{generation=\"0\"} 20.0\npython_gc_collections_total{generation=\"1\"} 1.0\npython_gc_collections_total{generation=\"2\"} 0.0\n# HELP python_info Python platform information\n# TYPE python_info gauge\npython_info{implementation=\"CPython\",major=\"3\",minor=\"13\",patchlevel=\"18\",version=\"3.13.18\"} 1.0\n# HELP process_virtual_memory_bytes Virtual memory size in bytes.\n# TYPE process_virtual_memory_bytes gauge\nprocess_virtual_memory_bytes 1.94695168e+08\n# HELP process_resident_memory_bytes Resident memory size in bytes.\n# TYPE process_resident_memory_bytes gauge\nprocess_resident_memory_bytes 3.5565568e+07\n# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.\n# TYPE process_start_time_seconds gauge\nprocess_start_time_seconds 1.79534688654e+09\n# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.\n# TYPE process_cpu_seconds_total counter\nprocess_cpu_seconds_total 10.65\n# HELP process_open_fds Number of open file descriptors.\n# TYPE process_open_fds gauge\nprocess_open_fds 6.0\n# HELP process_max_fds Maximum number of open file descriptors.\n# TYPE process_max_fds gauge\nprocess_max_fds 1.048576e+06\n# HELP ssle_client_requests_total Requests made by the legitimate test client\n# TYPE ssle_client_requests_total counter\nssle_client_requests_total{outcome=\"success\"} 1179.0\nssle_client_requests_total{outcome=\"http_error\"} 0.0\nssle_client_requests_total{outcome=\"timeout\"} 0.0\nssle_client_requests_total{outcome=\"connection_error\"} 1.0\nssle_client_requests_total{outcome=\"invalid_response\"} 0.0\n# HELP ssle_client_requests_created Requests made by the legitimate test client\n# TYPE ssle_client_requests_created gauge\nssle_client_requests_created{outcome=\"success\"} 1.795346889546537e+09\nssle_client_requests_created{outcome=\"http_error\"} 1.795346889546554e+09\nssle_client_requests_created{outcome=\"timeout\"} 1.795346889546838e+09\nssle_client_requests_created{outcome=\"connection_error\"} 1.7953468895468454e+09\nssle_client_requests_created{outcome=\"invalid_response\"} 1.7953468895468516e+09\n# HELP ssle_client_request_duration_seconds Latency observed by the legitimate test client\n# TYPE ssle_client_request_duration_seconds histogram\nssle_client_request_duration_seconds_bucket{le=\"0.01\"} 490.0\nssle_client_request_duration_seconds_bucket{le=\"0.025\"} 1178.0\nssle_client_request_duration_seconds_bucket{le=\"0.05\"} 1180.0\nssle_client_request_duration_seconds_bucket{le=\"0.1\"} 1180.0\nssle_client_request_duration_seconds_bucket{le=\"0.25\"} 1180.0\nssle_client_request_duration_seconds_bucket{le=\"0.5\"} 1180.0\nssle_client_request_duration_seconds_bucket{le=\"1.0\"} 1180.0\nssle_client_request_duration_seconds_bucket{le=\"2.0\"} 1180.0\nssle_client_request_duration_seconds_bucket{le=\"5.0\"} 1180.0\nssle_client_request_duration_seconds_bucket{le=\"+Inf\"} 1180.0\nssle_client_request_duration_seconds_count 1180.0\nssle_client_request_duration_seconds_sum 12.89903256398987\n# HELP ssle_client_request_duration_seconds_created Latency observed by the legitimate test client\n# TYPE ssle_client_request_duration_seconds_created gauge\nssle_client_request_duration_seconds_created 1.7953468895464735e+09\n# HELP ssle_client_last_request_success 1 when the most recent client request succeeded\n# TYPE ssle_client_last_request_success gauge\nssle_client_last_request_success 1.0\n",
+  "monitoring": {
+    "status": "success",
+    "data": {
+      "resultType": "vector",
+      "result": [
+        {
+          "metric": {
+            "__name__": "ssle_service_up",
+            "instance": "k3s-master.incus:30800",
+            "job": "ssle-health",
+            "probe": "http",
+            "service": "registry"
+          },
+          "value": [
+            1795352798.705,
+            "1"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ssle_service_up",
+            "instance": "k3s-master.incus:30800",
+            "job": "ssle-health",
+            "probe": "tcp",
+            "service": "ingestion"
+          },
+          "value": [
+            1795352798.705,
+            "1"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ssle_service_up",
+            "instance": "k3s-master.incus:30800",
+            "job": "ssle-health",
+            "probe": "http",
+            "service": "storage"
+          },
+          "value": [
+            1795352798.705,
+            "1"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ssle_service_up",
+            "instance": "k3s-master.incus:30800",
+            "job": "ssle-health",
+            "probe": "http",
+            "service": "analytics"
+          },
+          "value": [
+            1795352798.705,
+            "1"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ssle_storage_measurements",
+            "instance": "k3s-master.incus:30800",
+            "job": "ssle-health"
+          },
+          "value": [
+            1795352798.705,
+            "77"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ssle_container_cpu_usage_cores",
+            "app": "analytics",
+            "container": "analytics",
+            "instance": "k3s-master.incus:30801",
+            "job": "ssle-resources",
+            "namespace": "ssle",
+            "node": "k3s-node1",
+            "pod": "analytics-7d95544f9c-4hf4t"
+          },
+          "value": [
+            1795352798.705,
+            "0.003928084"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ssle_container_cpu_usage_cores",
+            "app": "health-exporter",
+            "container": "health-exporter",
+            "instance": "k3s-master.incus:30801",
+            "job": "ssle-resources",
+            "namespace": "ssle",
+            "node": "k3s-node1",
+            "pod": "health-exporter-557f7454b5-prltc"
+          },
+          "value": [
+            1795352798.705,
+            "0.001177703"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ssle_container_cpu_usage_cores",
+            "app": "ingestion",
+            "container": "ingestion",
+            "instance": "k3s-master.incus:30801",
+            "job": "ssle-resources",
+            "namespace": "ssle",
+            "node": "k3s-node1",
+            "pod": "ingestion-68555fd86d-j77cl"
+          },
+          "value": [
+            1795352798.705,
+            "0.000577554"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ssle_container_cpu_usage_cores",
+            "app": "registry",
+            "container": "registry",
+            "instance": "k3s-master.incus:30801",
+            "job": "ssle-resources",
+            "namespace": "ssle",
+            "node": "k3s-node1",
+            "pod": "registry-6b969b6d65-nz64z"
+          },
+          "value": [
+            1795352798.705,
+            "0.000988074"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ssle_container_cpu_usage_cores",
+            "app": "resource-exporter",
+            "container": "resource-exporter",
+            "instance": "k3s-master.incus:30801",
+            "job": "ssle-resources",
+            "namespace": "ssle",
+            "node": "k3s-node1",
+            "pod": "resource-exporter-54c7886779-tnqk6"
+          },
+          "value": [
+            1795352798.705,
+            "0.001956554"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ssle_container_cpu_usage_cores",
+            "app": "storage",
+            "container": "storage",
+            "instance": "k3s-master.incus:30801",
+            "job": "ssle-resources",
+            "namespace": "ssle",
+            "node": "k3s-node1",
+            "pod": "storage-54f5d47dd9-m8jj9"
+          },
+          "value": [
+            1795352798.705,
+            "0.00358661"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ssle_container_cpu_usage_cores",
+            "app": "temperature-client",
+            "container": "temperature-client",
+            "instance": "k3s-master.incus:30801",
+            "job": "ssle-resources",
+            "namespace": "ssle",
+            "node": "k3s-node1",
+            "pod": "temperature-client-6cd5685b9b-mggqp"
+          },
+          "value": [
+            1795352798.705,
+            "0.001393399"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ssle_container_memory_working_set_bytes",
+            "app": "analytics",
+            "container": "analytics",
+            "instance": "k3s-master.incus:30801",
+            "job": "ssle-resources",
+            "namespace": "ssle",
+            "node": "k3s-node1",
+            "pod": "analytics-7d95544f9c-4hf4t"
+          },
+          "value": [
+            1795352798.705,
+            "48250880"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ssle_container_memory_working_set_bytes",
+            "app": "health-exporter",
+            "container": "health-exporter",
+            "instance": "k3s-master.incus:30801",
+            "job": "ssle-resources",
+            "namespace": "ssle",
+            "node": "k3s-node1",
+            "pod": "health-exporter-557f7454b5-prltc"
+          },
+          "value": [
+            1795352798.705,
+            "24858624"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ssle_container_memory_working_set_bytes",
+            "app": "ingestion",
+            "container": "ingestion",
+            "instance": "k3s-master.incus:30801",
+            "job": "ssle-resources",
+            "namespace": "ssle",
+            "node": "k3s-node1",
+            "pod": "ingestion-68555fd86d-j77cl"
+          },
+          "value": [
+            1795352798.705,
+            "32808960"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ssle_container_memory_working_set_bytes",
+            "app": "registry",
+            "container": "registry",
+            "instance": "k3s-master.incus:30801",
+            "job": "ssle-resources",
+            "namespace": "ssle",
+            "node": "k3s-node1",
+            "pod": "registry-6b969b6d65-nz64z"
+          },
+          "value": [
+            1795352798.705,
+            "31211520"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ssle_container_memory_working_set_bytes",
+            "app": "resource-exporter",
+            "container": "resource-exporter",
+            "instance": "k3s-master.incus:30801",
+            "job": "ssle-resources",
+            "namespace": "ssle",
+            "node": "k3s-node1",
+            "pod": "resource-exporter-54c7886779-tnqk6"
+          },
+          "value": [
+            1795352798.705,
+            "25382912"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ssle_container_memory_working_set_bytes",
+            "app": "storage",
+            "container": "storage",
+            "instance": "k3s-master.incus:30801",
+            "job": "ssle-resources",
+            "namespace": "ssle",
+            "node": "k3s-node1",
+            "pod": "storage-54f5d47dd9-m8jj9"
+          },
+          "value": [
+            1795352798.705,
+            "31870976"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ssle_container_memory_working_set_bytes",
+            "app": "temperature-client",
+            "container": "temperature-client",
+            "instance": "k3s-master.incus:30801",
+            "job": "ssle-resources",
+            "namespace": "ssle",
+            "node": "k3s-node1",
+            "pod": "temperature-client-6cd5685b9b-mggqp"
+          },
+          "value": [
+            1795352798.705,
+            "27873280"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ssle_container_cpu_usage_cores",
+            "app": "analytics-no-limit-261122t130556-102201",
+            "container": "analytics",
+            "instance": "k3s-master.incus:30801",
+            "job": "ssle-resources",
+            "namespace": "ssle",
+            "node": "k3s-node1",
+            "pod": "analytics-no-limit-261122t130556-102201-6cb66d49cc-c2258"
+          },
+          "value": [
+            1795352798.705,
+            "0.036307759"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "ssle_container_memory_working_set_bytes",
+            "app": "analytics-no-limit-261122t130556-102201",
+            "container": "analytics",
+            "instance": "k3s-master.incus:30801",
+            "job": "ssle-resources",
+            "namespace": "ssle",
+            "node": "k3s-node1",
+            "pod": "analytics-no-limit-261122t130556-102201-6cb66d49cc-c2258"
+          },
+          "value": [
+            1795352798.705,
+            "35033088"
+          ]
+        }
+      ]
+    }
+  }
+}

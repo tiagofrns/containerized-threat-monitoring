@@ -1,0 +1,7 @@
+test_each_quarantine_is_acknowledged_before_the_next_submission (mail_sync_regression.FlowSynchronizationTests.test_each_quarantine_is_acknowledged_before_the_next_submission) ... ok
+test_missing_acknowledgement_stops_the_flow_without_extra_gtube (mail_sync_regression.FlowSynchronizationTests.test_missing_acknowledgement_stops_the_flow_without_extra_gtube) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.004s
+
+OK

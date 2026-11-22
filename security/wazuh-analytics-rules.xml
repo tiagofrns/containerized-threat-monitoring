@@ -1,0 +1,19 @@
+<group name="analytics,admission_control,">
+  <!-- Individual rejection: retained for correlation without a separate alert. -->
+  <rule id="100120" level="1">
+    <decoded_as>cri-http</decoded_as>
+    <field name="http.method" type="pcre2">^GET$</field>
+    <url type="pcre2">^/average(?:\?|$)</url>
+    <field name="http.status_code" type="pcre2">^429$</field>
+    <description>Temperature service average endpoint rejected a request through admission control.</description>
+    <options>no_log</options>
+  </rule>
+
+  <!-- Initial laboratory threshold; repeated rejections do not prove a DoS. -->
+  <rule id="100121" level="7" frequency="10" timeframe="60">
+    <if_sid>100120</if_sid>
+    <if_matched_sid>100120</if_matched_sid>
+    <same_srcip />
+    <description>Temperature service repeated admission rejections from the same observed source; investigate possible excessive requests.</description>
+  </rule>
+</group>

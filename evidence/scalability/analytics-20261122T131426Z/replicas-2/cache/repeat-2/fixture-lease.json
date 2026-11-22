@@ -1,0 +1,14 @@
+{
+  "origin": "operator fixture only",
+  "nodes": [
+    "k3s-master",
+    "k3s-node1"
+  ],
+  "lease": {
+    "version": 1,
+    "mode": "cache",
+    "event_id": "1795353606.990001",
+    "issued_at": 1795353606.6943731,
+    "expires_at": 1795353666.6943731
+  }
+}

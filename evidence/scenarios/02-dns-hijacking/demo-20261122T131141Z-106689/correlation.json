@@ -1,0 +1,10 @@
+{
+  "correlation_key": "bridge_episode",
+  "bridge_episode": "02ca48ed8f276fe9732fe34dd89ada01c093b4241fb6864ce13b13d1f3f4a236",
+  "indexed_rule_id": "100151",
+  "indexed_alert_id": "1795353146.16199416",
+  "response_reported_alert_id": "1795353146.16198514",
+  "exact_alert_id_match": false,
+  "startup_result": "already_approved",
+  "limitation": "The response audit alert ID differs from the indexed bridge alert. Episode, scope, timing, before/after hashes and guarded recovery agree. Do not claim an exact alert-ID match or independent startup-rule activation."
+}

@@ -1,0 +1,176 @@
+
+==================================================================
+  [0/8] PREREQUISITES: K3s, live Analytics and active protection
+==================================================================
+Deployment: analytics
+Image: docker.io/library/ssle-analytics:case1-final-v1
+ANALYTICS_RATE_LIMIT_ENABLED: true
+Production replicas: 1
+Protection hostPath: /var/lib/ssle-protection/analytics
+[EVIDENCE] Production protection is enabled and remains active throughout the demonstration.
+NAME                         READY   STATUS    RESTARTS       AGE    IP            NODE        NOMINATED NODE   READINESS GATES
+analytics-7d95544f9c-4hf4t   1/1     Running   12 (97m ago)   3d1h   10.42.1.216   k3s-node1   <none>           <none>
+[POLICY] 5 requests/s per observed source; 10 rejections/60 s trigger Wazuh rule 100121.
+[CONTROL] Unrestricted clone: 15 serial reads + 1 warm-up; protected service: at most 77 reads.
+{
+  "node": "k3s-node1",
+  "pod": "analytics-7d95544f9c-4hf4t",
+  "response_command": "ssle-analytics-cache",
+  "response_script": "/var/ossec/active-response/bin/ssle-analytics-cache.py",
+  "lease_file": "/var/lib/ssle-protection/analytics/cache.json",
+  "audit_integration": "ssle-analytics-cache",
+  "analytics_source": {
+    "runtime_sha256": "3b791794f6d6937dc5f0693d792e0aa5c14921d11ebb3e7a7a7d9a42505706bb",
+    "repository_sha256": "5115186c9a2d1608c680753a6059f7e47adebe84f184952444eae308de7f815c",
+    "exact_source_match": false,
+    "ast_match_after_legacy_name_normalization": true
+  }
+}
+
+==================================================================
+  [1/8] WITHOUT PROTECTION: create a TEMPORARY Pod without rate limiting
+==================================================================
+Isolated manifest: analytics-no-limit-261122t130556-102201
+Clone environment: ANALYTICS_RATE_LIMIT_ENABLED=false
+Dedicated volume: /var/lib/analytics-protection/analytics-no-limit-261122t130556-102201
+The clone has no Service or NodePort.
+deployment.apps/analytics-no-limit-261122t130556-102201 created
+Waiting for deployment "analytics-no-limit-261122t130556-102201" rollout to finish: 0 of 1 updated replicas are available...
+deployment "analytics-no-limit-261122t130556-102201" successfully rolled out
+[EVIDENCE] Temporary Pod: analytics-no-limit-261122t130556-102201-6cb66d49cc-c2258
+[EVIDENCE] Production is unchanged. Rate limiting is disabled only on the temporary clone.
+
+==================================================================
+  [2/8] WITHOUT PROTECTION: 15 HTTP responses and the Storage request counter
+==================================================================
+
+  Requests to the instance WITHOUT rate limiting (live data):
+    #01  HTTP 200      3.58 ms   cache=NO
+    #02  HTTP 200      3.43 ms   cache=NO
+    #03  HTTP 200      3.33 ms   cache=NO
+    #04  HTTP 200      3.34 ms   cache=NO
+    #05  HTTP 200      3.23 ms   cache=NO
+    #06  HTTP 200      3.16 ms   cache=NO
+    #07  HTTP 200      3.74 ms   cache=NO
+    #08  HTTP 200      3.57 ms   cache=NO
+    #09  HTTP 200     48.56 ms   cache=NO
+    #10  HTTP 200      4.60 ms   cache=NO
+    #11  HTTP 200      8.97 ms   cache=NO
+    #12  HTTP 200      7.22 ms   cache=NO
+    #13  HTTP 200      5.02 ms   cache=NO
+    #14  HTTP 200      5.23 ms   cache=NO
+    #15  HTTP 200      4.81 ms   cache=NO
+
+[EVIDENCE] 1 warm-up request + 15 measured requests: HTTP 200; cached=false; protection_mode=normal.
+[EVIDENCE] analytics_storage_requests_total: 1.0 -> 16.0 (delta 15.0)
+  [SCOPE] Functional demonstration only; saturation and DoS capacity are not measured.
+
+  HTTP RESPONSES (test Pod without rate limiting)
+    HTTP 200 |███████████████| 15
+
+==================================================================
+  [3/8] CLEANUP: remove the temporary Pod and verify production is unchanged
+==================================================================
+[CLEANUP] Removing the temporary Deployment...
+[EVIDENCE] Analytics spec unchanged before and after the clone.
+
+==================================================================
+  [4/8] WITH PROTECTION: live Analytics, HTTP rate limiting, Wazuh and cache
+==================================================================
+Live Analytics keeps its protection and receives at most 77 controlled reads:
+  30 normal -> 15 admission -> 30 cached -> 2 recovery reads.
+Evidence files retain HTTP status, response body, mode, cache state and latency.
+
+  [PREFLIGHT] Locate the protected Pod and the Wazuh response executable...
+  Analytics node:          k3s-node1
+  Configured Active Response: /var/ossec/active-response/bin/ssle-analytics-cache.py
+  Lease file on the node: /var/lib/ssle-protection/analytics/cache.json
+  Audit integration identifier: ssle-analytics-cache
+  [EVIDENCE] Protected evaluation completed; full log: protected-run.log
+[EVIDENCE] Evidence produced by the evaluator: /home/tiago/security-monitoring-platform/scripts/scenarios/01-dos/demo/results/case1-cache-20261122T130637Z
+
+==================================================================
+  [5/8] COMPARISON: accepted/rejected requests, cache and latency
+==================================================================
+
+  WITHOUT RATE LIMITING | isolated Pod
+    Requests: 15 | HTTP: {'200': 15} | Mean: 7.453 ms
+    Storage counter: 15.0
+
+  WITH RATE LIMITING | production Analytics (bounded trial)
+    HTTP responses: {'200': 5, '429': 10}
+  PHASE normal:
+    manual_requests: 30
+    manual_http_statuses: {'200': 30}
+    manual_cached: 0
+    manual_mean_ms: 19.808974733314244
+    storage_attempts_all_clients: 48.0
+    analytics_200_all_clients: 48.0
+  PHASE protected:
+    manual_requests: 30
+    manual_http_statuses: {'200': 30}
+    manual_cached: 24
+    manual_mean_ms: 5.706460699942302
+    storage_attempts_all_clients: 6.0
+    analytics_200_all_clients: 48.0
+  PHASE recovery:
+    manual_requests: 2
+    manual_http_statuses: {'200': 2}
+    manual_cached: 0
+    manual_mean_ms: 10.265751000133605
+    storage_attempts_all_clients: 2.0
+    analytics_200_all_clients: 2.0
+[EVIDENCE] Protected cache hits: 24/30; other protected reads can perform scheduled refreshes.
+[EVIDENCE] Storage attempts per admitted request: normal=1.000; cache=0.125
+[EVIDENCE] Rate limiting rejected requests; cache served reads; lease expiry restored normal mode.
+[SCOPE] Clone and production latency measurements are not directly comparable.
+
+  RESPONSE DISTRIBUTION (bounded admission check)
+    HTTP 200 |█████████████░░░░░░░░░░░░░| 5
+    HTTP 429 |██████████████████████████| 10
+
+  OBSERVED MEAN LATENCY (normal, cache and recovery requests)
+    Normal      |██████████████████████████| 19.809 ms
+    Cache active|███████░░░░░░░░░░░░░░░░░░░| 5.706 ms
+    Recovery    |█████████████░░░░░░░░░░░░░| 10.266 ms
+  [NOTE] Bars represent only observations from this trial.
+
+==================================================================
+  [6/8] WAZUH: event 100121, response 100130 and lease expiry
+==================================================================
+Correlated event ID: 1795352831.16191475
+Temporary lease: mode=cache | issued=1795352831.7916405 | expires=1795352891.7916405
+MANAGER id=1795352831.16191475 rule=100121 timestamp=2026-11-22T13:07:11.733+0000
+MANAGER id=1795352831.16193431 rule=100130 timestamp=2026-11-22T13:07:11.892+0000
+MANAGER id=1795352893.16194073 rule=100130 timestamp=2026-11-22T13:08:13.723+0000
+ACTIVE RESPONSE: {"integration": "ssle-analytics-cache", "event_id": "1795352831.16191475", "result": "enabled", "timestamp": "2026-11-22T13:07:11.852618+00:00"}
+ACTIVE RESPONSE: {"integration": "ssle-analytics-cache", "event_id": "1795352831.16191475", "result": "disabled", "timestamp": "2026-11-22T13:08:12.966472+00:00"}
+[EVIDENCE] 100121 -> cache enabled -> cache disabled | indexed events: 3
+
+==================================================================
+  [7/8] PROMETHEUS: metrics and recorded alert history
+==================================================================
+File: prometheus-cache-history.json series: 4
+    analytics_cache_responses_total {'instance': 'k3s-master.incus:30503', 'job': 'ssle-analytics', 'reason': 'fallback'} | samples=20 | first=[1795352798.693, '0'] | last=[1795352893.693, '0']
+    analytics_cache_responses_total {'instance': 'k3s-master.incus:30503', 'job': 'ssle-analytics', 'reason': 'fresh'} | samples=20 | first=[1795352798.693, '55'] | last=[1795352893.693, '107']
+    analytics_protection_active {'instance': 'k3s-master.incus:30503', 'job': 'ssle-analytics'} | samples=20 | first=[1795352798.693, '0'] | last=[1795352893.693, '1']
+    analytics_storage_requests_total {'instance': 'k3s-master.incus:30503', 'job': 'ssle-analytics'} | samples=20 | first=[1795352798.693, '3544'] | last=[1795352893.693, '3611']
+File: prometheus-full-history.json series: 44
+    ALERTS {'alertname': 'DNSExporterUnavailable', 'alertstate': 'firing', 'instance': '127.0.0.1:34553', 'job': 'dns_client', 'mode': 'bridge-validation', 'severity': 'warning', 'test_run': '20261120T194747668809Z'} | samples=7 | first=[1795352798.693, '1'] | last=[1795352888.693, '1']
+    ALERTS {'alertname': 'SSLEAnalyticsRateLimitRejections', 'alertstate': 'firing', 'severity': 'warning'} | samples=2 | first=[1795352858.693, '1'] | last=[1795352873.693, '1']
+    ALERTS {'alertname': 'SSLEAnalyticsRateLimitRejections', 'alertstate': 'pending', 'severity': 'warning'} | samples=1 | first=[1795352843.693, '1'] | last=[1795352843.693, '1']
+[EVIDENCE] API history saved. Alert evaluations use their own time windows.
+
+==================================================================
+  [8/8] RECOVERY: verify normal mode, removed lease and unchanged production
+==================================================================
+[EVIDENCE] Cache lease removed (lease-after.json = null).
+[EVIDENCE] 2/2 HTTP 200, protection_mode normal, cached=false.
+[EVIDENCE] Pod identities and restart counts are unchanged.
+[LIMITATION] Capacity, saturation and DDoS resilience are outside the scope of this trial.
+
+[COMPLETE] Original results from each check have been saved.
+[EVIDENCE] Deployment analytics: spec unchanged before and after.
+
+[RESULTS AND EVIDENCE] /home/tiago/security-monitoring-platform/scripts/scenarios/01-dos/demo/results/demo-flow-20261122T130556Z-102201
+[RESULT] Demonstration completed.

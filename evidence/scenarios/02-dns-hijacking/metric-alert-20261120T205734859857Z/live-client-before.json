@@ -1,0 +1,15 @@
+{
+  "integration": "dns_client",
+  "event": "check",
+  "timestamp": "2026-11-20T20:57:35.332553+00:00",
+  "dns_name": "analytics.lab.test",
+  "dns_expected": true,
+  "outcome": "success",
+  "observed_addresses": [
+    "10.255.255.74"
+  ],
+  "average_temperature": 25.12,
+  "peer_ip": "10.255.255.74",
+  "http_status": 200,
+  "duration_seconds": 0.016194087999792828
+}

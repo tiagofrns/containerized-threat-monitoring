@@ -1,0 +1,17 @@
+{
+  "steps": [
+    {
+      "deployment_deleted": true,
+      "detail": "deployment.apps \"analytics-scale-check-20261119t113438z\" deleted from ssle namespace\n"
+    },
+    {
+      "node": "k3s-master",
+      "temporary_directory_removed": true
+    },
+    {
+      "node": "k3s-node1",
+      "temporary_directory_removed": true
+    }
+  ],
+  "production_spec_unchanged": true
+}

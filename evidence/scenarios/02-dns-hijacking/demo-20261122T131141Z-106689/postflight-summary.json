@@ -1,0 +1,4 @@
+{
+  "postflight": "Completed with startup protection active and guarded HTTP read successful",
+  "target_and_approved_hashes": "0386377711b590148241a718f5791d415530e9ff4f94753529da3a40bc7d8ad6  /etc/dnsmasq.d/dns_sec.conf\n0386377711b590148241a718f5791d415530e9ff4f94753529da3a40bc7d8ad6  /var/lib/dns_sec/approved.conf\n"
+}

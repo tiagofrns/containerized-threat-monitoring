@@ -1,0 +1,2 @@
+NAME                         READY   STATUS    RESTARTS       AGE    IP            NODE        NOMINATED NODE   READINESS GATES
+analytics-7d95544f9c-4hf4t   1/1     Running   12 (97m ago)   3d1h   10.42.1.216   k3s-node1   <none>           <none>

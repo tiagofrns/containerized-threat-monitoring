@@ -1,0 +1,21 @@
+{
+  "captured_utc": "2026-11-20T20:59:09.422140+00:00",
+  "page": "http://127.0.0.1:29090/classic/alerts",
+  "active_alert": {
+    "labels": {
+      "alertname": "DNSPolicyRejections",
+      "bridge": "wazuh",
+      "instance": "127.0.0.1:38153",
+      "job": "dns_client",
+      "mode": "bridge-validation",
+      "outcome": "dns_rejected",
+      "scope": "dns",
+      "severity": "warning",
+      "test_run": "20261120T205734859857Z"
+    },
+    "annotations": {},
+    "state": "firing",
+    "activeAt": "2026-11-20T20:58:51.844336178Z",
+    "value": "7.394e+00"
+  }
+}

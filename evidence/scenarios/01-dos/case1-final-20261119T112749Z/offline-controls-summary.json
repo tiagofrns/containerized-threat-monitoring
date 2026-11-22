@@ -1,0 +1,8 @@
+{
+  "wazuh_fixture_groups_passed": 5,
+  "prometheus_fixture_groups": 6,
+  "prometheus_expected_states": 16,
+  "promtool_tests_passed": true,
+  "installed_prometheus_rules_match_source": true,
+  "scope": "Isolated retained-log and synthetic-series controls, not a live incident or monitoring outage."
+}

@@ -1,0 +1,26 @@
+{
+  "started_utc": "2026-11-19T20:41:22.744800+00:00",
+  "scope": "Real-service baseline and automatic file restoration; offline DNS mismatch fixtures",
+  "live_dns_hijacking_performed": false,
+  "passed": true,
+  "checks": {
+    "offline_policy_and_response_fixtures": true,
+    "actual_service_baseline": true,
+    "prometheus_scrape": true,
+    "wazuh_dispatched_restore_and_real_client_recovery": true,
+    "two_ordinary_client_processes": true,
+    "resolver_outage_observed_and_prometheus_alerted": true,
+    "resolver_and_monitoring_recovery": true
+  },
+  "restored_sha256": "0386377711b590148241a718f5791d415530e9ff4f94753529da3a40bc7d8ad6",
+  "finished_utc": "2026-11-19T20:42:09.079302+00:00",
+  "limitations": [
+    "Unexpected-answer rejection is an offline fixture, not live DNS takeover or redirection",
+    "Only one approved DNS configuration file is restored; other files require separate policies",
+    "The approved node IP and local root-controlled baseline are trust assumptions, not TLS authentication",
+    "The client and resolver share one container; two diagnostic reads do not prove capacity or HA",
+    "HTTP connect/read timeouts are not an absolute transaction deadline",
+    "Prometheus evaluates independently of Wazuh; no Alertmanager-to-SIEM bridge was installed",
+    "Manager alerts are retained; independent dashboard/indexer retrieval requires separate evidence"
+  ]
+}

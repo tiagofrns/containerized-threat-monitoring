@@ -1,0 +1,24 @@
+[Unit]
+Description=Operational mail notifications and delivery observations
+After=network-online.target postfix.service dovecot.service
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/python3 /opt/mail-security/mail_gateway.py
+Restart=on-failure
+RestartSec=3
+StateDirectory=mail-security
+StateDirectoryMode=0700
+LogsDirectory=mail-security
+LogsDirectoryMode=0750
+NoNewPrivileges=yes
+ProtectSystem=strict
+ReadWritePaths=/home/security-operations/Maildir
+PrivateTmp=yes
+ProtectKernelTunables=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_INET AF_UNIX AF_NETLINK
+UMask=0027
+
+[Install]
+WantedBy=multi-user.target

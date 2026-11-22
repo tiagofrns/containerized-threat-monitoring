@@ -1,0 +1,11 @@
+
+Wazuh agent_control. List of available agents:
+   ID: 000, Name: wazuh-container (server), IP: 127.0.0.1, Active/Local
+   ID: 001, Name: apache-container, IP: any, Active
+   ID: 002, Name: k3s-node1, IP: any, Active
+   ID: 003, Name: k3s-master, IP: any, Active
+   ID: 004, Name: dns-server-container, IP: any, Active
+   ID: 005, Name: prometheus-container, IP: any, Active
+
+List of agentless devices:
+

@@ -1,0 +1,53 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 452B done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/python:3.13-slim-bookworm
+#2 DONE 1.7s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 90B done
+#3 DONE 0.1s
+
+#4 [internal] load build context
+#4 transferring context: 8.38kB done
+#4 DONE 0.2s
+
+#5 [1/6] FROM docker.io/library/python:3.13-slim-bookworm@sha256:a5a7017efc5969e00ae2b91c8eb0631049a569652aa4ffc4501769049ae45c72
+#5 resolve docker.io/library/python:3.13-slim-bookworm@sha256:a5a7017efc5969e00ae2b91c8eb0631049a569652aa4ffc4501769049ae45c72
+#5 resolve docker.io/library/python:3.13-slim-bookworm@sha256:a5a7017efc5969e00ae2b91c8eb0631049a569652aa4ffc4501769049ae45c72 0.3s done
+#5 DONE 0.3s
+
+#6 [2/6] WORKDIR /app
+#6 CACHED
+
+#7 [3/6] COPY requirements.txt .
+#7 CACHED
+
+#8 [4/6] RUN pip install --no-cache-dir -r requirements.txt
+#8 CACHED
+
+#9 [5/6] RUN useradd --system --uid 10001 --user-group       --no-create-home --shell /usr/sbin/nologin ssle     && mkdir -p /data     && chown ssle:ssle /data
+#9 CACHED
+
+#10 [6/6] COPY analytics.py /app/app.py
+#10 DONE 0.2s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 0.8s done
+#11 exporting manifest sha256:51efae278356e97a1d56c7461159a7a9e6a6c0c4dd53f70a1c129350b266c313
+#11 exporting manifest sha256:51efae278356e97a1d56c7461159a7a9e6a6c0c4dd53f70a1c129350b266c313 0.3s done
+#11 exporting config sha256:24ef8f8a5594f42e4d55298c232481222dfb08805def415cd299a7f411ca924d
+#11 exporting config sha256:24ef8f8a5594f42e4d55298c232481222dfb08805def415cd299a7f411ca924d 0.2s done
+#11 exporting attestation manifest sha256:294631233f3fc416d647ce2636bf5d4750ee4cb32d278976c245eaee01aa1741
+#11 exporting attestation manifest sha256:294631233f3fc416d647ce2636bf5d4750ee4cb32d278976c245eaee01aa1741 0.2s done
+#11 exporting manifest list sha256:c787176081bf5e8acb36fbfd68f73e89cd11cb40e39b1aff2d5524c9746f6d2b
+#11 exporting manifest list sha256:c787176081bf5e8acb36fbfd68f73e89cd11cb40e39b1aff2d5524c9746f6d2b 0.3s done
+#11 naming to docker.io/library/ssle-analytics:case1-final-v1
+#11 naming to docker.io/library/ssle-analytics:case1-final-v1 done
+#11 unpacking to docker.io/library/ssle-analytics:case1-final-v1
+#11 unpacking to docker.io/library/ssle-analytics:case1-final-v1 0.2s done
+#11 DONE 2.2s

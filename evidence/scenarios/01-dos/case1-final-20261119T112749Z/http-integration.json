@@ -1,0 +1,112 @@
+[
+  {
+    "test": "test_changed_sqlite_data_becomes_visible_after_refresh_and_recovery",
+    "step": "initial_twenty",
+    "status": 200,
+    "elapsed_ms": 4.545550999864645,
+    "body": {
+      "average_temperature": 20.0,
+      "cache_fallback": false,
+      "cached": false,
+      "protection_mode": "normal",
+      "stats_age_seconds": 0.002
+    },
+    "storage_attempts": 1
+  },
+  {
+    "test": "test_changed_sqlite_data_becomes_visible_after_refresh_and_recovery",
+    "step": "eligible_old_aggregate",
+    "status": 200,
+    "elapsed_ms": 1.9544199999472767,
+    "body": {
+      "average_temperature": 20.0,
+      "cache_fallback": false,
+      "cached": true,
+      "protection_mode": "cache",
+      "stats_age_seconds": 0.006
+    },
+    "storage_attempts": 1
+  },
+  {
+    "test": "test_changed_sqlite_data_becomes_visible_after_refresh_and_recovery",
+    "step": "refreshed_thirty",
+    "status": 200,
+    "elapsed_ms": 4.91078799996103,
+    "body": {
+      "average_temperature": 30.0,
+      "cache_fallback": false,
+      "cached": false,
+      "protection_mode": "cache",
+      "stats_age_seconds": 0.003
+    },
+    "storage_attempts": 2
+  },
+  {
+    "test": "test_changed_sqlite_data_becomes_visible_after_refresh_and_recovery",
+    "step": "normal_forty",
+    "status": 200,
+    "elapsed_ms": 7.112842999958957,
+    "body": {
+      "average_temperature": 40.0,
+      "cache_fallback": false,
+      "cached": false,
+      "protection_mode": "normal",
+      "stats_age_seconds": 0.005
+    },
+    "storage_attempts": 3
+  },
+  {
+    "test": "test_slow_storage_returns_application_error_before_client_read_timeout",
+    "step": "real_client_iteration",
+    "elapsed_ms": 2005.4097669999464,
+    "reply": {
+      "status": 502,
+      "body": {
+        "error": "Storage unavailable or invalid response"
+      },
+      "timeout": [
+        1,
+        5
+      ]
+    },
+    "meaning": "Client received HTTP 502 rather than a client read-timeout."
+  },
+  {
+    "test": "test_warm_cache_fallback_is_served_then_expires_with_real_waits",
+    "step": "warm",
+    "status": 200,
+    "elapsed_ms": 3.931771000225126,
+    "body": {
+      "average_temperature": 20.0,
+      "cache_fallback": false,
+      "cached": false,
+      "protection_mode": "normal",
+      "stats_age_seconds": 0.002
+    },
+    "storage_attempts": 1
+  },
+  {
+    "test": "test_warm_cache_fallback_is_served_then_expires_with_real_waits",
+    "step": "slow_refresh_fallback",
+    "status": 200,
+    "elapsed_ms": 2006.5108650001093,
+    "body": {
+      "average_temperature": 20.0,
+      "cache_fallback": true,
+      "cached": true,
+      "protection_mode": "cache",
+      "stats_age_seconds": 7.108
+    },
+    "storage_attempts": 2
+  },
+  {
+    "test": "test_warm_cache_fallback_is_served_then_expires_with_real_waits",
+    "step": "fallback_too_old",
+    "status": 502,
+    "elapsed_ms": 2007.591874000127,
+    "body": {
+      "error": "Storage unavailable or invalid response"
+    },
+    "storage_attempts": 3
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "scope": "Ordinary-read/state-scope evaluation in temporary replicas, not throughput or DoS capacity.",
+  "one_replica_successes": 12,
+  "two_replica_normal_successes": 8,
+  "fixture_phase": [
+    {
+      "node": "k3s-master",
+      "reads": 6,
+      "cached": 4,
+      "modes": [
+        "cache"
+      ]
+    },
+    {
+      "node": "k3s-node1",
+      "reads": 6,
+      "cached": 0,
+      "modes": [
+        "normal"
+      ]
+    }
+  ],
+  "recovery_successes": 2,
+  "global_policy_not_demonstrated": true
+}

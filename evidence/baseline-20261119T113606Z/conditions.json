@@ -1,0 +1,35 @@
+{
+  "experiment": "Read-only normal-operation baseline; no attack",
+  "planned_duration_seconds": 300,
+  "sample_interval_seconds": 15,
+  "client_interval_seconds": 5,
+  "client_request": "GET /average",
+  "prometheus": "http://10.255.255.21:9090",
+  "client_metrics": "http://10.255.255.74:30802/metrics",
+  "sensor_expected_replicas": 0,
+  "collector_source_sha256": "43a1f31a9d08561c19c15b4ba4a53e4caadae2cd2ecfe302bf6a3946e8b28a24",
+  "deployment_sources_sha256": {
+    "apps.yaml": "445e7202b8b416fbd88f04577d57a7e06c2e8a78546e43699fdc207877eb3406",
+    "monitoring.yaml": "c2fc7ea4937295c505803aa165e725aeca4ce777e90dec1bee6fcb41c792a813"
+  },
+  "application_sources_sha256": {
+    "analytics.py": "3b791794f6d6937dc5f0693d792e0aa5c14921d11ebb3e7a7a7d9a42505706bb",
+    "ingestion.py": "bebf5e9af4fabd090a8f4a2cf6b418705a980bd8899a436777f3e5e5c176a86d",
+    "storage.py": "965c19d42c6ba6f3bdcf9dc46d5dbbdd14b9015d3f4f988397a0d75f49228766",
+    "registry.py": "d8f333886bd1ad29bd0dd55951600bfd9f75d8d4b06ce66b6872599b2b0f0022"
+  },
+  "monitoring_source_sha256": {
+    "client.py": "d5e7b5d863e174f16ea716e26f472b168bca16ca9100378a4b5a8a4a34ee47f9",
+    "health_exporter.py": "d4f7ef4bcaf6f99f769a3d02c6e3b5b95a51b68d7a69e5bda2a5eac33ee1382c",
+    "resource_exporter.py": "0364a921146c480cbaa7bd2ec07439d0eaec84fabd71e182532dfaab680711fd",
+    "prometheus.yml": "8947f3c8bc11d21ae090694831c3e14233911d978eb0c68c5a66ba3b5c9a38f2"
+  },
+  "limitations": [
+    "Read-only workload: no sensor generation and no ingestion write test.",
+    "The client validates the response structure, not the numerical average independently.",
+    "Resource measurements are periodic metrics-server observations collected by Prometheus.",
+    "Probe success is not a complete functional or security proof.",
+    "A five-minute low-rate run is not a scalability or capacity benchmark.",
+    "Client boundary snapshots occur around, not atomically with, Prometheus samples."
+  ]
+}

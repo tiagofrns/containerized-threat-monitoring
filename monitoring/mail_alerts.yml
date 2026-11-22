@@ -1,0 +1,20 @@
+groups:
+  - name: mail-security
+    rules:
+      - alert: MailQuarantineActivity
+        expr: increase(mail_security_events_total{outcome="quarantined"}[5m]) >= 2
+        for: 15s
+        labels:
+          severity: warning
+          scope: mail
+        annotations:
+          summary: Repeated spam messages were quarantined
+          description: Review the mail security events and quarantine folder.
+      - alert: ServiceHealthCheckFailed
+        expr: '{__name__=~".*service_up",job=~".*health"} == 0'
+        for: 30s
+        labels:
+          severity: warning
+          scope: application
+        annotations:
+          summary: An application health check is failing

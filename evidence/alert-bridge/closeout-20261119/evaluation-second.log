@@ -1,0 +1,21 @@
+/home/tiago/ssle/evidence/alert-bridge/20261119T213823Z
+{
+  "run": "20261119T213823Z",
+  "mode": "labelled Prometheus vector fixtures through real services",
+  "production_metric_thresholds_exercised_live": false,
+  "checks": {
+    "prometheus_alertmanager_receiver": true,
+    "validation_rules_removed": true
+  },
+  "passed": false,
+  "error": "Timed out waiting for <lambda>"
+}
+Traceback (most recent call last):
+  File "/home/tiago/ssle/scripts/evaluate-alert-bridge.py", line 197, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/tiago/ssle/scripts/evaluate-alert-bridge.py", line 122, in main
+    audits = until(lambda: record_response(by_episode), 35)
+  File "/home/tiago/ssle/scripts/evaluate-alert-bridge.py", line 45, in until
+    raise RuntimeError(f"Timed out waiting for {check.__name__}")
+RuntimeError: Timed out waiting for <lambda>

@@ -1,0 +1,27 @@
+[
+  {
+    "integration": "dns_restore",
+    "event": "response",
+    "result": "restored",
+    "alert_id": "1795120883.19797825",
+    "before_sha256": "681bcfa00deb0db42eb447065e15b05cebaadc11f6ed7920d3910ad8e55a7fb3",
+    "after_sha256": "0386377711b590148241a718f5791d415530e9ff4f94753529da3a40bc7d8ad6",
+    "verification": {
+      "integration": "dns_client",
+      "event": "check",
+      "timestamp": "2026-11-19T20:41:23.763744+00:00",
+      "dns_name": "analytics.lab.test",
+      "dns_expected": true,
+      "outcome": "success",
+      "observed_addresses": [
+        "10.255.255.74"
+      ],
+      "average_temperature": 25.12,
+      "peer_ip": "10.255.255.74",
+      "http_status": 200,
+      "duration_seconds": 0.01583565199871373
+    },
+    "timestamp": "2026-11-19T20:41:23.786423+00:00",
+    "duration_seconds": 0.11551303399937751
+  }
+]

@@ -1,0 +1,8 @@
+docker.io/library/ssle analytics:case1 f	saved	
+application/vnd.oci.image.index.v1+json sha256:c787176081bf5e8acb36fbfd68f73e89cd11cb40e39b1aff2d5524c9746f6d2b
+Importing	elapsed: 3.9 s	total:   0.0 B	(0.0 B/s)	
+docker.io/library/ssle analytics:case1 f	saved	
+docker.io/library/ssle monitoring:case1 	saved	
+application/vnd.oci.image.index.v1+json sha256:c787176081bf5e8acb36fbfd68f73e89cd11cb40e39b1aff2d5524c9746f6d2b
+application/vnd.oci.image.index.v1+json sha256:6b6b0ef60ebb966c8584f078a11c2448edbad1fb5c6307699bdc6199a9e5e173
+Importing	elapsed: 3.9 s	total:   0.0 B	(0.0 B/s)	

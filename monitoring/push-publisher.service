@@ -1,0 +1,20 @@
+[Unit]
+Description=Pushgateway observation publisher
+Wants=network-online.target
+After=network-online.target prometheus-pushgateway.service
+
+[Service]
+Type=simple
+User=publisher
+Group=publisher
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 /opt/monitoring/push_publisher.py
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+
+[Install]
+WantedBy=multi-user.target

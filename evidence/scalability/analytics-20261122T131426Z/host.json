@@ -1,0 +1,8 @@
+{
+  "cpu_count": 5,
+  "node_names": [
+    "k3s-master",
+    "k3s-node1"
+  ],
+  "shared_vm": true
+}

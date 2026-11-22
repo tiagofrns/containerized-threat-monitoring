@@ -1,0 +1,62 @@
+<group name="mail_security,">
+  <rule id="100600" level="3">
+    <decoded_as>json</decoded_as>
+    <location type="pcre2">/var/log/mail-security/events\.jsonl$</location>
+    <field name="integration">^mail_security$</field>
+    <description>Mail security processing event.</description>
+  </rule>
+  <rule id="100601" level="7">
+    <if_sid>100600</if_sid>
+    <field name="outcome">^quarantined$</field>
+    <description>A message classified as spam was confirmed in quarantine.</description>
+  </rule>
+  <rule id="100602" level="3">
+    <if_sid>100600</if_sid>
+    <field name="outcome">^delivered$</field>
+    <description>A message was confirmed in the security operations inbox.</description>
+  </rule>
+  <rule id="100603" level="5">
+    <if_sid>100600</if_sid>
+    <field name="outcome">^released$</field>
+    <description>A quarantined message was released to the security operations inbox.</description>
+  </rule>
+  <rule id="100604" level="8">
+    <if_sid>100600</if_sid>
+    <field name="outcome">^notification_failed$</field>
+    <description>An operational notification could not be submitted reliably.</description>
+  </rule>
+  <rule id="100605" level="3">
+    <if_sid>100600</if_sid>
+    <field name="outcome">^notification_submitted$</field>
+    <description>An operational notification was accepted by the local SMTP service.</description>
+  </rule>
+  <rule id="100606" level="0">
+    <decoded_as>json</decoded_as>
+    <location type="pcre2">/var/log/mail-security/service-health\.jsonl$</location>
+    <field name="integration">^mail_service_recovery$</field>
+    <field name="service">^spamassassin$</field>
+    <description>SpamAssassin service recovery observation.</description>
+  </rule>
+  <rule id="100610" level="8">
+    <if_sid>100606</if_sid>
+    <field name="outcome">^unavailable$</field>
+    <field name="state" type="pcre2">^(inactive|failed)$</field>
+    <description>The SpamAssassin service is unavailable; automatic recovery is requested.</description>
+  </rule>
+  <rule id="100611" level="5">
+    <if_sid>100606</if_sid>
+    <field name="outcome">^recovered$</field>
+    <description>Wazuh restored the SpamAssassin service and verified local message scanning.</description>
+  </rule>
+  <rule id="100612" level="10">
+    <if_sid>100606</if_sid>
+    <field name="outcome">^recovery_failed$</field>
+    <description>Automatic SpamAssassin service recovery failed; operator review is required.</description>
+  </rule>
+  <rule id="100613" level="3">
+    <if_sid>100606</if_sid>
+    <field name="outcome" type="pcre2">^(suppressed|unchanged)$</field>
+    <description>SpamAssassin recovery was suppressed or no longer necessary.</description>
+  </rule>
+</group>
+

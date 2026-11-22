@@ -1,0 +1,384 @@
+{
+  "took": 6,
+  "timed_out": false,
+  "_shards": {
+    "total": 15,
+    "successful": 15,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 8,
+      "relation": "eq"
+    },
+    "max_score": 0.0,
+    "hits": [
+      {
+        "_index": "wazuh-alerts-4.x-2026.11.21",
+        "_id": "uCeK_qEBaP0Rks9cfNng",
+        "_score": 0.0,
+        "_source": {
+          "agent": {
+            "ip": "10.171.72.142",
+            "name": "mail-container",
+            "id": "006"
+          },
+          "manager": {
+            "name": "wazuh-container"
+          },
+          "data": {
+            "spam_status": "Yes, score=999.0 required=5.0 tests=ALL_TRUSTED,GTUBE autolearn=no autolearn_force=no version=3.4.6",
+            "folder": "Quarantine",
+            "event_id": "34",
+            "integration": "mail_security",
+            "digest": "c06ff51a6a209b639e8763970a5ed62368c3efa120dfc8eaab393f06bb264992",
+            "message_id": "<ssle-aee2db86a415-spam3@mail.lab.test>",
+            "outcome": "quarantined",
+            "timestamp": "2026-11-21T14:37:27.572852+00:00"
+          },
+          "rule": {
+            "firedtimes": 6,
+            "mail": false,
+            "level": 7,
+            "description": "A message classified as spam was confirmed in quarantine.",
+            "groups": [
+              "mail_security"
+            ],
+            "id": "100601"
+          },
+          "decoder": {
+            "name": "json"
+          },
+          "full_log": "{\"integration\":\"mail_security\",\"outcome\":\"quarantined\",\"timestamp\":\"2026-11-21T14:37:27.572852+00:00\",\"message_id\":\"<ssle-aee2db86a415-spam3@mail.lab.test>\",\"digest\":\"c06ff51a6a209b639e8763970a5ed62368c3efa120dfc8eaab393f06bb264992\",\"folder\":\"Quarantine\",\"spam_status\":\"Yes, score=999.0 required=5.0 tests=ALL_TRUSTED,GTUBE autolearn=no autolearn_force=no version=3.4.6\",\"event_id\":\"34\"}",
+          "input": {
+            "type": "log"
+          },
+          "@timestamp": "2026-11-21T14:37:28.133Z",
+          "location": "/var/log/mail-security/events.jsonl",
+          "id": "1795271848.9240015",
+          "timestamp": "2026-11-21T14:37:28.133+0000"
+        }
+      },
+      {
+        "_index": "wazuh-alerts-4.x-2026.11.21",
+        "_id": "uSeK_qEBaP0Rks9c3tmQ",
+        "_score": 0.0,
+        "_source": {
+          "agent": {
+            "ip": "10.171.72.142",
+            "name": "mail-container",
+            "id": "006"
+          },
+          "manager": {
+            "name": "wazuh-container"
+          },
+          "data": {
+            "event_id": "35",
+            "integration": "mail_security",
+            "alert_title": "Mail quarantine activity",
+            "episode": "998006abf836b2a4249d024b3116cf847637b15168f1b213d264b0fc41bb4c46",
+            "message_id": "<incident-998006abf836b2a4249d024b3116cf847637b15168f1b213d264b0fc41bb4c46@mail.lab.test>",
+            "outcome": "notification_submitted",
+            "timestamp": "2026-11-21T14:37:52.089946+00:00"
+          },
+          "rule": {
+            "firedtimes": 2,
+            "mail": false,
+            "level": 3,
+            "description": "An operational notification was accepted by the local SMTP service.",
+            "groups": [
+              "mail_security"
+            ],
+            "id": "100605"
+          },
+          "decoder": {
+            "name": "json"
+          },
+          "full_log": "{\"integration\":\"mail_security\",\"outcome\":\"notification_submitted\",\"timestamp\":\"2026-11-21T14:37:52.089946+00:00\",\"episode\":\"998006abf836b2a4249d024b3116cf847637b15168f1b213d264b0fc41bb4c46\",\"message_id\":\"<incident-998006abf836b2a4249d024b3116cf847637b15168f1b213d264b0fc41bb4c46@mail.lab.test>\",\"alert_title\":\"Mail quarantine activity\",\"event_id\":\"35\"}",
+          "input": {
+            "type": "log"
+          },
+          "@timestamp": "2026-11-21T14:37:52.158Z",
+          "location": "/var/log/mail-security/events.jsonl",
+          "id": "1795271872.9240977",
+          "timestamp": "2026-11-21T14:37:52.158+0000"
+        }
+      },
+      {
+        "_index": "wazuh-alerts-4.x-2026.11.21",
+        "_id": "uyeK_qEBaP0Rks9c-dnn",
+        "_score": 0.0,
+        "_source": {
+          "agent": {
+            "ip": "10.171.72.142",
+            "name": "mail-container",
+            "id": "006"
+          },
+          "manager": {
+            "name": "wazuh-container"
+          },
+          "data": {
+            "folder": "INBOX",
+            "event_id": "37",
+            "integration": "mail_security",
+            "digest": "9da1d7fe9a12fb5e2fd0ea8ffb490010031bd686b6abaedefdde4d0992cb1949",
+            "message_id": "<ssle-aee2db86a415-spam1@mail.lab.test>",
+            "outcome": "released",
+            "timestamp": "2026-11-21T14:37:57.948167+00:00"
+          },
+          "rule": {
+            "firedtimes": 1,
+            "mail": false,
+            "level": 5,
+            "description": "A quarantined message was released to the security operations inbox.",
+            "groups": [
+              "mail_security"
+            ],
+            "id": "100603"
+          },
+          "decoder": {
+            "name": "json"
+          },
+          "full_log": "{\"integration\":\"mail_security\",\"outcome\":\"released\",\"timestamp\":\"2026-11-21T14:37:57.948167+00:00\",\"message_id\":\"<ssle-aee2db86a415-spam1@mail.lab.test>\",\"digest\":\"9da1d7fe9a12fb5e2fd0ea8ffb490010031bd686b6abaedefdde4d0992cb1949\",\"folder\":\"INBOX\",\"event_id\":\"37\"}",
+          "input": {
+            "type": "log"
+          },
+          "@timestamp": "2026-11-21T14:37:58.160Z",
+          "location": "/var/log/mail-security/events.jsonl",
+          "id": "1795271878.9242916",
+          "timestamp": "2026-11-21T14:37:58.160+0000"
+        }
+      },
+      {
+        "_index": "wazuh-alerts-4.x-2026.11.21",
+        "_id": "uieK_qEBaP0Rks9c3tmQ",
+        "_score": 0.0,
+        "_source": {
+          "agent": {
+            "ip": "10.171.72.142",
+            "name": "mail-container",
+            "id": "006"
+          },
+          "manager": {
+            "name": "wazuh-container"
+          },
+          "data": {
+            "spam_status": "No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham autolearn_force=no version=3.4.6",
+            "folder": "INBOX",
+            "event_id": "36",
+            "integration": "mail_security",
+            "digest": "953d47d961e28bb35f3454d859077d210ba38aa12cf5ede1b6396161f0a7a71c",
+            "message_id": "<incident-998006abf836b2a4249d024b3116cf847637b15168f1b213d264b0fc41bb4c46@mail.lab.test>",
+            "outcome": "delivered",
+            "timestamp": "2026-11-21T14:37:53.202768+00:00"
+          },
+          "rule": {
+            "firedtimes": 7,
+            "mail": false,
+            "level": 3,
+            "description": "A message was confirmed in the security operations inbox.",
+            "groups": [
+              "mail_security"
+            ],
+            "id": "100602"
+          },
+          "decoder": {
+            "name": "json"
+          },
+          "full_log": "{\"integration\":\"mail_security\",\"outcome\":\"delivered\",\"timestamp\":\"2026-11-21T14:37:53.202768+00:00\",\"message_id\":\"<incident-998006abf836b2a4249d024b3116cf847637b15168f1b213d264b0fc41bb4c46@mail.lab.test>\",\"digest\":\"953d47d961e28bb35f3454d859077d210ba38aa12cf5ede1b6396161f0a7a71c\",\"folder\":\"INBOX\",\"spam_status\":\"No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham autolearn_force=no version=3.4.6\",\"event_id\":\"36\"}",
+          "input": {
+            "type": "log"
+          },
+          "@timestamp": "2026-11-21T14:37:54.158Z",
+          "location": "/var/log/mail-security/events.jsonl",
+          "id": "1795271874.9241882",
+          "timestamp": "2026-11-21T14:37:54.158+0000"
+        }
+      },
+      {
+        "_index": "wazuh-alerts-4.x-2026.11.21",
+        "_id": "tieK_qEBaP0Rks9cZdl4",
+        "_score": 0.0,
+        "_source": {
+          "agent": {
+            "ip": "10.171.72.142",
+            "name": "mail-container",
+            "id": "006"
+          },
+          "manager": {
+            "name": "wazuh-container"
+          },
+          "data": {
+            "spam_status": "Yes, score=999.0 required=5.0 tests=ALL_TRUSTED,GTUBE autolearn=no autolearn_force=no version=3.4.6",
+            "folder": "Quarantine",
+            "event_id": "32",
+            "integration": "mail_security",
+            "digest": "9da1d7fe9a12fb5e2fd0ea8ffb490010031bd686b6abaedefdde4d0992cb1949",
+            "message_id": "<ssle-aee2db86a415-spam1@mail.lab.test>",
+            "outcome": "quarantined",
+            "timestamp": "2026-11-21T14:37:21.050254+00:00"
+          },
+          "rule": {
+            "firedtimes": 4,
+            "mail": false,
+            "level": 7,
+            "description": "A message classified as spam was confirmed in quarantine.",
+            "groups": [
+              "mail_security"
+            ],
+            "id": "100601"
+          },
+          "decoder": {
+            "name": "json"
+          },
+          "full_log": "{\"integration\":\"mail_security\",\"outcome\":\"quarantined\",\"timestamp\":\"2026-11-21T14:37:21.050254+00:00\",\"message_id\":\"<ssle-aee2db86a415-spam1@mail.lab.test>\",\"digest\":\"9da1d7fe9a12fb5e2fd0ea8ffb490010031bd686b6abaedefdde4d0992cb1949\",\"folder\":\"Quarantine\",\"spam_status\":\"Yes, score=999.0 required=5.0 tests=ALL_TRUSTED,GTUBE autolearn=no autolearn_force=no version=3.4.6\",\"event_id\":\"32\"}",
+          "input": {
+            "type": "log"
+          },
+          "@timestamp": "2026-11-21T14:37:22.125Z",
+          "location": "/var/log/mail-security/events.jsonl",
+          "id": "1795271842.9238091",
+          "timestamp": "2026-11-21T14:37:22.125+0000"
+        }
+      },
+      {
+        "_index": "wazuh-alerts-4.x-2026.11.21",
+        "_id": "tyeK_qEBaP0Rks9ccdkv",
+        "_score": 0.0,
+        "_source": {
+          "agent": {
+            "ip": "10.171.72.142",
+            "name": "mail-container",
+            "id": "006"
+          },
+          "manager": {
+            "name": "wazuh-container"
+          },
+          "data": {
+            "spam_status": "Yes, score=999.0 required=5.0 tests=ALL_TRUSTED,GTUBE autolearn=no autolearn_force=no version=3.4.6",
+            "folder": "Quarantine",
+            "event_id": "33",
+            "integration": "mail_security",
+            "digest": "61cf5e56152fac0c3e272e73da6b719c7b98dff998945d02600ab0d1fffa0253",
+            "message_id": "<ssle-aee2db86a415-spam2@mail.lab.test>",
+            "outcome": "quarantined",
+            "timestamp": "2026-11-21T14:37:24.305560+00:00"
+          },
+          "rule": {
+            "firedtimes": 5,
+            "mail": false,
+            "level": 7,
+            "description": "A message classified as spam was confirmed in quarantine.",
+            "groups": [
+              "mail_security"
+            ],
+            "id": "100601"
+          },
+          "decoder": {
+            "name": "json"
+          },
+          "full_log": "{\"integration\":\"mail_security\",\"outcome\":\"quarantined\",\"timestamp\":\"2026-11-21T14:37:24.305560+00:00\",\"message_id\":\"<ssle-aee2db86a415-spam2@mail.lab.test>\",\"digest\":\"61cf5e56152fac0c3e272e73da6b719c7b98dff998945d02600ab0d1fffa0253\",\"folder\":\"Quarantine\",\"spam_status\":\"Yes, score=999.0 required=5.0 tests=ALL_TRUSTED,GTUBE autolearn=no autolearn_force=no version=3.4.6\",\"event_id\":\"33\"}",
+          "input": {
+            "type": "log"
+          },
+          "@timestamp": "2026-11-21T14:37:26.140Z",
+          "location": "/var/log/mail-security/events.jsonl",
+          "id": "1795271846.9239053",
+          "timestamp": "2026-11-21T14:37:26.140+0000"
+        }
+      },
+      {
+        "_index": "wazuh-alerts-4.x-2026.11.21",
+        "_id": "tSeK_qEBaP0Rks9cZdl4",
+        "_score": 0.0,
+        "_source": {
+          "agent": {
+            "ip": "10.171.72.142",
+            "name": "mail-container",
+            "id": "006"
+          },
+          "manager": {
+            "name": "wazuh-container"
+          },
+          "data": {
+            "spam_status": "No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham autolearn_force=no version=3.4.6",
+            "folder": "INBOX",
+            "event_id": "31",
+            "integration": "mail_security",
+            "digest": "bb494c3fe1c9e289b095a32649a2831c8176eda130c9a0b62a056a500d418c0a",
+            "message_id": "<ssle-aee2db86a415-legitimo@mail.lab.test>",
+            "outcome": "delivered",
+            "timestamp": "2026-11-21T14:37:12.187481+00:00"
+          },
+          "rule": {
+            "firedtimes": 6,
+            "mail": false,
+            "level": 3,
+            "description": "A message was confirmed in the security operations inbox.",
+            "groups": [
+              "mail_security"
+            ],
+            "id": "100602"
+          },
+          "decoder": {
+            "name": "json"
+          },
+          "full_log": "{\"integration\":\"mail_security\",\"outcome\":\"delivered\",\"timestamp\":\"2026-11-21T14:37:12.187481+00:00\",\"message_id\":\"<ssle-aee2db86a415-legitimo@mail.lab.test>\",\"digest\":\"bb494c3fe1c9e289b095a32649a2831c8176eda130c9a0b62a056a500d418c0a\",\"folder\":\"INBOX\",\"spam_status\":\"No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham autolearn_force=no version=3.4.6\",\"event_id\":\"31\"}",
+          "input": {
+            "type": "log"
+          },
+          "@timestamp": "2026-11-21T14:37:14.124Z",
+          "location": "/var/log/mail-security/events.jsonl",
+          "id": "1795271834.9237151",
+          "timestamp": "2026-11-21T14:37:14.124+0000"
+        }
+      },
+      {
+        "_index": "wazuh-alerts-4.x-2026.11.21",
+        "_id": "tCeJ_qEBaP0Rks9cjtk5",
+        "_score": 0.0,
+        "_source": {
+          "agent": {
+            "ip": "10.171.72.142",
+            "name": "mail-container",
+            "id": "006"
+          },
+          "manager": {
+            "name": "wazuh-container"
+          },
+          "data": {
+            "folder": "INBOX",
+            "event_id": "30",
+            "integration": "mail_security",
+            "digest": "e10a6f841d9fd082963aeb9ef0cb10d9468eaa5c007ac83db2aa4f32c9080af8",
+            "message_id": "<ssle-aee2db86a415-sem-filtro@mail.lab.test>",
+            "outcome": "delivered",
+            "timestamp": "2026-11-21T14:36:24.442054+00:00"
+          },
+          "rule": {
+            "firedtimes": 5,
+            "mail": false,
+            "level": 3,
+            "description": "A message was confirmed in the security operations inbox.",
+            "groups": [
+              "mail_security"
+            ],
+            "id": "100602"
+          },
+          "decoder": {
+            "name": "json"
+          },
+          "full_log": "{\"integration\":\"mail_security\",\"outcome\":\"delivered\",\"timestamp\":\"2026-11-21T14:36:24.442054+00:00\",\"message_id\":\"<ssle-aee2db86a415-sem-filtro@mail.lab.test>\",\"digest\":\"e10a6f841d9fd082963aeb9ef0cb10d9468eaa5c007ac83db2aa4f32c9080af8\",\"folder\":\"INBOX\",\"spam_status\":\"\",\"event_id\":\"30\"}",
+          "input": {
+            "type": "log"
+          },
+          "@timestamp": "2026-11-21T14:36:25.104Z",
+          "location": "/var/log/mail-security/events.jsonl",
+          "id": "1795271785.9236405",
+          "timestamp": "2026-11-21T14:36:25.104+0000"
+        }
+      }
+    ]
+  }
+}

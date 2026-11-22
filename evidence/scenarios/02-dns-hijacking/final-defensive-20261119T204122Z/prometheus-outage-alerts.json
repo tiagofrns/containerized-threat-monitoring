@@ -1,0 +1,16 @@
+[
+  {
+    "labels": {
+      "alertname": "DNSResolutionNotExpected",
+      "instance": "10.171.72.8:8004",
+      "job": "dns_client",
+      "severity": "warning"
+    },
+    "annotations": {
+      "summary": "The DNS check failed or the answer violates the approved address policy"
+    },
+    "state": "firing",
+    "activeAt": "2026-11-19T20:41:38.279617992Z",
+    "value": "0e+00"
+  }
+]

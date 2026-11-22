@@ -1,0 +1,9 @@
+[Unit]
+Description=DNS demo HTTP on the Incus address
+
+[Socket]
+ListenStream=10.171.72.52:30503
+FreeBind=yes
+
+[Install]
+WantedBy=sockets.target

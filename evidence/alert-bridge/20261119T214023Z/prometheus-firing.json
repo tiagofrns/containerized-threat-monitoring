@@ -1,0 +1,30 @@
+[
+  {
+    "labels": {
+      "alertname": "AnalyticsClientImpact",
+      "bridge": "wazuh",
+      "mode": "bridge-validation",
+      "scope": "analytics",
+      "severity": "warning",
+      "test_run": "20261119T214023Z"
+    },
+    "annotations": {},
+    "state": "firing",
+    "activeAt": "2026-11-19T21:40:34.284028195Z",
+    "value": "1e+00"
+  },
+  {
+    "labels": {
+      "alertname": "DNSPolicyRejections",
+      "bridge": "wazuh",
+      "mode": "bridge-validation",
+      "scope": "dns",
+      "severity": "warning",
+      "test_run": "20261119T214023Z"
+    },
+    "annotations": {},
+    "state": "firing",
+    "activeAt": "2026-11-19T21:40:34.284028195Z",
+    "value": "1e+00"
+  }
+]

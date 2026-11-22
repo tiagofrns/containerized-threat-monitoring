@@ -1,0 +1,20 @@
+<group name="alert_bridge,">
+  <rule id="100150" level="7">
+    <decoded_as>json</decoded_as>
+    <location>/var/log/alert-bridge/events.jsonl$</location>
+    <field name="integration">^alert_bridge$</field>
+    <field name="alert_name">^AnalyticsClientImpact$</field>
+    <field name="scope">^analytics$</field>
+    <field name="bridge_state">^firing$</field>
+    <description>Prometheus observed admission rejections and legitimate client degradation.</description>
+  </rule>
+  <rule id="100151" level="7">
+    <decoded_as>json</decoded_as>
+    <location>/var/log/alert-bridge/events.jsonl$</location>
+    <field name="integration">^alert_bridge$</field>
+    <field name="alert_name">^DNSPolicyRejections$</field>
+    <field name="scope">^dns$</field>
+    <field name="bridge_state">^firing$</field>
+    <description>Prometheus observed repeated DNS policy rejections.</description>
+  </rule>
+</group>

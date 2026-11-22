@@ -1,0 +1,17 @@
+<ossec_config>
+  <active-response>
+    <disabled>no</disabled>
+    <command>analytics-cache</command>
+    <location>defined-agent</location>
+    <agent_id>002</agent_id>
+    <rules_id>100150</rules_id>
+    <timeout>60</timeout>
+  </active-response>
+  <active-response>
+    <disabled>no</disabled>
+    <command>dns_restore</command>
+    <location>defined-agent</location>
+    <agent_id>004</agent_id>
+    <rules_id>100151</rules_id>
+  </active-response>
+</ossec_config>

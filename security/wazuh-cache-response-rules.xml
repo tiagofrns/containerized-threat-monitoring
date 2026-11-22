@@ -1,0 +1,7 @@
+<group name="analytics,active_response,">
+  <rule id="100130" level="3">
+    <decoded_as>json</decoded_as>
+    <field name="integration" type="pcre2">^analytics-cache$</field>
+    <description>Temperature service analytics protective-cache response outcome.</description>
+  </rule>
+</group>

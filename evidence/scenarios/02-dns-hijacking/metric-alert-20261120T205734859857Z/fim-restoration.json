@@ -1,0 +1,87 @@
+{
+  "alert": {
+    "timestamp": "2026-11-20T20:59:46.307+0000",
+    "rule": {
+      "level": 7,
+      "description": "Temperature service application DNS configuration changed; compare with approved policy.",
+      "id": "100141",
+      "firedtimes": 5,
+      "mail": false,
+      "groups": [
+        "dns_sec",
+        "dns"
+      ]
+    },
+    "agent": {
+      "id": "004",
+      "name": "dns-server-container",
+      "ip": "10.171.72.8"
+    },
+    "manager": {
+      "name": "wazuh-container"
+    },
+    "id": "1795208386.21511606",
+    "full_log": "File '/etc/dnsmasq.d/dns_sec.conf' modified\nMode: realtime\nChanged attributes: size,mtime,md5,sha1,sha256\nSize changed from '62' to '114'\nOld modification time was: '1795208030', now it is '1795208386'\nOld md5sum was: '009c6de39a99ca348cdd19e9dc76df41'\nNew md5sum is : '615d5b36a345c05126220a52d12d95cd'\nOld sha1sum was: '7770d73a41431212b5a106c79a1d69374d7292d3'\nNew sha1sum is : 'b0123d57fe62058ae6c2f9912e2fe2dd0856e479'\nOld sha256sum was: '0386377711b590148241a718f5791d415530e9ff4f94753529da3a40bc7d8ad6'\nNew sha256sum is : 'fa3fefccd0c3f50d53a727f47a02b03a27ad5e64df0372966dda989ec0af9b35'\n",
+    "syscheck": {
+      "path": "/etc/dnsmasq.d/dns_sec.conf",
+      "mode": "realtime",
+      "size_before": "62",
+      "size_after": "114",
+      "perm_after": "rw-r--r--",
+      "uid_after": "0",
+      "gid_after": "102",
+      "md5_before": "009c6de39a99ca348cdd19e9dc76df41",
+      "md5_after": "615d5b36a345c05126220a52d12d95cd",
+      "sha1_before": "7770d73a41431212b5a106c79a1d69374d7292d3",
+      "sha1_after": "b0123d57fe62058ae6c2f9912e2fe2dd0856e479",
+      "sha256_before": "0386377711b590148241a718f5791d415530e9ff4f94753529da3a40bc7d8ad6",
+      "sha256_after": "fa3fefccd0c3f50d53a727f47a02b03a27ad5e64df0372966dda989ec0af9b35",
+      "uname_after": "root",
+      "gname_after": "wazuh",
+      "mtime_before": "2026-11-20T20:53:50",
+      "mtime_after": "2026-11-20T20:59:46",
+      "inode_after": 1177146,
+      "diff": "2a3\n> # SSLE DNS integrity demo 20261120T205946294736917Z\n",
+      "tags": [
+        "ssle_dns_config"
+      ],
+      "changed_attributes": [
+        "size",
+        "mtime",
+        "md5",
+        "sha1",
+        "sha256"
+      ],
+      "event": "modified"
+    },
+    "decoder": {
+      "name": "syscheck_integrity_changed"
+    },
+    "location": "syscheck"
+  },
+  "audit": {
+    "integration": "dns_restore",
+    "event": "response",
+    "result": "restored",
+    "alert_id": "1795208386.21511606",
+    "before_sha256": "fa3fefccd0c3f50d53a727f47a02b03a27ad5e64df0372966dda989ec0af9b35",
+    "after_sha256": "0386377711b590148241a718f5791d415530e9ff4f94753529da3a40bc7d8ad6",
+    "verification": {
+      "integration": "dns_client",
+      "event": "check",
+      "timestamp": "2026-11-20T20:59:46.454520+00:00",
+      "dns_name": "analytics.lab.test",
+      "dns_expected": true,
+      "outcome": "success",
+      "observed_addresses": [
+        "10.255.255.74"
+      ],
+      "average_temperature": 25.12,
+      "peer_ip": "10.255.255.74",
+      "http_status": 200,
+      "duration_seconds": 0.014911668999957328
+    },
+    "timestamp": "2026-11-20T20:59:46.476167+00:00",
+    "duration_seconds": 0.13946591599960811
+  }
+}

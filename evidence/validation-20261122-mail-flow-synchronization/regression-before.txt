@@ -1,0 +1,23 @@
+test_each_quarantine_is_acknowledged_before_the_next_submission (mail_sync_regression.FlowSynchronizationTests.test_each_quarantine_is_acknowledged_before_the_next_submission) ... FAIL
+test_missing_acknowledgement_stops_the_flow_without_extra_gtube (mail_sync_regression.FlowSynchronizationTests.test_missing_acknowledgement_stops_the_flow_without_extra_gtube) ... FAIL
+
+======================================================================
+FAIL: test_each_quarantine_is_acknowledged_before_the_next_submission (mail_sync_regression.FlowSynchronizationTests.test_each_quarantine_is_acknowledged_before_the_next_submission)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/tiago/Desktop/MscCiber/SSLE/project/tests/scenarios/mail_security/test_mail_flow_synchronization.py", line 33, in test_each_quarantine_is_acknowledged_before_the_next_submission
+    self.assertIn('ACK '+mid,lines,'No Wazuh acknowledgement for a submitted GTUBE')
+AssertionError: 'ACK <ssle-fixture-spam1@mail.lab.test>' not found in ['SEND <ssle-fixture-legitimate@mail.lab.test>', 'STORED <ssle-fixture-legitimate@mail.lab.test>', 'SEND <ssle-fixture-spam1@mail.lab.test>', 'STORED <ssle-fixture-spam1@mail.lab.test>', 'SEND <ssle-fixture-spam2@mail.lab.test>', 'STORED <ssle-fixture-spam2@mail.lab.test>', 'SEND <ssle-fixture-spam3@mail.lab.test>', 'STORED <ssle-fixture-spam3@mail.lab.test>', 'VERIFY-FIREWALL', 'SEND <ssle-fixture-after-firewall@mail.lab.test>', 'STORED <ssle-fixture-after-firewall@mail.lab.test>'] : No Wazuh acknowledgement for a submitted GTUBE
+
+======================================================================
+FAIL: test_missing_acknowledgement_stops_the_flow_without_extra_gtube (mail_sync_regression.FlowSynchronizationTests.test_missing_acknowledgement_stops_the_flow_without_extra_gtube)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/tiago/Desktop/MscCiber/SSLE/project/tests/scenarios/mail_security/test_mail_flow_synchronization.py", line 42, in test_missing_acknowledgement_stops_the_flow_without_extra_gtube
+    self.assertNotEqual(result.returncode,0,'Flow continued without Wazuh evidence')
+AssertionError: 0 == 0 : Flow continued without Wazuh evidence
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.006s
+
+FAILED (failures=2)

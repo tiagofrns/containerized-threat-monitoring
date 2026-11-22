@@ -1,0 +1,7 @@
+{
+  "disabled": "no",
+  "command": "firewall-drop",
+  "location": "local",
+  "rules_id": "100620",
+  "timeout": "20"
+}

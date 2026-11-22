@@ -1,0 +1,10 @@
+{
+  "normal_reads": 30,
+  "protected_reads": 30,
+  "recovery_reads": 2,
+  "single_admission_check_cap": 15,
+  "cadence_seconds": 1,
+  "node": "k3s-node1",
+  "total_manual_cap": 77,
+  "scope": "Fixed ordinary-read comparison and functional response; no workload escalation or saturation test"
+}

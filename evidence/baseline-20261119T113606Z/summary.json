@@ -1,0 +1,115 @@
+{
+  "experiment": "Read-only normal-operation baseline; no attack",
+  "started_at": "2026-11-19T11:36:06.356594+00:00",
+  "finished_at": "2026-11-19T11:41:06.527997+00:00",
+  "actual_elapsed_seconds": 300.00847584300027,
+  "prometheus_snapshot_count": 21,
+  "client_requests_by_outcome": {
+    "success": 60.0,
+    "http_error": 0.0,
+    "timeout": 0.0,
+    "connection_error": 0.0,
+    "invalid_response": 0.0
+  },
+  "total_client_requests": 60.0,
+  "successful_client_requests": 60.0,
+  "client_error_count": 0.0,
+  "client_success_ratio": 1.0,
+  "client_average_duration_seconds": 0.01156673809999423,
+  "observed_client_requests_per_second": 0.19999434959763956,
+  "client_process_unchanged": true,
+  "service_probes": {
+    "analytics": {
+      "sample_count": 21,
+      "all_observed_probes_passed": true
+    },
+    "ingestion": {
+      "sample_count": 21,
+      "all_observed_probes_passed": true
+    },
+    "registry": {
+      "sample_count": 21,
+      "all_observed_probes_passed": true
+    },
+    "storage": {
+      "sample_count": 21,
+      "all_observed_probes_passed": true
+    }
+  },
+  "scrape_targets_all_observed_up": {
+    "ssle-health": true,
+    "ssle-resources": true,
+    "ssle-client": true
+  },
+  "resources": {
+    "analytics": {
+      "cpu_cores": {
+        "sample_count": 21,
+        "mean": 0.002691112523809524,
+        "min": 0.001961119,
+        "max": 0.003500998
+      },
+      "memory_working_set_bytes": {
+        "sample_count": 21,
+        "mean": 35223454.47619048,
+        "min": 35213312.0,
+        "max": 35241984.0
+      }
+    },
+    "ingestion": {
+      "cpu_cores": {
+        "sample_count": 21,
+        "mean": 0.0004967954285714285,
+        "min": 0.000364835,
+        "max": 0.000647681
+      },
+      "memory_working_set_bytes": {
+        "sample_count": 21,
+        "mean": 30897883.42857143,
+        "min": 30896128.0,
+        "max": 30900224.0
+      }
+    },
+    "registry": {
+      "cpu_cores": {
+        "sample_count": 21,
+        "mean": 0.0009293689047619048,
+        "min": 0.000633133,
+        "max": 0.001137958
+      },
+      "memory_working_set_bytes": {
+        "sample_count": 21,
+        "mean": 32141312.0,
+        "min": 32141312.0,
+        "max": 32141312.0
+      }
+    },
+    "storage": {
+      "cpu_cores": {
+        "sample_count": 21,
+        "mean": 0.001899242761904762,
+        "min": 0.001383238,
+        "max": 0.002397836
+      },
+      "memory_working_set_bytes": {
+        "sample_count": 21,
+        "mean": 28988952.38095238,
+        "min": 28987392.0,
+        "max": 29020160.0
+      }
+    }
+  },
+  "database_measurements_first_observed": 77.0,
+  "database_measurements_last_observed": 77.0,
+  "database_count_unchanged_in_samples": true,
+  "average_temperature_before": 25.12,
+  "average_temperature_after": 25.12,
+  "limitations": [
+    "Read-only workload: no sensor generation and no ingestion write test.",
+    "The client validates the response structure, not the numerical average independently.",
+    "Resource measurements are periodic metrics-server observations collected by Prometheus.",
+    "Probe success is not a complete functional or security proof.",
+    "A five-minute low-rate run is not a scalability or capacity benchmark.",
+    "Client boundary snapshots occur around, not atomically with, Prometheus samples."
+  ]
+}

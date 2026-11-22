@@ -1,0 +1,1658 @@
+{
+  "status": "success",
+  "data": {
+    "resultType": "matrix",
+    "result": [
+      {
+        "metric": {
+          "__name__": "ALERTS",
+          "alertname": "DNSExporterUnavailable",
+          "alertstate": "firing",
+          "instance": "127.0.0.1:34553",
+          "job": "dns_client",
+          "mode": "bridge-validation",
+          "severity": "warning",
+          "test_run": "20261120T194747668809Z"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "1"
+          ],
+          [
+            1795352813.693,
+            "1"
+          ],
+          [
+            1795352828.693,
+            "1"
+          ],
+          [
+            1795352843.693,
+            "1"
+          ],
+          [
+            1795352858.693,
+            "1"
+          ],
+          [
+            1795352873.693,
+            "1"
+          ],
+          [
+            1795352888.693,
+            "1"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ALERTS",
+          "alertname": "SSLEAnalyticsRateLimitRejections",
+          "alertstate": "firing",
+          "severity": "warning"
+        },
+        "values": [
+          [
+            1795352858.693,
+            "1"
+          ],
+          [
+            1795352873.693,
+            "1"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ALERTS",
+          "alertname": "SSLEAnalyticsRateLimitRejections",
+          "alertstate": "pending",
+          "severity": "warning"
+        },
+        "values": [
+          [
+            1795352843.693,
+            "1"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_analytics_requests_total",
+          "instance": "k3s-master.incus:30503",
+          "job": "ssle-analytics",
+          "status": "200"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "3598"
+          ],
+          [
+            1795352813.693,
+            "3619"
+          ],
+          [
+            1795352828.693,
+            "3643"
+          ],
+          [
+            1795352843.693,
+            "3668"
+          ],
+          [
+            1795352858.693,
+            "3692"
+          ],
+          [
+            1795352873.693,
+            "3708"
+          ],
+          [
+            1795352888.693,
+            "3717"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_analytics_requests_total",
+          "instance": "k3s-master.incus:30503",
+          "job": "ssle-analytics",
+          "status": "429"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "10"
+          ],
+          [
+            1795352813.693,
+            "10"
+          ],
+          [
+            1795352828.693,
+            "10"
+          ],
+          [
+            1795352843.693,
+            "20"
+          ],
+          [
+            1795352858.693,
+            "20"
+          ],
+          [
+            1795352873.693,
+            "20"
+          ],
+          [
+            1795352888.693,
+            "20"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_analytics_requests_total",
+          "instance": "k3s-master.incus:30503",
+          "job": "ssle-analytics",
+          "status": "500"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "0"
+          ],
+          [
+            1795352813.693,
+            "0"
+          ],
+          [
+            1795352828.693,
+            "0"
+          ],
+          [
+            1795352843.693,
+            "0"
+          ],
+          [
+            1795352858.693,
+            "0"
+          ],
+          [
+            1795352873.693,
+            "0"
+          ],
+          [
+            1795352888.693,
+            "0"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_analytics_requests_total",
+          "instance": "k3s-master.incus:30503",
+          "job": "ssle-analytics",
+          "status": "502"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "1"
+          ],
+          [
+            1795352813.693,
+            "1"
+          ],
+          [
+            1795352828.693,
+            "1"
+          ],
+          [
+            1795352843.693,
+            "1"
+          ],
+          [
+            1795352858.693,
+            "1"
+          ],
+          [
+            1795352873.693,
+            "1"
+          ],
+          [
+            1795352888.693,
+            "1"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_client_request_duration_seconds_bucket",
+          "instance": "k3s-master.incus:30802",
+          "job": "ssle-client",
+          "le": "+Inf"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "1179"
+          ],
+          [
+            1795352813.693,
+            "1182"
+          ],
+          [
+            1795352828.693,
+            "1184"
+          ],
+          [
+            1795352843.693,
+            "1187"
+          ],
+          [
+            1795352858.693,
+            "1190"
+          ],
+          [
+            1795352873.693,
+            "1193"
+          ],
+          [
+            1795352888.693,
+            "1196"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_client_request_duration_seconds_bucket",
+          "instance": "k3s-master.incus:30802",
+          "job": "ssle-client",
+          "le": "0.01"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "489"
+          ],
+          [
+            1795352813.693,
+            "491"
+          ],
+          [
+            1795352828.693,
+            "492"
+          ],
+          [
+            1795352843.693,
+            "493"
+          ],
+          [
+            1795352858.693,
+            "496"
+          ],
+          [
+            1795352873.693,
+            "499"
+          ],
+          [
+            1795352888.693,
+            "502"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_client_request_duration_seconds_bucket",
+          "instance": "k3s-master.incus:30802",
+          "job": "ssle-client",
+          "le": "0.025"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "1177"
+          ],
+          [
+            1795352813.693,
+            "1180"
+          ],
+          [
+            1795352828.693,
+            "1181"
+          ],
+          [
+            1795352843.693,
+            "1183"
+          ],
+          [
+            1795352858.693,
+            "1186"
+          ],
+          [
+            1795352873.693,
+            "1189"
+          ],
+          [
+            1795352888.693,
+            "1192"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_client_request_duration_seconds_bucket",
+          "instance": "k3s-master.incus:30802",
+          "job": "ssle-client",
+          "le": "0.05"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "1179"
+          ],
+          [
+            1795352813.693,
+            "1182"
+          ],
+          [
+            1795352828.693,
+            "1183"
+          ],
+          [
+            1795352843.693,
+            "1185"
+          ],
+          [
+            1795352858.693,
+            "1188"
+          ],
+          [
+            1795352873.693,
+            "1191"
+          ],
+          [
+            1795352888.693,
+            "1194"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_client_request_duration_seconds_bucket",
+          "instance": "k3s-master.incus:30802",
+          "job": "ssle-client",
+          "le": "0.1"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "1179"
+          ],
+          [
+            1795352813.693,
+            "1182"
+          ],
+          [
+            1795352828.693,
+            "1183"
+          ],
+          [
+            1795352843.693,
+            "1185"
+          ],
+          [
+            1795352858.693,
+            "1188"
+          ],
+          [
+            1795352873.693,
+            "1191"
+          ],
+          [
+            1795352888.693,
+            "1194"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_client_request_duration_seconds_bucket",
+          "instance": "k3s-master.incus:30802",
+          "job": "ssle-client",
+          "le": "0.25"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "1179"
+          ],
+          [
+            1795352813.693,
+            "1182"
+          ],
+          [
+            1795352828.693,
+            "1184"
+          ],
+          [
+            1795352843.693,
+            "1187"
+          ],
+          [
+            1795352858.693,
+            "1190"
+          ],
+          [
+            1795352873.693,
+            "1193"
+          ],
+          [
+            1795352888.693,
+            "1196"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_client_request_duration_seconds_bucket",
+          "instance": "k3s-master.incus:30802",
+          "job": "ssle-client",
+          "le": "0.5"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "1179"
+          ],
+          [
+            1795352813.693,
+            "1182"
+          ],
+          [
+            1795352828.693,
+            "1184"
+          ],
+          [
+            1795352843.693,
+            "1187"
+          ],
+          [
+            1795352858.693,
+            "1190"
+          ],
+          [
+            1795352873.693,
+            "1193"
+          ],
+          [
+            1795352888.693,
+            "1196"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_client_request_duration_seconds_bucket",
+          "instance": "k3s-master.incus:30802",
+          "job": "ssle-client",
+          "le": "1.0"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "1179"
+          ],
+          [
+            1795352813.693,
+            "1182"
+          ],
+          [
+            1795352828.693,
+            "1184"
+          ],
+          [
+            1795352843.693,
+            "1187"
+          ],
+          [
+            1795352858.693,
+            "1190"
+          ],
+          [
+            1795352873.693,
+            "1193"
+          ],
+          [
+            1795352888.693,
+            "1196"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_client_request_duration_seconds_bucket",
+          "instance": "k3s-master.incus:30802",
+          "job": "ssle-client",
+          "le": "2.0"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "1179"
+          ],
+          [
+            1795352813.693,
+            "1182"
+          ],
+          [
+            1795352828.693,
+            "1184"
+          ],
+          [
+            1795352843.693,
+            "1187"
+          ],
+          [
+            1795352858.693,
+            "1190"
+          ],
+          [
+            1795352873.693,
+            "1193"
+          ],
+          [
+            1795352888.693,
+            "1196"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_client_request_duration_seconds_bucket",
+          "instance": "k3s-master.incus:30802",
+          "job": "ssle-client",
+          "le": "5.0"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "1179"
+          ],
+          [
+            1795352813.693,
+            "1182"
+          ],
+          [
+            1795352828.693,
+            "1184"
+          ],
+          [
+            1795352843.693,
+            "1187"
+          ],
+          [
+            1795352858.693,
+            "1190"
+          ],
+          [
+            1795352873.693,
+            "1193"
+          ],
+          [
+            1795352888.693,
+            "1196"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_client_requests_total",
+          "instance": "k3s-master.incus:30802",
+          "job": "ssle-client",
+          "outcome": "connection_error"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "1"
+          ],
+          [
+            1795352813.693,
+            "1"
+          ],
+          [
+            1795352828.693,
+            "1"
+          ],
+          [
+            1795352843.693,
+            "1"
+          ],
+          [
+            1795352858.693,
+            "1"
+          ],
+          [
+            1795352873.693,
+            "1"
+          ],
+          [
+            1795352888.693,
+            "1"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_client_requests_total",
+          "instance": "k3s-master.incus:30802",
+          "job": "ssle-client",
+          "outcome": "http_error"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "0"
+          ],
+          [
+            1795352813.693,
+            "0"
+          ],
+          [
+            1795352828.693,
+            "0"
+          ],
+          [
+            1795352843.693,
+            "0"
+          ],
+          [
+            1795352858.693,
+            "0"
+          ],
+          [
+            1795352873.693,
+            "0"
+          ],
+          [
+            1795352888.693,
+            "0"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_client_requests_total",
+          "instance": "k3s-master.incus:30802",
+          "job": "ssle-client",
+          "outcome": "invalid_response"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "0"
+          ],
+          [
+            1795352813.693,
+            "0"
+          ],
+          [
+            1795352828.693,
+            "0"
+          ],
+          [
+            1795352843.693,
+            "0"
+          ],
+          [
+            1795352858.693,
+            "0"
+          ],
+          [
+            1795352873.693,
+            "0"
+          ],
+          [
+            1795352888.693,
+            "0"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_client_requests_total",
+          "instance": "k3s-master.incus:30802",
+          "job": "ssle-client",
+          "outcome": "success"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "1178"
+          ],
+          [
+            1795352813.693,
+            "1181"
+          ],
+          [
+            1795352828.693,
+            "1183"
+          ],
+          [
+            1795352843.693,
+            "1186"
+          ],
+          [
+            1795352858.693,
+            "1189"
+          ],
+          [
+            1795352873.693,
+            "1192"
+          ],
+          [
+            1795352888.693,
+            "1195"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_client_requests_total",
+          "instance": "k3s-master.incus:30802",
+          "job": "ssle-client",
+          "outcome": "timeout"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "0"
+          ],
+          [
+            1795352813.693,
+            "0"
+          ],
+          [
+            1795352828.693,
+            "0"
+          ],
+          [
+            1795352843.693,
+            "0"
+          ],
+          [
+            1795352858.693,
+            "0"
+          ],
+          [
+            1795352873.693,
+            "0"
+          ],
+          [
+            1795352888.693,
+            "0"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_container_cpu_usage_cores",
+          "app": "analytics",
+          "container": "analytics",
+          "instance": "k3s-master.incus:30801",
+          "job": "ssle-resources",
+          "namespace": "ssle",
+          "node": "k3s-node1",
+          "pod": "analytics-7d95544f9c-4hf4t"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "0.003928084"
+          ],
+          [
+            1795352813.693,
+            "0.003958696"
+          ],
+          [
+            1795352828.693,
+            "0.005554853"
+          ],
+          [
+            1795352843.693,
+            "0.00769663"
+          ],
+          [
+            1795352858.693,
+            "0.031647023"
+          ],
+          [
+            1795352873.693,
+            "0.006741655"
+          ],
+          [
+            1795352888.693,
+            "0.006474296"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_container_cpu_usage_cores",
+          "app": "analytics-no-limit-261122t130556-102201",
+          "container": "analytics",
+          "instance": "k3s-master.incus:30801",
+          "job": "ssle-resources",
+          "namespace": "ssle",
+          "node": "k3s-node1",
+          "pod": "analytics-no-limit-261122t130556-102201-6cb66d49cc-c2258"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "0.036307759"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_container_cpu_usage_cores",
+          "app": "health-exporter",
+          "container": "health-exporter",
+          "instance": "k3s-master.incus:30801",
+          "job": "ssle-resources",
+          "namespace": "ssle",
+          "node": "k3s-node1",
+          "pod": "health-exporter-557f7454b5-prltc"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "0.001177703"
+          ],
+          [
+            1795352813.693,
+            "0.001970923"
+          ],
+          [
+            1795352828.693,
+            "0.002391923"
+          ],
+          [
+            1795352843.693,
+            "0.000926761"
+          ],
+          [
+            1795352858.693,
+            "0.00593048"
+          ],
+          [
+            1795352873.693,
+            "0.002007028"
+          ],
+          [
+            1795352888.693,
+            "0.002251686"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_container_cpu_usage_cores",
+          "app": "ingestion",
+          "container": "ingestion",
+          "instance": "k3s-master.incus:30801",
+          "job": "ssle-resources",
+          "namespace": "ssle",
+          "node": "k3s-node1",
+          "pod": "ingestion-68555fd86d-j77cl"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "0.000577554"
+          ],
+          [
+            1795352813.693,
+            "0.000634004"
+          ],
+          [
+            1795352828.693,
+            "0.000548301"
+          ],
+          [
+            1795352843.693,
+            "0.000521968"
+          ],
+          [
+            1795352858.693,
+            "0.000694835"
+          ],
+          [
+            1795352873.693,
+            "0.000481273"
+          ],
+          [
+            1795352888.693,
+            "0.000667613"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_container_cpu_usage_cores",
+          "app": "registry",
+          "container": "registry",
+          "instance": "k3s-master.incus:30801",
+          "job": "ssle-resources",
+          "namespace": "ssle",
+          "node": "k3s-node1",
+          "pod": "registry-6b969b6d65-nz64z"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "0.000988074"
+          ],
+          [
+            1795352813.693,
+            "0.000986893"
+          ],
+          [
+            1795352828.693,
+            "0.000930577"
+          ],
+          [
+            1795352843.693,
+            "0.000930577"
+          ],
+          [
+            1795352858.693,
+            "0.000821116"
+          ],
+          [
+            1795352873.693,
+            "0.001006058"
+          ],
+          [
+            1795352888.693,
+            "0.000795794"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_container_cpu_usage_cores",
+          "app": "resource-exporter",
+          "container": "resource-exporter",
+          "instance": "k3s-master.incus:30801",
+          "job": "ssle-resources",
+          "namespace": "ssle",
+          "node": "k3s-node1",
+          "pod": "resource-exporter-54c7886779-tnqk6"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "0.001956554"
+          ],
+          [
+            1795352813.693,
+            "0.003183297"
+          ],
+          [
+            1795352828.693,
+            "0.001925615"
+          ],
+          [
+            1795352843.693,
+            "0.00350156"
+          ],
+          [
+            1795352858.693,
+            "0.003932898"
+          ],
+          [
+            1795352873.693,
+            "0.002705366"
+          ],
+          [
+            1795352888.693,
+            "0.003104466"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_container_cpu_usage_cores",
+          "app": "storage",
+          "container": "storage",
+          "instance": "k3s-master.incus:30801",
+          "job": "ssle-resources",
+          "namespace": "ssle",
+          "node": "k3s-node1",
+          "pod": "storage-54f5d47dd9-m8jj9"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "0.00358661"
+          ],
+          [
+            1795352813.693,
+            "0.001810736"
+          ],
+          [
+            1795352828.693,
+            "0.003017246"
+          ],
+          [
+            1795352843.693,
+            "0.010208349"
+          ],
+          [
+            1795352858.693,
+            "0.008518089"
+          ],
+          [
+            1795352873.693,
+            "0.001198917"
+          ],
+          [
+            1795352888.693,
+            "0.001633559"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_container_cpu_usage_cores",
+          "app": "temperature-client",
+          "container": "temperature-client",
+          "instance": "k3s-master.incus:30801",
+          "job": "ssle-resources",
+          "namespace": "ssle",
+          "node": "k3s-node1",
+          "pod": "temperature-client-6cd5685b9b-mggqp"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "0.001393399"
+          ],
+          [
+            1795352813.693,
+            "0.001734993"
+          ],
+          [
+            1795352828.693,
+            "0.002113978"
+          ],
+          [
+            1795352843.693,
+            "0.003491077"
+          ],
+          [
+            1795352858.693,
+            "0.002142001"
+          ],
+          [
+            1795352873.693,
+            "0.002142001"
+          ],
+          [
+            1795352888.693,
+            "0.002114124"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_container_memory_working_set_bytes",
+          "app": "analytics",
+          "container": "analytics",
+          "instance": "k3s-master.incus:30801",
+          "job": "ssle-resources",
+          "namespace": "ssle",
+          "node": "k3s-node1",
+          "pod": "analytics-7d95544f9c-4hf4t"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "48250880"
+          ],
+          [
+            1795352813.693,
+            "48234496"
+          ],
+          [
+            1795352828.693,
+            "48238592"
+          ],
+          [
+            1795352843.693,
+            "48246784"
+          ],
+          [
+            1795352858.693,
+            "48246784"
+          ],
+          [
+            1795352873.693,
+            "48254976"
+          ],
+          [
+            1795352888.693,
+            "48242688"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_container_memory_working_set_bytes",
+          "app": "analytics-no-limit-261122t130556-102201",
+          "container": "analytics",
+          "instance": "k3s-master.incus:30801",
+          "job": "ssle-resources",
+          "namespace": "ssle",
+          "node": "k3s-node1",
+          "pod": "analytics-no-limit-261122t130556-102201-6cb66d49cc-c2258"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "35033088"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_container_memory_working_set_bytes",
+          "app": "health-exporter",
+          "container": "health-exporter",
+          "instance": "k3s-master.incus:30801",
+          "job": "ssle-resources",
+          "namespace": "ssle",
+          "node": "k3s-node1",
+          "pod": "health-exporter-557f7454b5-prltc"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "24858624"
+          ],
+          [
+            1795352813.693,
+            "24854528"
+          ],
+          [
+            1795352828.693,
+            "24854528"
+          ],
+          [
+            1795352843.693,
+            "24854528"
+          ],
+          [
+            1795352858.693,
+            "24858624"
+          ],
+          [
+            1795352873.693,
+            "24854528"
+          ],
+          [
+            1795352888.693,
+            "24854528"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_container_memory_working_set_bytes",
+          "app": "ingestion",
+          "container": "ingestion",
+          "instance": "k3s-master.incus:30801",
+          "job": "ssle-resources",
+          "namespace": "ssle",
+          "node": "k3s-node1",
+          "pod": "ingestion-68555fd86d-j77cl"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "32808960"
+          ],
+          [
+            1795352813.693,
+            "32813056"
+          ],
+          [
+            1795352828.693,
+            "32808960"
+          ],
+          [
+            1795352843.693,
+            "32808960"
+          ],
+          [
+            1795352858.693,
+            "32808960"
+          ],
+          [
+            1795352873.693,
+            "32813056"
+          ],
+          [
+            1795352888.693,
+            "32808960"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_container_memory_working_set_bytes",
+          "app": "registry",
+          "container": "registry",
+          "instance": "k3s-master.incus:30801",
+          "job": "ssle-resources",
+          "namespace": "ssle",
+          "node": "k3s-node1",
+          "pod": "registry-6b969b6d65-nz64z"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "31211520"
+          ],
+          [
+            1795352813.693,
+            "31211520"
+          ],
+          [
+            1795352828.693,
+            "31211520"
+          ],
+          [
+            1795352843.693,
+            "31211520"
+          ],
+          [
+            1795352858.693,
+            "31211520"
+          ],
+          [
+            1795352873.693,
+            "31211520"
+          ],
+          [
+            1795352888.693,
+            "31211520"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_container_memory_working_set_bytes",
+          "app": "resource-exporter",
+          "container": "resource-exporter",
+          "instance": "k3s-master.incus:30801",
+          "job": "ssle-resources",
+          "namespace": "ssle",
+          "node": "k3s-node1",
+          "pod": "resource-exporter-54c7886779-tnqk6"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "25382912"
+          ],
+          [
+            1795352813.693,
+            "25391104"
+          ],
+          [
+            1795352828.693,
+            "25382912"
+          ],
+          [
+            1795352843.693,
+            "25382912"
+          ],
+          [
+            1795352858.693,
+            "25382912"
+          ],
+          [
+            1795352873.693,
+            "25382912"
+          ],
+          [
+            1795352888.693,
+            "25387008"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_container_memory_working_set_bytes",
+          "app": "storage",
+          "container": "storage",
+          "instance": "k3s-master.incus:30801",
+          "job": "ssle-resources",
+          "namespace": "ssle",
+          "node": "k3s-node1",
+          "pod": "storage-54f5d47dd9-m8jj9"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "31870976"
+          ],
+          [
+            1795352813.693,
+            "31870976"
+          ],
+          [
+            1795352828.693,
+            "31870976"
+          ],
+          [
+            1795352843.693,
+            "31870976"
+          ],
+          [
+            1795352858.693,
+            "31870976"
+          ],
+          [
+            1795352873.693,
+            "31870976"
+          ],
+          [
+            1795352888.693,
+            "32137216"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_container_memory_working_set_bytes",
+          "app": "temperature-client",
+          "container": "temperature-client",
+          "instance": "k3s-master.incus:30801",
+          "job": "ssle-resources",
+          "namespace": "ssle",
+          "node": "k3s-node1",
+          "pod": "temperature-client-6cd5685b9b-mggqp"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "27873280"
+          ],
+          [
+            1795352813.693,
+            "27877376"
+          ],
+          [
+            1795352828.693,
+            "27877376"
+          ],
+          [
+            1795352843.693,
+            "27877376"
+          ],
+          [
+            1795352858.693,
+            "27877376"
+          ],
+          [
+            1795352873.693,
+            "27877376"
+          ],
+          [
+            1795352888.693,
+            "27877376"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_resource_collection_up",
+          "instance": "k3s-master.incus:30801",
+          "job": "ssle-resources"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "1"
+          ],
+          [
+            1795352813.693,
+            "1"
+          ],
+          [
+            1795352828.693,
+            "1"
+          ],
+          [
+            1795352843.693,
+            "1"
+          ],
+          [
+            1795352858.693,
+            "1"
+          ],
+          [
+            1795352873.693,
+            "1"
+          ],
+          [
+            1795352888.693,
+            "1"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_service_up",
+          "instance": "k3s-master.incus:30800",
+          "job": "ssle-health",
+          "probe": "http",
+          "service": "analytics"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "1"
+          ],
+          [
+            1795352813.693,
+            "1"
+          ],
+          [
+            1795352828.693,
+            "1"
+          ],
+          [
+            1795352843.693,
+            "1"
+          ],
+          [
+            1795352858.693,
+            "1"
+          ],
+          [
+            1795352873.693,
+            "1"
+          ],
+          [
+            1795352888.693,
+            "1"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_service_up",
+          "instance": "k3s-master.incus:30800",
+          "job": "ssle-health",
+          "probe": "http",
+          "service": "registry"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "1"
+          ],
+          [
+            1795352813.693,
+            "1"
+          ],
+          [
+            1795352828.693,
+            "1"
+          ],
+          [
+            1795352843.693,
+            "1"
+          ],
+          [
+            1795352858.693,
+            "1"
+          ],
+          [
+            1795352873.693,
+            "1"
+          ],
+          [
+            1795352888.693,
+            "1"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_service_up",
+          "instance": "k3s-master.incus:30800",
+          "job": "ssle-health",
+          "probe": "http",
+          "service": "storage"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "1"
+          ],
+          [
+            1795352813.693,
+            "1"
+          ],
+          [
+            1795352828.693,
+            "1"
+          ],
+          [
+            1795352843.693,
+            "1"
+          ],
+          [
+            1795352858.693,
+            "1"
+          ],
+          [
+            1795352873.693,
+            "1"
+          ],
+          [
+            1795352888.693,
+            "1"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_service_up",
+          "instance": "k3s-master.incus:30800",
+          "job": "ssle-health",
+          "probe": "tcp",
+          "service": "ingestion"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "1"
+          ],
+          [
+            1795352813.693,
+            "1"
+          ],
+          [
+            1795352828.693,
+            "1"
+          ],
+          [
+            1795352843.693,
+            "1"
+          ],
+          [
+            1795352858.693,
+            "1"
+          ],
+          [
+            1795352873.693,
+            "1"
+          ],
+          [
+            1795352888.693,
+            "1"
+          ]
+        ]
+      },
+      {
+        "metric": {
+          "__name__": "ssle_storage_measurements",
+          "instance": "k3s-master.incus:30800",
+          "job": "ssle-health"
+        },
+        "values": [
+          [
+            1795352798.693,
+            "77"
+          ],
+          [
+            1795352813.693,
+            "77"
+          ],
+          [
+            1795352828.693,
+            "77"
+          ],
+          [
+            1795352843.693,
+            "77"
+          ],
+          [
+            1795352858.693,
+            "77"
+          ],
+          [
+            1795352873.693,
+            "77"
+          ],
+          [
+            1795352888.693,
+            "77"
+          ]
+        ]
+      }
+    ]
+  }
+}

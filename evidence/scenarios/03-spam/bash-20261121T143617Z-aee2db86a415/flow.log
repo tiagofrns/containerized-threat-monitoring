@@ -1,0 +1,151 @@
+SSLE | CENÁRIO 03: Spam antes/depois da proteção
+Laboratório: mail-container | security-operations@mail.lab.test
+O antispam será desativado AUTOMATICAMENTE na etapa 1.
+
+========== [0/7] Confirmar serviços, configuração e baseline do Prometheus ==========
+  [SYSTEMD] postfix: active
+  [SYSTEMD] dovecot: active
+  [SYSTEMD] spamassassin: active
+  [SYSTEMD] mail_gateway: active
+  [SYSTEMD] wazuh-agent: active
+  [POSTCONF] smtp/inet/content_filter = spamassassin:filter
+A aguardar o episódio anterior de MailQuarantineActivity terminar...
+
+========== [1/7] SEM ANTISPAM: desativar temporariamente o filtro SMTP ==========
+smtp/inet/content_filter =
+  [PROVA] content_filter vazio; Postfix e Dovecot continuam ativos.
+
+========== [2/7] Enviar GTUBE sem filtro e mostrar chegada real à INBOX ==========
+[SMTP] Aceite pelo servidor: gtube-sem-filtro | Message-ID: <ssle-aee2db86a415-sem-filtro@mail.lab.test>
+  [DOVEADM SEARCH] mailbox=INBOX | UID/GUID: 8036b313de9c016b97180000a6ebfbdf 15
+  [DOVEADM SEARCH] mailbox=Quarantine | nenhum resultado (0 mensagens)
+  [DOVECOT FETCH] Message-ID confirmado no conteúdo: <ssle-aee2db86a415-sem-filtro@mail.lab.test>
+  [CABEÇALHO REAL] Subject: SSLE DEMO | gtube-sem-filtro
+  [CABEÇALHO REAL] Message-ID: <ssle-aee2db86a415-sem-filtro@mail.lab.test>
+  [CORPO REAL] Assinatura GTUBE presente no email armazenado
+  [AUDITORIA JSON] outcome=delivered, folder=INBOX, spam_status=
+  [FICHEIROS PROVA] messages/1f1a2ea456149d70-doveadm-fetch.txt | 1f1a2ea456149d70-uids-INBOX.txt | 1f1a2ea456149d70-audit.json
+  [PROVA CRUZADA] Dovecot + Maildir observer: INBOX (1 cópia)
+[PROVA] GTUBE chegou à INBOX porque a filtragem estava desligada.
+
+========== [3/7] Reativar antispam e confirmar Postfix original ==========
+  [PROVA] Filtro restaurado: spamassassin:filter
+smtp/inet/content_filter = spamassassin:filter
+  A permitir que Prometheus recolha o histórico do contador (35 s)...
+
+========== [4/7] Reenviar GTUBE com filtro; comparar pastas ==========
+[SMTP] Aceite pelo servidor: legitimo | Message-ID: <ssle-aee2db86a415-legitimo@mail.lab.test>
+  [DOVEADM SEARCH] mailbox=INBOX | UID/GUID: 8036b313de9c016b97180000a6ebfbdf 16
+  [DOVEADM SEARCH] mailbox=Quarantine | nenhum resultado (0 mensagens)
+  [DOVECOT FETCH] Message-ID confirmado no conteúdo: <ssle-aee2db86a415-legitimo@mail.lab.test>
+  [CABEÇALHO REAL] X-Spam-Status: No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham
+  [CABEÇALHO REAL] Subject: SSLE DEMO | legitimo
+  [CABEÇALHO REAL] Message-ID: <ssle-aee2db86a415-legitimo@mail.lab.test>
+  [CORPO REAL] Conteúdo legítimo confirmado
+  [AUDITORIA JSON] outcome=delivered, folder=INBOX, spam_status=No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham autolearn_force=no version=3.4.6
+  [FICHEIROS PROVA] messages/5bfe0a956ec411c9-doveadm-fetch.txt | 5bfe0a956ec411c9-uids-INBOX.txt | 5bfe0a956ec411c9-audit.json
+  [PROVA CRUZADA] Dovecot + Maildir observer: INBOX (1 cópia)
+[SMTP] Aceite pelo servidor: gtube-protegido | Message-ID: <ssle-aee2db86a415-spam1@mail.lab.test>
+  [DOVEADM SEARCH] mailbox=Quarantine | UID/GUID: b0cacf0a069d016b97180000a6ebfbdf 13
+  [DOVEADM SEARCH] mailbox=INBOX | nenhum resultado (0 mensagens)
+  [DOVECOT FETCH] Message-ID confirmado no conteúdo: <ssle-aee2db86a415-spam1@mail.lab.test>
+  [CABEÇALHO REAL] X-Spam-Flag: YES
+  [CABEÇALHO REAL] X-Spam-Status: Yes, score=999.0 required=5.0 tests=ALL_TRUSTED,GTUBE
+  [CABEÇALHO REAL] Subject: *****SPAM***** SSLE DEMO | gtube-protegido
+  [CABEÇALHO REAL] Message-ID: <ssle-aee2db86a415-spam1@mail.lab.test>
+  [CORPO REAL] Assinatura GTUBE presente no email armazenado
+  [AUDITORIA JSON] outcome=quarantined, folder=Quarantine, spam_status=Yes, score=999.0 required=5.0 tests=ALL_TRUSTED,GTUBE autolearn=no autolearn_force=no version=3.4.6
+  [FICHEIROS PROVA] messages/40a264a7b1e4d118-doveadm-fetch.txt | 40a264a7b1e4d118-uids-Quarantine.txt | 40a264a7b1e4d118-audit.json
+  [PROVA CRUZADA] Dovecot + Maildir observer: Quarantine (1 cópia)
+[SMTP] Aceite pelo servidor: gtube-falso-limpo | Message-ID: <ssle-aee2db86a415-spam2@mail.lab.test>
+  [DOVEADM SEARCH] mailbox=Quarantine | UID/GUID: b0cacf0a069d016b97180000a6ebfbdf 14
+  [DOVEADM SEARCH] mailbox=INBOX | nenhum resultado (0 mensagens)
+  [DOVECOT FETCH] Message-ID confirmado no conteúdo: <ssle-aee2db86a415-spam2@mail.lab.test>
+  [CABEÇALHO REAL] X-Spam-Flag: YES
+  [CABEÇALHO REAL] X-Spam-Status: Yes, score=999.0 required=5.0 tests=ALL_TRUSTED,GTUBE
+  [CABEÇALHO REAL] Subject: *****SPAM***** SSLE DEMO | gtube-falso-limpo
+  [CABEÇALHO REAL] Message-ID: <ssle-aee2db86a415-spam2@mail.lab.test>
+  [CORPO REAL] Assinatura GTUBE presente no email armazenado
+  [AUDITORIA JSON] outcome=quarantined, folder=Quarantine, spam_status=Yes, score=999.0 required=5.0 tests=ALL_TRUSTED,GTUBE autolearn=no autolearn_force=no version=3.4.6
+  [FICHEIROS PROVA] messages/f9c8911dc5657c97-doveadm-fetch.txt | f9c8911dc5657c97-uids-Quarantine.txt | f9c8911dc5657c97-audit.json
+  [PROVA CRUZADA] Dovecot + Maildir observer: Quarantine (1 cópia)
+[SMTP] Aceite pelo servidor: gtube-repetido | Message-ID: <ssle-aee2db86a415-spam3@mail.lab.test>
+  [DOVEADM SEARCH] mailbox=Quarantine | UID/GUID: b0cacf0a069d016b97180000a6ebfbdf 15
+  [DOVEADM SEARCH] mailbox=INBOX | nenhum resultado (0 mensagens)
+  [DOVECOT FETCH] Message-ID confirmado no conteúdo: <ssle-aee2db86a415-spam3@mail.lab.test>
+  [CABEÇALHO REAL] X-Spam-Flag: YES
+  [CABEÇALHO REAL] X-Spam-Status: Yes, score=999.0 required=5.0 tests=ALL_TRUSTED,GTUBE
+  [CABEÇALHO REAL] Subject: *****SPAM***** SSLE DEMO | gtube-repetido
+  [CABEÇALHO REAL] Message-ID: <ssle-aee2db86a415-spam3@mail.lab.test>
+  [CORPO REAL] Assinatura GTUBE presente no email armazenado
+  [AUDITORIA JSON] outcome=quarantined, folder=Quarantine, spam_status=Yes, score=999.0 required=5.0 tests=ALL_TRUSTED,GTUBE autolearn=no autolearn_force=no version=3.4.6
+  [FICHEIROS PROVA] messages/a44f3c038f4226a8-doveadm-fetch.txt | a44f3c038f4226a8-uids-Quarantine.txt | a44f3c038f4226a8-audit.json
+  [PROVA CRUZADA] Dovecot + Maildir observer: Quarantine (1 cópia)
+COMPARAÇÃO: GTUBE sem filtro -> INBOX | GTUBE com filtro -> Quarantine
+
+========== [5/7] Esperar alerta real MailQuarantineActivity no Prometheus ==========
+  MailQuarantineActivity: pending
+  MailQuarantineActivity: firing
+[PROMETHEUS API] alertname = MailQuarantineActivity
+[PROMETHEUS API] state = firing
+[PROMETHEUS API] activeAt = 2026-11-21T14:37:35.003950993Z
+[PROMETHEUS API] labels = {"alertname": "MailQuarantineActivity", "instance": "10.171.72.142:9096", "job": "mail-security", "outcome": "quarantined", "scope": "mail", "severity": "warning"}
+[PROVA] Alerta MailQuarantineActivity em FIRING confirmado pela API, JSON integral guardado.
+
+========== [6/7] Alertmanager, notificação operacional e Wazuh ==========
+[MAIL GATEWAY] Evento notification_submitted do episódio: 998006abf836b2a4249d024b3116cf847637b15168f1b213d264b0fc41bb4c46
+[MAIL GATEWAY] Message-ID da notificação: <incident-998006abf836b2a4249d024b3116cf847637b15168f1b213d264b0fc41bb4c46@mail.lab.test>
+  [DOVEADM SEARCH] mailbox=INBOX | UID/GUID: 8036b313de9c016b97180000a6ebfbdf 17
+  [DOVEADM SEARCH] mailbox=Quarantine | nenhum resultado (0 mensagens)
+  [DOVECOT FETCH] Message-ID confirmado no conteúdo: <incident-998006abf836b2a4249d024b3116cf847637b15168f1b213d264b0fc41bb4c46@mail.lab.test>
+  [CABEÇALHO REAL] X-Spam-Status: No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham
+  [CABEÇALHO REAL] Message-ID: <incident-998006abf836b2a4249d024b3116cf847637b15168f1b213d264b0fc41bb4c46@mail.lab.test>
+  [CABEÇALHO REAL] Subject: [Security Operations] Mail quarantine activity
+  [CORPO REAL] Notificação de segurança confirmada
+  [AUDITORIA JSON] outcome=delivered, folder=INBOX, spam_status=No, score=-1.0 required=5.0 tests=ALL_TRUSTED autolearn=ham autolearn_force=no version=3.4.6
+  [FICHEIROS PROVA] messages/fdbbbc91da23ad70-doveadm-fetch.txt | fdbbbc91da23ad70-uids-INBOX.txt | fdbbbc91da23ad70-audit.json
+  [PROVA CRUZADA] Dovecot + Maildir observer: INBOX (1 cópia)
+[PROVA] Notificação recebida: UID/GUID no Dovecot + texto do email + evento de entrega.
+[WEBHOOK] Testar autenticação e supressão de notificações duplicadas
+  [PROVA] POST sem credenciais -> HTTP 401
+  [PROVA] Repetição autenticada -> submitted=0; ledger mantém 1 notificação.
+[WAZUH] regra 100602 | alerta 1795271785.9236405 | Message-ID <ssle-aee2db86a415-sem-filtro@mail.lab.test> | outcome delivered | agent mail-container
+[WAZUH] regra 100602 | alerta 1795271834.9237151 | Message-ID <ssle-aee2db86a415-legitimo@mail.lab.test> | outcome delivered | agent mail-container
+[WAZUH] regra 100601 | alerta 1795271842.9238091 | Message-ID <ssle-aee2db86a415-spam1@mail.lab.test> | outcome quarantined | agent mail-container
+[WAZUH] regra 100601 | alerta 1795271846.9239053 | Message-ID <ssle-aee2db86a415-spam2@mail.lab.test> | outcome quarantined | agent mail-container
+[WAZUH] regra 100601 | alerta 1795271848.9240015 | Message-ID <ssle-aee2db86a415-spam3@mail.lab.test> | outcome quarantined | agent mail-container
+[WAZUH] regra 100605 | alerta 1795271872.9240977 | Message-ID <incident-998006abf836b2a4249d024b3116cf847637b15168f1b213d264b0fc41bb4c46@mail.lab.test> | outcome notification_submitted | agent mail-container
+[WAZUH] regra 100602 | alerta 1795271874.9241882 | Message-ID <incident-998006abf836b2a4249d024b3116cf847637b15168f1b213d264b0fc41bb4c46@mail.lab.test> | outcome delivered | agent mail-container
+[PROVA] Wazuh Manager: alertas reais com IDs, regras, agent e Message-IDs guardados em wazuh-events.jsonl
+
+========== [7/7] Resumo final e configuração original ==========
+Operador: a libertar uma única mensagem GTUBE de teste...
+[PROVA] Libertação: exatamente uma cópia na INBOX, nenhuma em Quarantine.
+[WAZUH] regra 100603 confirmada para <ssle-aee2db86a415-spam1@mail.lab.test>
+  [OK] GTUBE sem filtro -> INBOX
+  [OK] GTUBE com filtro -> Quarantine
+  [OK] Email legítimo -> INBOX
+  [OK] Prometheus MailQuarantineActivity -> FIRING
+  [OK] Alerta operacional -> INBOX
+  [OK] Webhook sem autenticação -> 401; replay -> 0 notificações novas
+  [OK] Wazuh 100601 / 100602 / 100605
+  [POSTFIX FINAL] smtp/inet/content_filter = spamassassin:filter
+  [SHA-256 ANTES] d4b683ec19db87f3c521b2ad85169b7b509f2c97c56b72d4e5aadd1db93cd262  /etc/postfix/master.cf
+  [SHA-256 DEPOIS] d4b683ec19db87f3c521b2ad85169b7b509f2c97c56b72d4e5aadd1db93cd262  /etc/postfix/master.cf
+  [OK] Configuração Postfix restaurada e hash SHA-256 idêntico
+[EVIDÊNCIAS CONCRETAS] /home/tiago/ssle/evidence/scenarios/03-spam/bash-20261121T143617Z-aee2db86a415
+  flow.log                         - stdout completo da execução
+  messages/indice.tsv              - Message-ID -> pasta -> prova doveadm
+  messages/*-doveadm-fetch.txt     - conteúdo efetivo lido do Maildir
+  messages/*-uids-*                - pesquisas real/oposta do Dovecot
+  messages/*-audit.json            - evento real do observador
+  prometheus-firing.json           - alerta FIRING da API
+  notification.txt                 - email operacional real
+  wazuh-events.jsonl              - alertas reais do manager
+  webhook-sem-auth-http-status.txt - prova de HTTP 401
+  webhook-repetido.json           - replay com submitted=0
+  mastercf-sha256-{before,final}.txt - integridade do Postfix
+[DONE] Demonstração concluída com provas cruzadas.
+
+[SEGURANÇA] Filtro Postfix original confirmado.
+[EVIDÊNCIAS] /home/tiago/ssle/evidence/scenarios/03-spam/bash-20261121T143617Z-aee2db86a415

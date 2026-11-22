@@ -1,0 +1,118 @@
+  Evidence for this run: /home/tiago/ssle/scripts/scenarios/02-dns-hijacking/demo/results/demo-20261121T170553Z-114259
+
+
+==================================================================
+  [0/7] INITIAL STATE: approved DNS configuration and inactive Wazuh agent
+==================================================================
+Wazuh: inactive (expected).
+
+
+==================================================================
+  [1/7] BEFORE THE CHANGE: original DNS answer for analytics.lab.test
+==================================================================
+analytics.lab.test -> 10.255.255.74
+Press ENTER to continue... 
+
+==================================================================
+  [2/7] SIMULATED CHANGE: analytics.lab.test -> 10.171.72.52
+==================================================================
+dnsmasq: syntax check OK.
+
+
+==================================================================
+  [3/7] WITHOUT PROTECTION: query the actual dnsmasq answer
+==================================================================
+analytics.lab.test -> 10.171.72.52
+Press ENTER to continue... 
+
+==================================================================
+  [4/7] PROTECTED CLIENT: verify eight actual DNS rejections
+==================================================================
+active
+  Check 1/8: REJECTED | Observed DNS: 10.171.72.52
+  Check 2/8: REJECTED | Observed DNS: 10.171.72.52
+  Check 3/8: REJECTED | Observed DNS: 10.171.72.52
+  Check 4/8: REJECTED | Observed DNS: 10.171.72.52
+  Check 5/8: REJECTED | Observed DNS: 10.171.72.52
+  Check 6/8: REJECTED | Observed DNS: 10.171.72.52
+  Check 7/8: REJECTED | Observed DNS: 10.171.72.52
+  Check 8/8: REJECTED | Observed DNS: 10.171.72.52
+
+  Client-confirmed rejections:
+  [########] 8/8
+Press ENTER to continue... 
+
+==================================================================
+  [5/7] PROMETHEUS: DNSPolicyRejections alert in firing state
+==================================================================
+Prometheus API: http://10.255.255.21:9090
+  States queried from Prometheus:
+DNSResolutionNotExpected|pending
+DNSApplicationReadFailed|pending
+DNSExporterUnavailable|firing
+  States queried from Prometheus:
+DNSResolutionNotExpected|pending
+DNSApplicationReadFailed|pending
+DNSExporterUnavailable|firing
+  States queried from Prometheus:
+DNSResolutionNotExpected|pending
+DNSApplicationReadFailed|pending
+DNSExporterUnavailable|firing
+{"integration": "dns_client", "event": "check", "timestamp": "2026-11-21T17:06:49.353480+00:00", "dns_name": "analytics.lab.test", "dns_expected": false, "outcome": "dns_rejected", "observed_addresses": ["10.171.72.52"], "duration_seconds": 0.020046270999955595}
+  States queried from Prometheus:
+DNSPolicyRejections|pending
+DNSResolutionNotExpected|firing
+DNSApplicationReadFailed|firing
+DNSExporterUnavailable|firing
+  States queried from Prometheus:
+DNSPolicyRejections|pending
+DNSResolutionNotExpected|firing
+DNSApplicationReadFailed|firing
+DNSExporterUnavailable|firing
+  States queried from Prometheus:
+DNSPolicyRejections|pending
+DNSResolutionNotExpected|firing
+DNSApplicationReadFailed|firing
+DNSExporterUnavailable|firing
+{"integration": "dns_client", "event": "check", "timestamp": "2026-11-21T17:07:04.585888+00:00", "dns_name": "analytics.lab.test", "dns_expected": false, "outcome": "dns_rejected", "observed_addresses": ["10.171.72.52"], "duration_seconds": 0.009558658000969444}
+  States queried from Prometheus:
+DNSPolicyRejections|firing
+DNSResolutionNotExpected|firing
+DNSApplicationReadFailed|firing
+DNSExporterUnavailable|firing
+
+  [EVIDENCE] DNSPolicyRejections is FIRING (Prometheus API).
+Press ENTER to continue... 
+
+==================================================================
+  [6/7] WAZUH: startup integrity check (rule 100145)
+==================================================================
+  [ACTIVATION] Protection startup exit code: 0
+  [LOG] Original output saved in ativacao-protecoes.log
+Wazuh Active Response: event 1795280838.9369789, restoration confirmed. bridge_episode=False
+Press ENTER to continue... 
+
+==================================================================
+  [7/7] RECOVERY: verify the original IP and approved file
+==================================================================
+active
+active
+active
+analytics.lab.test -> 10.255.255.74
+{"integration": "dns_client", "event": "check", "timestamp": "2026-11-21T17:07:23.689922+00:00", "dns_name": "analytics.lab.test", "dns_expected": true, "outcome": "success", "observed_addresses": ["10.255.255.74"], "average_temperature": 25.12, "peer_ip": "10.255.255.74", "http_status": 200, "duration_seconds": 0.015231542000037734}
+
+  VERIFIED FLOW
+    Original DNS  : 10.255.255.74
+          | simulated change
+          v
+    Modified DNS  : 10.171.72.52
+          | 8 client rejections
+          | Prometheus: DNSPolicyRejections = FIRING
+          | Wazuh: audited restoration
+          v
+    Restored DNS  : 10.255.255.74
+
+[DONE] Original DNS confirmed after restoration; rejections and alert observed.
+
+[RESULTS AND EVIDENCE] /home/tiago/ssle/scripts/scenarios/02-dns-hijacking/demo/results/demo-20261121T170553Z-114259
+[RESULT] Demonstration completed.

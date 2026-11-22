@@ -1,0 +1,49 @@
+{
+  "origin": "operator fixture on one node; not Wazuh dispatch",
+  "observations": [
+    {
+      "pod": "analytics-scaling-261122t131426-109247-7c5454cb6b-4ct5v",
+      "node": "k3s-node1",
+      "body": {
+        "average_temperature": 25.12,
+        "cache_fallback": false,
+        "cached": false,
+        "protection_mode": "normal",
+        "stats_age_seconds": 0.003
+      }
+    },
+    {
+      "pod": "analytics-scaling-261122t131426-109247-7c5454cb6b-6vm6b",
+      "node": "k3s-node1",
+      "body": {
+        "average_temperature": 25.12,
+        "cache_fallback": false,
+        "cached": false,
+        "protection_mode": "normal",
+        "stats_age_seconds": 0.003
+      }
+    },
+    {
+      "pod": "analytics-scaling-261122t131426-109247-7c5454cb6b-mqtdp",
+      "node": "k3s-master",
+      "body": {
+        "average_temperature": 25.12,
+        "cache_fallback": false,
+        "cached": false,
+        "protection_mode": "cache",
+        "stats_age_seconds": 0.002
+      }
+    },
+    {
+      "pod": "analytics-scaling-261122t131426-109247-7c5454cb6b-nkw2t",
+      "node": "k3s-master",
+      "body": {
+        "average_temperature": 25.12,
+        "cache_fallback": false,
+        "cached": false,
+        "protection_mode": "cache",
+        "stats_age_seconds": 0.003
+      }
+    }
+  ]
+}

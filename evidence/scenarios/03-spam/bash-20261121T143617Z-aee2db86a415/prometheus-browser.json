@@ -1,0 +1,47 @@
+{
+  "captured_utc": "2026-11-21T14:44:16.880996+00:00",
+  "url": "http://127.0.0.1:29090/classic/graph?g0.expr=ALERTS%7Balertname%3D%22MailQuarantineActivity%22%2Calertstate%3D%22firing%22%2Cinstance%3D%2210.171.72.142%3A9096%22%7D&g0.tab=1&g0.moment_input=2026-11-21+14%3A37%3A52",
+  "alert": {
+    "labels": {
+      "alertname": "MailQuarantineActivity",
+      "instance": "10.171.72.142:9096",
+      "job": "mail-security",
+      "outcome": "quarantined",
+      "scope": "mail",
+      "severity": "warning"
+    },
+    "annotations": {
+      "description": "Review the mail security events and quarantine folder.",
+      "summary": "Repeated spam messages were quarantined"
+    },
+    "state": "firing",
+    "activeAt": "2026-11-21T14:37:35.003950993Z",
+    "value": "3.157927978189244e+00"
+  },
+  "view": "Historical Prometheus query at the SMTP submission time",
+  "evaluation_utc": "2026-11-21 14:37:52",
+  "query_result": {
+    "status": "success",
+    "data": {
+      "resultType": "vector",
+      "result": [
+        {
+          "metric": {
+            "__name__": "ALERTS",
+            "alertname": "MailQuarantineActivity",
+            "alertstate": "firing",
+            "instance": "10.171.72.142:9096",
+            "job": "mail-security",
+            "outcome": "quarantined",
+            "scope": "mail",
+            "severity": "warning"
+          },
+          "value": [
+            1795271872.09,
+            "1"
+          ]
+        }
+      ]
+    }
+  }
+}

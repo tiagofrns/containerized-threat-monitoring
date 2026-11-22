@@ -1,0 +1,3 @@
+Unit Testing:  /tmp/ssle-final-promtool.dfZzBZ/tests/prometheus-alerts.test.yml
+  SUCCESS
+

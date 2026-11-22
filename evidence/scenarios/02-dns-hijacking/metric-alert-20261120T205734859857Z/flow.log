@@ -1,0 +1,38 @@
+
+[1/4] Confirm the live DNS and analytics baseline
+active
+active
+active
+{"integration": "dns_client", "event": "check", "timestamp": "2026-11-20T20:57:34.673927+00:00", "dns_name": "analytics.lab.test", "dns_expected": true, "outcome": "success", "observed_addresses": ["10.255.255.74"], "average_temperature": 25.12, "peer_ip": "10.255.255.74", "http_status": 200, "duration_seconds": 0.01947636800014152}
+
+[2/4] Hypothetical unprotected client: make a direct HTTP request to the demo site
+The IP below is supplied directly for this simulation. The live DNS record stays approved.
+  <main><h1>FAKE SITE</h1></main>
+
+[3/4] Exercise the DNS policy with isolated test answers and live monitoring
+Watch DNSPolicyRejections in Prometheus and rule 100151 in Wazuh.
+/home/tiago/ssle/evidence/scenarios/02-dns-hijacking/metric-alert-20261120T205734859857Z
+baseline: 2026-11-20T20:57:35.652668+00:00
+baseline_observed: 2026-11-20T20:58:13.708975+00:00
+nxdomain: 2026-11-20T20:58:13.899194+00:00
+nxdomain_observed: 2026-11-20T20:58:26.553272+00:00
+rejections: 2026-11-20T20:58:26.689917+00:00
+pending_observed: 2026-11-20T20:58:53.708097+00:00
+firing_observed: 2026-11-20T20:59:10.375924+00:00
+response_observed: 2026-11-20T20:59:12.844934+00:00
+recovery: 2026-11-20T20:59:12.938092+00:00
+clear_observed: 2026-11-20T20:59:40.541716+00:00
+{"run": "20261120T205734859857Z", "passed": true, "timeline": {"baseline": "2026-11-20T20:57:35.652668+00:00", "baseline_observed": "2026-11-20T20:58:13.708975+00:00", "nxdomain": "2026-11-20T20:58:13.899194+00:00", "nxdomain_observed": "2026-11-20T20:58:26.553272+00:00", "rejections": "2026-11-20T20:58:26.689917+00:00", "pending_observed": "2026-11-20T20:58:53.708097+00:00", "firing_observed": "2026-11-20T20:59:10.375924+00:00", "response_observed": "2026-11-20T20:59:12.844934+00:00", "recovery": "2026-11-20T20:59:12.938092+00:00", "clear_observed": "2026-11-20T20:59:40.541716+00:00"}, "source": "loopback integration fixture", "checks_by_phase": {"baseline": 8, "nxdomain": 3, "rejections": 9, "recovery": 5}, "original_config_restored": true}
+Guarded client: 9 rejections, 0 HTTP requests during rejections.
+Wazuh rule 100151, event 1795208350.21510093: already_approved.
+
+[4/4] Trigger real file-integrity detection with a comment-only change
+Approved SHA-256: 0386377711b590148241a718f5791d415530e9ff4f94753529da3a40bc7d8ad6
+With demo comment: fa3fefccd0c3f50d53a727f47a02b03a27ad5e64df0372966dda989ec0af9b35
+Wazuh FIM rule 100141, event 1795208386.21511606: restored the approved file.
+
+[Done] Verify the live services and approved analytics endpoint
+active
+active
+active
+{"integration": "dns_client", "event": "check", "timestamp": "2026-11-20T20:59:47.483171+00:00", "dns_name": "analytics.lab.test", "dns_expected": true, "outcome": "success", "observed_addresses": ["10.255.255.74"], "average_temperature": 25.12, "peer_ip": "10.255.255.74", "http_status": 200, "duration_seconds": 0.020347294999737642}

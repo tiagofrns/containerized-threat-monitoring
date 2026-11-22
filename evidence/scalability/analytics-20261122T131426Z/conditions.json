@@ -1,0 +1,21 @@
+{
+  "scope": "Fixed ordinary-read comparison; not a maximum-throughput, saturation or multi-host resilience test",
+  "replicas": [
+    1,
+    2,
+    4
+  ],
+  "modes": [
+    "normal",
+    "operator-fixture-cache"
+  ],
+  "repeats_per_combination": 3,
+  "measured_reads_per_trial": 60,
+  "global_dispatch_interval_seconds": 0.5,
+  "nominal_duration_seconds": 30.0,
+  "maximum_measured_reads": 1080,
+  "cache_activation": "Operator fixture on dedicated temporary node paths, not Wazuh dispatch",
+  "production_deployment_scaled": false,
+  "rate_limiting_kept_enabled": true,
+  "additional_reads": "One warm-up per candidate Pod per trial, four state-scope reads, two Storage dataset snapshots"
+}

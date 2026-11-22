@@ -1,0 +1,47 @@
+{
+  "replicas": 4,
+  "mode": "normal",
+  "repetition": 2,
+  "measured_reads": 60,
+  "duration_seconds": 30.000246395999966,
+  "achieved_requests_per_second": 1.9999835737349145,
+  "http_statuses": {
+    "200": 60
+  },
+  "mean_latency_ms": 12.492599683415998,
+  "p95_latency_ms": 14.674308400435613,
+  "cache_hits": 0,
+  "max_data_age_seconds": 0.008,
+  "storage_attempts": 60.0,
+  "per_pod_deltas": {
+    "analytics-scaling-261122t131426-109247-7c5454cb6b-4ct5v": {
+      "requests": 9.0,
+      "storage": 9.0,
+      "cached": 0.0
+    },
+    "analytics-scaling-261122t131426-109247-7c5454cb6b-6vm6b": {
+      "requests": 20.0,
+      "storage": 20.0,
+      "cached": 0.0
+    },
+    "analytics-scaling-261122t131426-109247-7c5454cb6b-mqtdp": {
+      "requests": 14.0,
+      "storage": 14.0,
+      "cached": 0.0
+    },
+    "analytics-scaling-261122t131426-109247-7c5454cb6b-nkw2t": {
+      "requests": 17.0,
+      "storage": 17.0,
+      "cached": 0.0
+    }
+  },
+  "mean_cpu_cores": 0.009655333521317392,
+  "cpu_sample_windows_seconds": [
+    36.0,
+    31.0,
+    22.0,
+    26.0
+  ],
+  "mean_memory_working_set_bytes": 159350784,
+  "peak_sampled_memory_working_set_bytes": 159354880
+}

@@ -1,0 +1,21 @@
+text:
+Return-Path: <validation@mail.lab.test>
+Delivered-To: security-operations@mail.lab.test
+Received: from mail.lab.test
+	by mail-container with LMTP
+	id xrBzGWDfAmsaJwAApuv73w
+	(envelope-from <validation@mail.lab.test>)
+	for <security-operations@mail.lab.test>; Sun, 22 Nov 2026 12:26:08 +0000
+Received: from [127.0.1.1] (smtp-client.incus [10.171.72.60])
+	by mail.lab.test (Postfix) with ESMTP id 6349711F2E7
+	for <security-operations@mail.lab.test>; Sun, 22 Nov 2026 12:26:08 +0000 (UTC)
+From: validation@mail.lab.test
+To: security-operations@mail.lab.test
+Subject: SSLE DEMO | gtube-without-filter
+Message-ID: <ssle-5bbf211e9927-without-filter@mail.lab.test>
+Date: Sun, 22 Nov 2026 12:26:08 +0000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+
+XJS*C4JDBQADN1.NSBN3*2IDNEN*GTUBE-STANDARD-ANTI-UBE-TEST-EMAIL*C.34X

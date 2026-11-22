@@ -1,0 +1,10 @@
+{
+  "integration": "alert_bridge",
+  "alert_name": "DNSPolicyRejections",
+  "scope": "dns",
+  "bridge_state": "firing",
+  "episode": "8888de644be9e01a364fe2d741d69b9bfa7c084c35933d12ecfa9a838be41574",
+  "observed_at": "2026-11-20T16:12:42.732113+00:00",
+  "active_at": "2026-11-20T16:12:21.844336178Z",
+  "validation": true
+}

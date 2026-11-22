@@ -1,0 +1,9 @@
+{
+  "integration": "dns_restore",
+  "event": "response",
+  "result": "already_approved",
+  "alert_id": "1795208350.21510093",
+  "bridge_episode": "c5a587d09519b98fe14d24757d22ba3917600e4bb10874ae860c72984cfe91af",
+  "timestamp": "2026-11-20T20:59:10.667162+00:00",
+  "duration_seconds": 0.00034072099970217096
+}

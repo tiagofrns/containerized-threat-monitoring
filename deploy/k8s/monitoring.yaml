@@ -1,0 +1,262 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: resource-reader
+  namespace: ssle
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: resource-reader
+  namespace: ssle
+rules:
+- apiGroups:
+  - ''
+  resources:
+  - pods
+  verbs:
+  - list
+- apiGroups:
+  - apps
+  resources:
+  - deployments
+  verbs:
+  - list
+- apiGroups:
+  - metrics.k8s.io
+  resources:
+  - pods
+  verbs:
+  - list
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: resource-reader
+  namespace: ssle
+subjects:
+- kind: ServiceAccount
+  name: resource-reader
+  namespace: ssle
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: resource-reader
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: health-exporter
+  namespace: ssle
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: health-exporter
+  template:
+    metadata:
+      labels:
+        app: health-exporter
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+      containers:
+      - name: health-exporter
+        image: docker.io/library/monitoring:guiao3-v1
+        imagePullPolicy: Never
+        command:
+        - python
+        - /app/health_exporter.py
+        ports:
+        - name: metrics
+          containerPort: 8000
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+        resources:
+          requests:
+            cpu: 25m
+            memory: 32Mi
+          limits:
+            cpu: 250m
+            memory: 128Mi
+        readinessProbe:
+          httpGet:
+            path: /metrics
+            port: metrics
+          periodSeconds: 5
+          timeoutSeconds: 2
+        livenessProbe:
+          httpGet:
+            path: /metrics
+            port: metrics
+          initialDelaySeconds: 15
+          periodSeconds: 15
+          timeoutSeconds: 2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: health-exporter
+  namespace: ssle
+spec:
+  type: NodePort
+  selector:
+    app: health-exporter
+  ports:
+  - name: metrics
+    port: 8000
+    targetPort: metrics
+    nodePort: 30800
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resource-exporter
+  namespace: ssle
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: resource-exporter
+  template:
+    metadata:
+      labels:
+        app: resource-exporter
+    spec:
+      automountServiceAccountToken: true
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+      containers:
+      - name: resource-exporter
+        image: docker.io/library/monitoring:guiao3-v1
+        imagePullPolicy: Never
+        command:
+        - python
+        - /app/resource_exporter.py
+        ports:
+        - name: metrics
+          containerPort: 8001
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+        resources:
+          requests:
+            cpu: 25m
+            memory: 32Mi
+          limits:
+            cpu: 250m
+            memory: 128Mi
+        readinessProbe:
+          httpGet:
+            path: /metrics
+            port: metrics
+          periodSeconds: 5
+          timeoutSeconds: 2
+        livenessProbe:
+          httpGet:
+            path: /metrics
+            port: metrics
+          initialDelaySeconds: 15
+          periodSeconds: 15
+          timeoutSeconds: 2
+        env:
+        - name: MONITORED_NAMESPACE
+          value: ssle
+      serviceAccountName: resource-reader
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: resource-exporter
+  namespace: ssle
+spec:
+  type: NodePort
+  selector:
+    app: resource-exporter
+  ports:
+  - name: metrics
+    port: 8001
+    targetPort: metrics
+    nodePort: 30801
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: temperature-client
+  namespace: ssle
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: temperature-client
+  template:
+    metadata:
+      labels:
+        app: temperature-client
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+      containers:
+      - name: temperature-client
+        image: docker.io/library/monitoring:case1-final-v1
+        imagePullPolicy: Never
+        command:
+        - python
+        - /app/client.py
+        ports:
+        - name: metrics
+          containerPort: 8002
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+        resources:
+          requests:
+            cpu: 25m
+            memory: 32Mi
+          limits:
+            cpu: 250m
+            memory: 128Mi
+        readinessProbe:
+          httpGet:
+            path: /metrics
+            port: metrics
+          periodSeconds: 5
+          timeoutSeconds: 2
+        livenessProbe:
+          httpGet:
+            path: /metrics
+            port: metrics
+          initialDelaySeconds: 15
+          periodSeconds: 15
+          timeoutSeconds: 2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: temperature-client
+  namespace: ssle
+spec:
+  type: NodePort
+  selector:
+    app: temperature-client
+  ports:
+  - name: metrics
+    port: 8002
+    targetPort: metrics
+    nodePort: 30802
+

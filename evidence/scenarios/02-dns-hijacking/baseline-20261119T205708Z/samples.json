@@ -1,0 +1,288 @@
+[
+  {
+    "epoch": 1795121828.12878,
+    "metrics": {
+      "dns_sec_client_requests_total{outcome=\"success\"}": 60.0,
+      "dns_sec_client_requests_total{outcome=\"dns_failure\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"dns_rejected\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"http_error\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"invalid_response\"}": 0.0,
+      "dns_sec_client_request_duration_seconds_sum": 1.2975660590000189,
+      "dns_sec_client_request_duration_seconds_count": 60.0,
+      "dns_sec_resolution_expected": 1.0,
+      "dns_sec_client_last_request_success": 1.0,
+      "dns_sec_last_check_timestamp_seconds": 1795121824.9211438
+    },
+    "unit": {
+      "MainPID": 7795,
+      "NRestarts": 0,
+      "MemoryCurrent": 11739136,
+      "CPUUsageNSec": 1171163000
+    },
+    "raw_metrics": "# TYPE dns_sec_client_requests_total counter\ndns_sec_client_requests_total{outcome=\"success\"} 60\ndns_sec_client_requests_total{outcome=\"dns_failure\"} 0\ndns_sec_client_requests_total{outcome=\"dns_rejected\"} 0\ndns_sec_client_requests_total{outcome=\"http_error\"} 0\ndns_sec_client_requests_total{outcome=\"invalid_response\"} 0\n# TYPE dns_sec_client_request_duration_seconds summary\ndns_sec_client_request_duration_seconds_sum 1.2975660590000189\ndns_sec_client_request_duration_seconds_count 60\n# TYPE dns_sec_resolution_expected gauge\ndns_sec_resolution_expected 1\n# TYPE dns_sec_client_last_request_success gauge\ndns_sec_client_last_request_success 1\n# TYPE dns_sec_last_check_timestamp_seconds gauge\ndns_sec_last_check_timestamp_seconds 1795121824.9211438\n"
+  },
+  {
+    "epoch": 1795121833.187103,
+    "metrics": {
+      "dns_sec_client_requests_total{outcome=\"success\"}": 61.0,
+      "dns_sec_client_requests_total{outcome=\"dns_failure\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"dns_rejected\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"http_error\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"invalid_response\"}": 0.0,
+      "dns_sec_client_request_duration_seconds_sum": 1.3191130209997937,
+      "dns_sec_client_request_duration_seconds_count": 61.0,
+      "dns_sec_resolution_expected": 1.0,
+      "dns_sec_client_last_request_success": 1.0,
+      "dns_sec_last_check_timestamp_seconds": 1795121829.9429095
+    },
+    "unit": {
+      "MainPID": 7795,
+      "NRestarts": 0,
+      "MemoryCurrent": 11853824,
+      "CPUUsageNSec": 1192046000
+    },
+    "raw_metrics": "# TYPE dns_sec_client_requests_total counter\ndns_sec_client_requests_total{outcome=\"success\"} 61\ndns_sec_client_requests_total{outcome=\"dns_failure\"} 0\ndns_sec_client_requests_total{outcome=\"dns_rejected\"} 0\ndns_sec_client_requests_total{outcome=\"http_error\"} 0\ndns_sec_client_requests_total{outcome=\"invalid_response\"} 0\n# TYPE dns_sec_client_request_duration_seconds summary\ndns_sec_client_request_duration_seconds_sum 1.3191130209997937\ndns_sec_client_request_duration_seconds_count 61\n# TYPE dns_sec_resolution_expected gauge\ndns_sec_resolution_expected 1\n# TYPE dns_sec_client_last_request_success gauge\ndns_sec_client_last_request_success 1\n# TYPE dns_sec_last_check_timestamp_seconds gauge\ndns_sec_last_check_timestamp_seconds 1795121829.9429095\n"
+  },
+  {
+    "epoch": 1795121838.243159,
+    "metrics": {
+      "dns_sec_client_requests_total{outcome=\"success\"}": 62.0,
+      "dns_sec_client_requests_total{outcome=\"dns_failure\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"dns_rejected\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"http_error\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"invalid_response\"}": 0.0,
+      "dns_sec_client_request_duration_seconds_sum": 1.3386152829989442,
+      "dns_sec_client_request_duration_seconds_count": 62.0,
+      "dns_sec_resolution_expected": 1.0,
+      "dns_sec_client_last_request_success": 1.0,
+      "dns_sec_last_check_timestamp_seconds": 1795121834.962629
+    },
+    "unit": {
+      "MainPID": 7795,
+      "NRestarts": 0,
+      "MemoryCurrent": 11853824,
+      "CPUUsageNSec": 1213279000
+    },
+    "raw_metrics": "# TYPE dns_sec_client_requests_total counter\ndns_sec_client_requests_total{outcome=\"success\"} 62\ndns_sec_client_requests_total{outcome=\"dns_failure\"} 0\ndns_sec_client_requests_total{outcome=\"dns_rejected\"} 0\ndns_sec_client_requests_total{outcome=\"http_error\"} 0\ndns_sec_client_requests_total{outcome=\"invalid_response\"} 0\n# TYPE dns_sec_client_request_duration_seconds summary\ndns_sec_client_request_duration_seconds_sum 1.3386152829989442\ndns_sec_client_request_duration_seconds_count 62\n# TYPE dns_sec_resolution_expected gauge\ndns_sec_resolution_expected 1\n# TYPE dns_sec_client_last_request_success gauge\ndns_sec_client_last_request_success 1\n# TYPE dns_sec_last_check_timestamp_seconds gauge\ndns_sec_last_check_timestamp_seconds 1795121834.962629\n"
+  },
+  {
+    "epoch": 1795121843.3155265,
+    "metrics": {
+      "dns_sec_client_requests_total{outcome=\"success\"}": 63.0,
+      "dns_sec_client_requests_total{outcome=\"dns_failure\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"dns_rejected\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"http_error\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"invalid_response\"}": 0.0,
+      "dns_sec_client_request_duration_seconds_sum": 1.356087710999418,
+      "dns_sec_client_request_duration_seconds_count": 63.0,
+      "dns_sec_resolution_expected": 1.0,
+      "dns_sec_client_last_request_success": 1.0,
+      "dns_sec_last_check_timestamp_seconds": 1795121839.9802532
+    },
+    "unit": {
+      "MainPID": 7795,
+      "NRestarts": 0,
+      "MemoryCurrent": 11853824,
+      "CPUUsageNSec": 1229599000
+    },
+    "raw_metrics": "# TYPE dns_sec_client_requests_total counter\ndns_sec_client_requests_total{outcome=\"success\"} 63\ndns_sec_client_requests_total{outcome=\"dns_failure\"} 0\ndns_sec_client_requests_total{outcome=\"dns_rejected\"} 0\ndns_sec_client_requests_total{outcome=\"http_error\"} 0\ndns_sec_client_requests_total{outcome=\"invalid_response\"} 0\n# TYPE dns_sec_client_request_duration_seconds summary\ndns_sec_client_request_duration_seconds_sum 1.356087710999418\ndns_sec_client_request_duration_seconds_count 63\n# TYPE dns_sec_resolution_expected gauge\ndns_sec_resolution_expected 1\n# TYPE dns_sec_client_last_request_success gauge\ndns_sec_client_last_request_success 1\n# TYPE dns_sec_last_check_timestamp_seconds gauge\ndns_sec_last_check_timestamp_seconds 1795121839.9802532\n"
+  },
+  {
+    "epoch": 1795121848.382456,
+    "metrics": {
+      "dns_sec_client_requests_total{outcome=\"success\"}": 64.0,
+      "dns_sec_client_requests_total{outcome=\"dns_failure\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"dns_rejected\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"http_error\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"invalid_response\"}": 0.0,
+      "dns_sec_client_request_duration_seconds_sum": 1.3782063639991975,
+      "dns_sec_client_request_duration_seconds_count": 64.0,
+      "dns_sec_resolution_expected": 1.0,
+      "dns_sec_client_last_request_success": 1.0,
+      "dns_sec_last_check_timestamp_seconds": 1795121845.0031881
+    },
+    "unit": {
+      "MainPID": 7795,
+      "NRestarts": 0,
+      "MemoryCurrent": 11853824,
+      "CPUUsageNSec": 1250559000
+    },
+    "raw_metrics": "# TYPE dns_sec_client_requests_total counter\ndns_sec_client_requests_total{outcome=\"success\"} 64\ndns_sec_client_requests_total{outcome=\"dns_failure\"} 0\ndns_sec_client_requests_total{outcome=\"dns_rejected\"} 0\ndns_sec_client_requests_total{outcome=\"http_error\"} 0\ndns_sec_client_requests_total{outcome=\"invalid_response\"} 0\n# TYPE dns_sec_client_request_duration_seconds summary\ndns_sec_client_request_duration_seconds_sum 1.3782063639991975\ndns_sec_client_request_duration_seconds_count 64\n# TYPE dns_sec_resolution_expected gauge\ndns_sec_resolution_expected 1\n# TYPE dns_sec_client_last_request_success gauge\ndns_sec_client_last_request_success 1\n# TYPE dns_sec_last_check_timestamp_seconds gauge\ndns_sec_last_check_timestamp_seconds 1795121845.0031881\n"
+  },
+  {
+    "epoch": 1795121853.5278523,
+    "metrics": {
+      "dns_sec_client_requests_total{outcome=\"success\"}": 65.0,
+      "dns_sec_client_requests_total{outcome=\"dns_failure\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"dns_rejected\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"http_error\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"invalid_response\"}": 0.0,
+      "dns_sec_client_request_duration_seconds_sum": 1.3984593989989662,
+      "dns_sec_client_request_duration_seconds_count": 65.0,
+      "dns_sec_resolution_expected": 1.0,
+      "dns_sec_client_last_request_success": 1.0,
+      "dns_sec_last_check_timestamp_seconds": 1795121850.0253232
+    },
+    "unit": {
+      "MainPID": 7795,
+      "NRestarts": 0,
+      "MemoryCurrent": 11853824,
+      "CPUUsageNSec": 1272023000
+    },
+    "raw_metrics": "# TYPE dns_sec_client_requests_total counter\ndns_sec_client_requests_total{outcome=\"success\"} 65\ndns_sec_client_requests_total{outcome=\"dns_failure\"} 0\ndns_sec_client_requests_total{outcome=\"dns_rejected\"} 0\ndns_sec_client_requests_total{outcome=\"http_error\"} 0\ndns_sec_client_requests_total{outcome=\"invalid_response\"} 0\n# TYPE dns_sec_client_request_duration_seconds summary\ndns_sec_client_request_duration_seconds_sum 1.3984593989989662\ndns_sec_client_request_duration_seconds_count 65\n# TYPE dns_sec_resolution_expected gauge\ndns_sec_resolution_expected 1\n# TYPE dns_sec_client_last_request_success gauge\ndns_sec_client_last_request_success 1\n# TYPE dns_sec_last_check_timestamp_seconds gauge\ndns_sec_last_check_timestamp_seconds 1795121850.0253232\n"
+  },
+  {
+    "epoch": 1795121858.5786648,
+    "metrics": {
+      "dns_sec_client_requests_total{outcome=\"success\"}": 66.0,
+      "dns_sec_client_requests_total{outcome=\"dns_failure\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"dns_rejected\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"http_error\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"invalid_response\"}": 0.0,
+      "dns_sec_client_request_duration_seconds_sum": 1.4165551280002546,
+      "dns_sec_client_request_duration_seconds_count": 66.0,
+      "dns_sec_resolution_expected": 1.0,
+      "dns_sec_client_last_request_success": 1.0,
+      "dns_sec_last_check_timestamp_seconds": 1795121855.0458376
+    },
+    "unit": {
+      "MainPID": 7795,
+      "NRestarts": 0,
+      "MemoryCurrent": 11853824,
+      "CPUUsageNSec": 1287561000
+    },
+    "raw_metrics": "# TYPE dns_sec_client_requests_total counter\ndns_sec_client_requests_total{outcome=\"success\"} 66\ndns_sec_client_requests_total{outcome=\"dns_failure\"} 0\ndns_sec_client_requests_total{outcome=\"dns_rejected\"} 0\ndns_sec_client_requests_total{outcome=\"http_error\"} 0\ndns_sec_client_requests_total{outcome=\"invalid_response\"} 0\n# TYPE dns_sec_client_request_duration_seconds summary\ndns_sec_client_request_duration_seconds_sum 1.4165551280002546\ndns_sec_client_request_duration_seconds_count 66\n# TYPE dns_sec_resolution_expected gauge\ndns_sec_resolution_expected 1\n# TYPE dns_sec_client_last_request_success gauge\ndns_sec_client_last_request_success 1\n# TYPE dns_sec_last_check_timestamp_seconds gauge\ndns_sec_last_check_timestamp_seconds 1795121855.0458376\n"
+  },
+  {
+    "epoch": 1795121863.629892,
+    "metrics": {
+      "dns_sec_client_requests_total{outcome=\"success\"}": 67.0,
+      "dns_sec_client_requests_total{outcome=\"dns_failure\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"dns_rejected\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"http_error\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"invalid_response\"}": 0.0,
+      "dns_sec_client_request_duration_seconds_sum": 1.437580888001321,
+      "dns_sec_client_request_duration_seconds_count": 67.0,
+      "dns_sec_resolution_expected": 1.0,
+      "dns_sec_client_last_request_success": 1.0,
+      "dns_sec_last_check_timestamp_seconds": 1795121860.0670445
+    },
+    "unit": {
+      "MainPID": 7795,
+      "NRestarts": 0,
+      "MemoryCurrent": 11853824,
+      "CPUUsageNSec": 1306761000
+    },
+    "raw_metrics": "# TYPE dns_sec_client_requests_total counter\ndns_sec_client_requests_total{outcome=\"success\"} 67\ndns_sec_client_requests_total{outcome=\"dns_failure\"} 0\ndns_sec_client_requests_total{outcome=\"dns_rejected\"} 0\ndns_sec_client_requests_total{outcome=\"http_error\"} 0\ndns_sec_client_requests_total{outcome=\"invalid_response\"} 0\n# TYPE dns_sec_client_request_duration_seconds summary\ndns_sec_client_request_duration_seconds_sum 1.437580888001321\ndns_sec_client_request_duration_seconds_count 67\n# TYPE dns_sec_resolution_expected gauge\ndns_sec_resolution_expected 1\n# TYPE dns_sec_client_last_request_success gauge\ndns_sec_client_last_request_success 1\n# TYPE dns_sec_last_check_timestamp_seconds gauge\ndns_sec_last_check_timestamp_seconds 1795121860.0670445\n"
+  },
+  {
+    "epoch": 1795121868.6921272,
+    "metrics": {
+      "dns_sec_client_requests_total{outcome=\"success\"}": 68.0,
+      "dns_sec_client_requests_total{outcome=\"dns_failure\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"dns_rejected\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"http_error\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"invalid_response\"}": 0.0,
+      "dns_sec_client_request_duration_seconds_sum": 1.452854211001977,
+      "dns_sec_client_request_duration_seconds_count": 68.0,
+      "dns_sec_resolution_expected": 1.0,
+      "dns_sec_client_last_request_success": 1.0,
+      "dns_sec_last_check_timestamp_seconds": 1795121865.0825157
+    },
+    "unit": {
+      "MainPID": 7795,
+      "NRestarts": 0,
+      "MemoryCurrent": 11853824,
+      "CPUUsageNSec": 1321393000
+    },
+    "raw_metrics": "# TYPE dns_sec_client_requests_total counter\ndns_sec_client_requests_total{outcome=\"success\"} 68\ndns_sec_client_requests_total{outcome=\"dns_failure\"} 0\ndns_sec_client_requests_total{outcome=\"dns_rejected\"} 0\ndns_sec_client_requests_total{outcome=\"http_error\"} 0\ndns_sec_client_requests_total{outcome=\"invalid_response\"} 0\n# TYPE dns_sec_client_request_duration_seconds summary\ndns_sec_client_request_duration_seconds_sum 1.452854211001977\ndns_sec_client_request_duration_seconds_count 68\n# TYPE dns_sec_resolution_expected gauge\ndns_sec_resolution_expected 1\n# TYPE dns_sec_client_last_request_success gauge\ndns_sec_client_last_request_success 1\n# TYPE dns_sec_last_check_timestamp_seconds gauge\ndns_sec_last_check_timestamp_seconds 1795121865.0825157\n"
+  },
+  {
+    "epoch": 1795121873.833014,
+    "metrics": {
+      "dns_sec_client_requests_total{outcome=\"success\"}": 69.0,
+      "dns_sec_client_requests_total{outcome=\"dns_failure\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"dns_rejected\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"http_error\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"invalid_response\"}": 0.0,
+      "dns_sec_client_request_duration_seconds_sum": 1.4697639600017283,
+      "dns_sec_client_request_duration_seconds_count": 69.0,
+      "dns_sec_resolution_expected": 1.0,
+      "dns_sec_client_last_request_success": 1.0,
+      "dns_sec_last_check_timestamp_seconds": 1795121870.0996196
+    },
+    "unit": {
+      "MainPID": 7795,
+      "NRestarts": 0,
+      "MemoryCurrent": 11853824,
+      "CPUUsageNSec": 1336919000
+    },
+    "raw_metrics": "# TYPE dns_sec_client_requests_total counter\ndns_sec_client_requests_total{outcome=\"success\"} 69\ndns_sec_client_requests_total{outcome=\"dns_failure\"} 0\ndns_sec_client_requests_total{outcome=\"dns_rejected\"} 0\ndns_sec_client_requests_total{outcome=\"http_error\"} 0\ndns_sec_client_requests_total{outcome=\"invalid_response\"} 0\n# TYPE dns_sec_client_request_duration_seconds summary\ndns_sec_client_request_duration_seconds_sum 1.4697639600017283\ndns_sec_client_request_duration_seconds_count 69\n# TYPE dns_sec_resolution_expected gauge\ndns_sec_resolution_expected 1\n# TYPE dns_sec_client_last_request_success gauge\ndns_sec_client_last_request_success 1\n# TYPE dns_sec_last_check_timestamp_seconds gauge\ndns_sec_last_check_timestamp_seconds 1795121870.0996196\n"
+  },
+  {
+    "epoch": 1795121878.9766843,
+    "metrics": {
+      "dns_sec_client_requests_total{outcome=\"success\"}": 70.0,
+      "dns_sec_client_requests_total{outcome=\"dns_failure\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"dns_rejected\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"http_error\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"invalid_response\"}": 0.0,
+      "dns_sec_client_request_duration_seconds_sum": 1.4848648920014966,
+      "dns_sec_client_request_duration_seconds_count": 70.0,
+      "dns_sec_resolution_expected": 1.0,
+      "dns_sec_client_last_request_success": 1.0,
+      "dns_sec_last_check_timestamp_seconds": 1795121875.11538
+    },
+    "unit": {
+      "MainPID": 7795,
+      "NRestarts": 0,
+      "MemoryCurrent": 11853824,
+      "CPUUsageNSec": 1350785000
+    },
+    "raw_metrics": "# TYPE dns_sec_client_requests_total counter\ndns_sec_client_requests_total{outcome=\"success\"} 70\ndns_sec_client_requests_total{outcome=\"dns_failure\"} 0\ndns_sec_client_requests_total{outcome=\"dns_rejected\"} 0\ndns_sec_client_requests_total{outcome=\"http_error\"} 0\ndns_sec_client_requests_total{outcome=\"invalid_response\"} 0\n# TYPE dns_sec_client_request_duration_seconds summary\ndns_sec_client_request_duration_seconds_sum 1.4848648920014966\ndns_sec_client_request_duration_seconds_count 70\n# TYPE dns_sec_resolution_expected gauge\ndns_sec_resolution_expected 1\n# TYPE dns_sec_client_last_request_success gauge\ndns_sec_client_last_request_success 1\n# TYPE dns_sec_last_check_timestamp_seconds gauge\ndns_sec_last_check_timestamp_seconds 1795121875.11538\n"
+  },
+  {
+    "epoch": 1795121884.036891,
+    "metrics": {
+      "dns_sec_client_requests_total{outcome=\"success\"}": 71.0,
+      "dns_sec_client_requests_total{outcome=\"dns_failure\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"dns_rejected\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"http_error\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"invalid_response\"}": 0.0,
+      "dns_sec_client_request_duration_seconds_sum": 1.505800138000268,
+      "dns_sec_client_request_duration_seconds_count": 71.0,
+      "dns_sec_resolution_expected": 1.0,
+      "dns_sec_client_last_request_success": 1.0,
+      "dns_sec_last_check_timestamp_seconds": 1795121880.1364162
+    },
+    "unit": {
+      "MainPID": 7795,
+      "NRestarts": 0,
+      "MemoryCurrent": 11853824,
+      "CPUUsageNSec": 1372347000
+    },
+    "raw_metrics": "# TYPE dns_sec_client_requests_total counter\ndns_sec_client_requests_total{outcome=\"success\"} 71\ndns_sec_client_requests_total{outcome=\"dns_failure\"} 0\ndns_sec_client_requests_total{outcome=\"dns_rejected\"} 0\ndns_sec_client_requests_total{outcome=\"http_error\"} 0\ndns_sec_client_requests_total{outcome=\"invalid_response\"} 0\n# TYPE dns_sec_client_request_duration_seconds summary\ndns_sec_client_request_duration_seconds_sum 1.505800138000268\ndns_sec_client_request_duration_seconds_count 71\n# TYPE dns_sec_resolution_expected gauge\ndns_sec_resolution_expected 1\n# TYPE dns_sec_client_last_request_success gauge\ndns_sec_client_last_request_success 1\n# TYPE dns_sec_last_check_timestamp_seconds gauge\ndns_sec_last_check_timestamp_seconds 1795121880.1364162\n"
+  },
+  {
+    "epoch": 1795121888.1366804,
+    "metrics": {
+      "dns_sec_client_requests_total{outcome=\"success\"}": 72.0,
+      "dns_sec_client_requests_total{outcome=\"dns_failure\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"dns_rejected\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"http_error\"}": 0.0,
+      "dns_sec_client_requests_total{outcome=\"invalid_response\"}": 0.0,
+      "dns_sec_client_request_duration_seconds_sum": 1.5274562270005845,
+      "dns_sec_client_request_duration_seconds_count": 72.0,
+      "dns_sec_resolution_expected": 1.0,
+      "dns_sec_client_last_request_success": 1.0,
+      "dns_sec_last_check_timestamp_seconds": 1795121885.158132
+    },
+    "unit": {
+      "MainPID": 7795,
+      "NRestarts": 0,
+      "MemoryCurrent": 11853824,
+      "CPUUsageNSec": 1390504000
+    },
+    "raw_metrics": "# TYPE dns_sec_client_requests_total counter\ndns_sec_client_requests_total{outcome=\"success\"} 72\ndns_sec_client_requests_total{outcome=\"dns_failure\"} 0\ndns_sec_client_requests_total{outcome=\"dns_rejected\"} 0\ndns_sec_client_requests_total{outcome=\"http_error\"} 0\ndns_sec_client_requests_total{outcome=\"invalid_response\"} 0\n# TYPE dns_sec_client_request_duration_seconds summary\ndns_sec_client_request_duration_seconds_sum 1.5274562270005845\ndns_sec_client_request_duration_seconds_count 72\n# TYPE dns_sec_resolution_expected gauge\ndns_sec_resolution_expected 1\n# TYPE dns_sec_client_last_request_success gauge\ndns_sec_client_last_request_success 1\n# TYPE dns_sec_last_check_timestamp_seconds gauge\ndns_sec_last_check_timestamp_seconds 1795121885.158132\n"
+  }
+]

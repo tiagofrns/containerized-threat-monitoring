@@ -1,0 +1,31 @@
+groups:
+  - name: service-monitoring
+    rules:
+      - alert: ServiceProbeFailed
+        expr: service_up == 0
+        for: 30s
+        labels:
+          severity: warning
+        annotations:
+          summary: "An application probe has failed"
+      - alert: AnalyticsRateLimitRejections
+        expr: sum(rate(analytics_requests_total{status="429"}[1m])) > 0
+        for: 15s
+        labels:
+          severity: warning
+        annotations:
+          summary: "Analytics is rejecting requests through its rate limit"
+      - alert: ClientMeanLatencyHigh
+        expr: sum(rate(client_request_duration_seconds_sum[1m])) / sum(rate(client_request_duration_seconds_count[1m])) > 0.1
+        for: 30s
+        labels:
+          severity: warning
+        annotations:
+          summary: "Legitimate client mean latency exceeds the educational 100 ms threshold"
+      - alert: PushPublisherStale
+        expr: (time() - push_observation_timestamp_seconds{publisher="analytics-probe"} > 30) or absent(push_observation_timestamp_seconds{publisher="analytics-probe"})
+        for: 15s
+        labels:
+          severity: warning
+        annotations:
+          summary: "The Pushgateway observation is missing or older than 30 seconds"

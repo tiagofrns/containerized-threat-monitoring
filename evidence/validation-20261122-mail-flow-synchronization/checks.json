@@ -1,0 +1,19 @@
+{
+  "unit_tests_passed": 123,
+  "live_run": "bash-20261122T122418Z-5bbf211e9927",
+  "live_flow_exit_code": 0,
+  "trigger_event_id": "1795350415.16100343",
+  "configured_timeout_seconds": 20,
+  "observed_remaining_block_seconds": 20.902,
+  "regression_before": "Two sequencing checks fail against the original flow source",
+  "regression_after": "Both sequencing checks pass against the updated flow source",
+  "failed_original_run": "bash-20261122T120840Z-edf0777a6167",
+  "failed_original_manager_rules": [
+    "100607",
+    "100607",
+    "100607"
+  ],
+  "change": "Wait for each eligible quarantine acknowledgement before the next submission; retain failure-stage diagnostics",
+  "underlying_live_correlation_anomaly": "Exact mechanism not established; isolated rule replay and fresh bounded SMTP checks succeeded",
+  "runtime_policy_changed": false
+}

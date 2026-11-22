@@ -1,0 +1,12 @@
+{
+  "scope": "115 isolated tests; separate real SMTP flow completed successfully",
+  "live_run": "bash-20261122T114355Z-9344a3ef54b1",
+  "native_command": "firewall-drop",
+  "configured_timeout_seconds": 20,
+  "native_actions_observed": [
+    "add",
+    "delete"
+  ],
+  "trigger_event_id": "1795347882.11987526",
+  "test_execution": "network-disabled Docker dependency container; no deployed endpoint requests from the test suite"
+}

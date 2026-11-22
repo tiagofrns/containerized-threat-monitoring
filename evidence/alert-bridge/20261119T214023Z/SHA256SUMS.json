@@ -1,0 +1,12 @@
+{
+  "analytics-during.json": "0328294a7fa82b6ec7e4c7acfb06499e5f735fce9a08cd9ac8129aab9a5f0ffe",
+  "analytics-recovered.json": "29f82604c7ce05079182fc97439bbca38bc58683ae6bc72d9f67163deb667dfc",
+  "manager-alerts.json": "a59cd7bc9759510ec1052d3796a87d546d0cc9822dead1d96a049ecf2521a073",
+  "prometheus-firing.json": "b34ec0a2ccec54cca69be830e43f9e2acbe1a80517fa4649355118d722c24178",
+  "receiver-events.json": "1750e082ecb5eed9e410d418d91ef309de4368f734840a61e34bbbc2c9d150cb",
+  "response-audits.json": "d660531f04f07afbe88f4a6eda5554d84e9cf9d8eff0afd1905e013434a0c90a",
+  "summary.json": "e1afbe71ed962b59ff1b29a697e3ce0419064525427f5659ec40ff46ac5e5c72",
+  "target-pod.json": "783cbea2f57836c18857a4506527609eeadd99cbd7d8df03570730d9fb94af10",
+  "validation-rules.yml": "7678f239b42b27076ef327c59f7da0d38e0871c47fab2d08d03c0927a5a8e7ef",
+  "webhook-controls.json": "441c05990708d6a26f7bf575c57531108da9b3480186c8f4aa000ebc888f53a0"
+}

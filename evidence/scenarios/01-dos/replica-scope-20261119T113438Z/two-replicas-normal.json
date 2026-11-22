@@ -1,0 +1,112 @@
+[
+  {
+    "reads": [
+      {
+        "ordinal": 1,
+        "status": 200,
+        "duration_ms": 65.63483600007203,
+        "body": {
+          "average_temperature": 25.12,
+          "cache_fallback": false,
+          "cached": false,
+          "protection_mode": "normal",
+          "stats_age_seconds": 0.04
+        }
+      },
+      {
+        "ordinal": 2,
+        "status": 200,
+        "duration_ms": 11.618728000030387,
+        "body": {
+          "average_temperature": 25.12,
+          "cache_fallback": false,
+          "cached": false,
+          "protection_mode": "normal",
+          "stats_age_seconds": 0.006
+        }
+      },
+      {
+        "ordinal": 3,
+        "status": 200,
+        "duration_ms": 6.853619999901639,
+        "body": {
+          "average_temperature": 25.12,
+          "cache_fallback": false,
+          "cached": false,
+          "protection_mode": "normal",
+          "stats_age_seconds": 0.004
+        }
+      },
+      {
+        "ordinal": 4,
+        "status": 200,
+        "duration_ms": 9.026889000097071,
+        "body": {
+          "average_temperature": 25.12,
+          "cache_fallback": false,
+          "cached": false,
+          "protection_mode": "normal",
+          "stats_age_seconds": 0.005
+        }
+      }
+    ],
+    "metrics": "# HELP ssle_analytics_requests_total Completed average requests by HTTP response status\n# TYPE ssle_analytics_requests_total counter\nssle_analytics_requests_total{status=\"200\"} 4.0\nssle_analytics_requests_total{status=\"429\"} 0.0\nssle_analytics_requests_total{status=\"502\"} 0.0\nssle_analytics_requests_total{status=\"500\"} 0.0\n# HELP ssle_analytics_requests_created Completed average requests by HTTP response status\n# TYPE ssle_analytics_requests_created gauge\nssle_analytics_requests_created{status=\"200\"} 1.7950881012641037e+09\nssle_analytics_requests_created{status=\"429\"} 1.7950881012641156e+09\nssle_analytics_requests_created{status=\"502\"} 1.7950881012641232e+09\nssle_analytics_requests_created{status=\"500\"} 1.795088101264128e+09\n# HELP ssle_analytics_storage_requests_total HTTP requests attempted from analytics to storage\n# TYPE ssle_analytics_storage_requests_total counter\nssle_analytics_storage_requests_total 4.0\n# HELP ssle_analytics_storage_requests_created HTTP requests attempted from analytics to storage\n# TYPE ssle_analytics_storage_requests_created gauge\nssle_analytics_storage_requests_created 1.7950881012640586e+09\n# HELP ssle_analytics_cache_responses_total Responses served from the protective cache\n# TYPE ssle_analytics_cache_responses_total counter\nssle_analytics_cache_responses_total{reason=\"fresh\"} 0.0\nssle_analytics_cache_responses_total{reason=\"fallback\"} 0.0\n# HELP ssle_analytics_cache_responses_created Responses served from the protective cache\n# TYPE ssle_analytics_cache_responses_created gauge\nssle_analytics_cache_responses_created{reason=\"fresh\"} 1.7950881012641335e+09\nssle_analytics_cache_responses_created{reason=\"fallback\"} 1.7950881012641382e+09\n# HELP ssle_analytics_protection_active Whether the bounded protective-cache lease is active\n# TYPE ssle_analytics_protection_active gauge\nssle_analytics_protection_active 0.0\n",
+    "pod": "analytics-scale-check-20261119t113438z-5f65988fcb-kfdd4",
+    "node": "k3s-master"
+  },
+  {
+    "reads": [
+      {
+        "ordinal": 1,
+        "status": 200,
+        "duration_ms": 9.96341499967457,
+        "body": {
+          "average_temperature": 25.12,
+          "cache_fallback": false,
+          "cached": false,
+          "protection_mode": "normal",
+          "stats_age_seconds": 0.004
+        }
+      },
+      {
+        "ordinal": 2,
+        "status": 200,
+        "duration_ms": 6.453033999605395,
+        "body": {
+          "average_temperature": 25.12,
+          "cache_fallback": false,
+          "cached": false,
+          "protection_mode": "normal",
+          "stats_age_seconds": 0.003
+        }
+      },
+      {
+        "ordinal": 3,
+        "status": 200,
+        "duration_ms": 11.513896999986173,
+        "body": {
+          "average_temperature": 25.12,
+          "cache_fallback": false,
+          "cached": false,
+          "protection_mode": "normal",
+          "stats_age_seconds": 0.005
+        }
+      },
+      {
+        "ordinal": 4,
+        "status": 200,
+        "duration_ms": 6.330855000214797,
+        "body": {
+          "average_temperature": 25.12,
+          "cache_fallback": false,
+          "cached": false,
+          "protection_mode": "normal",
+          "stats_age_seconds": 0.003
+        }
+      }
+    ],
+    "metrics": "# HELP ssle_analytics_requests_total Completed average requests by HTTP response status\n# TYPE ssle_analytics_requests_total counter\nssle_analytics_requests_total{status=\"200\"} 16.0\nssle_analytics_requests_total{status=\"429\"} 0.0\nssle_analytics_requests_total{status=\"502\"} 0.0\nssle_analytics_requests_total{status=\"500\"} 0.0\n# HELP ssle_analytics_requests_created Completed average requests by HTTP response status\n# TYPE ssle_analytics_requests_created gauge\nssle_analytics_requests_created{status=\"200\"} 1.7950880808127637e+09\nssle_analytics_requests_created{status=\"429\"} 1.795088080812782e+09\nssle_analytics_requests_created{status=\"502\"} 1.7950880808127918e+09\nssle_analytics_requests_created{status=\"500\"} 1.7950880808127978e+09\n# HELP ssle_analytics_storage_requests_total HTTP requests attempted from analytics to storage\n# TYPE ssle_analytics_storage_requests_total counter\nssle_analytics_storage_requests_total 16.0\n# HELP ssle_analytics_storage_requests_created HTTP requests attempted from analytics to storage\n# TYPE ssle_analytics_storage_requests_created gauge\nssle_analytics_storage_requests_created 1.7950880808126383e+09\n# HELP ssle_analytics_cache_responses_total Responses served from the protective cache\n# TYPE ssle_analytics_cache_responses_total counter\nssle_analytics_cache_responses_total{reason=\"fresh\"} 0.0\nssle_analytics_cache_responses_total{reason=\"fallback\"} 0.0\n# HELP ssle_analytics_cache_responses_created Responses served from the protective cache\n# TYPE ssle_analytics_cache_responses_created gauge\nssle_analytics_cache_responses_created{reason=\"fresh\"} 1.7950880808128035e+09\nssle_analytics_cache_responses_created{reason=\"fallback\"} 1.7950880808128133e+09\n# HELP ssle_analytics_protection_active Whether the bounded protective-cache lease is active\n# TYPE ssle_analytics_protection_active gauge\nssle_analytics_protection_active 0.0\n",
+    "pod": "analytics-scale-check-20261119t113438z-5f65988fcb-pjmbw",
+    "node": "k3s-node1"
+  }
+]

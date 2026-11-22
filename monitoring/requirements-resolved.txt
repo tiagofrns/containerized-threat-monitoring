@@ -1,0 +1,7 @@
+WARNING: The directory '/home/app/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+certifi==2026.10.19
+charset-normalizer==3.5.2
+idna==3.20
+prometheus_client==0.26.0
+requests==2.34.2
+urllib3==2.8.0

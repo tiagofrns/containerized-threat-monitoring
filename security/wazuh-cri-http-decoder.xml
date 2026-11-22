@@ -1,0 +1,5 @@
+<decoder name="cri-http">
+  <prematch type="pcre2">^F \S+ - - \[</prematch>
+  <regex type="pcre2">^F (\S+) - - \[[^\]]+\] "(?:\x1b\[[0-9;]*m)*(\S+) (\S+) HTTP/[0-9.]+(?:\x1b\[[0-9;]*m)*" ([0-9]{3})\b</regex>
+  <order>srcip,http.method,url,http.status_code</order>
+</decoder>

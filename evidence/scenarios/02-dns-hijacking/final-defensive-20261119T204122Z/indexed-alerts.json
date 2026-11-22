@@ -1,0 +1,280 @@
+{
+  "took": 18,
+  "timed_out": false,
+  "_shards": {
+    "total": 9,
+    "successful": 9,
+    "skipped": 6,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 4,
+      "relation": "eq"
+    },
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "wazuh-alerts-4.x-2026.11.19",
+        "_id": "YeOL9aEBCGaA_ZT9EKpv",
+        "_score": null,
+        "_source": {
+          "syscheck": {
+            "size_before": "62",
+            "uname_after": "root",
+            "mtime_after": "2026-11-19T20:41:23",
+            "size_after": "89",
+            "gid_after": "0",
+            "md5_before": "009c6de39a99ca348cdd19e9dc76df41",
+            "diff": "2a3,4\n> \n> # AUTO_RESTORE_VALIDATION\n",
+            "sha256_before": "0386377711b590148241a718f5791d415530e9ff4f94753529da3a40bc7d8ad6",
+            "mtime_before": "2026-11-19T20:38:03",
+            "tags": [
+              "ssle_dns_config"
+            ],
+            "mode": "realtime",
+            "path": "/etc/dnsmasq.d/dns_sec.conf",
+            "sha1_after": "54ecfee7837370255069bb83eb6f1429d5703eb1",
+            "changed_attributes": [
+              "size",
+              "mtime",
+              "md5",
+              "sha1",
+              "sha256"
+            ],
+            "gname_after": "root",
+            "uid_after": "0",
+            "perm_after": "rw-r--r--",
+            "event": "modified",
+            "md5_after": "e93a38a0730f4120df213e3e3b1a02bf",
+            "sha1_before": "7770d73a41431212b5a106c79a1d69374d7292d3",
+            "sha256_after": "681bcfa00deb0db42eb447065e15b05cebaadc11f6ed7920d3910ad8e55a7fb3",
+            "inode_after": 1176347
+          },
+          "agent": {
+            "ip": "10.171.72.8",
+            "name": "dns-server-container",
+            "id": "004"
+          },
+          "manager": {
+            "name": "wazuh-container"
+          },
+          "rule": {
+            "firedtimes": 1,
+            "mail": false,
+            "level": 7,
+            "description": "Temperature service application DNS configuration changed; compare with approved policy.",
+            "groups": [
+              "dns_sec",
+              "dns"
+            ],
+            "id": "100141"
+          },
+          "decoder": {
+            "name": "syscheck_integrity_changed"
+          },
+          "full_log": "File '/etc/dnsmasq.d/dns_sec.conf' modified\nMode: realtime\nChanged attributes: size,mtime,md5,sha1,sha256\nSize changed from '62' to '89'\nOld modification time was: '1795120683', now it is '1795120883'\nOld md5sum was: '009c6de39a99ca348cdd19e9dc76df41'\nNew md5sum is : 'e93a38a0730f4120df213e3e3b1a02bf'\nOld sha1sum was: '7770d73a41431212b5a106c79a1d69374d7292d3'\nNew sha1sum is : '54ecfee7837370255069bb83eb6f1429d5703eb1'\nOld sha256sum was: '0386377711b590148241a718f5791d415530e9ff4f94753529da3a40bc7d8ad6'\nNew sha256sum is : '681bcfa00deb0db42eb447065e15b05cebaadc11f6ed7920d3910ad8e55a7fb3'\n",
+          "input": {
+            "type": "log"
+          },
+          "@timestamp": "2026-11-19T20:41:23.639Z",
+          "location": "syscheck",
+          "id": "1795120883.19797825",
+          "timestamp": "2026-11-19T20:41:23.639+0000"
+        },
+        "sort": [
+          1795120883639
+        ]
+      },
+      {
+        "_index": "wazuh-alerts-4.x-2026.11.19",
+        "_id": "YuOL9aEBCGaA_ZT9EKpv",
+        "_score": null,
+        "_source": {
+          "syscheck": {
+            "gid_before": "0",
+            "size_before": "89",
+            "uname_after": "root",
+            "mtime_after": "2026-11-19T20:41:23",
+            "inode_before": 1176347,
+            "size_after": "62",
+            "gid_after": "102",
+            "md5_before": "e93a38a0730f4120df213e3e3b1a02bf",
+            "diff": "3,4d2\n< \n< # AUTO_RESTORE_VALIDATION\n",
+            "sha256_before": "681bcfa00deb0db42eb447065e15b05cebaadc11f6ed7920d3910ad8e55a7fb3",
+            "tags": [
+              "ssle_dns_config"
+            ],
+            "mode": "realtime",
+            "path": "/etc/dnsmasq.d/dns_sec.conf",
+            "sha1_after": "7770d73a41431212b5a106c79a1d69374d7292d3",
+            "changed_attributes": [
+              "size",
+              "gid",
+              "group_name",
+              "inode",
+              "md5",
+              "sha1",
+              "sha256"
+            ],
+            "gname_after": "wazuh",
+            "uid_after": "0",
+            "gname_before": "root",
+            "perm_after": "rw-r--r--",
+            "event": "modified",
+            "md5_after": "009c6de39a99ca348cdd19e9dc76df41",
+            "sha1_before": "54ecfee7837370255069bb83eb6f1429d5703eb1",
+            "sha256_after": "0386377711b590148241a718f5791d415530e9ff4f94753529da3a40bc7d8ad6",
+            "inode_after": 1177151
+          },
+          "agent": {
+            "ip": "10.171.72.8",
+            "name": "dns-server-container",
+            "id": "004"
+          },
+          "manager": {
+            "name": "wazuh-container"
+          },
+          "rule": {
+            "firedtimes": 2,
+            "mail": false,
+            "level": 7,
+            "description": "Temperature service application DNS configuration changed; compare with approved policy.",
+            "groups": [
+              "dns_sec",
+              "dns"
+            ],
+            "id": "100141"
+          },
+          "decoder": {
+            "name": "syscheck_integrity_changed"
+          },
+          "full_log": "File '/etc/dnsmasq.d/dns_sec.conf' modified\nMode: realtime\nChanged attributes: size,gid,group_name,inode,md5,sha1,sha256\nSize changed from '89' to '62'\nGroup ownership was '0', now it is '102'\nGroup name was 'root', now it is 'wazuh'\nOld inode was: '1176347', now it is '1177151'\nOld md5sum was: 'e93a38a0730f4120df213e3e3b1a02bf'\nNew md5sum is : '009c6de39a99ca348cdd19e9dc76df41'\nOld sha1sum was: '54ecfee7837370255069bb83eb6f1429d5703eb1'\nNew sha1sum is : '7770d73a41431212b5a106c79a1d69374d7292d3'\nOld sha256sum was: '681bcfa00deb0db42eb447065e15b05cebaadc11f6ed7920d3910ad8e55a7fb3'\nNew sha256sum is : '0386377711b590148241a718f5791d415530e9ff4f94753529da3a40bc7d8ad6'\n",
+          "input": {
+            "type": "log"
+          },
+          "@timestamp": "2026-11-19T20:41:23.687Z",
+          "location": "syscheck",
+          "id": "1795120883.19799027",
+          "timestamp": "2026-11-19T20:41:23.687+0000"
+        },
+        "sort": [
+          1795120883687
+        ]
+      },
+      {
+        "_index": "wazuh-alerts-4.x-2026.11.19",
+        "_id": "Y-OL9aEBCGaA_ZT9EKpv",
+        "_score": null,
+        "_source": {
+          "agent": {
+            "ip": "10.171.72.8",
+            "name": "dns-server-container",
+            "id": "004"
+          },
+          "manager": {
+            "name": "wazuh-container"
+          },
+          "data": {
+            "result": "restored",
+            "duration_seconds": "0.115513",
+            "after_sha256": "0386377711b590148241a718f5791d415530e9ff4f94753529da3a40bc7d8ad6",
+            "alert_id": "1795120883.19797825",
+            "integration": "dns_restore",
+            "event": "response",
+            "before_sha256": "681bcfa00deb0db42eb447065e15b05cebaadc11f6ed7920d3910ad8e55a7fb3",
+            "verification": {
+              "duration_seconds": "0.015836",
+              "average_temperature": "25.120000",
+              "peer_ip": "10.255.255.74",
+              "dns_expected": "true",
+              "integration": "dns_client",
+              "http_status": "200",
+              "event": "check",
+              "outcome": "success",
+              "observed_addresses": [
+                "10.255.255.74"
+              ],
+              "timestamp": "2026-11-19T20:41:23.763744+00:00",
+              "dns_name": "analytics.lab.test"
+            },
+            "timestamp": "2026-11-19T20:41:23.786423+00:00"
+          },
+          "rule": {
+            "firedtimes": 1,
+            "mail": false,
+            "level": 3,
+            "description": "Temperature service DNS restoration response outcome.",
+            "groups": [
+              "dns_sec",
+              "dns"
+            ],
+            "id": "100142"
+          },
+          "decoder": {
+            "name": "json"
+          },
+          "full_log": "{\"integration\":\"dns_restore\",\"event\":\"response\",\"result\":\"restored\",\"alert_id\":\"1795120883.19797825\",\"before_sha256\":\"681bcfa00deb0db42eb447065e15b05cebaadc11f6ed7920d3910ad8e55a7fb3\",\"after_sha256\":\"0386377711b590148241a718f5791d415530e9ff4f94753529da3a40bc7d8ad6\",\"verification\":{\"integration\":\"dns_client\",\"event\":\"check\",\"timestamp\":\"2026-11-19T20:41:23.763744+00:00\",\"dns_name\":\"analytics.lab.test\",\"dns_expected\":true,\"outcome\":\"success\",\"observed_addresses\":[\"10.255.255.74\"],\"average_temperature\":25.12,\"peer_ip\":\"10.255.255.74\",\"http_status\":200,\"duration_seconds\":0.015835651998713729},\"timestamp\":\"2026-11-19T20:41:23.786423+00:00\",\"duration_seconds\":0.11551303399937751}",
+          "input": {
+            "type": "log"
+          },
+          "@timestamp": "2026-11-19T20:41:24.718Z",
+          "location": "/var/ossec/logs/dns_restore.jsonl",
+          "id": "1795120884.19800311",
+          "timestamp": "2026-11-19T20:41:24.718+0000"
+        },
+        "sort": [
+          1795120884718
+        ]
+      },
+      {
+        "_index": "wazuh-alerts-4.x-2026.11.19",
+        "_id": "ZOOL9aEBCGaA_ZT9EKpv",
+        "_score": null,
+        "_source": {
+          "agent": {
+            "ip": "10.171.72.8",
+            "name": "dns-server-container",
+            "id": "004"
+          },
+          "manager": {
+            "name": "wazuh-container"
+          },
+          "data": {
+            "result": "already_approved",
+            "duration_seconds": "0.000406",
+            "alert_id": "1795120883.19799027",
+            "integration": "dns_restore",
+            "event": "response",
+            "timestamp": "2026-11-19T20:41:23.815863+00:00"
+          },
+          "rule": {
+            "firedtimes": 2,
+            "mail": false,
+            "level": 3,
+            "description": "Temperature service DNS restoration response outcome.",
+            "groups": [
+              "dns_sec",
+              "dns"
+            ],
+            "id": "100142"
+          },
+          "decoder": {
+            "name": "json"
+          },
+          "full_log": "{\"integration\":\"dns_restore\",\"event\":\"response\",\"result\":\"already_approved\",\"alert_id\":\"1795120883.19799027\",\"timestamp\":\"2026-11-19T20:41:23.815863+00:00\",\"duration_seconds\":0.00040620999970997218}",
+          "input": {
+            "type": "log"
+          },
+          "@timestamp": "2026-11-19T20:41:24.742Z",
+          "location": "/var/ossec/logs/dns_restore.jsonl",
+          "id": "1795120884.19801948",
+          "timestamp": "2026-11-19T20:41:24.742+0000"
+        },
+        "sort": [
+          1795120884742
+        ]
+      }
+    ]
+  }
+}

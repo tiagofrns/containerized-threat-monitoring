@@ -1,0 +1,16 @@
+{
+  "baseline-stop.log": "f7c18193d88989c3c8d932859949fcb80661f9a49415b9f87a48bc040b3cc12c",
+  "correlation.json": "7be88c1fa3ed2c089624c1d36460ecaa257457fcf1c65afdfb0fcbb564a5c616",
+  "dns-before.txt": "9701246249ac400c71647bc6fd700dd36b7d8e4b3a3c2f181273bdfadaa56278",
+  "dns-client-responses.jsonl": "4c21ebff20e9d2708a6064ac6e3432062f5ac33635b46552d87ddb64e0ad9eed",
+  "dns-modified.txt": "507ff0828a7c31e85b568d78187ed99bbf88cf41b91a49ff04d64d49de1f2861",
+  "dns-restored.txt": "9701246249ac400c71647bc6fd700dd36b7d8e4b3a3c2f181273bdfadaa56278",
+  "flow.log": "a41c63d848b607a2882f92439d45121d0706144af8136c35637a9cef623a2a22",
+  "manager-alerts.jsonl": "c9172575718677d395aa622254745e92653135b13925c324cf724d94a7df2161",
+  "postflight-summary.json": "ead496723c64c661bd884e3598d2eb91aff8afbfce38fd3ef02f1e752d27bb0c",
+  "postflight.log": "d3bb98d6fb33a69eb16fe48f23697f711b7e45a594e2551d340510faee4fd27e",
+  "prometheus-alerts.json": "a7ff59e3c0a2f10f4cf41dcad84beacd744668663bdd6098f327709c9cc89f99",
+  "protection-startup.log": "90b045510f79b906dd55653ce7ec832459650d60d45fe465c734350d6dda2b5b",
+  "restoration-audit.json": "b3f875bbdc3a18e5529fe70ed1d5932bb77202c54f974acc34e3ad99d5108691",
+  "run-verification.json": "a510ea086296df4c6b4ee4cd20a805a61d50a7f7f6a9636bbc7bda3127b4a78f"
+}
