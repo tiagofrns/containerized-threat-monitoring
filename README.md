@@ -68,3 +68,17 @@ Analytics replicas with fixed ordinary-read workloads and retained measurements.
 checks; `evidence/` retains selected original records. See the
 [threat model](security/attack-defense-tree.md) for assumptions and residual risks.
 Results establish bounded laboratory behaviour, not Internet-scale capacity.
+
+
+## AI Usage
+
+AI-assisted tools, including ChatGPT, were used throughout the project as supporting resources for:
+
+- **Development:** Assisting with code implementation, refactoring, and troubleshooting.
+- **Infrastructure:** Supporting configuration and integration of monitoring and security components.
+- **Testing:** Assisting with test scripts, debugging, and analysis of experimental results.
+- **Documentation:** Improving technical explanations, report structure, and clarity.
+
+AI-generated suggestions were reviewed, adapted, and validated against the project's requirements and experimental evidence.
+
+AI was used as a development assistant, not as a substitute for technical decision-making, implementation verification, or experimental validation.
